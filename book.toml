@@ -1,0 +1,28 @@
+﻿[book]
+title = "The YSLib Book"
+description = "Book tranplanted from YSLib BitBucket wiki."
+authors = ["FrankHB"]
+src = "src"
+# language = "en-US"
+multilingual = true
+
+[build]
+build-dir = "docs"
+create-missing = false
+
+[output.html]
+mathjax-support = false
+
+[output.html.playpen]
+editable = false
+line-numbers = false
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
+
