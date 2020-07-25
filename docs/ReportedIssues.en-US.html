@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Reported Issues - The YSLib Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">3.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">3.1.</strong> （内部）项目依赖性说明</a></li></ol></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">4.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">4.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">4.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">4.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">4.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">4.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">4.5.</strong> 运行</a></li><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">4.6.</strong> Sysroot</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">5.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">5.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">6.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">6.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">6.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">6.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">6.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">7.</strong> YDE</a></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">10.1.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html" class="active"><strong aria-hidden="true">10.2.</strong> Reported Issues</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The YSLib Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p>There are some issues related reported, or originally found and forwarded by author of this project. Some issues might block the project in some sense. To review them conveniently, reported issues are collect in this document.</p>
+<p>Unless otherwise specified, notations are same to those in <a href="StandardUsing.en-US.html">StandardUsing</a>.</p>
+<h1><a class="header" href="#list-of-reported-issues" id="list-of-reported-issues">List of reported issues</a></h1>
+<p>Issues not rejected or withdrawn are collected and listed here (revised b840[2018-10-07]).</p>
+<h2><a class="header" href="#specifications" id="specifications">Specifications</a></h2>
+<p>Some issues are related to the to language or enviornment specifications.</p>
+<p>The entries may duplicate with above.</p>
+<h3><a class="header" href="#isoiec-14882-isoiec-jtc1-sc22wg21-issue-list" id="isoiec-14882-isoiec-jtc1-sc22wg21-issue-list">ISO/IEC 14882 (ISO/IEC JTC1 SC22/WG21 issue list)</a></h3>
+<ul>
+<li><a href="http://wg21.cmeerw.net/cwg/issue1949">CWG 1949</a>: “sequenced after” instead of “sequenced before” (resolved at <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4567.pdf">N4567</a>, see <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4566.html">N4566</a>)
+<ul>
+<li>Issue delegated in <a href="https://github.com/cplusplus/draft/issues/61">GitHub issue 61</a>.</li>
+</ul>
+</li>
+<li><a href="http://wg21.cmeerw.net/lwg/issue2240">LWG 2240</a>: Probable misuse of term &quot;function scope&quot; in [thread.condition] (resolved)
+<ul>
+<li>Original thread posted in <a href="https://groups.google.com/a/isocpp.org/forum/#!topic/std-discussion/JpQVT-pwP9E">std-discussion</a>.</li>
+<li>Issue delegated in <a href="https://github.com/cplusplus/draft/issues/57">GitHub issue 57</a>.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#implementations-of-standards-or-specifications" id="implementations-of-standards-or-specifications">Implementations of standards or specifications</a></h2>
+<p>Some issues are related to the to implementations of language or enviornment specifications.</p>
+<h3><a class="header" href="#gnu-c-a-hrefhttpsgccgnuorgbugzillabugzillaa" id="gnu-c-a-hrefhttpsgccgnuorgbugzillabugzillaa">GNU C++ (<a href="https://gcc.gnu.org/bugzilla/">Bugzilla</a>)</a></h3>
+<ul>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53872">PR 53872</a>: [C++11] ADL bug in <code>std::thread</code> (RESOLVED FIXED 4.7.2)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53873">PR 53873</a>: [C++11] strange error message for template overloading (RESOLVED DUPLICATE of <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53862">bug 53862</a>)
+<ul>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53862">PR 53862</a>[4.6/4.7 regression] [C++11] sorry, unimplemented: use of 'type_pack_expansion' in template (RESOLVED FIXED 4.7.1)</li>
+</ul>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=54216">PR 54216</a>: Missing diagnostic for ill-formed anonymous enum declarations (RESOLVED FIXED 4.9.0)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55053">PR 55053</a>: <code>std::is_explicitly_convertible</code> should be removed (RESOLVED WORKSFORME 4.8.0)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=56699">PR 56699</a>: [4.8/4.9 regression] Failed for sizeof (non-static member) in lambda expression (RESOLVED FIXED mainline/4.8.1)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=57183">PR 57183</a>: [C++11] <code>auto</code> and -Wunused-variable (RESOLVED FIXED 4.8.1)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=57444">PR 57444</a>: [4.8/4.9 Regression] ICE in instantiate_type for invalid use of member with <em>using-declaration</em> (RESOLVED DUPLICATE of <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58457">bug 58457</a>)
+<ul>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58457">PR 58457</a>: [4.8/4.9 Regression] ICE when placement <code>new</code> operator is used with using keyword and custom constructor (RESOLVED FIXED 4.8.2/4.9.0)</li>
+</ul>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58395">PR 58395</a>: Undefined behavior vs. exception (RESOLVED WONTFIX)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=59682">PR 59682</a>: Invalid syntax accepted: new-placement without <em>expression-list</em> (RESOLVED FIXED 6.0)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=59931">PR 59931</a>: Wrong wording of diagnostic about imaginary &quot;member function type&quot;</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=60709">PR 60709</a>: [C++11]ICE when using a <em>braced-init-list</em> as function argument to initialize a reference to array (RESOLVED FIXED 4.8.3)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61019">PR 61019</a>: ICE: incomplete type of class template as <em>pseudo-destructor-name</em> (RESOLVED FIXED 6.0)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63400">PR 63400</a>: [C++11]precision of <code>std::chrono::high_resolution_clock</code> (UNCONFIRMED)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65343">PR 65343</a>: unexpected exception thrown during destruction of static object in debug mode
+<ul>
+<li>Since some version of Windows 10, the crash dialog would not show, made it less annoying.</li>
+</ul>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65748">PR 65748</a>: [C++11][C++14]Invalid copy elision on operand of <em>throw-exception</em> (RESOLVED DUPLICATE of <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=57533">bug 57533</a>)
+<ul>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=57533">PR 57533</a>: When throwing local variable, it's being move-constructed even if not going out of scope. (NEW)</li>
+<li>This misfeature is carefully avoided in YSLib source.</li>
+</ul>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65890">PR 65890</a>: [C++03]sizeof(qualified-id) accepted when the operand denotes a non-static member (RESOLVED INVALID)
+<ul>
+<li>This does not effect YSLib since C++11 is the baseline.</li>
+</ul>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67238">PR 67238</a>: [C++11][C++14]cc1plus crash for nested <code>decltype</code> expression in parameter pack in trailing return type when '-g' enabled (RESOLVED FIXED 6.0)
+<ul>
+<li>This was worked arounded in YSLib source, before 6.0 is actually depended on.</li>
+</ul>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67795">PR 67795</a>: Wrong code generated for conditional expression with cast (NEW)
+<ul>
+<li>This still block some code.</li>
+</ul>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70480">PR 70480</a>: Reduce RTTI code bloat for specified types (UNCONFIRMED)
+<ul>
+<li>For DS platform, YSLib uses <code>ystdex::type_id</code> instead <code>typeid</code> to worked around.</li>
+</ul>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=71444">PR 71444</a>: Error constants for MinGW-w64 (RESOLVED FIXED 5.5, 6.4 and 7.1)
+<ul>
+<li>This was worked around in YSLib source.</li>
+</ul>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86734">PR 86734</a>: [DR 2188] <code>reverse_iterator::operator-&gt;</code> does not support overloaded <code>operator&amp;</code> (UNCONFIRMED)
+<ul>
+<li>See upstream <a href="https://wg21.cmeerw.net/lwg/issue2188">LWG 2188</a>.</li>
+<li>This is conditionally avoided by replacement <code>ystdex::reverse_iterator</code>.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#llvmclang-a-hrefhttpsllvmorgbugsbugzillaa" id="llvmclang-a-hrefhttpsllvmorgbugsbugzillaa">LLVM/Clang (<a href="https://llvm.org/bugs/">Bugzilla</a>)</a></h3>
+<ul>
+<li><a href="https://llvm.org/bugs/show_bug.cgi?id=25306">PR 25306</a>: <code>__attribute__((returns_nonnull))</code> does not work for <code>std::add_pointer_t&lt;T&gt;</code> (NEW)</li>
+<li><a href="https://llvm.org/bugs/show_bug.cgi?id=27504">PR 27504</a>: Inherited constructor with dependent base class introduced by a <em>typedef-name</em> may not work (NEW)</li>
+<li><a href="https://llvm.org/bugs/show_bug.cgi?id=27443">PR 27443</a>: [CWG 734] Nonconforming aliasing of block scope objects (RESOLVED DUPLICATE of <a href="https://llvm.org/bugs/show_bug.cgi?id=18538">bug 18538</a>)
+<ul>
+<li><a href="https://llvm.org/bugs/show_bug.cgi?id=18538">PR 18538</a>: non-conforming optimization -fmerge-all-constants is enabled by default</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#microsoft-visual-c-a-hrefhttpsconnectmicrosoftcommicrosoft-connecta" id="microsoft-visual-c-a-hrefhttpsconnectmicrosoftcommicrosoft-connecta">Microsoft Visual C++ (<a href="https://connect.microsoft.com/">Microsoft Connect</a>)</a></h3>
+<ul>
+<li><a href="https://connect.microsoft.com/VisualStudio/feedback/details/1641428">issue 1641428</a>: Wrong Win32 error to <code>errno</code> mapping (ACTIVE)
+<ul>
+<li>YSLib code does not rely on Universal source, instead implements the functionality spearatedly, so it has no effect.</li>
+</ul>
+</li>
+<li><a href="https://bitbucket.org/FrankHB/yslib/issues/33/win32-microsoft-vc-2015-parsing-bug">YSLib issue 33</a> -&gt; <a href="https://connect.microsoft.com/VisualStudio/feedback/details/2913382">issue 2913382</a>: Parameter parsing bug (ACTIVE)</li>
+<li><a href="https://bitbucket.org/FrankHB/yslib/issues/34/win32-std-unique_ptr-operator-not">YSLib issue 34</a> -&gt; <a href="https://connect.microsoft.com/VisualStudio/feedback/details/2918170">issue 2918170</a>: <code>std::unique_ptr::operator-&gt;</code> not conforming (FIXED accroding to <a href="https://blogs.msdn.microsoft.com/vcblog/2016/10/11/c1417-features-and-stl-fixes-in-vs-15-preview-5/">here</a>)</li>
+</ul>
+<h2><a class="header" href="#other-projects" id="other-projects">Other projects</a></h2>
+<p>As complement, some issues are related to other tools used by the project or referenced in documentation of this project, which may loosely concern with issues listed above.</p>
+<h3><a class="header" href="#drmemory" id="drmemory">DrMemory</a></h3>
+<ul>
+<li><a href="https://github.com/DynamoRIO/drmemory/issues/1826">issue 1826</a>: Crash in Win10 TH2 (Closed <a href="https://github.com/DynamoRIO/drmemory/commit/446007ec2c76fbab9220850b38aac48c538eee18">FIXED</a>)</li>
+</ul>
+<h3><a class="header" href="#devkitpro" id="devkitpro">devkitPro</a></h3>
+<h4><a class="header" href="#libfat" id="libfat">libfat</a></h4>
+<ul>
+<li><a href="https://github.com/devkitPro/libfat/pull/1">pull request 1</a>: Removed redundant check (Merged)</li>
+<li><a href="https://github.com/devkitPro/libfat/issues/2">issue 2</a>: Wrong root sectors count determined for FAT12 and FAT16? (Open)</li>
+<li><a href="https://github.com/devkitPro/libfat/issues/3">issue 3</a>: Redundant function calls (Open)</li>
+<li><a href="https://github.com/devkitPro/libfat/issues/4">issue 4</a>: <code>_FAT_directory_entryFromPosition</code> issues (Open)</li>
+<li><a href="https://github.com/devkitPro/libfat/issues/5">issue 5</a>: Redundant call of <code>_FAT_directory_getRootEntry</code> for &quot;<code>/</code>&quot; (Open)</li>
+<li><a href="https://github.com/devkitPro/libfat/issues/6">issue 6</a>: <code>ENOTDIR</code> vs <code>ENOENT</code> for invalid path prefix (Open)</li>
+<li><a href="https://github.com/devkitPro/libfat/issues/7">issue 7</a>: Pathname with or without trailing slashes for directories (Open)</li>
+<li><a href="https://github.com/devkitPro/libfat/issues/10">issue 10</a>: Setting <code>errno</code> when removing a non-empty directory (Open)</li>
+</ul>
+<h4><a class="header" href="#libnds" id="libnds">libnds</a></h4>
+<ul>
+<li><a href="https://github.com/devkitPro/libnds/issues/3">issue 3</a>: Compiler warnings (Closed)</li>
+<li><a href="https://github.com/devkitPro/libnds/issues/4">issue 4</a>: About <code>std::chrono</code> clocks (Closed)</li>
+<li><a href="https://github.com/devkitPro/libnds/pull/30">pull request 30</a>: Removed redundant code. (Merged)</li>
+<li><a href="https://github.com/devkitPro/libnds/pull/33">pull request 33</a>: Fixed redundant qualifier (Open)</li>
+</ul>
+<h4><a class="header" href="#newlib" id="newlib">newlib</a></h4>
+<ul>
+<li><a href="https://github.com/devkitPro/newlib/issues/5">issue 5</a>: Nonconforming return type of <code>ftell</code> (Closed FIXED)</li>
+</ul>
+<h3><a class="header" href="#klisp" id="klisp">Klisp</a></h3>
+<ul>
+<li><a href="https://bitbucket.org/AndresNavarro/klisp/issues/12/a-problem-of-proper-tail-call">issue 12</a>: A problem of proper tail call (NEW)</li>
+</ul>
+<h1><a class="header" href="#resolved-implementation-issues" id="resolved-implementation-issues">Resolved implementation issues</a></h1>
+<p>Some issues were tagged BLOCKED status previously. Issues known resolved and confirmed to work would be put in this chapter.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="StandardUsing.en-US.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="StandardUsing.en-US.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

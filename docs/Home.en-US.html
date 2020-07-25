@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>English Version - The YSLib Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html" class="active"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">3.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">3.1.</strong> （内部）项目依赖性说明</a></li></ol></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">4.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">4.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">4.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">4.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">4.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">4.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">4.5.</strong> 运行</a></li><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">4.6.</strong> Sysroot</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">5.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">5.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">6.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">6.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">6.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">6.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">6.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">7.</strong> YDE</a></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">10.1.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">10.2.</strong> Reported Issues</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The YSLib Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#about" id="about">About</a></h1>
+<p>The YSLib Project is a project of platform-neutral framework consists of several multi-licensed open source libraries. It is aiming to develop native applications in a naturally cross-platform manner.</p>
+<p>See LICENSE.TXT in the source directory for licensing affairs.</p>
+<p>The main part (except libraries not being maintained in this project) of the libraries is coded in C++, which is strictly conforming to ISO/IEC 14882. (For features being used, see <a href="StandardUsing.en-US.html">here</a>. For some issues concerned with this project, see <a href="ReportedIssues.en-US.html">here</a>.)</p>
+<p>The project is currently in <a href="Releases.zh-CN.html">Alpha state(zh-CN)</a> with following interface compatibility strategies:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Application_binary_interface">ABI</a> compatibility for any revision depending on specific platform, toolchain or build configuration is never guaranteed.</li>
+<li>ABI compatibility may not be retained between releases with same platform, toolchain and build configuration.</li>
+<li><a href="https://en.wikipedia.org/wiki/Application_programming_interface">API</a> of libraries may be modified locally and there is no guarantee for compatibility between releases.</li>
+<li><a href="https://en.wikipedia.org/wiki/User_interface">UI</a> of tools (see <a href="Contents.zh-CN.html">contents(zh-CN)</a> for the list) may be modified progressively across builds; unless specified elsewhere, added features are kept being <a href="https://en.wikipedia.org/wiki/Backward_compatibility">backward compatible</a> within at least one next releases.</li>
+</ul>
+<p>See <a href="GettingStarted.zh-CN.html">here(zh-CN)</a> for basic steps to use YSLib in development.</p>
+<p>See <a href="Releases.zh-CN.html">here(zh-CN)</a> for releases and plans.</p>
+<h2><a class="header" href="#currently-supported-platforms" id="currently-supported-platforms">Currently supported platforms</a></h2>
+<ul>
+<li>(<a href="https://en.wikipedia.org/wiki/Nintendo">Nintendo</a>/<a href="https://en.wikipedia.org/wiki/IQue">iQue</a>) <a href="https://en.wikipedia.org/wiki/Nintendo_DS_line#Nintendo_DS_family">DS</a> (arm-none-eabi)
+<ul>
+<li>using <a href="DeSmuME.en-US.html">DeSmuME</a> to run on PC</li>
+</ul>
+</li>
+<li>MinGW32 (i686-w64-mingw32, compatible with i686-pc-mingw32)</li>
+</ul>
+<h2><a class="header" href="#pending-supported-platform" id="pending-supported-platform">Pending supported platform</a></h2>
+<ul>
+<li>Android (arm-linux-androideabi)</li>
+<li>MinGW64 (x86_64-w64-mingw32)</li>
+<li>Linux32 (i686-linux-gnu)</li>
+<li>Linux64 (x86_64-linux-gnu)</li>
+</ul>
+<h2><a class="header" href="#documentation" id="documentation">Documentation</a></h2>
+<h3><a class="header" href="#documentation-in-the-yslib-project" id="documentation-in-the-yslib-project">Documentation in the YSLib project</a></h3>
+<p>Documentation in the YSLib project consist of several parts:</p>
+<ul>
+<li>The development documentation which is intended for the project maintainers, see <a href="Development.zh-CN.html">development(zh-CN)</a>.
+<ul>
+<li>The document in <code>/doc/vsd</code> can be viewed by Microsoft Office Visio or Microsoft Visual Studio 2013.</li>
+</ul>
+</li>
+<li>Souce code documentation, which can be generated using Doxygen, see <a href="BuildDocumentation.zh-CN.html">building documentation(zh-CN)</a>.
+<ul>
+<li>Currently the Doxygen commands in the source code are mainly coded in simplified Chinese. It is planned to utilize Doxygen's <code>~[LanguageId]</code> command to generate multilingual documents in future. All other comments, however, should be in English by default.</li>
+</ul>
+</li>
+<li>Other non-generated documents are text files in the repository, like <code>Readme.zh-CN.txt</code>.</li>
+</ul>
+<h3><a class="header" href="#about-this-wiki" id="about-this-wiki">About this wiki</a></h3>
+<p>This wiki is a project related to the YSLib project. They are currently the only two members in the same project group, each has separated repository. Common documentation for the project group, general user documentation and list of significant features for the YSLib project are dominated by this wiki. Documentation in the YSLib project is mainly for maintainers of the project. They are bidirectionally referenced, namely the content of this wiki may be refenenced in the YSLib project and vice versa.</p>
+<p>Unless otherwise specified, the content of this wiki is fit for the current last master branch revision (i.e. the revision <code>tip</code> of <code>master</code> branch in the repository).</p>
+<p>See <a href="WikiRules.en-US.html">here</a> for rules to edit this wiki.</p>
+<p>It is intended to reference every pages of this wiki in this page.</p>
+<h1><a class="header" href="#contributions" id="contributions">Contributions</a></h1>
+<p>Contributions to the projects are welcomed. Provided materials thereby shall be adjusted by contributors (and the project maintainer) to conform the license of the corresponding projects if necessary.</p>
+<p><strong>Rules in this wiki are treated as consensus.</strong> Rules in project documentation have effect on maintainers but not other contributors. However, the contents in the projects shall always be conforming to the project rules.</p>
+<p>To feedback or report issues, use <a href="https://bitbucket.org/FrankHB/yslib/issues/">Bitbucket issue tracker</a>, or contact the project maintainer as noted below.</p>
+<h2><a class="header" href="#rules-for-project-contents" id="rules-for-project-contents">Rules for project contents</a></h2>
+<p>The following philosophy are generally accommodated throughout the projects.</p>
+<ul>
+<li>
+<p><strong>Do not <a href="https://en.wikipedia.org/wiki/Reinventing_the_wheel">reinvent the wheel</a>.</strong> Projects here only accepts modular components which would be better elsewhere. Here &quot;better&quot; is defined as &quot;superior than current solution in at least one aspect for consensually known need&quot;.</p>
+<ul>
+<li>See the notes in <a href="Features.zh-CN.html">features(zh-CN)</a> for the list of invented wheels and the rationale.</li>
+</ul>
+</li>
+<li>
+<p><strong>Decline premature optimization.</strong> However, what is &quot;premature&quot; is determined by the need, which would be probably variable.</p>
+</li>
+</ul>
+<h1><a class="header" href="#contacts" id="contacts">Contacts</a></h1>
+<ul>
+<li>Mail to: <a href="mailto:frankhb1989@gmail.com">frankhb1989@gmail.com</a></li>
+<li>Post <a href="http://tieba.baidu.com/f?kw=%BB%C3%A4%CE%C9%CF%B5%DB">here</a> (mainly zh-CN)</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="Home.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="Home.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="Home.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="Home.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

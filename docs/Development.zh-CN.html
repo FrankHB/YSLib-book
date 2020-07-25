@@ -1,0 +1,550 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>开发说明 - The YSLib Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">3.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">3.1.</strong> （内部）项目依赖性说明</a></li></ol></li><li class="chapter-item expanded "><a href="Development.zh-CN.html" class="active"><strong aria-hidden="true">4.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">4.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">4.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">4.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">4.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">4.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">4.5.</strong> 运行</a></li><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">4.6.</strong> Sysroot</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">5.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">5.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">6.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">6.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">6.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">6.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">6.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">7.</strong> YDE</a></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">10.1.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">10.2.</strong> Reported Issues</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The YSLib Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#开发说明" id="开发说明">开发说明</a></h1>
+<p>关于环境配置，详见<a href="Run.zh-CN.html">运行</a>。当前没有其它的面向最终用户的说明。</p>
+<p>以下为面向开发者的说明。</p>
+<h1><a class="header" href="#准备" id="准备">准备</a></h1>
+<ul>
+<li>了解<a href="Prerequisitions.zh-CN.html">先决条件</a></li>
+<li><a href="GettingSources.zh-CN.html">获取源代码</a></li>
+<li>了解<a href="ProjectDependencies.zh-CN.html">项目依赖性</a></li>
+<li>了解<a href="Terminology.zh-CN.html">术语概要</a>的体例以备参考</li>
+</ul>
+<p>YSLib 项目文档位于 YSLib 项目而不是本 wiki 项目中。</p>
+<p>维护者参考的细节和一般规则详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> ；术语的完整定义详见 YSLib 项目文档 <code>doc/CommonRules.txt</code> 。</p>
+<h1><a class="header" href="#项目过程" id="项目过程">项目过程</a></h1>
+<p>基本规则参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。
+本 wiki 项目作为用户手册和开发者补充文档的形式作为实现及之后阶段输出。
+实现的附加输出为库和工具。
+之前阶段（如设计）为前期过程，其文档和适用于维护过程的项目规则位于 YSLib 项目文档（位于 <code>doc/</code> ）。
+其中整体过程由 <code>doc/Designation.txt</code> 指定。当前内联设计以外的过程，因此不存在设计外前期过程的单独文档。</p>
+<h1><a class="header" href="#开发" id="开发">开发</a></h1>
+<ul>
+<li><a href="Build.zh-CN.html">构建</a>
+<ul>
+<li><a href="BuildDocumentation.zh-CN.html">构建文档</a></li>
+</ul>
+</li>
+<li><a href="Run.zh-CN.html">运行</a></li>
+<li>使用 <a href="Sysroot.zh-CN.html">Sysroot</a> 开发和部署程序</li>
+</ul>
+<h1><a class="header" href="#平台" id="平台">平台</a></h1>
+<p>关于<strong>外部依赖</strong>、<strong>平台</strong>、<strong>目标平台</strong>和<strong>宿主平台</strong>等概念的一般定义参见<a href="Terminology.zh-CN.html">术语概要</a>。</p>
+<p>YSLib 项目约定一个体系结构和使用的外部依赖是一个平台。</p>
+<p>YSLib 支持不同的目标平台。类似 ISO C/C++ 的独立实现(freestanding implementation) 和宿主实现(hosted implementation) ，平台分为两类：<strong>独立实现平台</strong>和<strong>宿主实现平台</strong>。后者存在操作系统的支持而前者没有。</p>
+<h2><a class="header" href="#语言使用和实现要求" id="语言使用和实现要求">语言使用和实现要求</a></h2>
+<p>本节适用于本项目，不直接限制依赖项和用户程序。项目中特定部分的规则及适用性详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
+<p>使用 ISO C++ 作为主要开发语言。</p>
+<p>不使用和 ISO C++03 以后被接受的特性不兼容的特性，包括但不限于：</p>
+<ul>
+<li>被取消的特性，如 <code>export</code> 关键字；</li>
+<li>在 ISO C++03 中标记为 deprecated 而在之后版本去除的特性，如 const char 数组类型左值到 char* 右值的转换，</li>
+<li>在 ISO C++03 中标记为 deprecated 但在之后版本重新取消 deprecated 的特性，如修饰命名空间作用域声明的 <code>static</code> ；</li>
+<li>实现的 Defect Report ，如 <a href="http://wg21.cmeerw.net/cwg/issue615">CWG 615</a> 。</li>
+</ul>
+<p>注意即使使用特定模式，一些实现也可能引入之后的 Defect Report 而不保证兼容，如 <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65890">GCC PR65890</a> 。</p>
+<p>关于精确的特性使用规则、具体使用及备选的特性的清单等，详见<a href="StandardUsing.en-US.html">标准使用（英文）</a> 。</p>
+<p>以下对语言实现的要求和支持情况适用整个项目。具体内容可能会在未来变动。</p>
+<h3><a class="header" href="#基准实现要求" id="基准实现要求">基准实现要求</a></h3>
+<p>默认基于 ISO C++11 环境，但并不要求实现完整支持所有特性。</p>
+<p>依赖 ISO C++ 独立实现或宿主实现，附加以下要求：</p>
+<ul>
+<li>标准库要求等同于 ISO C++11 定义的宿主实现。</li>
+<li>满足 ISO C++11 [implimits] 建议的最小实现要求。</li>
+<li>需以下整数类型（ ISO C++11 中为可选支持）：
+<ul>
+<li>定宽整数 <code>std::intN_t</code> 和 <code>std::uintN_t</code> （其中 N 为 8 、 16 、 32 或 64 ）；</li>
+<li>类型 <code>std::uintptr_t</code> 。</li>
+</ul>
+</li>
+<li>满足以下实现定义行为的要求：
+<ul>
+<li>至少支持 <code>std::placeholders::_7</code>（按 ISO C++11 Annex B [implimits] ，符合标准的下限为 10 ）。</li>
+</ul>
+</li>
+<li>假定用于迭代器 <code>difference_type</code>（含 <code>std::ptrdiff_t</code> ）或坐标计算的有符号整数作为显式转换的目标类型且结果不能在范围内表示时，不引起副作用且结果的值不是能在此范围内表示的任意值（即为小于 <code>0</code> 的值）。
+<ul>
+<li>当前标准中结果由实现定义。<a href="http://wg21.link/p0907">WG21 P0907</a> 已提议修改使用补码表示，符合此要求。</li>
+</ul>
+</li>
+<li>实现已解决<a href="StandardUsing.en-US.html">标准使用(en-US)</a> 中的 Workarounds 列出的 Defect Report 问题。</li>
+<li>假定被包含在具有外部链接实体的函数体或声明命名空间作用域中外部链接名称的被 ODR 使用(<a href="http://eel.is/c++draft/basic.def.odr#3">odr-used</a>) 的 lambda 表达式相同。
+<ul>
+<li>否则会引起被包含的代码中的 lambda 在多个翻译单元 ODR 使用时<a href="http://eel.is/c++draft/basic.def.odr#6">违反 ODR 引发未定义行为</a> 。此类未定义行为包括以下情形：
+<ul>
+<li>所在函数体在 <code>extern inline</code> 函数。这被 <a href="http://wg21.cmeerw.net/cwg/issue765">CWG 765</a> 解决并存在于 ISO C++11 和<a href="http://eel.is/c++draft/dcl.fct.spec#4">之后的标准文本</a>中。
+<ul>
+<li>对符合 ISO C++11 及之后版本标准的实现，<a href="https://www.reddit.com/r/cpp/comments/40saz8/a_workaround_for_dangerous_lambda_odr_violations/">这个变通</a> 对其中的示例代码因此是不必要的；其它情况也有代码膨胀的缺陷，不应使用。</li>
+<li>已知当前所有版本的 Microsoft VC++ 编译器都<a href="https://www.reddit.com/r/cpp/comments/40lm8o/lambdas_are_dangerous/">没有实现这个特性且会在内联代码后引起未预期的行为，计划在下一版本修复</a>。</li>
+</ul>
+</li>
+<li>命名空间作用域中的 lambda 表达式，或所在函数体在其它实体，包括函数模板、类模板的成员函数以及类模板的成员函数模板。这是<a href="http://stackoverflow.com/questions/34717823/can-using-a-lambda-in-header-files-violate-the-odr/34721371#34721371">未被提交和解决的 ISO C++ 缺陷</a>。此处的假定作为用于避免这个问题。</li>
+</ul>
+</li>
+<li>基于 <a href="https://mentorembedded.github.io/cxx-abi/abi.html#closure-types">Itanium ABI</a> 的实现符合这个条件。</li>
+</ul>
+</li>
+<li>假定特定类型的特定操作无异常抛出（但不依赖异常规范的行为），当前包括：
+<ul>
+<li><code>std::string</code> 的默认构造函数（ <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4002.pdf">WG21 N4002</a> 引入了显式指定 <code>noexcept</code> ，仅从标准草案 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4296.pdf">WG21 N4296</a> 起有效）。</li>
+</ul>
+</li>
+<li>假定用户代码中的异常和标准库 RTTI 对象满足 ODR ，即使是在使用动态库的宿主实现中，但影响用户代码生成的实现的二进制约定（如 <a href="llvm.org/rL205139">ARM64</a> ）除外。
+<ul>
+<li>这要求用户代码不依赖影响相关符号可见性而导致 ODR 失效的特性。
+<ul>
+<li>例如，这不允许如 <code>dlopen</code> 使用 <code>RTLD_LOCAL</code> 加载具有相关符号的库。</li>
+</ul>
+</li>
+<li>这允许 <code>std::type_info</code> 的比较操作的散列操作的高效实现。
+<ul>
+<li>使用 libstdc++ 时，需要定义宏 <code>__GXX_MERGED_TYPEINFO_NAMES</code> 为 <code>1</code> 。
+<ul>
+<li>这对应默认选项的<a href="https://gcc.gnu.org/viewcvs/gcc?view=revision&amp;revision=149964">修改</a> 。</li>
+<li>一般不调整 <code>__GXX_TYPEINFO_EQUALITY_INLINE</code> ，使用默认选项。</li>
+</ul>
+</li>
+<li>其它实现暂不使用选项支持，以避免和二进制约定冲突。
+<ul>
+<li>libc++ 不支持另行调整，由实现根据平台环境指定 <code>_LIBCPP_HAS_NONUNIQUE_TYPEINFO</code> 。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>链接时除实现的二进制约定，假定 <code>std::type_info</code> 相关的符号被共享。
+<ul>
+<li>这不允许在实现生成以外显式地<a href="https://stackoverflow.com/questions/19496643/using-clang-fvisibility-hidden-and-typeinfo-and-type-erasure">隐藏相关的符号</a>（如通过 <code>#pragma</code> 预处理指令或 <code>-fvisibility=hidden</code> 编译器命令行选项）。</li>
+<li>这一般要求在兼容 GNU ld 的链接器在<a href="https://sourceware.org/binutils/docs/ld/Options.html#Options">命令行选项</a>中使用 <code>--dynamic-list-cpp-typeinfo</code> 等方式导出相关符号（也允许但不要求使用 <code>-rdynamic</code> 或 <code>-export-dynamic</code> ）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对宿主环境中程序外部的状态的并发修改不引起未定义行为。
+<ul>
+<li>现有操作系统和文件系统提供的接口和实现普遍不能保证避免 <a href="https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use">TOCTTOU 访问(en-US)</a> 导致的问题。具体修改的结果未指定，但应不直接引起无法预测的程序行为。</li>
+<li>除非另行指定，本项目的实现不保证检查外部程序的修改。</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#历史实现要求" id="历史实现要求">历史实现要求</a></h3>
+<p>以下要求已被修改或取消。</p>
+<ul>
+<li>假定提供撤销标准库未定义行为的保证：
+<ul>
+<li>撤销 [res.on.functions]/2.5 对特定不完整类型作为模板实际参数引起未定义行为的限制，包括：
+<ul>
+<li>使用默认分配器（ <code>std::allocator</code> 的实例）的 <code>std::vector</code> 的 <code>value_type</code> 类型。
+<ul>
+<li>这被包含在 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html">WG21 N4510</a> 。</li>
+<li><code>ystdex::pmr::pool_resource</code> 的实现从 b843[2018-11-10] 起依赖这项特性。</li>
+<li>从 b863[2019-07-26] 起不使用不完整类型的元素而不再依赖这项特性。</li>
+</ul>
+</li>
+<li>使用默认分配器（ <code>std::allocator</code> 的实例）的关联容器（即 <code>std::map</code> 和 <code>std::set</code> ）的 <code>value_type</code> 类型。
+<ul>
+<li>对 <code>std::vector</code> 、 <code>std::list</code> 和 <code>std::forward_list</code> ， <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html">WG21 N4510</a> 引入了不完整类型的支持。这<strong>不在</strong>此处要求。关联容器的要求预期在未来被添加。</li>
+<li>已知 libstdc++ 的实现符合这个条件。</li>
+<li>在 YSLib 中仅被 <code>YSLib::ValueNode</code> 通过在 <code>std::map</code> 使用递归的键类型的实现从 b338[2012-09-13] 起依赖。</li>
+<li>因为使用 <code>ystdex::map</code> 替代 <code>std::map</code> ，从 b830[2017-08-11] 起取消这个要求，不再依赖标准库实现提供的扩展特性。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>假定特定类型的特定操作无异常抛出（但不依赖异常规范的行为），包括：
+<ul>
+<li><code>std::function::swap</code> （ <a href="http://wg21.cmeerw.net/lwg/issue2062">LWG 2062</a> 起有效）。
+<ul>
+<li>因为使用 <code>ystdex::function</code> 替代 <code>std::function</code> ，从 b848[2018-12-24] 起取消这个要求。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#可选实现支持" id="可选实现支持">可选实现支持</a></h3>
+<p>允许使用 ISO C++11 以后兼容最新标准草案的正式标准中的特性（可通过 <code>__cplusplus</code> 宏和 <a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations">SG10 建议的特性检查</a>判断）。</p>
+<h3><a class="header" href="#其它" id="其它">其它</a></h3>
+<p>不依赖实现的方言扩展，但在确保实现能支持时，在特定的代码中可通过条件包含等方式选用。</p>
+<p>若实现默认具有不符合标准的特性，在本项目的代码中不依赖这些特性，即便外部依赖项可能对此进行配置（如 MinGW G++ 为了和 Microsoft VC++ 兼容启用的 <code>-mms-bitfields</code> ，而 MSYS2 安装的 freetype2 的 <code>pkg-config</code> 的 CFLAGS 隐含此参数）。</p>
+<h2><a class="header" href="#保留名称" id="保留名称">保留名称</a></h2>
+<p>YSLib 项目中，除了 YBase.LibDefect 是对标准库实现的修正外，并不是语言的实现，因此公开接口遵循 ISO C++ 对保留名称的使用，如不引入以 <code>__</code> 起始的标识符。</p>
+<p>对实现环境已经以保留标识符提供的接口，适用以下规则：</p>
+<ul>
+<li><code>&lt;ydef.h&gt;</code> 提供宏包装特定实现的标识符。</li>
+<li>除标准预定义的（如 <code>__cplusplus</code> ）和用于特性检查的标识符（以 <code>__cpp</code> 或 <code>__has</code> 起始），以及上述被包装时的宏定义，不在注解（作为宏 <code>YB_ATTR</code> 和 <code>YB_ATTR_STD</code> 的参数）外直接使用保留标识符。</li>
+</ul>
+<p><code>&lt;ydef.h&gt;</code> 和其它一些 YSLib 项目头文件保留特定的不被标准保留的标识符，详见 YSLib 项目文档 <code>doc/Definitions.txt</code> 。</p>
+<h1><a class="header" href="#库概述" id="库概述">库概述</a></h1>
+<p>YSLib 项目由多个子项目组成。其中主要的有顶级子项目： YBase 和 YFramework 。它们是开发 YSLib 应用的必备的库。每个库被构建为单独的映像（静态库或动态库）。</p>
+<p>YSLib 的组件有些是依赖于特定平台的，但更多是<strong>平台中立</strong>的。关于库的组件在此的不同，详见下文的解释。</p>
+<h2><a class="header" href="#平台模拟" id="平台模拟">平台模拟</a></h2>
+<p>除非另行指定，文档中的狭义的“模拟”概念指程序模拟。</p>
+<p>YSLib 项目中，**平台模拟(platform emulation)**主要指直接以运行时环境适配层嵌入宿主平台运行时，在具体程序中提供类似被模拟的目标平台的具体特性和接口。</p>
+<p>完整的定义详见 YSLib 项目文档 <code>doc/CommonRules.txt</code> 。</p>
+<h2><a class="header" href="#外部依赖项" id="外部依赖项">外部依赖项</a></h2>
+<p><strong>外部依赖项</strong>是不由本项目维护和单独发布的依赖项。</p>
+<p>YSLib 项目严格使用 ISO C++ 的子集和特定实现的可选的扩展。关于依赖的语言特性，参见<a href="StandardUsing.en-US.html">这里(en-US)</a> 。</p>
+<p>在所有目标平台上，除了<strong>系统库</strong>外，外部依赖项是相同的，但可能使用不同的版本，也不一定按相同的配置构建。系统库的概念和 <a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a> 的 <a href="http://www.gnu.org/licenses/gpl-faq.html#SystemLibraryException">system library exception</a> 中的 system library 定义类似，在此指特定平台或操作系统提供运行时支持的、由特定第三方环境提供开发支持的外部依赖，例如提供特定平台的 ISO C++ 标准库部分实现的 libstdc++ 和提供 Windows API 实现的 GDI32 等。</p>
+<p>除了系统库外，一部分外部依赖项可选或必须使用自行构建的（可能被修改的）版本。这些外部依赖项的修改和构建脚本位于版本库的 <code>3rdparty</code> 目录，默认按原始许可证发行。</p>
+<p>YBase 只直接依赖 ISO C++ 标准库。</p>
+<p>YFramework 默认依赖经过修改的 FreeType2 和 FreeImage 。其中前者当前仅修改头文件，经过特别处理和官方发布的直接构建的版本二进制兼容，可以被系统库替换。</p>
+<p>当前版本中，不同宿主平台对应的静态库文件（后缀名为 <code>.a</code> ）查找的目录如下：</p>
+<ul>
+<li>/YFramework/DS/lib</li>
+<li>/YFramework/MinGW32/lib</li>
+<li>/YFramework/MinGW64/lib</li>
+<li>/YFramework/Android/lib</li>
+<li>/YFramework/Linux/lib</li>
+</ul>
+<p>（当前 Android 和 Linux 仅支持单一本机体系结构，实际仅测试 Android ARMv7 和 Linux x86_64 。）</p>
+<p>构建 YFramework 时需包含 <code>3rdparty/include</code> 目录的头文件。 <a href="Sysroot.zh-CN.html">Sysroot</a> 安装脚本 <a href="Tools/Scripts.zh-CN.html">Tools/install-sysroot.sh</a> 会复制包括上面的头文件在内的文件。</p>
+<p>当前已经使用的详细外部依赖项详见 YSLib 项目文档 <code>doc/Dependencies.txt</code> 。</p>
+<p><strong>注意</strong> 版本库历史中包括静态库(<code>.a</code>) 文件，但为减少版本库大小，不再更新且可能移除，使用外部源或自行构建的方式替代。参见<a href="Archives.zh-CN.html">归档</a>获取单独配置或和源代码目录集成的已编译的外部依赖项。</p>
+<p>在 build 885 之前，版本库历史的对应的宿主平台中的静态库位于以下位置：</p>
+<ul>
+<li>/YFramework/DS/lib</li>
+<li>/YFramework/MinGW32/lib-i686</li>
+<li>/YFramework/Android/lib</li>
+<li>/YFramework/Linux/lib-x86_64</li>
+</ul>
+<p>其中 Android 平台只包括 FreeType2 ，Linux 平台只包括 FreeImage 。其它平台包括 FreeType2 和 FreeImage 库文件。</p>
+<p>其它平台中，只有随其它文件的发布版本包含完整更新，否则压缩包中可能只有其中一个库文件。</p>
+<p>关于自行构建外部依赖项的方法，参见<a href="Build.zh-CN.html">构建说明</a>。</p>
+<h2><a class="header" href="#模块" id="模块">模块</a></h2>
+<p>YSLib 项目组织为一个逻辑上的树形结构，其叶节点称为<strong>模块</strong>。类似文件系统，非叶节点称为<strong>模块目录</strong>。在源代码中使用<strong>模块路径</strong>来标识不同的模块，其分隔符为 <code>::</code> 。在 YSLib 项目下直接划分的<strong>顶级子项目</strong>的名称仅在必要时出现在模块路径中，完整模块路径一般从<strong>次级子项目</strong>的名称起始。</p>
+<p>C 和 C++ 源代码的一个模块由以下三种形式之一构成：</p>
+<ul>
+<li>一个头文件</li>
+<li>一个非头文件的源文件</li>
+<li>一个头文件和对应的源文件</li>
+</ul>
+<p>作为公开接口的模块是公开模块。公开模块的头文件在单独的目录中以便部署。</p>
+<p>按 ISO C 和 ISO C++ 规定， C 或 C++ 模块中存在的非头文件的源文件和包含的头文件构成一个 C 或 C++ （预处理）翻译单元，简称<strong>单元</strong>。注意这里包含的头文件不仅限于模块中的头文件。</p>
+<p>关于模块的进一步说明以及模块路径的形式文法和头文件依赖的基本规则，参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
+<h2><a class="header" href="#文件系统布局" id="文件系统布局">文件系统布局</a></h2>
+<p>作为 C++ 项目， YSLib 把每个顶级子项目的源文件和公开模块头文件分别保存在不同的目录中，即 <code>include</code> 和 <code>source</code> 。非公开模块若有头文件，也位于 <code>source</code> 。</p>
+<p>特定于目标平台配置的代码会直接位于 <code>平台名</code> 目录下，称为<strong>平台扩展</strong>。对应的两个目录为 <code>平台名/include</code> 和 <code>平台名/source</code> 。</p>
+<p>除了平台扩展的内容，文件系统目录和模块目录的每一级对应。平台扩展的模块目录名是对应平台中立部分加上后缀 <code>_(平台名)</code> 。</p>
+<p>举例：顶级子项目 YFramework 下的次级子项目 Helper 的非平台扩展的源代码在目录 <code>YFramework/include/Helper</code> 和 <code>YFramework/source/Helper</code> 中，它的 DS 平台扩展的源代码位于 <code>YFramework/DS/include/Helper</code> 和 <code>YFramework/DS/source/Helper</code> 中。</p>
+<p>提供平台扩展的次级子项目只有 YCLib 和 Helper 。</p>
+<p>编译项目时包含的头文件是合并的，如编译器命令行 <code>-IYFramework/DS/include -IYFramework/include</code> 在一次编译中同时使用平台中立和特定于平台 DS 的模块的 YFramework 头文件。</p>
+<h2><a class="header" href="#yslib-及其本体" id="yslib-及其本体">YSLib 及其本体</a></h2>
+<p>在 YBase 和 YFramework 分离之前， YSLib 是一整个库。原 YSLib 大部分仍然在 YFramework 中，仍然可称为 YSLib ，是一个 YFramework 下的次级子项目。注意和整个项目名的不同，以下称为 <strong>YSLib 库</strong>，以示区分。</p>
+<p>YSLib 库中， Adaptor 用于适配特定于具体外部依赖的接口。可以通过修改其中的代码替换外部依赖，包括部分标准库兼容接口。</p>
+<p>其它部分的接口和实现都是严格平台中立且不依赖外部特定接口而变化的，称为<strong>本体</strong>。本体中提供了 YSLib 的主要功能。</p>
+<h2><a class="header" href="#helper" id="helper">Helper</a></h2>
+<p>如果需要开发依赖平台特定的应用，本体接口可能不足，而需要使用平台扩展。此外，可能需要一些便利功能。</p>
+<p>在 YSLib 库之上，Helper 对此类需求提供了一致而灵活的接口。</p>
+<p>若需要更接近特定平台实现的接口，可以使用 YCLib 及其平台扩展。</p>
+<p>YCLib 和 Helper 在宿主实现上都提供了更加丰富的功能。</p>
+<h1><a class="header" href="#代码规范" id="代码规范">代码规范</a></h1>
+<p>YSLib 项目维护的代码规范符合 YSLib 项目中的文档约定的规则，包括：</p>
+<ul>
+<li><code>doc/CommonRules.txt</code> 一般规范</li>
+<li><code>doc/ProjectRules.txt</code> 项目规范</li>
+<li><code>doc/LanguageConvention.txt</code> 语言使用约定</li>
+</ul>
+<h2><a class="header" href="#代码格式化" id="代码格式化">代码格式化</a></h2>
+<p><code>doc/CommonRules.txt</code> 中规定了命名风格和参考的代码格式。由于格式化代码涉及语义分析，并不保证可以完全自动化进行，需要在编码时注意调整。</p>
+<p>以下工具配置可以把其中的主要工作自动化进行：</p>
+<ul>
+<li>
+<p><code>clang-format</code></p>
+<ul>
+<li>可通过 MSYS2 包 <code>mingw-w64-i686-clang</code> 或 <code>mingw-w64-x86_64-clang</code> 安装，以下配置以这里的 3.7 版本为基准测试</li>
+<li>配置选项的文档参见<a href="http://clang.llvm.org/docs/ClangFormatStyleOptions.html">这里</a></li>
+<li>通过命令行 <code>-style=</code> 指定使用选项文件 <code>Tools/YSLib.clang-format</code></li>
+<li><strong>注意</strong> 至少以下格式需要手动调整
+<ul>
+<li>在 <a href="http://lists.llvm.org/pipermail/cfe-commits/Week-of-Mon-20160808/167367.html">r278121</a> 添加 <a href="https://reviews.llvm.org/D23317">SpaceAfterTemplateKeyword 支持</a> 前 <a href="http://stackoverflow.com/questions/34423615/cpp-template-spacing-using-clang-format-3-6-not-working-as-expected">只支持 <code>template &lt;</code> 而不支持 <code>template&lt;</code></a></li>
+<li>行末的 <code>\</code> 前可能附加多个空格</li>
+<li><code>{}</code> 会被拆分</li>
+<li>部分宏会被作为块的起始叠加缩进</li>
+<li>选项 <code>AlwaysBreakAfterReturnType</code> 未被支持，部分函数和函数模板声明的返回类型后缺少换行</li>
+</ul>
+</li>
+<li>通过命令行 <code>-i</code> 直接编辑文件而不是打印结果到标准输出</li>
+<li>命令行示例： <code>find YBase YFramework YSTest -name &quot;*.h&quot; -o -name &quot;*.hpp&quot; -o -name &quot;*. cpp&quot; | xargs clang-format -i -style=file</code></li>
+<li>命令行示例： <code>find YBase YFramework YSTest -name &quot;*.h&quot; -o -name &quot;*.hpp&quot; -o -name &quot;*. cpp&quot; | xargs -i sh -c &quot;clang-format -i -style=file {}&quot;</code></li>
+<li>命令行示例（同时替换 <code>template &lt;</code> ）： <code>find YBase YFramework YSTest -name &quot;*.h&quot; -o -name &quot;*.hpp&quot; -o -name &quot;*. cpp&quot; | xargs -i sh -c &quot;clang-format -i -style=file {} &amp;&amp; sed -bi 's/template &lt;/template&lt;/g' {}&quot;</code></li>
+</ul>
+</li>
+<li>
+<p><code>astyle</code></p>
+<ul>
+<li>可通过 MSYS2 包 <code>mingw-w64-i686-astyle</code> 或 <code>mingw-w64-x86_64-astyle</code> 安装，以下命令行以这里的 2.05.1 版本为基准测试</li>
+<li>（版本 2.05 ）命令行选项的文档参见<a href="http://astyle.sourceforge.net/astyle.html">这里</a>
+<ul>
+<li><code>--help</code> 取得的文档可能<a href="https://github.com/Alexpux/MINGW-packages/issues/1011">有问题</a>， <code>--delete-empty-lines</code> 对应的短选项应为 <code>-xe</code> 而不是 <code>-xd</code></li>
+</ul>
+</li>
+<li>使用命令行选项 <code>-A1 -T -p -U -k1 -xj -xy -xC80</code>
+<ul>
+<li>短选项可以缩写</li>
+<li>和上述 <code>clang-format</code> 比较，少了部分功能，主要有
+<ul>
+<li><code>AlignAfterOpenBracket: DontAlign</code></li>
+<li><code>AlignTrailingComments: true</code></li>
+<li><code>AlwaysBreakAfterReturnType: All</code></li>
+<li><code>MaxEmptyLinesToKeep: 2</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>注意</strong> 至少以下格式需要手动调整
+<ul>
+<li>无法正确识别 <code>constexpr</code> 导致错误的缩进</li>
+<li>虽然<a href="http://sourceforge.net/p/astyle/bugs/265/">右值引用识别问题</a>已解决，但实测对模板参数无效</li>
+<li>对 <code>extern &quot;C&quot;</code> 块冗余缩进</li>
+<li>断行后的缩进</li>
+<li>lambda 表达式的捕获列表中的 <code>=</code> 周围的冗余空格以及对应的 <code>{</code> 断行</li>
+<li><code>static_cast</code> 等关键字后的 <code>&lt;&gt;</code> 周围的冗余空格</li>
+<li>宏实际参数列表头部的 <code>(</code> 和作为第一个参数的标点可能有冗余空格</li>
+<li>宏实际参数列表尾部的 <code>,)</code> 没有以空格隔离</li>
+<li>初始化数组的列表 <code>{</code> 和之前的 <code>]</code> 存在冗余空格</li>
+</ul>
+</li>
+<li>不使用 <code>-xp</code> ，尽管一些注释需要（移除行首 <code>*</code> 后保持一级缩进）的此类格式，但它会不必要地影响大部分 Doxygen 注释块</li>
+<li>默认备份文件后缀 <code>.orig</code> ；可选使用 <code>-n</code> 取消备份文件，或 <code>--suffix=</code> 修改备份文件后缀</li>
+<li>使用 <code>-r</code> 递归处理子目录</li>
+<li>可选使用 <code>-v</code> 显示详细过程</li>
+<li>可选使用 <code>-Q</code> 只显示被处理的文件</li>
+<li>可选使用 <code>--dry-run</code> 不实际处理文件</li>
+<li>命令行示例： <code>astyle -vQnrA1TpUk1xjxyxC80 YBase/*.h* YBase/*.cpp YFramework/*.h* YFramework/*.cpp YSTest/*.h* YSTest/*.cpp</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="header" href="#参考" id="参考">参考</a></h1>
+<ul>
+<li>YSLib 项目文档 <code>doc/Dependencies.txt</code> 了解组织结构、开发规则、默认使用的外部依赖项（包括语言实现）和相关约定</li>
+<li><a href="Features.zh-CN.html">结构和特性</a> 中的树形结构</li>
+<li>YSLib 项目文档 <code>doc/ProjectRules.txt</code> 了解组织结构、开发规则和相关约定</li>
+<li>YSLib 项目文档 <code>doc/YBase.txt</code> 了解顶级子项目 YBase</li>
+<li>YSLib 项目文档 <code>doc/YFramework.txt</code> 了解顶级子项目 YFramework</li>
+<li>YSLib 项目文档 <code>doc/YSLib.txt</code> 了解 YFramework 的次级子项目 YSLib</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ProjectDependencies.zh-CN.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="Prerequisitions.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="ProjectDependencies.zh-CN.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="Prerequisitions.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
