@@ -1,0 +1,533 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>先决条件 - The YSLib Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">3.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">3.1.</strong> （内部）项目依赖性说明</a></li></ol></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">4.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html" class="active"><strong aria-hidden="true">4.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">4.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">4.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">4.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">4.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">4.5.</strong> 运行</a></li><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">4.6.</strong> Sysroot</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">5.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">5.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">6.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">6.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">6.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">6.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">6.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">7.</strong> YDE</a></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">10.1.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">10.2.</strong> Reported Issues</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The YSLib Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#先决条件" id="先决条件">先决条件</a></h1>
+<p>特定历史版本依赖的详细环境和平台库版本参见开发文档 <code>doc/Dependencies.txt</code> 。以下仅为当前最新主分支版本中用于构建 YSLib 自身及基于 YSLib 开发应用的环境配置说明。</p>
+<p>关于本项目对平台的定义和项目保持的环境约束，包括开发需要的以下基础环境外的其它第三方依赖，在了解下文内容后，参见<a href="Development.zh-CN.html">开发说明</a>。</p>
+<p><strong>注意</strong> <a href="GettingSources.zh-CN.html">获取到源代码</a>并不保证能够直接构建 YSLib （特别是对于直接从版本库获取的途径）。如需自行构建，应注意<a href="Development.zh-CN.html">开发说明</a>中有关外部依赖项的部分获取必要的其它文件。</p>
+<p>关于运行环境，另见<a href="Run.zh-CN.html">运行时平台环境的说明</a>。</p>
+<p>详细提交测试的环境参见开发文档 <code>doc/Test.txt</code> 。</p>
+<p>若不使用特定的特性或构建平台，构建环境的部分要求是可选的。</p>
+<p>以下各节的环境配置以“宿主平台/目标平台(目标平台名)”为标题指定，其中目标平台名是正式的配置名称（也在其它项目文档中作为配置名称使用），若和平台一致则被省略；其它平台的标识当前仅为明确开发流程，在用户文档中使用。对宿主平台和目标平台两者一致的情形，只标识一个平台。关于“平台”的一般含义，参见<a href="Terminology.zh-CN.html">术语</a>。</p>
+<h2><a class="header" href="#公共构建环境" id="公共构建环境">公共构建环境</a></h2>
+<p>构建环境提供工具链（语言实现）和构建需要的工具。某些工具被不同的构建环境共享（但可能仍需针对不同构建平台使用不同二进制程序）。</p>
+<p>Windows 平台上的 MSYS2 基础环境符合以下公共构建环境的所有要求。当前发布和一般提交（包括本机平台和交叉构建）时仅测试 MSYS2 。</p>
+<h3><a class="header" href="#命令行环境" id="命令行环境">命令行环境</a></h3>
+<p>除非另行指定，构建环境的命令兼容 POSIX shell 。当前非 POSIX shell 的命令行构建环境仅在 <a href="Sysroot.zh-CN.html">Sysroot stage 2 环境</a> 被支持。</p>
+<h3><a class="header" href="#工具链" id="工具链">工具链</a></h3>
+<p>使用 <code>make</code> 的平台需要 POSIX shell 支持。</p>
+<p>除非另行指定， <code>make</code> 使用 GNU make ，版本 3.78 以上（建议使用 4.0 以上版本，虽然 YSLib makefile 不使用不兼容的特性）；不使用 <code>mingw32-make</code> 。</p>
+<p>注意 <code>make</code> 可能被构建工具使用，详见以下链接时优化的说明。</p>
+<p>POSIX shell 实现可使用<a href="Tools/Scripts.zh-CN.html">和工具脚本兼容的脚本解释环境</a> ，一般即 <code>bash</code> （建议版本 4.0 或以上）。</p>
+<p>除非另行指定，直接支持的 C++ 实现为 GNU C++ 4.9 或以上版本。</p>
+<h3><a class="header" href="#自动环境检测" id="自动环境检测">自动环境检测</a></h3>
+<p>在命令行环境中使用<a href="Tools/Scripts.zh-CN.html">脚本</a>构建时，脚本可能自动检测构建环境而需要附加的工具。这些工具可能在具体的构建环境（如以下各节）中可能已被提供或可选安装，参阅各个构建环境附带的文档。</p>
+<ul>
+<li><code>grep</code> ：用于判断线程支持的命令行选项。</li>
+<li><code>uname</code> ：用于查询平台配置。</li>
+</ul>
+<p>使用特定的选项跳过自动检测构建时，可不依赖某些工具。详见具体脚本的说明。</p>
+<h3><a class="header" href="#控制台和终端" id="控制台和终端">控制台和终端</a></h3>
+<p>除了自动检测环境（ Win32 或非 Win32 下使用 ANSI 转义序列）开启的彩色（前景色）文本，构建环境没有使用依赖特定终端的字符界面。因此可以使用不同的控制台或终端模拟器。</p>
+<p><strong>注意</strong> 在 Windows 平台上若使用 ConEmu 出现 0xC0000005 错误，尝试<a href="https://code.google.com/p/conemu-maximus5/wiki/MicrosoftBugs">升级到最新版本后勾选 Inject ConEmuHk 选项</a> ，或直接使用 <code>cmd</code> 代替。</p>
+<h3><a class="header" href="#线程执行环境" id="线程执行环境">线程执行环境</a></h3>
+<p>除非另行指定，线程执行环境使用 ISO C++ 的定义，参见 <a href="http://www.eel.is/c++draft/intro.multithread">ISO C++ [intro.multithread]</a> 。</p>
+<p>库或接口的集合对多线程环境的依赖性满足以下要求：</p>
+<ul>
+<li>明确<strong>不依赖多线程执行环境</strong>时，保证在指定<a href="Terminology.zh-CN.html">平台</a>上可用的的公开 API 可构建并满足接口约定的语义，可在单线程执行环境中运行。</li>
+<li>明确<strong>严格不依赖多线程执行环境</strong>时，在不依赖多线程执行环境的要求上，还应保证语义一致。</li>
+<li>否则，不保证接口提供的功能可用。</li>
+</ul>
+<p>YSLib 整体不依赖多线程执行环境。特定的依赖多线程执行的情形包括以下话题：</p>
+<ul>
+<li>使用 ISO C++ 线程环境（首先要求实现满足<a href="Development.zh-CN.html">整体要求</a>）：
+<ul>
+<li>运行时环境需要部署的线程支持库，参见以下章节对各个平台的说明。</li>
+<li>特定的依赖线程环境语义的接口，参见具体组件的开发文档（如 <code>doc/YSLib.txt</code> ）及源代码中的 API 注释或以此<a href="BuildDocumentation.zh-CN.html">构建 API 文档</a>。</li>
+</ul>
+</li>
+<li>特定的平台实现使用非 ISO C++ 线程模型或实现（不保证<a href="Terminology.zh-CN.html">平台中立</a>）：
+<ul>
+<li>不会作为对所有平台必要的公开接口。</li>
+<li>YCLib 提供 POSIX API 封装。</li>
+<li>其它实现细节参见开发文档 <code>doc/YCLib.txt</code> 等。</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#链接时优化lto" id="链接时优化lto">链接时优化(LTO)</a></h3>
+<p>YSLib 默认在 release 构建配置下通过向编译器和链接器传递命令行参数 <code>-flto</code> 等启用 LTO 。若工具链不支持 LTO ，可能需要自行修改脚本去除相关选项——这不被正式支持。</p>
+<p>MSYS2 的 MinGW 目标的 binutils-git 包的 <code>gnu-ar</code> 较早启用了 LTO 插件，可以直接使用。现在 MSYS2 的 MinGW 目标的 binutils 包也应支持。其它工具链需自行验证。</p>
+<p><strong>注意</strong> <a href="http://gcc.gnu.org/gcc-4.9/changes.html">GCC 4.9 起使用 LTO 默认不启用 -ffat-lto-objects 选项</a>，因此需要链接器具有 LTO 插件支持，否则在启用 <code>-flto</code> 选项时会出现无法解析符号的链接错误。</p>
+<p><strong>注意</strong> <a href="https://github.com/gcc-mirror/gcc/blob/master/gcc/lto-wrapper.c#L1309">GCC 的 LTO wrapper 默认使用 <code>make</code></a> ，若没有 <code>make</code> 也没有通过指定 <code>MAKE</code> 环境变量替代，构建时使用 <code>-flto</code> 会失败。</p>
+<h2><a class="header" href="#pcdsds" id="pcdsds">PC/DS(DS)</a></h2>
+<p>支持的构建环境：</p>
+<ul>
+<li>DS 交叉编译环境，包括
+<ul>
+<li>使用 <code>make</code> 的公共构建环境</li>
+<li>ARM 目标平台 C/C++ 交叉编译环境</li>
+<li>生成 .nds 文件的 <code>ndstool</code> 工具</li>
+<li>环境变量 <code>DEVKITARM</code> 指定工具路径（见以下说明）</li>
+</ul>
+</li>
+</ul>
+<p>支持的运行环境：</p>
+<ul>
+<li>Nintendo/iQue DS[Lite/i/LL]
+<ul>
+<li>仅测试了 iQue DS Lite</li>
+</ul>
+</li>
+<li>DeSmuME 0.9.9 <strong>（注意新版本因为<a href="http://wiki.desmume.org/index.php?title=Faq#How_can_I_run_homebrew_games_that_require_DLDI_patching_.3F">自动 DLDI</a> 存在缺陷，暂时不支持运行自制程序。）</strong></li>
+</ul>
+<p>环境变量 <code>DEVKITARM</code> 指定一个 POSIX 路径，其中的 <code>bin</code> 子目录下包括工具。示例（ POSIX shell 使用 Windows 路径）：</p>
+<pre><code>export DEVKITARM=/C/devkitPro/devkitARM
+</code></pre>
+<p>建议使用发布时最新版本的 <a href="http://devkitpro.org/">devkitPro</a> 。</p>
+<p>devkitPro 在 Windows 下提供 MSYS ，在 devkitPro 安装目录下 <code>msys/bin</code> 包含 <code>bash</code> 等程序。可把此路径添加到环境变量 <code>PATH</code> 。也可使用 MSYS2 替代。</p>
+<p>发布和一般提交时仅测试 devkitPro 最新版本，目标平台三元组 arm-none-eabi。</p>
+<h2><a class="header" href="#pcwin32" id="pcwin32">PC(Win32)</a></h2>
+<p>Windows 平台使用 Microsoft VC++ 构建。因为一些已知的问题，暂不正式支持。参见以下 MinGW32 平台的构建条件以获取 Windows 可执行文件。</p>
+<p>但以下的部分信息和 MinGW 通用。</p>
+<h3><a class="header" href="#windows-子系统subsystem" id="windows-子系统subsystem">Windows 子系统(subsystem)</a></h3>
+<p><a href="http://zh.wikipedia.org/zh-cn/Windows_NT%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">Windows NT 内核以上支持不同的称为<em>子系统</em> 的用户模式运行时环境</a> ，主要包括 Win32 子系统、 OS/2 子系统和 POSIX 子系统。</p>
+<p>因为标准库实现以及 YFramework 的部分组件依赖 Win32 API ， YSLib 在 Windows 上的实现依赖 Win32 子系统。</p>
+<p>Microsoft Visual C++ 提供 <a href="http://msdn.microsoft.com/zh-cn/library/fcc1zstk.aspx"><code>/SUBSYSTEM</code> 链接器选项</a>来指定不同的子系统。在此 <code>CONSOLE</code> 指定控制台程序，而 <code>WINDOWS</code> 指定非控制台的通常使用 GUI 的程序，它们都使用 Win32 子系统实现。</p>
+<p>控制台程序和 GUI 程序的入口不同，也有一些行为上的不同。例如，启动控制台程序默认会显示命令行窗口； GUI 程序忽略命令行的交互式输入。</p>
+<h3><a class="header" href="#操作系统版本" id="操作系统版本">操作系统版本</a></h3>
+<p>Windows 操作系统版本一般对（非交叉编译的）构建没有直接影响，但有以下例外：</p>
+<p>GCC 的<strong>预编译头文件不保证对系统兼容</strong>：升级系统后可能出现错误，例如升级 Windows 10 1803 以后的系统，使用旧的预编译头文件（而不更改编译器二进制文件），可能出现以下内部错误：</p>
+<pre><code>internal error in mingw32_gt_pch_use_address, at config/i386/host-mingw32.c:184: MapViewOfFileEx: 试图访问无效的地址。
+</code></pre>
+<p>此时删除所有预编译头文件，或不使用预编译头文件重新构建即可。类似的问题在其它的项目中<a href="https://jira.reactos.org/browse/CORE-8053">也是已知的问题</a>，使用类似的方式解决。</p>
+<p>另外，<a href="https://github.com/msys2/MINGW-packages/issues/5067">部分 Windows 版本可能存在不明原因的内核缺陷导致类似的问题</a>。不仅限于构建，这些问题可能对运行也有影响。</p>
+<h3><a class="header" href="#预编译头文件" id="预编译头文件">预编译头文件</a></h3>
+<p>部分构建使用可选的预编译头文件。</p>
+<h2><a class="header" href="#pcmingw32" id="pcmingw32">PC(MinGW32)</a></h2>
+<p>关于 MinGW 或 MinGW32 的称谓，参见<a href="https://github.com/FrankHB/pl-docs/blob/master/zh-CN/mingw-vs-mingw-v64.md">这里</a>的说明。</p>
+<p>支持的构建环境：</p>
+<ul>
+<li>目标 32 位(i686) MinGW GCC 工具链
+<ul>
+<li>支持不同的 MinGW 运行时
+<ul>
+<li><a href="https://sourceforge.net/projects/mingw-w64/">MinGW-W64</a> （目标三元组 i686-w64-mingw32 ）</li>
+<li><a href="http://mingw.org/">MinGW.org</a> （目标平台三元组 i686-pc-mingw32 ）</li>
+</ul>
+</li>
+<li>要求标准库多线程支持，否则只支持构建 YBase ，不支持构建 YFramework
+<ul>
+<li>当前 <a href="https://gcc.gnu.org">GCC 官方</a>的 libstdc++ 只提供 POSIX 线程模型的支持，不支持 Win32 线程模型</li>
+<li>可考虑使用 <a href="https://github.com/lhmouse/mcfgthread">mcfgthread</a></li>
+</ul>
+</li>
+<li>仅测试 Windows 上的本机构建（构建平台三元组同目标平台三元组）
+<ul>
+<li>一般提交时仅测试 MinGW-W64 的发行版</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>非正式支持的构建环境：</p>
+<ul>
+<li>目标 64 位(x86_64) MinGW GCC 工具链（目标平台三元组 x86_64-w64-mingw32 或 x86_64-pc-mingw32 ）</li>
+<li>以上工具链中使用 LLVM-Clang++ 代替 GCC</li>
+</ul>
+<p>对 i686 平台， YSLib 版本库中 <code>/YFramework/MinGW32/lib-i686</code> 目录用于保存外部依赖项 FreeType2 和修改版 FreeImage 的二进制文件。</p>
+<p>对 x86_64 平台，需要自行编译依赖项。若构建环境存在可二进制兼容的 FreeType2 ，只需要编译修改版本的 FreeImage 。</p>
+<p>支持的运行环境：</p>
+<ul>
+<li>Microsoft Windows XP 或以上版本操作系统
+<ul>
+<li>对于 64 位目标工具链构建的程序，需要 64 位操作系统</li>
+</ul>
+</li>
+<li>构建环境匹配的附加运行库，默认支持的工具链包括：
+<ul>
+<li><code>libwinpthread-1.dll</code></li>
+<li><code>libgcc_s_dw2-1.dll</code></li>
+<li><code>libstdc++-6.dll</code></li>
+</ul>
+</li>
+</ul>
+<p>注意以上运行库，未在发布版本中打包。此处依赖的详细说明参见开发文档 <code>doc/Dependencies.txt</code> @1.5.2 。</p>
+<p>若缺少 DLL ，也可在 MinGW32 GCC 发行版中的 <code>bin</code> 目录下找到。</p>
+<p><strong>特别注意</strong> 应使用对应的正确的线程模型（使用 POSIX 或 MCF 而不是 Win32 ，后者没有实现标准库的线程支持）以及异常模型（ i686 为 Dwarf2 和 SjLj 之一，特定构建版本相关）。运行时 DLL 不匹配会导致错误。</p>
+<h3><a class="header" href="#msys2" id="msys2">MSYS2</a></h3>
+<p>建议使用 <a href="http://sourceforge.net/projects/msys2">MSYS2</a> ，相关问题可参考<a href="https://sourceforge.net/p/msys2/wiki/Home/">官方 Wiki</a> 。</p>
+<p>MSYS2 以从 <a href="https://wiki.archlinux.org/index.php/Main_page_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">Arch Linux</a> 移植的 <a href="https://wiki.archlinux.org/index.php/Pacman_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">pacman</a> 作为包管理器，可以直接通过命令行安装和移除不同的包，包括开发工具。以下环境也可用于开发其它 MSYS2 或 MinGW32 应用（忽略标注为 YSLib 的步骤即可）。</p>
+<h4><a class="header" href="#体系结构和命令行调用" id="体系结构和命令行调用">体系结构和命令行调用</a></h4>
+<p>一个 MSYS2 环境同时支持 MSYS2 和 i686(x86) 和 x86_64(x64) 的 MinGW32 三个目标平台。其中 MSYS2 目标类似 <a href="https://www.cygwin.com/">Cygwin</a> ，运行时依赖特定的 POSIX 兼容层 DLL （这里一般是 msys-2.0.dll ），性能往往较依赖 <a href="https://msdn.microsoft.com/en-us/library/abx4dbyh.aspx">MSVCRT</a> （默认版本现在 Windows 系统中应都已存在部署）的 MinGW32 目标低。所以不需要严格的 POSIX 兼容的应用尽量使用 MinGW 而不是 MSYS2 目标。</p>
+<p>MSYS2 自身也存在不同的体系结构而成为目标平台。和 MinGW32 不同，每个基础环境是 i686 和 x86_64 之一。在 x64 Windows 上，可以通过部署多个基础环境，合理设置环境变量 <code>PATH</code> 来切换使用 i686 或 x86_64 （而 32 位 Windows 只支持 i686 ）路径；但一般情形下只需要使用其中之一。这个决定一般会作用到所有 MSYS2 程序，如 <code>bash</code> 。</p>
+<p>不论是 i686 还是 x86_64 的 MSYS2 基础环境，都可以选择安装 i686 或 x86_64 的 MinGW32 目标的包，但因为使用不同的 MSYS2 程序，两者并非可完全替换。</p>
+<p><strong>注意</strong> 因为基础环境中 <code>uname</code> 是位于 <code>/usr/bin</code> 的 MSYS2 程序，基础环境的体系结构会影响 <code>uname</code> 的结果而导致目标体系结构的自动判断结果不同，当前可能会影响后续需要的命令，详见 <a href="Sysroot.zh-CN.html">MinGW Sysroot 开发指令</a>。</p>
+<p><strong>注意</strong> MSYS2 程序和不同体系结构的（本机或其它 MSYS2 ）程序混用可能出现问题。参见下文关于 MSYS2 程序运行问题的说明。</p>
+<p>一个 MSYS2 环境中可能同时存在不同目标的程序，通过合理控制环境变量 <code>PATH</code> 的顺序或在调用时加前缀(prefix) 控制。例如 <code>/usr/bin/gcc.exe</code> 和 <code>/mingw32/bin/gcc.exe</code> 可能同时存在，分别是 MSYS2 和 i686 MinGW32 的 GCC ，可通过以下方式确定调用 MinGW32 GCC ：</p>
+<ul>
+<li>在 <code>PATH</code> 中使 <code>/mingw32/bin</code> 尽量靠前来指定 <code>gcc</code> 调用 MinGW32 而不是 MSYS2 GCC</li>
+<li>若存在 <code>i686-w64-mingw32-gcc</code> 等明确目标平台的版本，一般可以直接在命令行中代替 <code>gcc</code></li>
+<li>明确路径前缀，即使用 <code>/mingw32/bin/gcc</code> 代替 <code>gcc</code></li>
+</ul>
+<p>某些工具可能在附加路径前缀 <code>/mingw32</code> 指定此类程序的安装位置。但当前 YSLib 不提供工具控制这些部署方式，默认只使用第一种方式：手动配置 <code>PATH</code> 。</p>
+<p>MSYS2 MinGW 工具链使用 POSIX 线程模型。</p>
+<p>MSYS2 MinGW i686 工具链使用 Dwarf2 异常模型。</p>
+<p>当前 YSLib 不支持 MSYS 目标。</p>
+<h4><a class="header" href="#主要配置步骤" id="主要配置步骤">主要配置步骤</a></h4>
+<p>（某些步骤和原理也可参考<a href="https://sourceforge.net/p/msys2/wiki/MSYS2%20installation/">官方 Wiki</a> 。）</p>
+<ul>
+<li>
+<p>进入<a href="https://sourceforge.net/projects/msys2/files/Base/">官方发布站点</a>/<a href="http://mirror.bit.edu.cn/msys2/Base/">北京理工大学镜像</a>/<a href="https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/">清华大学 TUNA 镜像</a>/<a href="http://mirrors.ustc.edu.cn/msys2/distrib/">中国科学技术大学开源软件镜像</a>的其中一个子目录下载 MSYS2 基础环境</p>
+<ul>
+<li>目录 <code>i686</code> 和 <code>x86_64</code> 针对 MSYS2 而非 MinGW32 目标</li>
+<li>一般尽量选择较新的 <code>x86_64</code> 版本</li>
+<li>如果有能解压缩 <code>.xz</code> 的软件，可以直接下载压缩包，否则选择 <code>.exe</code> 文件；对应版本内容一致</li>
+</ul>
+</li>
+<li>
+<p>安装 MSYS2 基础环境到自定义的目录如 <code>C:\msys2</code> （以下称为<strong>MSYS2 根目录</strong>）</p>
+<ul>
+<li>注意 Win32 下 <code>PATH_MAX</code> 为 <code>260</code> ，此处最好避免过长的路径以使一些软件具有更好的兼容性</li>
+<li>对压缩包直接利用现有工具解压；对可执行文件直接执行安装 </li>
+<li>之后，<strong>必须</strong>执行 MSYS2 根目录下的 <code>msys2_shell.bat</code> 确保完成安装</li>
+</ul>
+</li>
+<li>
+<p>设置环境变量</p>
+<ul>
+<li>可总是使用 MSYS2 根目录下自带的批处理文件打开 终端（默认是 <code>mintty</code> ），会自动在终端环境的 <code>PATH</code> 变量前加入对应所需的路径，不需要另行设置
+<ul>
+<li>对较新的版本（安装了 <code>filesystem-2016.05-2</code> 或更新版本的包）的 MSYS2 基础环境安装，分别运行 <code>msys2_shell.cmd -msys</code> 、 <code>msys2_shell.cmd -mingw32</code> 和 <code>mingw64_shell.bat -mingw64</code> 进入对应的 MSYS2 、 MinGW32 和 MinGW64 的 shell</li>
+<li>对未更新 <code>filesystem-2016.05-2</code> 或更新版本的包的 MSYS2 旧版本基础环境安装，分别运行 <code>msys2_shell.cmd</code> 、 <code>mingw32_shell.bat</code> 和 <code>mingw64_shell.bat</code> 进入对应的 MSYS2 、 MinGW32 和 MinGW64 的 shell</li>
+</ul>
+</li>
+<li>也可直接一次性设置 Windows 系统环境变量（注意需要符合 Windows 的路径格式，每个路径之间以分号分隔），这样可以对其它命令行环境（如 <code>cmd</code> ）生效
+<ul>
+<li>需要设置 <code>bash</code> 所在的 MSYS 工具的目录（即 MSYS2 根目录下的 <code>/usr/bin</code> ）以及 MinGW 目标编译器和其它工具所在的目录（对 32 位的目标为 MSYS2 根目录下的 <code>/mingw32/bin</code> ）</li>
+<li><strong>注意</strong> 因为 MSYS 和 MinGW 是不同的目标，使用不同的 GCC （可能被同时安装），需要保证 MinGW 编译器被优先搜索，所以 MinGW 目录一般应在 MSYS 目录之前</li>
+</ul>
+</li>
+<li><a href="http://sourceforge.net/p/msys2/tickets/4/">一些构建环境可能会依赖环境变量 <code>MSYSTEM</code> 的值， MSYS2 根目录批处理文件进入的不同环境对此有不同的设置</a>，但当前 YSLib 不依赖此变量，可以不另行设置</li>
+</ul>
+</li>
+<li>
+<p>确保能搜索到正确的 MinGW 编译器</p>
+<ul>
+<li>可以进入 Shell 执行命令 <code>/usr/bin/which gcc</code> ，确定输出的结果为 MinGW 编译器（默认为 <code>/mingw32/bin/gcc.exe</code> 和 <code>/mingw64/bin/gcc.exe</code> 之一）而不是 MSYS 编译器（默认为 <code>/usr/bin/gcc.exe</code> ）</li>
+<li>若已确保 MSYS 根目录下 <code>/usr/bin</code> 目录在环境变量 <code>PATH</code> 中，直接进入 <code>cmd</code> 或 Shell 直接执行 <code>which gcc</code> ，方法和效果与上述方法相同</li>
+<li>可以直接在命令行执行 <code>gcc -v</code> 查看输出，确认 <code>Target: </code> 带有后缀 <code>-w64-mingw32</code></li>
+</ul>
+</li>
+<li>
+<p>建议手动执行 <code>pacman -Syu</code> 自行升级，或 <code>pacman -S</code> 安装所需的包的最新版本</p>
+</li>
+<li>
+<p>若用于构建 YSLib ，建议<a href="GettingSources.zh-CN.html">获取源代码</a>后，进入 <code>bash</code> （此处也可以使用其它 Shell ）后运行 POSIX Shell 脚本 <code>Tools/msys2-pacman-update.sh</code> 以确保 YSLib 构建需要的依赖项被安装</p>
+<ul>
+<li>脚本不会重复安装已经安装的包</li>
+</ul>
+</li>
+</ul>
+<p>上述脚本调用 MSYS2 的包管理器 <code>pacman</code> 分批下载安装或更新所需工具：首先安装必要的工具，其次安装可选（但推荐）的工具。具体内容详见脚本代码。若安装工具时需要确认，按 <code>Y</code> 并回车。</p>
+<h4><a class="header" href="#配置安装源" id="配置安装源">配置安装源</a></h4>
+<p>官方镜像配置参见 <a href="https://github.com/Alexpux/MSYS2-packages/tree/master/pacman-mirrors">pacman-mirrors</a> 。</p>
+<p>若 <code>pacman</code> 下载过慢，可用文本编辑器打开 MSYS 根目录下的 <code>/etc/pacman.d</code> 中的配置文件，编辑对应的镜像地址。如对于 32 位的 MinGW 包，在 <code>mirrorlist.mingw32</code> 的其它非注释行之前插入：</p>
+<pre><code>## 清华大学 TUNA 镜像（ 2016-09-23 已变更，注意大小写）
+Server = http://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/i686
+## 中国科学技术大学开源软件镜像（之前曾停止更新，最后更新 2015-06-18 ； 2015-11-01 已恢复）
+Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686
+## 北京理工大学镜像（最后更新早于 2017-02-09）
+Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
+</code></pre>
+<p>因为包 mingw-w64-x86_64-freetype 的 FreeType2 可二进制兼容， x86_64 平台只需要编译修改版本的 FreeImage 。</p>
+<h4><a class="header" href="#msys2-程序运行问题" id="msys2-程序运行问题">MSYS2 程序运行问题</a></h4>
+<p>MSYS2 类似 Cygwin ，依赖 <code>fork</code> 调用创建新进程。这可能会出错。</p>
+<p>在执行以下步骤（参考<a href="http://sourceforge.net/p/msys2/tickets/74/">这里</a>）后，重新运行程序：</p>
+<ul>
+<li>关闭窗口或用任务管理器终止 <code>sh.exe</code> 和 <code>bash.exe</code> 等进程并尽量确保没有基于 MSYS2 环境的其它程序正在被运行</li>
+<li>执行 MSYS 根目录下的 <code>autorebase.bat</code></li>
+</ul>
+<p>也可以参考 <a href="https://www.cygwin.com/faq.html#faq.using.fixing-fork-failures">Cygwin 的解决方法</a>。</p>
+<p>混用 x86/x64 程序（不管是 Win32 还是 MSYS 程序）导致的类似问题可能经以上步骤仍然无法修复，这可由 MSYS2 <a href="http://sourceforge.net/p/msys2/tickets/208/">在特定操作系统上的一个缺陷</a>引起。变通做法是只使用固定目标的程序，例如只使用 i686 MSYS 基础系统执行 i686 MinGW32 GCC 。注意 i686 MinGW32 GCC 是 x86 的 Win32 程序。尽管它不是 MSYS2 程序，但可在 LTO 时调用 MSYS2 程序 <code>make</code> ，这时候可能出错。</p>
+<p>如果确定只使用少数程序，在命令行指定替换。例如 x86_64 的 MSYS2 bash 环境中使用 i686 MinGW32 GCC ，指定 LTO 调用的 <code>make</code> ：</p>
+<pre><code>export MAKE=/path-to-another-msys2-root/mingw32/make
+</code></pre>
+<p>或直接替换所有 <code>make</code> ：</p>
+<pre><code>export make=/path-to-another-msys2-root/mingw32/make
+</code></pre>
+<p><strong>注意</strong> <code>%SystemRoot%\System32\cmd.exe</code> 在 x64 Windows 下是 x64 程序，对应的 x86 版本是 <code>%SystemRoot%\SysWOW64\cmd.exe</code> 。</p>
+<h3><a class="header" href="#gcc-with-the-mcf-thread-model" id="gcc-with-the-mcf-thread-model">GCC with the MCF thread model</a></h3>
+<p>也可使用 <a href="https://gcc-mcf.lhmouse.com/">MCF 线程模型构建的 GCC</a> ，基于 MinGW-W64 和 mcfgthread ，使用 MCF 线程模型。</p>
+<p>这个发行版没有 <code>make</code> 。</p>
+<p>需自行编译依赖项。</p>
+<p>未在提交中测试。</p>
+<h3><a class="header" href="#mingw-builds" id="mingw-builds">MinGW-Builds</a></h3>
+<p>也可使用 MSYS2 ，也可使用 <a href="http://mingw-w64.sourceforge.net/">MinGW-W64</a> 发行版，如 <a href="http://sourceforge.net/projects/mingw-w64/files/latest/download">mingw-builds</a> ，并自行获得和配置脚本 <code>Tools/msys2-pacman-update.sh</code> 中被安装的工具。</p>
+<p>需使用基于 POSIX 线程模型的版本，否则只可用 YBase 。</p>
+<p>需自行编译依赖项。</p>
+<p>当前未测试。</p>
+<h3><a class="header" href="#nuwennet" id="nuwennet">Nuwen.net</a></h3>
+<p>对 x86_64 平台可使用 <a href="http://nuwen.net/mingw.html">newen.net</a> 提供的 MinGW 发行版，包含比较多的第三方库。</p>
+<p>仍需自行编译依赖项以支持 YFramework （当前不支持）。</p>
+<p>因为 15.2 之前的版本仅支持 Win32 线程模型，不支持 <code>std::thread</code> 等标准库线程 API ，不支持生成 YFramework ，只支持生成 YBase 。</p>
+<p>当前未测试。</p>
+<h3><a class="header" href="#windows-子系统subsystem-1" id="windows-子系统subsystem-1">Windows 子系统(subsystem)</a></h3>
+<p>基本内容参见以上 PC(Win32) 平台关于 Windows 子系统(subsystem) 的介绍。</p>
+<p>在 MinGW 工具链的命令行中，选项 <code>-mconsole</code> 和 <code>-mwindows</code> 对应 Microsoft VC++ 工具链的子系统选项。若没有指定，一般默认为前者。通常 <code>-mwindows</code> 隐式使用一些附加的库，如 <code>-lgdi32 -lcomdlg32</code> 。和 VC++ 不同，当前使用的 MinGW 实现一般可以支持统一使用 <code>main</code> 作为入口，不需要特别修改。</p>
+<p>对 <code>gcc</code> 或 <code>g++</code> ，使用 <code>-dumpspecs</code> 查看内建支持的 specs 。 Clang/Clang++ 不适用 specs ，需要查看文档和源代码。</p>
+<h2><a class="header" href="#pcandroid" id="pcandroid">PC/Android</a></h2>
+<p>支持的构建环境：</p>
+<ul>
+<li>Android 开发环境（仅测试 Windows x64 宿主环境），包括：
+<ul>
+<li>使用 <code>make</code> 的公共构建环境。</li>
+<li>JDK（仅测试 Oracle JDK 1.8 ；注意 Android 仅支持部分 Java 8 特性）。</li>
+<li>Android SDK 。</li>
+<li>Android SDK Build-tools 。</li>
+<li>Android NDK （仅使用独立工具链）。</li>
+<li>用于打包 APK 的私钥（用 Tools/create-android-debug-keystore.sh 可生成默认私钥）。</li>
+</ul>
+</li>
+</ul>
+<p>支持的运行环境：</p>
+<ul>
+<li>Android 模拟器，运行操作系统 Android 5 （对应 API level 21 ），或更高版本（未测试，可能有兼容性问题）。</li>
+<li>物理设备，操作系统要求同上（未正式测试，可能有兼容性问题）。</li>
+</ul>
+<h1><a class="header" href="#pclinux" id="pclinux">PC/Linux</a></h1>
+<p>当前仅用于可移植性测试。要点：</p>
+<ul>
+<li>当前仅测试 x86-64 （提供 FreeImage 二进制文件）</li>
+<li>可用被支持版本的 G++ 或 Clang++ </li>
+<li>因为不提供 freetype2 的二进制库，需要保证 freetype2 库文件可用，可以通过 <code>pkg-source</code> 找到或位于 <code>/usr/lib</code> 路径中</li>
+<li>使用 XCB 作为系统库，但功能不全</li>
+</ul>
+<p>Windows 10 可使用 <a href="https://zh.wikipedia.org/zh-cn/Windows_Subsystem_for_Linux">WSL(Windows Subsystem for Linux)</a> 。</p>
+<p>注意 Windows 10 秋季创意者更新（版本 1709 ）的 WSL 存在<a href="https://github.com/Microsoft/WSL/issues/2606">已知可导致并行构建失败的缺陷</a> ，以及可能有的<a href="https://github.com/Microsoft/BashOnWindows/issues/2534">其它问题</a> ，本项目不针对这些问题单独提供变通。</p>
+<h1><a class="header" href="#其它构建环境" id="其它构建环境">其它构建环境</a></h1>
+<p>集成开发环境是可选的，参见<a href="Build.zh-CN.html">构建</a>。</p>
+<p>关于文档构建需要的依赖，参见<a href="BuildDocumentation.zh-CN.html">构建文档</a>。</p>
+<p>关于执行工具脚本需要的环境，参见<a href="Tools/Scripts.zh-CN.html">脚本</a>。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="Development.zh-CN.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="GettingSources.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="Development.zh-CN.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="GettingSources.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

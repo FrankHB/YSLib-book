@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>构建 - The YSLib Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">3.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">3.1.</strong> （内部）项目依赖性说明</a></li></ol></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">4.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">4.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">4.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html" class="active"><strong aria-hidden="true">4.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">4.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">4.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">4.5.</strong> 运行</a></li><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">4.6.</strong> Sysroot</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">5.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">5.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">6.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">6.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">6.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">6.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">6.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">7.</strong> YDE</a></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">10.1.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">10.2.</strong> Reported Issues</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The YSLib Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#准备" id="准备">准备</a></h1>
+<ul>
+<li>参见<a href="Development.zh-CN.html">开发说明</a></li>
+<li>参见<a href="ProjectDependencies.zh-CN.html">项目依赖性</a>了解 YSLib 子项目之间的联系</li>
+</ul>
+<h1><a class="header" href="#外部依赖项构建" id="外部依赖项构建">外部依赖项构建</a></h1>
+<p>这是可选的：若已获取库文件，可以跳过。</p>
+<p>YSLib 发布的文件和对应使用的外部依赖项可以<a href="Archives.zh-CN.html">从归档仓库下载</a>。</p>
+<p>进入 <code>3rdparty</code> 对应库的目录查看 <code>Readme</code> 文件说明。按此说明进行构建，一般方法为：</p>
+<ul>
+<li>自行获取指定的公开发行的源代码</li>
+<li>复制 <code>3rdparty</code> 库的目录中的文件到源代码，替换源代码中的原始文件</li>
+<li>运行指定的构建脚本命令行</li>
+</ul>
+<h1><a class="header" href="#库和示例程序构建" id="库和示例程序构建">库和示例程序构建</a></h1>
+<p>以下描述构建项目的默认目标：库和示例程序。</p>
+<p><strong>注意</strong> 除了 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 外，当前没有实现子项目间的依赖管理。由于<a href="Releases.zh-CN.html">非正式版不保证二进制兼容性</a>，直接增量构建可能在更新代码后失败。此时可手动清理构建生成的中间目录即 <code>build</code>。</p>
+<p>另见<a href="BuildDocumentation.zh-CN.html">构建文档</a>。</p>
+<h2><a class="header" href="#shbuild" id="shbuild">SHBuild</a></h2>
+<p>宿主平台的建议方式。</p>
+<p>详见 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 和 <a href="Sysroot.zh-CN.html">Sysroot</a> 。</p>
+<p>build 600 起用于发布和测试的二进制文件使用此方式构建。</p>
+<h2><a class="header" href="#microsoft-visual-studio" id="microsoft-visual-studio">Microsoft Visual Studio</a></h2>
+<p>源代码包含 Microsoft Visual Studio 2012/2013 解决方案 .sln 文件。可以直接生成解决方案。注意若修改被依赖项目代码后直接生成，依赖项目也不会重新编译，需要手动清除或重新编译。</p>
+<p>当前包含了平台中立项目（便于源代码管理，不实际生成）、 DS 项目 、 MinGW32 项目和 Android 项目，但仅支持生成使用 make 的平台（ DS 和 Android ，需要对应的工具链支持）。因为正确支持的语言特性不足， Visual Studio 使用的编译器不能正常生成 Win32 项目。</p>
+<p>使用 Microsoft Visual Studio 打开文件，需特定的环境变量以保证使用 makefile 的项目可构建。以下（使用 兼容 <code>bash</code> 的）路径仅为示例：</p>
+<p>DS 项目：</p>
+<pre><code>DEVKITPRO=/opt/devkitpro
+</code></pre>
+<p>Android 项目：</p>
+<pre><code>ANDROID_SDK = /d/Android/sdk
+PATH = /d/clang-android/bin:/c/Program\ Files/Java/jdk1.8.0_211/bin:$PATH
+</code></pre>
+<p><strong>注意</strong> Visual Studio 项目使用的 makefile 命令行依赖 <code>bash</code> 以及时检测到错误停止生成，可参见<a href="Prerequisitions.zh-CN.html">先决条件</a>配置宿主环境。</p>
+<p>支持生成的 Visual Studio 项目包含依赖性，不需要另行设置；也支持清理命令。</p>
+<h2><a class="header" href="#codeblocks" id="codeblocks">Code::Blocks</a></h2>
+<p>从 b217 (2011-06-13) 起支持。</p>
+<p>源代码包含 Code::Blocks 工作空间 .workspace 文件，建议使用 Code::Blocks 12.11 或以上版本打开。</p>
+<p><strong>注意</strong> 打开工作空间后直接生成，其中的项目不都能成功构建，因为并非所有项目都保证能生成。项目名没有平台后缀的不用于构建，仅作为项目原型便于开发。</p>
+<p>当前包含了平台中立项目（项目名不含下划线，便于源代码管理，不实际生成）、 DS 项目和 MinGW32 项目，支持构建 DS 项目和 MinGW32 项目，每个分别包含 debug 和 release 配置。除此之外， MinGW32 项目还支持 debug_DLL 配置和 release_DLL 配置，用于生成动态链接库或使用动态链接库生成可执行文件。</p>
+<p>对于 DS 可以分别编译其它各个项目，但不能运行。可以在工具菜单添加 DeSmuME 命令行运行。</p>
+<p>b599 (2015-05-21) 起支持通过<a href="Tools/Scripts.zh-CN.html">脚本 GenerateProjects.sh</a> 生成 .cbp 文件。和 Visual Studio 不同，项目文件的内容不保证最新。这些文件以后仅保证在<a href="Releases.zh-CN.html">发布版本</a>更新。</p>
+<p>build 600 前用于发布和测试的二进制文件使用此方式构建。因为编译时使用的文件路径不同等原因，构建的二进制文件和 SHBuild 不完全等价。</p>
+<p>和 Visual Studio 类似，Code::Blocks 项目文件仅用于查看项目文件，当前不作为首要的构建途径被支持。</p>
+<p>虽然 Code::Blocks 具有模块化设计，但仍有一些欠缺可配置性及文档的逻辑被集成在核心（使用 C++ 实现，且不容易改动）而造成问题，如：</p>
+<ul>
+<li>头文件搜索使用字符串匹配。
+<ul>
+<li>这直接导致在编辑器中无法定位宏名形式的 <code>#include</code> 的路径。</li>
+<li>这种形式实际被 YFramework 及 FreeType 使用。</li>
+</ul>
+</li>
+<li>在运行时环境插入 <code>PATH</code> 环境变量的前缀，不保证和构建时相同也不可由用户指定去除。
+<ul>
+<li>前缀包括 <code>.</code> 、链接器和调试器的可执行文件所在的路径。</li>
+<li>因为是前缀，当前路径及链接器和调试器可执行文件的路径直接污染环境变量，无法通过其它设置去除。</li>
+<li>当这些路径具有和构建时不同版本的动态库时，使用 Code::Blocks 运行程序会使用错误的动态库。</li>
+<li>因此，使用 Code::Blocks 运行程序时，为了使用正确的动态库，不同的版本的动态库不能和工具链共存。</li>
+</ul>
+</li>
+</ul>
+<p>由于这些自身的局限性，Code::Blocks 不适合作为现代的集成开发环境，没有在现状以外其它的改进支持的计划。</p>
+<h2><a class="header" href="#make-命令行适用于-ds-等使用-makefile-的平台" id="make-命令行适用于-ds-等使用-makefile-的平台">make 命令行（适用于 DS 等使用 Makefile 的平台）</a></h2>
+<p>设 $Configuration 是生成配置名称，则</p>
+<p>在各个项目目录下运行</p>
+<pre><code>make -r BUILD=$Configuration
+</code></pre>
+<p>即可生成。</p>
+<p>在各个项目目录下运行</p>
+<pre><code>make -r BUILD=$Configuration rebuild
+</code></pre>
+<p>即可重新生成。</p>
+<p>在各个项目目录下运行</p>
+<pre><code>make -r BUILD=$Configuration clean
+</code></pre>
+<p>即可清除生成。</p>
+<p><strong>注意</strong> 因为不同子项目的 makefile 之间不追溯依赖关系，直接运行 makefie 需明确依赖顺序，参见<a href="ProjectDependencies.zh-CN.html">项目依赖性</a>。</p>
+<p>对于 DS 项目，注意附加的项目依赖性以确定生成顺序：</p>
+<p>YSLib 依赖于 YCLib ；</p>
+<p>YSTest/DS_ARM9 依赖 YSLib ；</p>
+<p>YSTest 依赖 YSTest/DS_ARM7 和 YSTest/DS_ARM9 。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="GettingSources.zh-CN.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="BuildDocumentation.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="GettingSources.zh-CN.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="BuildDocumentation.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
