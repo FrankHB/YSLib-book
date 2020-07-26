@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>NPL - The YSLib Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="../Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="../Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="../GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="../Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="../GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="../Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="../Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="../Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li></ol></li><li class="chapter-item expanded "><a href="../Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="../Features/NPL.zh-CN.html" class="active"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="../YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="../Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="../Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="../Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="../Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="../Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="../Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="../StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="../ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="../WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The YSLib Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#概述" id="概述">概述</a></h1>
+<p>NPL 是 YSLib 提供的语言集合，它在语言规范层次上被设计为可扩展的。</p>
+<p>通过派生(derive) 现有的语言（ <strong>NPL 方言</strong>），避免完全重新设计新的语言，来满足需要一些新语言的场合下的需求。被派生的语言是 NPL 的<strong>抽象语言实现</strong>。翻译或执行 NPL 或 NPL 抽象语言实现的程序是 NPL （方言）的<strong>具体语言实现</strong>。具有具体语言实现的方言仍可以派生新的语言作为<a href="https://en.wikipedia.org/wiki/Domain-specific_language">领域特定语言</a>。</p>
+<p>派生领域特定语言的一个其它的例子是 <a href="https://en.wikipedia.org/wiki/XML">XML</a> 。</p>
+<h1><a class="header" href="#语法" id="语法">语法</a></h1>
+<p>NPL 的语法基于形式文法上可递归构造的<strong>表达式</strong>，其中的子表达式在此称为<strong>项</strong>。</p>
+<p>非正式地， NPL 使用类似 <a href="https://en.wikipedia.org/wiki/S-expression">S 表达式</a>的基本语法，但不使用二元有序对（和终止符号）而直接支持列表；即表达式直接以是否为括号作为边界，分为<strong>列表表达式</strong>和<strong>非列表表达式</strong>。</p>
+<p>正式语法中，项可以是列表或非列表项的<strong>混合表达式</strong>(<code>composite-expression</code>) 规约列表项中的一部分代替有序对的地位，以要求任意项可被无歧义地进行从左到右的语法分析。</p>
+<p>NPL 只要求小括号作为列表表达式的边界。其它替代的括号由派生实现约定。对于适用于多个 NPL 实现的可移植代码，避免使用其它语言中习惯作为代替括号边界的字符表示替代的括号以外的含义，特别地， ISO C++ 文法 <code>balanced-token</code> 中的边界字符 <code>()[]{}</code> 。</p>
+<p>NPL 对标识符的限制较为宽松。 ISO C 和 ISO C++ 的所有标识符都是 NPL 标识符。但派生实现可加以限制。</p>
+<p>NPL 不提供专用的注释语法。以特定形式的项（如表示字符串的字面量）替代注释是预期的惯用法(idiom) 。这不妨碍派生语言可能添加预处理器扩展特性。</p>
+<h1><a class="header" href="#语义" id="语义">语义</a></h1>
+<p>NPL 提供了一些通用的概念但不构成语义规则。语义规则由派生实现约定。</p>
+<h1><a class="header" href="#实现" id="实现">实现</a></h1>
+<p>在 YFramework/NPL 提供一些参考具体实现。当前 YFramework 主要使用抽象实现 NPLA 的具体<em>派生(derived)</em> 的实现 NPLA1 ，在这个基础上用于不同的目的，如<a href="../Tutorial/Configuration.zh-CN.html">程序配置</a>、<a href="../Tutorial/GUI.zh-CN.html">动态加载的 GUI</a> 等。</p>
+<p>这些实现基于模块 YSLib::Core::ValueNode 提供的数据结构，可以方便地修改和组合语法和语义节点的内容。</p>
+<p>NPLA 提供了比大多数现有的程序设计语言更强大的一般抽象。这集中体现在：</p>
+<ul>
+<li>和 NPL 的原始设计一致，不提供也不要求区分实现的阶段(phase) 。</li>
+<li>支持一等环境(first-class environment) 不修改现有语言的求值算法即可实现共享类似语法的新语言。</li>
+<li>允许以一般手段表达求值和未求值表达式的差异。</li>
+</ul>
+<p>这意味着 NPLA 是本质上动态的语言，但和一般语言不同，用户可以很大程度上动态地替换现有语言实现，包括在运行时替换一个解释实现为一个或多个优化编译器。这也意味着语言设计上既不需要区分解释实现和编译实现（本质上不对立），也不需要区分动态和静态（因为随时能从基础语言上构造出静态子集）。</p>
+<p>这样的特性设计在绝大多数语言中不存在并且几乎无法支持。作者已知唯一的例外是 <a href="http://web.cs.wpi.edu/%7Ejshutt/kernel.html">Kernel</a> ，在这些特性上有极大的相似，尽管实际上基本特性是<strong>独立设计的</strong>，并且在基本设计哲学上有极大不同（ NPL 和 <a href="ftp://ftp.cs.wpi.edu/pub/techreports/pdf/05-07.pdf">RnRK</a> 中明确的 guidelines有很大不同且基本不兼容）。不过，考察设计的完整性， NPL 的派生语言也从中借鉴了一些重要的附加特性：</p>
+<ul>
+<li><a href="http://lambda-the-ultimate.org/node/4093"><code>$vau</code></a> 、 <em>合并子(combiner)</em> /<em>应用子(applicative)</em> /<em>操作子(operative)</em> 等术语。</li>
+<li>在绑定构造中支持模式匹配的形式参数树(parameter tree) 。</li>
+<li>一些以合并子形式提供的操作。
+<ul>
+<li>一般的作为接口提供的合并子在 NPL 中仍称为函数；合并子是作为表达式的函数的特定的求值结果。（在 Scheme 中，合并子中的应用子对应过程(procedure) 。）</li>
+<li>相似的操作主要体现在名称和语义上。因为一些基本设计的差异，不保证完全兼容。</li>
+<li>相似操作的实现不尽相同，但其中不通过宿主语言的直接的实现（称为<em>派生(derivation)</em> ）有一部分几乎完全相同。</li>
+<li>使用 <code>$</code> 作为一些标识符（如 <code>$lambda</code> ）的前缀是独立设计的巧合；现在含义已和 Kernel 一致，表示 <em>special form</em> 。</li>
+</ul>
+</li>
+</ul>
+<p>一些值得注意的和类似语言的主要设计差异（原理详见开发文档）：</p>
+<ul>
+<li>NPL 和 Kernel 类似，强调一等对象(first-class object) ，但含义有所不同。此处的“对象”和 ISO C 及 ISO C++ 中的定义类似，具有比 Kernel 更严格的含义。
+<ul>
+<li>和 Kernel 合并子及 Scheme 过程类似， NPLA 默认使用按值调用(call by value) ；但与之不同，不隐式对实际参数别名(aliasing) ，不共享对象。</li>
+</ul>
+</li>
+<li>NPLA 和派生实现的语法和整体的求值类似 Scheme 和 Kernel 大多数基于 S 表达式的 <a href="https://en.wikipedia.org/wiki/Lisp_%28programming_language%29">Lisp</a> 方言，但有一些显著的区别。
+<ul>
+<li>NPLA1 明确区分约定包括列表项的求值规则。和传统习惯不同， NPLA1 中括号明确不需要表示应用的含义，这可以减少一些场合（如命令行）需要输入的过多的连续括号。</li>
+<li>和 RnRS 定义的 Scheme 以及 Kernel 一致，不支持某些 Lisp 方言的方括号 <code>[]</code> 替代圆括号 <code>()</code> 的语法。</li>
+<li>不提供注释语法。</li>
+<li>语言实现中内置预处理处理中缀 <code>;</code> 和 <code>,</code> ，作为前缀合并子 <code>$sequence</code> 和 <code>list</code> 的语法糖。两者的含义和 Kernel 中的相同（类似 Scheme 的 <code>begin</code> 和 <code>list</code> ）。</li>
+</ul>
+</li>
+<li>和 Kernel 相似而和 Scheme 不同，使用操作子及一等环境和 <code>eval</code> 代替 Scheme 的<a href="https://en.wikipedia.org/wiki/Hygienic_macro">卫生宏(hygienic macro)(en-US)</a> 及宏展开的作用。
+<ul>
+<li>和 Kernel 类似，鼓励使用直接求值风格而不是引用(quote) 。</li>
+<li>不过 NPLA 也提供了 <code>$quote</code> 的派生而非如 Kernel 一样完全避免。</li>
+</ul>
+</li>
+<li>和 Kernel 不同， NPL 明确支持资源抽象，<strong>不保证支持</strong>循环引用，而 NPLA 明确<strong>不支持</strong>循环引用。</li>
+<li>NPLA 明确支持基于 C++ 实现的对象模型和互操作，且明确<strong>不要求</strong>支持全局 <a href="https://zh.wikipedia.org/zh-cn/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6_%28%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8%29">GC</a> 。
+<ul>
+<li>从在互操作的目的出发，和 C++ 具有相似性和相容性。
+<ul>
+<li>支持基于 C++ 抽象机语义的更一般的副作用（除原生 <code>volatile</code> 外）和一等状态(first-class states)  。</li>
+<li>和 ISO C++ 类似，在语言规格中保留特定的未定义行为，而不要求实现避免。</li>
+<li>暂时不直接支持多线程环境，但可以在不同线程上同时使用不同的实现的实例。</li>
+<li>函数默认使用不隐式别名的按值调用和返回传递复制或转移值，和 C++ 对应上下文的复制初始化(copy initialization) 语义一致。（不过求值为操作子的 NPL 函数在 C++ 没有直接的对应。）</li>
+</ul>
+</li>
+<li>在<a href="http://www.wpi.edu/Pubs/ETD/Available/etd-090110-124904/unrestricted/jshutt.pdf">vau 演算的论文</a> 中，提及不支持全局 GC 有较大的 admistrative cost 但没有详细讨论和语言特性的联系。</li>
+</ul>
+</li>
+<li>即便不支持全局 GC ，当前实现仍然<strong>明确支持</strong> PTC(proper tail call) 。
+<ul>
+<li>PTC 基于语言规则而不是实现行为定义，详见 <a href="https://www.researchgate.net/profile/William_Clinger/publication/2728133_Proper_Tail_Recursion_and_Space_Efficiency/links/02e7e53624927461c8000000/Proper-Tail-Recursion-and-Space-Efficiency.pdf">proper tail recursion</a> ，这里和 Kernel 提供的保证含义一致。</li>
+<li>没有在其它语言发现这种不支持全局 GC 和支持类似 C++ 副作用的情形下的 PTC 支持的先例。</li>
+</ul>
+</li>
+<li>和 Kernel 不同， NPLA 不完全强制对象类型的封装(encapsulation) ；且基于支持互操作的考虑，支持开放的类型系统，而不要求覆盖所有值（即要求对象类型分区(partition) ）。</li>
+<li>对机器数（不论是整数还是浮点数）的操作被剥离了，当前不被支持，需要用户代码添加个别操作。</li>
+<li>NPLA 的规约(reduction) 框架和 vau 演算的操作语义几乎完全一致，不过实际上（因为先前语言设计上的不确定）显著地保留了更多的可扩展和可修改性。</li>
+</ul>
+<h2><a class="header" href="#当前实现" id="当前实现">当前实现</a></h2>
+<p>当前派生实现的 NPLA1 由 YFramework 提供 API 。其中包括 REPL (read-eval-print loop) 的解释实现。外部文件的形式的 NPLA1 脚本可被基于这些 API 实现的 <a href="SHBuild.zh-CN.html">stage 1 SHBuild</a> 调用并用于 YFramework 的构建。</p>
+<p>由 YFramework 对外部编码的假设，NPLA1 实现加载的文件流的剩余内容的编码视为 UTF-8 ；同时支持 CR+LF 或 LF 为换行符。</p>
+<h1><a class="header" href="#进一步阅读" id="进一步阅读">进一步阅读</a></h1>
+<p>语言特性设计的需求参见<a href="https://github.com/FrankHB/pl-docs/blob/master/en-US/calling-for-language-features.md">这里(en-US)</a> 。</p>
+<p>关于 NPL 语言及当前使用的实现的规格，参照 YSLib 项目文档 <code>doc/NPL.txt</code> 。</p>
+<h2><a class="header" href="#kernel-实现" id="kernel-实现">Kernel 实现</a></h2>
+<p>NPL 文法是 S-expression 语法和 Kernel 兼容语义的简化，某些 NPLA1 程序可以原封不动地作为 Kernel 程序运行。因为参考文献可用性以及相似性几乎独一无二，建议深入使用前参照 Kernel 相关的文档并实际使用，以和 NPL 进行比较（当前 NPL 开发文档也引用包括 RnRK 在内的一些规格说明）。现有较完整可用的一个 Kernel 实现是 <a href="http://klisp.org/">Klisp</a> 。</p>
+<h2><a class="header" href="#计划支持特性" id="计划支持特性">计划支持特性</a></h2>
+<p>在 Kernel 中已存在但当前 NPLA1 未支持，而计划在未来添加的特性：</p>
+<ul>
+<li>一等续延(first-class continuation)
+<ul>
+<li><a href="http://okmij.org/ftp/continuations/against-callcc.html">基于一些显著的理论和实现可用性的理由</a>，需要考察有界续延(delimited continuation) （如 <code>shift</code>/<code>reset</code> ）而不是传统的 <code>call/cc</code> 的支持。</li>
+<li>和 Klisp 的异步实现方式类似但不同， NPLA1 核心已使用一种同 <a href="http://www.ccs.neu.edu/home/dvanhorn/pubs/vanhorn-might-icfp10.pdf">CESK-style 的抽象机</a> 的异步风格独立重新实现（<a href="http://www.brics.dk/RS/05/16/BRICS-RS-05-16.pdf">原理参考</a>），并兼容混合原有实现。并且状态支持已提供基本操作，但仍待更多测试。</li>
+</ul>
+</li>
+<li><a href="http://klisp.org/docs/Promises.html#Promises">Promises</a>
+<ul>
+<li>虽然 NPLA1 之前有部分原生实现，但计划改用基于封装类型派生。</li>
+</ul>
+</li>
+<li><a href="http://klisp.org/docs/Keyed-Variables.html#Keyed-Variables">Keyed Variables</a>
+<ul>
+<li>有效的 keyed dynamic varabile 实现可能依赖一等续延数据结构。</li>
+<li>有效的 keyed static varabile 实现需要调整环境数据结构。</li>
+</ul>
+</li>
+<li><a href="http://klisp.org/docs/Ports.html#Ports">Ports</a>
+<ul>
+<li>需要调查内存映射文件和其它系统支持。</li>
+</ul>
+</li>
+<li><a href="http://klisp.org/docs/Libraries.html#Libraries">Libraries</a>
+<ul>
+<li>可能需要提供多种不同的接口。</li>
+</ul>
+</li>
+</ul>
+<p>已提供但未直接使用，考虑可能优化实现的特性：</p>
+<ul>
+<li><a href="http://klisp.org/docs/Encapsulations.html#Encapsulations">封装类型</a>
+<ul>
+<li>需要调查互操作相关的特性和持久化支持。</li>
+</ul>
+</li>
+</ul>
+<p>计划考虑提供其它设计替代选项的 Klisp 特性：</p>
+<ul>
+<li><a href="http://klisp.org/docs/Characters.html#Characters">Characters</a>
+<ul>
+<li>满足互操作要求的前提下，使用设计更合理的类型替代。</li>
+</ul>
+</li>
+<li><a href="http://klisp.org/docs/Vectors.html#Vectors">Vectors</a>
+<ul>
+<li>使用更完善的用户自定义派生类型替代。</li>
+</ul>
+</li>
+</ul>
+<p>其它 NPL 计划实现特性：</p>
+<ul>
+<li>模块化框架</li>
+<li>支持类型系统的子语言
+<ul>
+<li>类似 <a href="https://docs.racket-lang.org/ts-reference/index.html">Typed Racket</a> 。</li>
+</ul>
+</li>
+<li>测试框架</li>
+<li>基于 <code>$let-safe</code> 的静态环境操作替换优化</li>
+<li>用于编译的中间代码格式和二进制代码生成框架
+<ul>
+<li>类似 <a href="https://www.scheme.com/">Chez Scheme</a> 对 <a href="http://nanopass.org/">Nanopass</a> 的使用。</li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Metacompilation">元编译(metacompilation)(en-US)</a> </li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ProjectDependencies.zh-CN.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../EMPTY.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../ProjectDependencies.zh-CN.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../EMPTY.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

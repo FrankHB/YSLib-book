@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Wiki Rules - The YSLib Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html" class="active"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The YSLib Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#general" id="general">General</a></h1>
+<h2><a class="header" href="#scope" id="scope">Scope</a></h2>
+<p>This document describes a set of rules for creating and maintaining documentations or some other kinds of materials, which is not project-specific. This document is also self-conforming to these rules.</p>
+<h2><a class="header" href="#notation" id="notation">Notation</a></h2>
+<p>Terms are emphasized at first appearence in <em>italic</em>.</p>
+<h2><a class="header" href="#terms-and-definitions" id="terms-and-definitions">Terms and definitions</a></h2>
+<h3><a class="header" href="#resources" id="resources">Resources</a></h3>
+<p>Contents of materials are split as <em>resources</em> (e.g. <a href="http://en.wikipedia.org/wiki/Computer_file"><em>files</em></a>) in possibly nested <em>namespaces</em> (e.g. <a href="http://en.wikipedia.org/wiki/Directory_%28computing%29"><em>directories</em></a>). A namespace is also considered as a resource for convenience.</p>
+<h3><a class="header" href="#paths-and-identifiers" id="paths-and-identifiers">Paths and identifiers</a></h3>
+<p>A <em>path</em> is used to identifying or locating a resource, which can be in various forms (e.g. filesystem <a href="http://en.wikipedia.org/wiki/Path_%28computing%29"><em>path</em></a> or <a href="http://en.wikipedia.org/wiki/Uniform_resource_locator"><em>URL</em></a>).</p>
+<p>A path may have several <em>components</em> denoting different <em>levels</em> of namespace or the last level non-namespace resource.</p>
+<p>An <em>empty path</em> is a path without any components.</p>
+<p>A path with more than one components shall have syntactic <em>separators</em> (e.g. a slash(<code>/</code>) or whitespace) to split different components.</p>
+<p>An <em>identifier</em> is a path with exactly one components without any separators, which can be used to differentiate resources in the same namespace or to collectively name some sets of resources in various namespaces.</p>
+<p>A resource may be denoted with not necessarily the unique identifier or path. However, all resources this document discussed below are named.</p>
+<h2><a class="header" href="#languages" id="languages">Languages</a></h2>
+<p>English wording documentation is intended to be conforming to <a href="http://std.dkuug.dk/jtc1/sc22/wg9/isodir3.pdf">the ISO/IEC directive, part 3</a>. Note the use of modal verbs is distinct with <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>. For RFC documents, RFC 2119 is preferred, but not necessary with the case clarification (i.e. <a href="https://tools.ietf.org/html/rfc8174">RFC 8174</a>) for documents published earlier than RFC 8174 due to compatibility issues.</p>
+<h3><a class="header" href="#editions-in-languages" id="editions-in-languages">Editions in languages</a></h3>
+<p>A set of documentation may be in one (natural) language. The <a href="http://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a> with at least one subtag and an additional prefix dot(<code>.</code>) shall be placed in the end of identifier of the resource before the dot and the extension name (if any). Otherwise the documentation shall be in multiple languages or without text contents (e.g. containing only ideographic images), and no language code shall be in the identifier of the resource.</p>
+<p>When the additional dot and tag is removed, all different resource with same names shall refer to the same set of contents only in different languages, or at least one of them shall be <em>incomplete</em> which means to be <em>completed</em> as in former case. The resource is one <em>edition</em> in the specific language of the documentation.</p>
+<p>Unless explicitly specified, when the meaning is in conflict for multiple editions in different languages, the complete one shall be valid over others. If there is not only one complete edition, the validity is specified in following order:</p>
+<ul>
+<li><code>en-US</code></li>
+<li><code>en</code></li>
+<li><code>zh-CN</code></li>
+<li><code>zh</code></li>
+</ul>
+<p>If no one edition in above languages is complete, the documentation is defective.</p>
+<p>A language tag may be used to annotate one or more words in text. An annotation of such use is a <em>language tag annotation</em>, which consists of a tag combined with one pair of enclosing parentheses (namely, <code>(</code> and <code>)</code>).</p>
+<p><a href="https://en.wikipedia.org/wiki/Hyperlink">Hyperlinks</a> in pages should preferrably link to localized contents corresponding to the language or one of the major languages used in the page (if any) when suitable. If contents of the linked target is in other languages (esp. when there are more than one semantically identical editions in multiple languages), at least one language tag for majority of the contents should be noted subsequent to the hyperlink; otherwise, the tag should be omitted.</p>
+<p>For compatibility of client programs, each link of <a href="https://en.wikipedia.org/wiki/URI">URI</a> should be encoded in form of normalized <a href="https://tools.ietf.org/html/rfc3986#section-2.1">Percent-Encoding in RFC 3986</a>.</p>
+<p>Additionally, several hyperlinks are normalized with the same form for a specific language. Currently the rule consists of following cases:</p>
+<ul>
+<li>For <a href="https://zh.wikipedia.org/zh-cn">Chinese Wikipedia(zh-CN)</a>, the link shall following the rule in <a href="https://zh.wikipedia.org/zh-cn/Help:%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E7%9A%84%E7%B9%81%E7%AE%80%E3%80%81%E5%9C%B0%E5%8C%BA%E8%AF%8D%E5%A4%84%E7%90%86">the section in the language conversion help page(zh-CN)</a>, with small letter &quot;cn&quot; in the link.</li>
+</ul>
+<h3><a class="header" href="#grammartical-notes" id="grammartical-notes">Grammartical notes</a></h3>
+<p>The following grammartical forms of English (with <code>en</code> or <code>en-US</code> tags) are considered idiomatic and application of such forms may be preferred:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Answer_ellipsis">answer ellipsis</a> to elide the subject in the summary of commit messages where a question for the topic of the log message is assumed</li>
+<li><a href="http://en.wikipedia.org/wiki/English_passive_voice#Additional_passive_constructions">bare passive clause</a> omitting the auxiliary verb for short descriptive notes (e.g. commit messages in repositories and assertions messages in programs)</li>
+<li><a href="https://en.wikipedia.org/wiki/Null-subject_language#The_imperative_form">null subject</a> and <a href="https://en.wikipedia.org/wiki/Pro-drop_language#English">pronoun dropping</a> in imperative forms</li>
+<li><a href="https://en.wikipedia.org/wiki/Zero-marking_in_English#Zero_article">zero article</a> for singular form of a countable noun denoting a specialized term being referenced, usually used in a terse-style title or in a list term (like this line)</li>
+</ul>
+<p><strong>Informative notes:</strong> The tense and mood used in the logs in version control systems are <a href="https://stackoverflow.com/questions/3580013/should-i-use-past-or-present-tense-in-git-commit-messages">opinion-based</a>. However, the implied rules are choosed here to avoid imperative forms by default, because:</p>
+<ul>
+<li>First, it should be respected same in all information processing system: to make sure who are the messages in the logs serve to.
+<ul>
+<li>Version control systems are capable for reading and writing operations on the version history, with asymmetric operational frequency in general.
+<ul>
+<li>For most stakeholders to a repository in most cases, read-only accesses of the version history are more frequent compared to changing opertions.</li>
+<li>This is also consistent with the idiom pattern used in programming: do not abuse imperative updates with side effects.</li>
+</ul>
+</li>
+<li>For most users, commit logs are <a href="https://stackoverflow.com/a/8059167/2307646">entries of journal</a> of the version history.
+<ul>
+<li>They do not and should not care about imperative changes in the logical perspective.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Unconstrained changes in the version history as effectful operations can make messes easily.
+<ul>
+<li>They are usually only well-behaved enough within some local context (e.g. in a single branch of a reliable instance of the version history).</li>
+<li>They often make troubles in other cases (e.g. when stripped as patches possibly reordered).</li>
+</ul>
+</li>
+<li>Messages in the logs may be cooperated with other instances of version history.
+<ul>
+<li>No imperative mood can essentially assume the changes described will always be applied in the exactly same way.</li>
+<li>As mentioned above, out-of-order changes make messes. If the messages are precise, they also make messes like other changed contents.</li>
+</ul>
+</li>
+<li>In general, messages in the logs work for distributed repositories.
+<ul>
+<li>There is simply no standpoint for the global view of the universe of the version history by default.</li>
+<li>Messages should be ready to be audited by random accesses, besides being applied subsequently in some replays.</li>
+<li>These facts further undermines the necessity of imperative changes.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="header" href="#format-specific-rules" id="format-specific-rules">Format-specific rules</a></h1>
+<h2><a class="header" href="#text-files" id="text-files">Text files</a></h2>
+<p>Unless otherwise specified, all text files should be encoded as UTF-8 with <a href="http://en.wikipedia.org/wiki/Byte_order_mark">BOM</a> enabled.</p>
+<p>Any use of encoding which may not be converted verbatim and losslessly in binary form to UTF-8 shall be explicit specified in documantation.</p>
+<p>BOM should be omitted for text files dedicated to tools without capability of properly handling it. Otherwise, BOM shall be used as possible when it can clarify the encoding being used.</p>
+<p>Unless definitely intended and explictly specified in documentation, newlines shall be consistent. Default use of newline is <a href="http://en.wikipedia.org/wiki/CRLF">CR+LF</a>.</p>
+<p>Two subsequent newlines indicate an <a href="http://en.wikipedia.org/wiki/End-of-file">EOF</a> logically. Subsequent newlines out of verbatim quoted text (including source code) should only be used at EOF.</p>
+<p>Except at the first of line, each word which consists of <a href="http://en.wikipedia.org/wiki/Alphanumeric">alphanumeric</a> characters should be seperated by a single space character(U+0020) with other words.</p>
+<p>No <a href="http://en.wikipedia.org/wiki/Space_characters#Spaces_in_Unicode">space characters</a> should be at <a href="http://en.wikipedia.org/wiki/End-of-line">EOL</a>.</p>
+<p>To keep the semantics rules clear, use <a href="http://en.wikipedia.org/wiki/Tab_key#Tab_characters">horizontal tab character(U+0009)</a> instead of <a href="http://en.wikipedia.org/wiki/Space_%28punctuation%29">other spaces(i.e. U+0020)</a> to indent, unless the text is verbatim quoted.</p>
+<h2><a class="header" href="#a-hrefhttpenwikipediaorgwikimarkdownmarkdowna" id="a-hrefhttpenwikipediaorgwikimarkdownmarkdowna"><a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a></a></h2>
+<p>Names of markdown files should be with <code>.md</code> extension.</p>
+<h3><a class="header" href="#dialects" id="dialects">Dialects</a></h3>
+<p>Unless explicitly specified elsewhere, only common dialects are to be used. Currently this should be <a href="https://help.github.com/articles/github-flavored-markdown">GFM</a>. And if the content may be presented on <a href="https://bitbucket.org">Bitbucket</a> wiki, more strict rules applies, notably <a href="https://bitbucket.org/site/master/issue/6930/support-some-or-all-html-in-markdown-bb">there is currently no inline HTML support</a>.</p>
+<h3><a class="header" href="#syntactic-restrictions" id="syntactic-restrictions">Syntactic restrictions</a></h3>
+<p>As text files, markdown files shall obey the same rules above. The indentation rule is necessary to avoid some compatibility issues, e.g. <a href="https://bitbucket.org/site/master/issue/7748/markdown-nested-lists-not-working-bb-8925">this</a>.</p>
+<p>As specified, reserved characters defined by RFC 3986 should be percentage-encoded. Notably, the parentheses(<code>()</code>) in hyperlinks shall be encoded to make it more fault-tolerent for some editors.</p>
+<p>Headers should be prefixed by <code>#</code>s.</p>
+<p>For sake of compact annotation representation, there should be no redundant characters allowed between the annotated words and annotation (esp. <a href="https://en.wikipedia.org/wiki/Whitespace_character">whitespace characters</a>), even there are whitespaces in the words. The annotation in this rule includes any language tag annotation defined in previous subclause.</p>
+<p>The whitespace rules in the language annotation is also</p>
+<h1><a class="header" href="#cross-references" id="cross-references">Cross references</a></h1>
+<p>This document is used by the YSLib project. It may be also referenced by other repositories. </p>
+<p><strong>Except for the following list, do not edit unless ultimately necessary.</strong></p>
+<p>Known refereced by:</p>
+<ul>
+<li><a href="https://github.com/FrankHB/pl-docs">Programming Language Documentations</a> by FrankHB</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ReportedIssues.en-US.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="ReportedIssues.en-US.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
