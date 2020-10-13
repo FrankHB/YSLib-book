@@ -156,46 +156,58 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#概述" id="概述">概述</a></h1>
-<p>Sysroot 是具有特定逻辑布局根目录兼容的目录，一般在文件系统中实现。</p>
-<p>Sysroot 主要用于本机程序的开发环境构建和部署，以后也可能用于交叉构建(cross building) 。</p>
-<p>在利用 Sysroot 开发之前有必要了解开发注意事项：</p>
+<p>　　Sysroot 是具有特定逻辑布局根目录兼容的目录，一般在文件系统中实现。</p>
+<p>　　Sysroot 主要用于本机程序的开发环境构建和部署，以后也可能用于交叉构建(cross building) 。</p>
+<p>　　在利用 Sysroot 开发之前有必要了解开发注意事项：</p>
 <ul>
 <li><a href="Build.zh-CN.html">构建</a></li>
 <li><a href="Prerequisitions.zh-CN.html">先决条件</a></li>
 </ul>
-<p>Sysroot 使用的文件系统路径满足<a href="Run.zh-CN.html">运行</a>环境对外部文件的路径的约定。</p>
-<p>当前 Sysroot 仅支持 MinGW 环境。</p>
+<p>　　Sysroot 使用的文件系统路径满足<a href="Run.zh-CN.html">运行</a>环境对外部文件的路径的约定。</p>
+<p>　　当前 Sysroot 仅支持 MinGW 和 Linux 环境。</p>
 <h1><a class="header" href="#布局" id="布局">布局</a></h1>
-<p>在满足前述要求的前提下， Sysroot 部署实例使用的文件系统布局原则上和<a href="https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86">一般类 UNIX 系统使用的布局</a>同构，具体子目录布局如下：</p>
+<p>　　在满足前述要求的前提下， Sysroot 部署实例使用的文件系统布局原则上和<a href="https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86">一般类 UNIX 系统使用的布局</a>同构，具体子目录布局如下：</p>
 <ul>
 <li><code>.shbuild</code> ：使用 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 构建时的临时目录（可以在部署后手动删除）。</li>
-<li><code>usr</code> 或其它<a href="Tools/Scripts.zh-CN.html">系统前缀字符串</a>中去除 <code>/</code> 指定的目录名称：被部署的用户空间目录，其中的内容使用 <a href="http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html">Linux</a> 等现代 UNIX 变体类似的约定
+<li><a href="Tools/Scripts.zh-CN.html">系统前缀字符串</a>指定的作为<a href="Tools/Scripts.zh-CN.html">安装路径前缀</a>的最后一个路径组件的目录文件名（如 <code>usr</code> ）：被部署的用户空间目录，其中的内容使用 <a href="http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html">Linux</a> 等现代 UNIX 变体类似的约定：
 <ul>
-<li>bin 二进制文件</li>
-<li>include 头文件</li>
-<li>lib 库文件</li>
-<li>share 共享的数据文件</li>
+<li><code>bin</code> ：二进制文件。</li>
+<li><code>include</code> ：头文件。</li>
+<li><code>lib</code> ：库文件。</li>
+<li><code>share</code> ：共享的数据文件。</li>
+<li><code>var</code> ：程序运行时可修改的数据。
+<ul>
+<li><code>var/NPLA1</code> ：NPLA1 脚本部署位置。</li>
 </ul>
 </li>
 </ul>
-<p>其中，对 MinGW32 和 MinGW64 平台，系统前缀字符串指定的路径和 MSYS2 构建系统的 <code>/etc/msystem</code> 脚本指定的 <code>MSYSTEM_PREFIX</code> 的值一致，对应 <a href="https://github.com/msys2/msys2/wiki/MSYS2-introduction#file-system">MSYS2 支持的两个 <code>mingw</code> 子系统路径</a>。</p>
-<p>上述 <code>bin</code> 目录可以加入环境变量 <code>PATH</code> 中以便其中的程序被命令行执行。当前若使用 <a href="YDE.zh-CN.html">YDE</a> 构建脚本，这是必要的。</p>
+</li>
+</ul>
+<p>　　其中，除 <code>var</code> 外，这些目录中的内容在安装或维护部署情形外通常应保持只读。</p>
+<p>　　对 MinGW32 和 MinGW64 平台，系统前缀字符串指定的路径和 MSYS2 构建系统的 <code>/etc/msystem</code> 脚本指定的 <code>MSYSTEM_PREFIX</code> 的值一致，对应 <a href="https://github.com/msys2/msys2/wiki/MSYS2-introduction#file-system">MSYS2 支持的两个 <code>mingw</code> 子系统路径</a>。</p>
+<p>　　上述 <code>bin</code> 目录可以加入环境变量 <code>PATH</code> 中以便其中的程序被命令行执行。当前若使用 <a href="YDE.zh-CN.html">YDE</a> 构建脚本，这是必要的。</p>
 <h1><a class="header" href="#安装脚本" id="安装脚本">安装脚本</a></h1>
-<p>YSLib 项目提供打包 Sysroot 的脚本，位于 <code>Tools/Scripts/install-sysroot.sh</code> 。默认输出的位置为版本库根目录下的 <code>sysroot</code> 目录。</p>
-<p>关于脚本的其它行为，参见<a href="Tools/Scripts.zh-CN.html">脚本</a>的有关说明。</p>
-<h1><a class="header" href="#mingw-sysroot-开发指令" id="mingw-sysroot-开发指令">MinGW Sysroot 开发指令</a></h1>
+<p>　　YSLib 项目提供打包 Sysroot 的脚本，位于 <code>Tools/Scripts/install-sysroot.sh</code> 。默认输出的位置为版本库根目录下的 <code>sysroot</code> 目录。</p>
+<p>　　关于本章讨论以外的脚本的其它行为，参见<a href="Tools/Scripts.zh-CN.html">脚本</a>的有关说明。</p>
+<h2><a class="header" href="#npla1-脚本部署" id="npla1-脚本部署">NPLA1 脚本部署</a></h2>
+<p>　　安装脚本在 <a href="Tools/SHBuild.zh-CN.html">stage 2 SHBuild</a> 构建和安装后，安装（复制）版本库中的以下脚本到安装路径下的 <code>var/NPLA1</code> ：</p>
+<ul>
+<li><code>Tools/Script/SHBuild-BuildApp.txt</code></li>
+<li><code>Tools/Script/SHBuild-YSLib-common.txt</code></li>
+</ul>
+<h1><a class="header" href="#sysroot-开发指令" id="sysroot-开发指令">Sysroot 开发指令</a></h1>
 <h2><a class="header" href="#基础环境" id="基础环境">基础环境</a></h2>
-<p>使用 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 构建和部署运行环境，包括库和工具。</p>
+<p>　　使用 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 构建和部署运行环境，包括库和工具。</p>
 <p><strong>建议阅读以下关于选项以及<a href="Tools/Scripts.zh-CN.html">脚本</a>说明后再运行命令。</strong></p>
-<p>可进入 <code>bash</code> 运行以下 GNU bash 脚本：</p>
+<p>　　可进入 <code>bash</code> 运行以下 GNU bash 脚本：</p>
 <pre><code>Tools/install-sysroot.sh
 </code></pre>
-<p>直接构建和部署基础环境。</p>
+<p>　　直接构建和部署基础环境。</p>
 <p><strong>注意</strong> 当前构建脚本默认使用 <code>uname</code> 判断目标的体系结构。对于 MSYS2 等环境，结果为基本系统的体系结构而不一定和目标系统相同。若使用 64 位基本系统构建 32 位目标，使用以下命令代替：</p>
 <pre><code>SHBuild_Env_Arch=i686 Tools/install-sysroot.sh
 </code></pre>
-<p>此处<a href="Prerequisitions.zh-CN.html">自动环境检测</a>的机制同 shell 脚本 <code>Tools/Scripts/SHBuild-common.sh</code> 中的函数 <code>SHBuild_CheckUName</code> ，详见<a href="Tools/Scripts.zh-CN.html">脚本</a>的说明。</p>
-<p>构建过程包括 <code>SHBuild</code> 可用的<a href="Tools/SHBuild.zh-CN.html">多阶段构建</a>。</p>
+<p>　　此处<a href="Prerequisitions.zh-CN.html">自动环境检测</a>的机制同 shell 脚本 <code>Tools/Scripts/SHBuild-common.sh</code> 中的函数 <code>SHBuild_CheckUName</code> ，详见<a href="Tools/Scripts.zh-CN.html">脚本</a>的说明。</p>
+<p>　　构建过程包括 <code>SHBuild</code> 可用的<a href="Tools/SHBuild.zh-CN.html">多阶段构建</a>。</p>
 <p>除引导 <a href="Tools/SHBuild.zh-CN.html">stage 1 SHBuild</a> 最后的链接器警告外，因为升级或更换编译器和/或选项，导致预编译头文件（ <code>.gch</code> 文件）不能被识别的警告也可被安全忽略。</p>
 <ul>
 <li>此时编译器应能自动忽略这些文件</li>
@@ -209,14 +221,14 @@
 <li>若不需要使用预编译头文件，可参考<a href="Tools/Scripts.zh-CN.html">脚本</a>说明设置变量</li>
 <li>若仅需避免产生警告，确保编译器命令行使用恰当选项，如添加 <code>-Wno-invalid-pch</code></li>
 </ul>
-<p>但注意，<strong>预编译头文件不保证对不同的 Windows 系统版本兼容</strong>，参见<a href="Prerequisitions.zh-CN.html">先决条件</a>中 PC(Win32) 平台关于操作系统版本的说明。</p>
+<p><strong>注意</strong> 预编译头文件不保证对不同的 Windows 系统版本兼容，参见<a href="Prerequisitions.zh-CN.html">先决条件</a>中 PC(Win32) 平台关于操作系统版本的说明。</p>
 <h2><a class="header" href="#应用程序构建脚本" id="应用程序构建脚本">应用程序构建脚本</a></h2>
-<p>参见<a href="Tools/Scripts.zh-CN.html">脚本</a>的对应章节。</p>
+<p>　　参见<a href="Tools/Scripts.zh-CN.html">脚本</a>的对应章节。</p>
 <p><a href="ProjectDependencies.zh-CN.html">YSTest</a> 支持使用脚本 <code>/YSTest/SHBuild-YSTest.sh</code> 构建（需要指定 <code>PATH</code> ），可作为例子参考。</p>
-<p>脚本依赖已构建的 stage 2 基础环境（构建脚本和库文件等），但和其它 stage 2 应用不同，当前默认情况下使用 <code>build</code> 目录下的平台目录存放生成的文件（中间文件和生成的可执行程序示例）。</p>
+<p>　　脚本依赖已构建的 stage 2 基础环境（构建脚本和库文件等），但和其它 stage 2 应用不同，当前默认情况下使用 <code>build</code> 目录下的平台目录存放生成的文件（中间文件和生成的可执行程序示例）。</p>
 <h2><a class="header" href="#部署" id="部署">部署</a></h2>
-<p>当前不提供直接部署程序。</p>
-<p>参照<a href="Run.zh-CN.html">运行</a>确定二进制依赖项位置和调整运行时的配置。</p>
+<p>　　除安装脚本外，当前不提供直接部署程序。</p>
+<p>　　参照<a href="Run.zh-CN.html">运行</a>确定二进制依赖项位置和调整运行时的配置。</p>
 
                     </main>
 

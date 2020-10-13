@@ -156,7 +156,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#版本库结构和文件说明" id="版本库结构和文件说明">版本库结构和文件说明</a></h1>
-<p>以下只包括一级目录和少数特定的二级目录说明。</p>
+<p>　　以下只包括一级目录和少数特定的二级目录说明。</p>
 <ul>
 <li><code>/.git</code> Git 目录（可通过 hg-git 同步）</li>
 <li><code>/.hg</code> Mercurial 目录</li>
@@ -197,7 +197,7 @@
 <li><code>/YSTest.sln</code> Visual Studio 解决方案文件</li>
 <li><code>/YSTest.workspace</code> Code::Blocks 工作空间文件</li>
 </ul>
-<p>以下目录会被默认支持的构建配置生成：</p>
+<p>　　以下目录会被默认支持的构建配置生成：</p>
 <ul>
 <li><code>/YDE/</code> 下以 <code>.</code> 起始的特定宿主平台为子目录名的构建目录是 <a href="Sysroot.zh-CN.html">stage 2 环境</a>下的 <a href="YDE.zh-CN.html">YDE 项目</a>的生成文件目录</li>
 <li><code>/build/</code> 下以特定的宿主平台为子目录名的默认构建目录，默认配置构建时会创建不同的平台目录，其中的子目录可包括：
@@ -211,17 +211,17 @@
 <li><code>/sysroot</code> 使用<a href="Tools/Scripts.zh-CN.html">脚本</a>构建的默认 <a href="Sysroot.zh-CN.html">Sysroot （含 stage 2 环境）</a> 生成目录</li>
 </ul>
 <h1><a class="header" href="#项目结构和特性" id="项目结构和特性">项目结构和特性</a></h1>
-<p>项目内容以模块为单位组织。关于模块的概念及其表示形式，详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。因为特性众多，在此只列出较上层的基本结构，不总是精确到具体模块。</p>
+<p>　　项目内容以模块为单位组织。关于模块的概念及其表示形式，详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。因为特性众多，在此只列出较上层的基本结构，不总是精确到具体模块。</p>
 <h2><a class="header" href="#ybase-yframework-基础库" id="ybase-yframework-基础库">YBase ：YFramework 基础库</a></h2>
-<p>详见 <code>doc/YBase.txt</code> 。</p>
-<p>替代标准库的特性另见 <a href="StandardUsing.en-US.html">StandardUsing(en-US)</a> 。</p>
+<p>　　详见 <code>doc/YBase.txt</code> 。</p>
+<p>　　替代标准库的特性另见 <a href="StandardUsing.en-US.html">StandardUsing(en-US)</a> 。</p>
 <ul>
 <li>YStandardEx ： YFramework 标准扩展库</li>
 <li>LibDefect ：标准库修正</li>
 <li>YTest ：YFramework 基础测试库</li>
 </ul>
 <h2><a class="header" href="#yframework--yframework-框架库" id="yframework--yframework-框架库">YFramework ： YFramework 框架库</a></h2>
-<p>详见 <code>doc/YFramework.txt</code> 。</p>
+<p>　　详见 <code>doc/YFramework.txt</code> 。</p>
 <ul>
 <li>CHRLib ：字符编码处理库
 <ul>
@@ -274,14 +274,14 @@
 <li>HexBrowser：十六进制浏览</li>
 </ul>
 <h1><a class="header" href="#构建" id="构建">构建</a></h1>
-<p>支持使用多种途径进行<a href="Build.zh-CN.html">构建</a>。支持<a href="Terminology.zh-CN.html">多平台构建</a>。另见 <a href="Sysroot.zh-CN.html">Sysroot</a> 和以下的“轮子列表”章节。</p>
-<p><a href="Terminology.zh-CN.html">依赖</a>以模块为单位组织。接口（如公开 API 头文件）不出现循环依赖。</p>
-<p>可通过修改代码以裁剪、定制库实现内部的模块构建（如为了减小编译后的二进制映像体积），但应注意在 YSLib 项目文档中列出的显式依赖规则。未来可能会支持构建时的定制配置工具。</p>
+<p>　　支持使用多种途径进行<a href="Build.zh-CN.html">构建</a>。支持<a href="Terminology.zh-CN.html">多平台构建</a>。另见 <a href="Sysroot.zh-CN.html">Sysroot</a> 和以下的“轮子列表”章节。</p>
+<p>　　<a href="Terminology.zh-CN.html">依赖</a>以模块为单位组织。接口（如公开 API 头文件）不出现循环依赖。</p>
+<p>　　可通过修改代码以裁剪、定制库实现内部的模块构建（如为了减小编译后的二进制映像体积），但应注意在 YSLib 项目文档中列出的显式依赖规则。未来可能会支持构建时的定制配置工具。</p>
 <h1><a class="header" href="#abi" id="abi">ABI</a></h1>
-<p>目前除 YBase::LibDefect 和具体实现兼容外，不保证 ABI 稳定。</p>
-<p>具体策略详见 YSLib 项目文档 <code>doc/</code> 下各个库的文档。</p>
+<p>　　目前除 YBase::LibDefect 和具体实现兼容外，不保证 ABI 稳定。</p>
+<p>　　具体策略详见 YSLib 项目文档 <code>doc/</code> 下各个库的文档。</p>
 <h1><a class="header" href="#api" id="api">API</a></h1>
-<p>对各 API 的说明和注意事项详见 YSLib 项目中的源代码，可<a href="BuildDocumentation.zh-CN.html">构建文档</a>。</p>
+<p>　　对各 API 的说明和注意事项详见 YSLib 项目中的源代码，可<a href="BuildDocumentation.zh-CN.html">构建文档</a>。</p>
 <h2><a class="header" href="#平台相关-api-注意事项" id="平台相关-api-注意事项">平台相关 API 注意事项</a></h2>
 <ul>
 <li>YCLib::MemoryMapping 中 <code>platform::MappedFile</code> 的实现需确保文件内容可访问，否则取指针后，可在之后的操作中引发不可恢复的错误。
@@ -312,14 +312,14 @@
 </li>
 </ul>
 <h2><a class="header" href="#标准库使用" id="标准库使用">标准库使用</a></h2>
-<p>YSLib 对 C++ 标准库<a href="Prerequisitions.zh-CN.html">具有明确的要求</a>，且仅使用<a href="StandardUsing.en-US.html">明确的标准库特性</a>。</p>
-<p>和 <a href="http://llvm.org/docs/CodingStandards.html#c-standard-library">LLVM 编码标准对 C++ 标准库的使用(en-US)</a>类似， YSLib 强调尽可能依赖标准库的公开接口。仅在具有充足理由时不依赖标准库而提供和使用自定义 API （基本上总是因为设计和实现的质量不足够满足需求和以上要求的原因）。</p>
-<p>对标准库特性使用的具体限制见<a href="Development.zh-CN.html">开发说明</a>及 YSLib 项目文档 <code>doc/LanguageConvention.txt</code> 等规则。</p>
-<p>相关的其它原理另见下节。</p>
+<p>　　YSLib 对 C++ 标准库<a href="Prerequisitions.zh-CN.html">具有明确的要求</a>，且仅使用<a href="StandardUsing.en-US.html">明确的标准库特性</a>。</p>
+<p>　　和 <a href="http://llvm.org/docs/CodingStandards.html#c-standard-library">LLVM 编码标准对 C++ 标准库的使用(en-US)</a>类似， YSLib 强调尽可能依赖标准库的公开接口。仅在具有充足理由时不依赖标准库而提供和使用自定义 API （基本上总是因为设计和实现的质量不足够满足需求和以上要求的原因）。</p>
+<p>　　对标准库特性使用的具体限制见<a href="Development.zh-CN.html">开发说明</a>及 YSLib 项目文档 <code>doc/LanguageConvention.txt</code> 等规则。</p>
+<p>　　相关的其它原理另见下节。</p>
 <h2><a class="header" href="#轮子列表" id="轮子列表">轮子列表</a></h2>
-<p>本项目发明了一些轮子。为了符合<a href="Home.zh-CN.html">不重复发明轮子的项目内容规则</a>，在发现更好的替代时，其中一些会被逐渐移除。</p>
-<p>但是，其余一些轮子，因为特定的原因，不视为对此规则的违反而得以保留，包括一些在当前实现中使用的和较新版本语言规范中提供的兼容的特性。</p>
-<p>主要包括以下内容：</p>
+<p>　　本项目发明了一些轮子。为了符合<a href="Home.zh-CN.html">不重复发明轮子的项目内容规则</a>，在发现更好的替代时，其中一些会被逐渐移除。</p>
+<p>　　但是，其余一些轮子，因为特定的原因，不视为对此规则的违反而得以保留，包括一些在当前实现中使用的和较新版本语言规范中提供的兼容的特性。</p>
+<p>　　主要包括以下内容：</p>
 <ul>
 <li>YBase.YStandardEx
 <ul>

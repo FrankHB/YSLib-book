@@ -156,43 +156,43 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#先决条件" id="先决条件">先决条件</a></h1>
-<p>特定历史版本依赖的详细环境和平台库版本参见开发文档 <code>doc/Dependencies.txt</code> 。以下仅为当前最新主分支版本中用于构建 YSLib 自身及基于 YSLib 开发应用的环境配置说明。</p>
-<p>关于本项目对平台的定义和项目保持的环境约束，包括开发需要的以下基础环境外的其它第三方依赖，在了解下文内容后，参见<a href="Development.zh-CN.html">开发说明</a>。</p>
+<p>　　特定历史版本依赖的详细环境和平台库版本参见开发文档 <code>doc/Dependencies.txt</code> 。以下仅为当前最新主分支版本中用于构建 YSLib 自身及基于 YSLib 开发应用的环境配置说明。</p>
+<p>　　关于本项目对平台的定义和项目保持的环境约束，包括开发需要的以下基础环境外的其它第三方依赖，在了解下文内容后，参见<a href="Development.zh-CN.html">开发说明</a>。</p>
 <p><strong>注意</strong> <a href="GettingSources.zh-CN.html">获取到源代码</a>并不保证能够直接构建 YSLib （特别是对于直接从版本库获取的途径）。如需自行构建，应注意<a href="Development.zh-CN.html">开发说明</a>中有关外部依赖项的部分获取必要的其它文件。</p>
-<p>关于运行环境，另见<a href="Run.zh-CN.html">运行时平台环境的说明</a>。</p>
-<p>详细提交测试的环境参见开发文档 <code>doc/Test.txt</code> 。</p>
-<p>若不使用特定的特性或构建平台，构建环境的部分要求是可选的。</p>
-<p>以下各节的环境配置以“宿主平台/目标平台(目标平台名)”为标题指定，其中目标平台名是正式的配置名称（也在其它项目文档中作为配置名称使用），若和平台一致则被省略；其它平台的标识当前仅为明确开发流程，在用户文档中使用。对宿主平台和目标平台两者一致的情形，只标识一个平台。关于“平台”的一般含义，参见<a href="Terminology.zh-CN.html">术语</a>。</p>
+<p>　　关于运行环境，另见<a href="Run.zh-CN.html">运行时平台环境的说明</a>。</p>
+<p>　　详细提交测试的环境参见开发文档 <code>doc/Test.txt</code> 。</p>
+<p>　　若不使用特定的特性或构建平台，构建环境的部分要求是可选的。</p>
+<p>　　以下各节的环境配置以“宿主平台/目标平台(目标平台名)”为标题指定，其中目标平台名是正式的配置名称（也在其它项目文档中作为配置名称使用），若和平台一致则被省略；其它平台的标识当前仅为明确开发流程，在用户文档中使用。对宿主平台和目标平台两者一致的情形，只标识一个平台。关于“平台”的一般含义，参见<a href="Terminology.zh-CN.html">术语</a>。</p>
 <h2><a class="header" href="#公共构建环境" id="公共构建环境">公共构建环境</a></h2>
-<p>构建环境提供工具链（语言实现）和构建需要的工具。某些工具被不同的构建环境共享（但可能仍需针对不同构建平台使用不同二进制程序）。</p>
-<p>Windows 平台上的 MSYS2 基础环境符合以下公共构建环境的所有要求。当前发布和一般提交（包括本机平台和交叉构建）时仅测试 MSYS2 。</p>
+<p>　　构建环境提供工具链（语言实现）和构建需要的工具。某些工具被不同的构建环境共享（但可能仍需针对不同构建平台使用不同二进制程序）。</p>
+<p>　　Windows 平台上的 MSYS2 基础环境符合以下公共构建环境的所有要求。当前发布和一般提交（包括本机平台和交叉构建）时仅测试 MSYS2 。</p>
 <h3><a class="header" href="#命令行环境" id="命令行环境">命令行环境</a></h3>
-<p>除非另行指定，构建环境的命令兼容 POSIX shell 。当前非 POSIX shell 的命令行构建环境仅在 <a href="Sysroot.zh-CN.html">Sysroot stage 2 环境</a> 被支持。</p>
+<p>　　除非另行指定，构建环境的命令兼容 POSIX shell 。当前非 POSIX shell 的命令行构建环境仅在 <a href="Sysroot.zh-CN.html">Sysroot stage 2 环境</a> 被支持。</p>
 <h3><a class="header" href="#工具链" id="工具链">工具链</a></h3>
-<p>使用 <code>make</code> 的平台需要 POSIX shell 支持。</p>
-<p>除非另行指定， <code>make</code> 使用 GNU make ，版本 3.78 以上（建议使用 4.0 以上版本，虽然 YSLib makefile 不使用不兼容的特性）；不使用 <code>mingw32-make</code> 。</p>
-<p>注意 <code>make</code> 可能被构建工具使用，详见以下链接时优化的说明。</p>
-<p>POSIX shell 实现可使用<a href="Tools/Scripts.zh-CN.html">和工具脚本兼容的脚本解释环境</a> ，一般即 <code>bash</code> （建议版本 4.0 或以上）。</p>
-<p>除非另行指定，直接支持的 C++ 实现为 GNU C++ 4.9 或以上版本。</p>
+<p>　　使用 <code>make</code> 的平台需要 POSIX shell 支持。</p>
+<p>　　除非另行指定， <code>make</code> 使用 GNU make ，版本 3.78 以上（建议使用 4.0 以上版本，虽然 YSLib makefile 不使用不兼容的特性）；不使用 <code>mingw32-make</code> 。</p>
+<p>　　注意 <code>make</code> 可能被构建工具使用，详见以下链接时优化的说明。</p>
+<p>　　POSIX shell 实现可使用<a href="Tools/Scripts.zh-CN.html">和工具脚本兼容的脚本解释环境</a> ，一般即 <code>bash</code> （建议版本 4.0 或以上）。</p>
+<p>　　除非另行指定，直接支持的 C++ 实现为 GNU C++ 4.9 或以上版本。</p>
 <h3><a class="header" href="#自动环境检测" id="自动环境检测">自动环境检测</a></h3>
-<p>在命令行环境中使用<a href="Tools/Scripts.zh-CN.html">脚本</a>构建时，脚本可能自动检测构建环境而需要附加的工具。这些工具可能在具体的构建环境（如以下各节）中可能已被提供或可选安装，参阅各个构建环境附带的文档。</p>
+<p>　　在命令行环境中使用<a href="Tools/Scripts.zh-CN.html">脚本</a>构建时，脚本可能自动检测构建环境而需要附加的工具。这些工具可能在具体的构建环境（如以下各节）中可能已被提供或可选安装，参阅各个构建环境附带的文档。</p>
 <ul>
 <li><code>grep</code> ：用于判断线程支持的命令行选项。</li>
 <li><code>uname</code> ：用于查询平台配置。</li>
 </ul>
-<p>使用特定的选项跳过自动检测构建时，可不依赖某些工具。详见具体脚本的说明。</p>
+<p>　　使用特定的选项跳过自动检测构建时，可不依赖某些工具。详见具体脚本的说明。</p>
 <h3><a class="header" href="#控制台和终端" id="控制台和终端">控制台和终端</a></h3>
-<p>除了自动检测环境（ Win32 或非 Win32 下使用 ANSI 转义序列）开启的彩色（前景色）文本，构建环境没有使用依赖特定终端的字符界面。因此可以使用不同的控制台或终端模拟器。</p>
+<p>　　除了自动检测环境（ Win32 或非 Win32 下使用 ANSI 转义序列）开启的彩色（前景色）文本，构建环境没有使用依赖特定终端的字符界面。因此可以使用不同的控制台或终端模拟器。</p>
 <p><strong>注意</strong> 在 Windows 平台上若使用 ConEmu 出现 0xC0000005 错误，尝试<a href="https://code.google.com/p/conemu-maximus5/wiki/MicrosoftBugs">升级到最新版本后勾选 Inject ConEmuHk 选项</a> ，或直接使用 <code>cmd</code> 代替。</p>
 <h3><a class="header" href="#线程执行环境" id="线程执行环境">线程执行环境</a></h3>
-<p>除非另行指定，线程执行环境使用 ISO C++ 的定义，参见 <a href="http://www.eel.is/c++draft/intro.multithread">ISO C++ [intro.multithread]</a> 。</p>
-<p>库或接口的集合对多线程环境的依赖性满足以下要求：</p>
+<p>　　除非另行指定，线程执行环境使用 ISO C++ 的定义，参见 <a href="http://www.eel.is/c++draft/intro.multithread">ISO C++ [intro.multithread]</a> 。</p>
+<p>　　库或接口的集合对多线程环境的依赖性满足以下要求：</p>
 <ul>
 <li>明确<strong>不依赖多线程执行环境</strong>时，保证在指定<a href="Terminology.zh-CN.html">平台</a>上可用的的公开 API 可构建并满足接口约定的语义，可在单线程执行环境中运行。</li>
 <li>明确<strong>严格不依赖多线程执行环境</strong>时，在不依赖多线程执行环境的要求上，还应保证语义一致。</li>
 <li>否则，不保证接口提供的功能可用。</li>
 </ul>
-<p>YSLib 整体不依赖多线程执行环境。特定的依赖多线程执行的情形包括以下话题：</p>
+<p>　　YSLib 整体不依赖多线程执行环境。特定的依赖多线程执行的情形包括以下话题：</p>
 <ul>
 <li>使用 ISO C++ 线程环境（首先要求实现满足<a href="Development.zh-CN.html">整体要求</a>）：
 <ul>
@@ -209,12 +209,12 @@
 </li>
 </ul>
 <h3><a class="header" href="#链接时优化lto" id="链接时优化lto">链接时优化(LTO)</a></h3>
-<p>YSLib 默认在 release 构建配置下通过向编译器和链接器传递命令行参数 <code>-flto</code> 等启用 LTO 。若工具链不支持 LTO ，可能需要自行修改脚本去除相关选项——这不被正式支持。</p>
-<p>MSYS2 的 MinGW 目标的 binutils-git 包的 <code>gnu-ar</code> 较早启用了 LTO 插件，可以直接使用。现在 MSYS2 的 MinGW 目标的 binutils 包也应支持。其它工具链需自行验证。</p>
+<p>　　YSLib 默认在 release 构建配置下通过向编译器和链接器传递命令行参数 <code>-flto</code> 等启用 LTO 。若工具链不支持 LTO ，可能需要自行修改脚本去除相关选项——这不被正式支持。</p>
+<p>　　MSYS2 的 MinGW 目标的 binutils-git 包的 <code>gnu-ar</code> 较早启用了 LTO 插件，可以直接使用。现在 MSYS2 的 MinGW 目标的 binutils 包也应支持。其它工具链需自行验证。</p>
 <p><strong>注意</strong> <a href="http://gcc.gnu.org/gcc-4.9/changes.html">GCC 4.9 起使用 LTO 默认不启用 -ffat-lto-objects 选项</a>，因此需要链接器具有 LTO 插件支持，否则在启用 <code>-flto</code> 选项时会出现无法解析符号的链接错误。</p>
 <p><strong>注意</strong> <a href="https://github.com/gcc-mirror/gcc/blob/master/gcc/lto-wrapper.c#L1309">GCC 的 LTO wrapper 默认使用 <code>make</code></a> ，若没有 <code>make</code> 也没有通过指定 <code>MAKE</code> 环境变量替代，构建时使用 <code>-flto</code> 会失败。</p>
 <h2><a class="header" href="#pcdsds" id="pcdsds">PC/DS(DS)</a></h2>
-<p>支持的构建环境：</p>
+<p>　　支持的构建环境：</p>
 <ul>
 <li>DS 交叉编译环境，包括
 <ul>
@@ -225,7 +225,7 @@
 </ul>
 </li>
 </ul>
-<p>支持的运行环境：</p>
+<p>　　支持的运行环境：</p>
 <ul>
 <li>Nintendo/iQue DS[Lite/i/LL]
 <ul>
@@ -234,32 +234,32 @@
 </li>
 <li>DeSmuME 0.9.9 <strong>（注意新版本因为<a href="http://wiki.desmume.org/index.php?title=Faq#How_can_I_run_homebrew_games_that_require_DLDI_patching_.3F">自动 DLDI</a> 存在缺陷，暂时不支持运行自制程序。）</strong></li>
 </ul>
-<p>环境变量 <code>DEVKITARM</code> 指定一个 POSIX 路径，其中的 <code>bin</code> 子目录下包括工具。示例（ POSIX shell 使用 Windows 路径）：</p>
+<p>　　环境变量 <code>DEVKITARM</code> 指定一个 POSIX 路径，其中的 <code>bin</code> 子目录下包括工具。示例（ POSIX shell 使用 Windows 路径）：</p>
 <pre><code>export DEVKITARM=/C/devkitPro/devkitARM
 </code></pre>
-<p>建议使用发布时最新版本的 <a href="http://devkitpro.org/">devkitPro</a> 。</p>
-<p>devkitPro 在 Windows 下提供 MSYS ，在 devkitPro 安装目录下 <code>msys/bin</code> 包含 <code>bash</code> 等程序。可把此路径添加到环境变量 <code>PATH</code> 。也可使用 MSYS2 替代。</p>
-<p>发布和一般提交时仅测试 devkitPro 最新版本，目标平台三元组 arm-none-eabi。</p>
+<p>　　建议使用发布时最新版本的 <a href="http://devkitpro.org/">devkitPro</a> 。</p>
+<p>　　devkitPro 在 Windows 下提供 MSYS ，在 devkitPro 安装目录下 <code>msys/bin</code> 包含 <code>bash</code> 等程序。可把此路径添加到环境变量 <code>PATH</code> 。也可使用 MSYS2 替代。</p>
+<p>　　发布和一般提交时仅测试 devkitPro 最新版本，目标平台三元组 arm-none-eabi。</p>
 <h2><a class="header" href="#pcwin32" id="pcwin32">PC(Win32)</a></h2>
-<p>Windows 平台使用 Microsoft VC++ 构建。因为一些已知的问题，暂不正式支持。参见以下 MinGW32 平台的构建条件以获取 Windows 可执行文件。</p>
-<p>但以下的部分信息和 MinGW 通用。</p>
+<p>　　Windows 平台使用 Microsoft VC++ 构建。因为一些已知的问题，暂不正式支持。参见以下 MinGW32 平台的构建条件以获取 Windows 可执行文件。</p>
+<p>　　但以下的部分信息和 MinGW 通用。</p>
 <h3><a class="header" href="#windows-子系统subsystem" id="windows-子系统subsystem">Windows 子系统(subsystem)</a></h3>
-<p><a href="http://zh.wikipedia.org/zh-cn/Windows_NT%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">Windows NT 内核以上支持不同的称为<em>子系统</em> 的用户模式运行时环境</a> ，主要包括 Win32 子系统、 OS/2 子系统和 POSIX 子系统。</p>
-<p>因为标准库实现以及 YFramework 的部分组件依赖 Win32 API ， YSLib 在 Windows 上的实现依赖 Win32 子系统。</p>
-<p>Microsoft Visual C++ 提供 <a href="http://msdn.microsoft.com/zh-cn/library/fcc1zstk.aspx"><code>/SUBSYSTEM</code> 链接器选项</a>来指定不同的子系统。在此 <code>CONSOLE</code> 指定控制台程序，而 <code>WINDOWS</code> 指定非控制台的通常使用 GUI 的程序，它们都使用 Win32 子系统实现。</p>
-<p>控制台程序和 GUI 程序的入口不同，也有一些行为上的不同。例如，启动控制台程序默认会显示命令行窗口； GUI 程序忽略命令行的交互式输入。</p>
+<p>　　<a href="http://zh.wikipedia.org/zh-cn/Windows_NT%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">Windows NT 内核以上支持不同的称为<em>子系统</em> 的用户模式运行时环境</a> ，主要包括 Win32 子系统、 OS/2 子系统和 POSIX 子系统。</p>
+<p>　　因为标准库实现以及 YFramework 的部分组件依赖 Win32 API ， YSLib 在 Windows 上的实现依赖 Win32 子系统。</p>
+<p>　　Microsoft Visual C++ 提供 <a href="http://msdn.microsoft.com/zh-cn/library/fcc1zstk.aspx"><code>/SUBSYSTEM</code> 链接器选项</a>来指定不同的子系统。在此 <code>CONSOLE</code> 指定控制台程序，而 <code>WINDOWS</code> 指定非控制台的通常使用 GUI 的程序，它们都使用 Win32 子系统实现。</p>
+<p>　　控制台程序和 GUI 程序的入口不同，也有一些行为上的不同。例如，启动控制台程序默认会显示命令行窗口； GUI 程序忽略命令行的交互式输入。</p>
 <h3><a class="header" href="#操作系统版本" id="操作系统版本">操作系统版本</a></h3>
-<p>Windows 操作系统版本一般对（非交叉编译的）构建没有直接影响，但有以下例外：</p>
-<p>GCC 的<strong>预编译头文件不保证对系统兼容</strong>：升级系统后可能出现错误，例如升级 Windows 10 1803 以后的系统，使用旧的预编译头文件（而不更改编译器二进制文件），可能出现以下内部错误：</p>
+<p>　　Windows 操作系统版本一般对（非交叉编译的）构建没有直接影响，但有以下例外：</p>
+<p>　　GCC 的<strong>预编译头文件不保证对系统兼容</strong>：升级系统后可能出现错误，例如升级 Windows 10 1803 以后的系统，使用旧的预编译头文件（而不更改编译器二进制文件），可能出现以下内部错误：</p>
 <pre><code>internal error in mingw32_gt_pch_use_address, at config/i386/host-mingw32.c:184: MapViewOfFileEx: 试图访问无效的地址。
 </code></pre>
-<p>此时删除所有预编译头文件，或不使用预编译头文件重新构建即可。类似的问题在其它的项目中<a href="https://jira.reactos.org/browse/CORE-8053">也是已知的问题</a>，使用类似的方式解决。</p>
-<p>另外，<a href="https://github.com/msys2/MINGW-packages/issues/5067">部分 Windows 版本可能存在不明原因的内核缺陷导致类似的问题</a>。不仅限于构建，这些问题可能对运行也有影响。</p>
+<p>　　此时删除所有预编译头文件，或不使用预编译头文件重新构建即可。类似的问题在其它的项目中<a href="https://jira.reactos.org/browse/CORE-8053">也是已知的问题</a>，使用类似的方式解决。</p>
+<p>　　另外，<a href="https://github.com/msys2/MINGW-packages/issues/5067">部分 Windows 版本可能存在不明原因的内核缺陷导致类似的问题</a>。不仅限于构建，这些问题可能对运行也有影响。</p>
 <h3><a class="header" href="#预编译头文件" id="预编译头文件">预编译头文件</a></h3>
-<p>部分构建使用可选的预编译头文件。</p>
+<p>　　部分构建使用可选的预编译头文件。</p>
 <h2><a class="header" href="#pcmingw32" id="pcmingw32">PC(MinGW32)</a></h2>
-<p>关于 MinGW 或 MinGW32 的称谓，参见<a href="https://github.com/FrankHB/pl-docs/blob/master/zh-CN/mingw-vs-mingw-v64.md">这里</a>的说明。</p>
-<p>支持的构建环境：</p>
+<p>　　关于 MinGW 或 MinGW32 的称谓，参见<a href="https://github.com/FrankHB/pl-docs/blob/master/zh-CN/mingw-vs-mingw-v64.md">这里</a>的说明。</p>
+<p>　　支持的构建环境：</p>
 <ul>
 <li>目标 32 位(i686) MinGW GCC 工具链
 <ul>
@@ -283,14 +283,14 @@
 </ul>
 </li>
 </ul>
-<p>非正式支持的构建环境：</p>
+<p>　　非正式支持的构建环境：</p>
 <ul>
 <li>目标 64 位(x86_64) MinGW GCC 工具链（目标平台三元组 x86_64-w64-mingw32 或 x86_64-pc-mingw32 ）</li>
 <li>以上工具链中使用 LLVM-Clang++ 代替 GCC</li>
 </ul>
-<p>对 i686 平台， YSLib 版本库中 <code>/YFramework/MinGW32/lib-i686</code> 目录用于保存外部依赖项 FreeType2 和修改版 FreeImage 的二进制文件。</p>
-<p>对 x86_64 平台，需要自行编译依赖项。若构建环境存在可二进制兼容的 FreeType2 ，只需要编译修改版本的 FreeImage 。</p>
-<p>支持的运行环境：</p>
+<p>　　对 i686 平台， YSLib 版本库中 <code>/YFramework/MinGW32/lib-i686</code> 目录用于保存外部依赖项 FreeType2 和修改版 FreeImage 的二进制文件。</p>
+<p>　　对 x86_64 平台，需要自行编译依赖项。若构建环境存在可二进制兼容的 FreeType2 ，只需要编译修改版本的 FreeImage 。</p>
+<p>　　支持的运行环境：</p>
 <ul>
 <li>Microsoft Windows XP 或以上版本操作系统
 <ul>
@@ -305,30 +305,30 @@
 </ul>
 </li>
 </ul>
-<p>注意以上运行库，未在发布版本中打包。此处依赖的详细说明参见开发文档 <code>doc/Dependencies.txt</code> @1.5.2 。</p>
-<p>若缺少 DLL ，也可在 MinGW32 GCC 发行版中的 <code>bin</code> 目录下找到。</p>
+<p>　　注意以上运行库未在发布版本中打包。此处依赖的详细说明参见开发文档 <code>doc/Dependencies.txt</code> @1.5.2 。</p>
+<p>　　若缺少 DLL ，也可在 MinGW32 GCC 发行版中的 <code>bin</code> 目录下找到。</p>
 <p><strong>特别注意</strong> 应使用对应的正确的线程模型（使用 POSIX 或 MCF 而不是 Win32 ，后者没有实现标准库的线程支持）以及异常模型（ i686 为 Dwarf2 和 SjLj 之一，特定构建版本相关）。运行时 DLL 不匹配会导致错误。</p>
 <h3><a class="header" href="#msys2" id="msys2">MSYS2</a></h3>
-<p>建议使用 <a href="http://sourceforge.net/projects/msys2">MSYS2</a> ，相关问题可参考<a href="https://sourceforge.net/p/msys2/wiki/Home/">官方 Wiki</a> 。</p>
-<p>MSYS2 以从 <a href="https://wiki.archlinux.org/index.php/Main_page_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">Arch Linux</a> 移植的 <a href="https://wiki.archlinux.org/index.php/Pacman_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">pacman</a> 作为包管理器，可以直接通过命令行安装和移除不同的包，包括开发工具。以下环境也可用于开发其它 MSYS2 或 MinGW32 应用（忽略标注为 YSLib 的步骤即可）。</p>
+<p>　　建议使用 <a href="http://sourceforge.net/projects/msys2">MSYS2</a> ，相关问题可参考<a href="https://sourceforge.net/p/msys2/wiki/Home/">官方 Wiki</a> 。</p>
+<p>　　MSYS2 以从 <a href="https://wiki.archlinux.org/index.php/Main_page_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">Arch Linux</a> 移植的 <a href="https://wiki.archlinux.org/index.php/Pacman_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">pacman</a> 作为包管理器，可以直接通过命令行安装和移除不同的包，包括开发工具。以下环境也可用于开发其它 MSYS2 或 MinGW32 应用（忽略标注为 YSLib 的步骤即可）。</p>
 <h4><a class="header" href="#体系结构和命令行调用" id="体系结构和命令行调用">体系结构和命令行调用</a></h4>
-<p>一个 MSYS2 环境同时支持 MSYS2 和 i686(x86) 和 x86_64(x64) 的 MinGW32 三个目标平台。其中 MSYS2 目标类似 <a href="https://www.cygwin.com/">Cygwin</a> ，运行时依赖特定的 POSIX 兼容层 DLL （这里一般是 msys-2.0.dll ），性能往往较依赖 <a href="https://msdn.microsoft.com/en-us/library/abx4dbyh.aspx">MSVCRT</a> （默认版本现在 Windows 系统中应都已存在部署）的 MinGW32 目标低。所以不需要严格的 POSIX 兼容的应用尽量使用 MinGW 而不是 MSYS2 目标。</p>
-<p>MSYS2 自身也存在不同的体系结构而成为目标平台。和 MinGW32 不同，每个基础环境是 i686 和 x86_64 之一。在 x64 Windows 上，可以通过部署多个基础环境，合理设置环境变量 <code>PATH</code> 来切换使用 i686 或 x86_64 （而 32 位 Windows 只支持 i686 ）路径；但一般情形下只需要使用其中之一。这个决定一般会作用到所有 MSYS2 程序，如 <code>bash</code> 。</p>
-<p>不论是 i686 还是 x86_64 的 MSYS2 基础环境，都可以选择安装 i686 或 x86_64 的 MinGW32 目标的包，但因为使用不同的 MSYS2 程序，两者并非可完全替换。</p>
+<p>　　一个 MSYS2 环境同时支持 MSYS2 和 i686(x86) 和 x86_64(x64) 的 MinGW32 三个目标平台。其中 MSYS2 目标类似 <a href="https://www.cygwin.com/">Cygwin</a> ，运行时依赖特定的 POSIX 兼容层 DLL （这里一般是 msys-2.0.dll ），性能往往较依赖 <a href="https://msdn.microsoft.com/en-us/library/abx4dbyh.aspx">MSVCRT</a> （默认版本现在 Windows 系统中应都已存在部署）的 MinGW32 目标低。所以不需要严格的 POSIX 兼容的应用尽量使用 MinGW 而不是 MSYS2 目标。</p>
+<p>　　MSYS2 自身也存在不同的体系结构而成为目标平台。和 MinGW32 不同，每个基础环境是 i686 和 x86_64 之一。在 x64 Windows 上，可以通过部署多个基础环境，合理设置环境变量 <code>PATH</code> 来切换使用 i686 或 x86_64 （而 32 位 Windows 只支持 i686 ）路径；但一般情形下只需要使用其中之一。这个决定一般会作用到所有 MSYS2 程序，如 <code>bash</code> 。</p>
+<p>　　不论是 i686 还是 x86_64 的 MSYS2 基础环境，都可以选择安装 i686 或 x86_64 的 MinGW32 目标的包，但因为使用不同的 MSYS2 程序，两者并非可完全替换。</p>
 <p><strong>注意</strong> 因为基础环境中 <code>uname</code> 是位于 <code>/usr/bin</code> 的 MSYS2 程序，基础环境的体系结构会影响 <code>uname</code> 的结果而导致目标体系结构的自动判断结果不同，当前可能会影响后续需要的命令，详见 <a href="Sysroot.zh-CN.html">MinGW Sysroot 开发指令</a>。</p>
 <p><strong>注意</strong> MSYS2 程序和不同体系结构的（本机或其它 MSYS2 ）程序混用可能出现问题。参见下文关于 MSYS2 程序运行问题的说明。</p>
-<p>一个 MSYS2 环境中可能同时存在不同目标的程序，通过合理控制环境变量 <code>PATH</code> 的顺序或在调用时加前缀(prefix) 控制。例如 <code>/usr/bin/gcc.exe</code> 和 <code>/mingw32/bin/gcc.exe</code> 可能同时存在，分别是 MSYS2 和 i686 MinGW32 的 GCC ，可通过以下方式确定调用 MinGW32 GCC ：</p>
+<p>　　一个 MSYS2 环境中可能同时存在不同目标的程序，通过合理控制环境变量 <code>PATH</code> 的顺序或在调用时加前缀(prefix) 控制。例如 <code>/usr/bin/gcc.exe</code> 和 <code>/mingw32/bin/gcc.exe</code> 可能同时存在，分别是 MSYS2 和 i686 MinGW32 的 GCC ，可通过以下方式确定调用 MinGW32 GCC ：</p>
 <ul>
 <li>在 <code>PATH</code> 中使 <code>/mingw32/bin</code> 尽量靠前来指定 <code>gcc</code> 调用 MinGW32 而不是 MSYS2 GCC</li>
 <li>若存在 <code>i686-w64-mingw32-gcc</code> 等明确目标平台的版本，一般可以直接在命令行中代替 <code>gcc</code></li>
 <li>明确路径前缀，即使用 <code>/mingw32/bin/gcc</code> 代替 <code>gcc</code></li>
 </ul>
-<p>某些工具可能在附加路径前缀 <code>/mingw32</code> 指定此类程序的安装位置。但当前 YSLib 不提供工具控制这些部署方式，默认只使用第一种方式：手动配置 <code>PATH</code> 。</p>
-<p>MSYS2 MinGW 工具链使用 POSIX 线程模型。</p>
-<p>MSYS2 MinGW i686 工具链使用 Dwarf2 异常模型。</p>
-<p>当前 YSLib 不支持 MSYS 目标。</p>
+<p>　　某些工具可能在附加路径前缀 <code>/mingw32</code> 指定此类程序的安装位置。但当前 YSLib 不提供工具控制这些部署方式，默认只使用第一种方式：手动配置 <code>PATH</code> 。</p>
+<p>　　MSYS2 MinGW 工具链使用 POSIX 线程模型。</p>
+<p>　　MSYS2 MinGW i686 工具链使用 Dwarf2 异常模型。</p>
+<p>　　当前 YSLib 不支持 MSYS 目标。</p>
 <h4><a class="header" href="#主要配置步骤" id="主要配置步骤">主要配置步骤</a></h4>
-<p>（某些步骤和原理也可参考<a href="https://sourceforge.net/p/msys2/wiki/MSYS2%20installation/">官方 Wiki</a> 。）</p>
+<p>　　（某些步骤和原理也可参考<a href="https://sourceforge.net/p/msys2/wiki/MSYS2%20installation/">官方 Wiki</a> 。）</p>
 <ul>
 <li>
 <p>进入<a href="https://sourceforge.net/projects/msys2/files/Base/">官方发布站点</a>/<a href="http://mirror.bit.edu.cn/msys2/Base/">北京理工大学镜像</a>/<a href="https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/">清华大学 TUNA 镜像</a>/<a href="http://mirrors.ustc.edu.cn/msys2/distrib/">中国科学技术大学开源软件镜像</a>的其中一个子目录下载 MSYS2 基础环境</p>
@@ -382,10 +382,10 @@
 </ul>
 </li>
 </ul>
-<p>上述脚本调用 MSYS2 的包管理器 <code>pacman</code> 分批下载安装或更新所需工具：首先安装必要的工具，其次安装可选（但推荐）的工具。具体内容详见脚本代码。若安装工具时需要确认，按 <code>Y</code> 并回车。</p>
+<p>　　上述脚本调用 MSYS2 的包管理器 <code>pacman</code> 分批下载安装或更新所需工具：首先安装必要的工具，其次安装可选（但推荐）的工具。具体内容详见脚本代码。若安装工具时需要确认，按 <code>Y</code> 并回车。</p>
 <h4><a class="header" href="#配置安装源" id="配置安装源">配置安装源</a></h4>
-<p>官方镜像配置参见 <a href="https://github.com/Alexpux/MSYS2-packages/tree/master/pacman-mirrors">pacman-mirrors</a> 。</p>
-<p>若 <code>pacman</code> 下载过慢，可用文本编辑器打开 MSYS 根目录下的 <code>/etc/pacman.d</code> 中的配置文件，编辑对应的镜像地址。如对于 32 位的 MinGW 包，在 <code>mirrorlist.mingw32</code> 的其它非注释行之前插入：</p>
+<p>　　官方镜像配置参见 <a href="https://github.com/Alexpux/MSYS2-packages/tree/master/pacman-mirrors">pacman-mirrors</a> 。</p>
+<p>　　若 <code>pacman</code> 下载过慢，可用文本编辑器打开 MSYS 根目录下的 <code>/etc/pacman.d</code> 中的配置文件，编辑对应的镜像地址。如对于 32 位的 MinGW 包，在 <code>mirrorlist.mingw32</code> 的其它非注释行之前插入：</p>
 <pre><code>## 清华大学 TUNA 镜像（ 2016-09-23 已变更，注意大小写）
 Server = http://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/i686
 ## 中国科学技术大学开源软件镜像（之前曾停止更新，最后更新 2015-06-18 ； 2015-11-01 已恢复）
@@ -393,44 +393,44 @@ Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686
 ## 北京理工大学镜像（最后更新早于 2017-02-09）
 Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
 </code></pre>
-<p>因为包 mingw-w64-x86_64-freetype 的 FreeType2 可二进制兼容， x86_64 平台只需要编译修改版本的 FreeImage 。</p>
+<p>　　因为包 mingw-w64-x86_64-freetype 的 FreeType2 可二进制兼容， x86_64 平台只需要编译修改版本的 FreeImage 。</p>
 <h4><a class="header" href="#msys2-程序运行问题" id="msys2-程序运行问题">MSYS2 程序运行问题</a></h4>
-<p>MSYS2 类似 Cygwin ，依赖 <code>fork</code> 调用创建新进程。这可能会出错。</p>
-<p>在执行以下步骤（参考<a href="http://sourceforge.net/p/msys2/tickets/74/">这里</a>）后，重新运行程序：</p>
+<p>　　MSYS2 类似 Cygwin ，依赖 <code>fork</code> 调用创建新进程。这可能会出错。</p>
+<p>　　在执行以下步骤（参考<a href="http://sourceforge.net/p/msys2/tickets/74/">这里</a>）后，重新运行程序：</p>
 <ul>
 <li>关闭窗口或用任务管理器终止 <code>sh.exe</code> 和 <code>bash.exe</code> 等进程并尽量确保没有基于 MSYS2 环境的其它程序正在被运行</li>
 <li>执行 MSYS 根目录下的 <code>autorebase.bat</code></li>
 </ul>
-<p>也可以参考 <a href="https://www.cygwin.com/faq.html#faq.using.fixing-fork-failures">Cygwin 的解决方法</a>。</p>
-<p>混用 x86/x64 程序（不管是 Win32 还是 MSYS 程序）导致的类似问题可能经以上步骤仍然无法修复，这可由 MSYS2 <a href="http://sourceforge.net/p/msys2/tickets/208/">在特定操作系统上的一个缺陷</a>引起。变通做法是只使用固定目标的程序，例如只使用 i686 MSYS 基础系统执行 i686 MinGW32 GCC 。注意 i686 MinGW32 GCC 是 x86 的 Win32 程序。尽管它不是 MSYS2 程序，但可在 LTO 时调用 MSYS2 程序 <code>make</code> ，这时候可能出错。</p>
-<p>如果确定只使用少数程序，在命令行指定替换。例如 x86_64 的 MSYS2 bash 环境中使用 i686 MinGW32 GCC ，指定 LTO 调用的 <code>make</code> ：</p>
+<p>　　也可以参考 <a href="https://www.cygwin.com/faq.html#faq.using.fixing-fork-failures">Cygwin 的解决方法</a>。</p>
+<p>　　混用 x86/x64 程序（不管是 Win32 还是 MSYS 程序）导致的类似问题可能经以上步骤仍然无法修复，这可由 MSYS2 <a href="http://sourceforge.net/p/msys2/tickets/208/">在特定操作系统上的一个缺陷</a>引起。变通做法是只使用固定目标的程序，例如只使用 i686 MSYS 基础系统执行 i686 MinGW32 GCC 。注意 i686 MinGW32 GCC 是 x86 的 Win32 程序。尽管它不是 MSYS2 程序，但可在 LTO 时调用 MSYS2 程序 <code>make</code> ，这时候可能出错。</p>
+<p>　　如果确定只使用少数程序，在命令行指定替换。例如 x86_64 的 MSYS2 bash 环境中使用 i686 MinGW32 GCC ，指定 LTO 调用的 <code>make</code> ：</p>
 <pre><code>export MAKE=/path-to-another-msys2-root/mingw32/make
 </code></pre>
-<p>或直接替换所有 <code>make</code> ：</p>
+<p>　　或直接替换所有 <code>make</code> ：</p>
 <pre><code>export make=/path-to-another-msys2-root/mingw32/make
 </code></pre>
 <p><strong>注意</strong> <code>%SystemRoot%\System32\cmd.exe</code> 在 x64 Windows 下是 x64 程序，对应的 x86 版本是 <code>%SystemRoot%\SysWOW64\cmd.exe</code> 。</p>
 <h3><a class="header" href="#gcc-with-the-mcf-thread-model" id="gcc-with-the-mcf-thread-model">GCC with the MCF thread model</a></h3>
-<p>也可使用 <a href="https://gcc-mcf.lhmouse.com/">MCF 线程模型构建的 GCC</a> ，基于 MinGW-W64 和 mcfgthread ，使用 MCF 线程模型。</p>
-<p>这个发行版没有 <code>make</code> 。</p>
-<p>需自行编译依赖项。</p>
-<p>未在提交中测试。</p>
+<p>　　也可使用 <a href="https://gcc-mcf.lhmouse.com/">MCF 线程模型构建的 GCC</a> ，基于 MinGW-W64 和 mcfgthread ，使用 MCF 线程模型。</p>
+<p>　　这个发行版没有 <code>make</code> 。</p>
+<p>　　需自行编译依赖项。</p>
+<p>　　未在提交中测试。</p>
 <h3><a class="header" href="#mingw-builds" id="mingw-builds">MinGW-Builds</a></h3>
-<p>也可使用 MSYS2 ，也可使用 <a href="http://mingw-w64.sourceforge.net/">MinGW-W64</a> 发行版，如 <a href="http://sourceforge.net/projects/mingw-w64/files/latest/download">mingw-builds</a> ，并自行获得和配置脚本 <code>Tools/msys2-pacman-update.sh</code> 中被安装的工具。</p>
-<p>需使用基于 POSIX 线程模型的版本，否则只可用 YBase 。</p>
-<p>需自行编译依赖项。</p>
-<p>当前未测试。</p>
+<p>　　也可使用 <a href="http://mingw-w64.sourceforge.net/">MinGW-W64</a> 发行版，如 <a href="http://sourceforge.net/projects/mingw-w64/files/latest/download">mingw-builds</a> ，并自行获得和配置脚本 <code>Tools/msys2-pacman-update.sh</code> 中被安装的工具。</p>
+<p>　　需使用基于 POSIX 线程模型的版本，否则只可用 YBase 。</p>
+<p>　　需自行编译依赖项。</p>
+<p>　　当前未测试。</p>
 <h3><a class="header" href="#nuwennet" id="nuwennet">Nuwen.net</a></h3>
-<p>对 x86_64 平台可使用 <a href="http://nuwen.net/mingw.html">newen.net</a> 提供的 MinGW 发行版，包含比较多的第三方库。</p>
-<p>仍需自行编译依赖项以支持 YFramework （当前不支持）。</p>
-<p>因为 15.2 之前的版本仅支持 Win32 线程模型，不支持 <code>std::thread</code> 等标准库线程 API ，不支持生成 YFramework ，只支持生成 YBase 。</p>
-<p>当前未测试。</p>
+<p>　　对 x86_64 平台可使用 <a href="http://nuwen.net/mingw.html">newen.net</a> 提供的 MinGW 发行版，包含比较多的第三方库。</p>
+<p>　　仍需自行编译依赖项以支持 YFramework （当前不支持）。</p>
+<p>　　因为 15.2 之前的版本仅支持 Win32 线程模型，不支持 <code>std::thread</code> 等标准库线程 API ，不支持生成 YFramework ，只支持生成 YBase 。</p>
+<p>　　当前未测试。</p>
 <h3><a class="header" href="#windows-子系统subsystem-1" id="windows-子系统subsystem-1">Windows 子系统(subsystem)</a></h3>
-<p>基本内容参见以上 PC(Win32) 平台关于 Windows 子系统(subsystem) 的介绍。</p>
-<p>在 MinGW 工具链的命令行中，选项 <code>-mconsole</code> 和 <code>-mwindows</code> 对应 Microsoft VC++ 工具链的子系统选项。若没有指定，一般默认为前者。通常 <code>-mwindows</code> 隐式使用一些附加的库，如 <code>-lgdi32 -lcomdlg32</code> 。和 VC++ 不同，当前使用的 MinGW 实现一般可以支持统一使用 <code>main</code> 作为入口，不需要特别修改。</p>
-<p>对 <code>gcc</code> 或 <code>g++</code> ，使用 <code>-dumpspecs</code> 查看内建支持的 specs 。 Clang/Clang++ 不适用 specs ，需要查看文档和源代码。</p>
+<p>　　基本内容参见以上 PC(Win32) 平台关于 Windows 子系统(subsystem) 的介绍。</p>
+<p>　　在 MinGW 工具链的命令行中，选项 <code>-mconsole</code> 和 <code>-mwindows</code> 对应 Microsoft VC++ 工具链的子系统选项。若没有指定，一般默认为前者。通常 <code>-mwindows</code> 隐式使用一些附加的库，如 <code>-lgdi32 -lcomdlg32</code> 。和 VC++ 不同，当前使用的 MinGW 实现一般可以支持统一使用 <code>main</code> 作为入口，不需要特别修改。</p>
+<p>　　对 <code>gcc</code> 或 <code>g++</code> ，使用 <code>-dumpspecs</code> 查看内建支持的 specs 。 Clang/Clang++ 不适用 specs ，需要查看文档和源代码。</p>
 <h2><a class="header" href="#pcandroid" id="pcandroid">PC/Android</a></h2>
-<p>支持的构建环境：</p>
+<p>　　支持的构建环境：</p>
 <ul>
 <li>Android 开发环境（仅测试 Windows x64 宿主环境），包括：
 <ul>
@@ -443,25 +443,25 @@ Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
 </ul>
 </li>
 </ul>
-<p>支持的运行环境：</p>
+<p>　　支持的运行环境：</p>
 <ul>
 <li>Android 模拟器，运行操作系统 Android 5 （对应 API level 21 ），或更高版本（未测试，可能有兼容性问题）。</li>
 <li>物理设备，操作系统要求同上（未正式测试，可能有兼容性问题）。</li>
 </ul>
 <h1><a class="header" href="#pclinux" id="pclinux">PC/Linux</a></h1>
-<p>当前仅用于可移植性测试。要点：</p>
+<p>　　当前仅用于可移植性测试。要点：</p>
 <ul>
 <li>当前仅测试 x86-64 （提供 FreeImage 二进制文件）</li>
 <li>可用被支持版本的 G++ 或 Clang++ </li>
 <li>因为不提供 freetype2 的二进制库，需要保证 freetype2 库文件可用，可以通过 <code>pkg-source</code> 找到或位于 <code>/usr/lib</code> 路径中</li>
 <li>使用 XCB 作为系统库，但功能不全</li>
 </ul>
-<p>Windows 10 可使用 <a href="https://zh.wikipedia.org/zh-cn/Windows_Subsystem_for_Linux">WSL(Windows Subsystem for Linux)</a> 。</p>
-<p>注意 Windows 10 秋季创意者更新（版本 1709 ）的 WSL 存在<a href="https://github.com/Microsoft/WSL/issues/2606">已知可导致并行构建失败的缺陷</a> ，以及可能有的<a href="https://github.com/Microsoft/BashOnWindows/issues/2534">其它问题</a> ，本项目不针对这些问题单独提供变通。</p>
+<p>　　Windows 10 可使用 <a href="https://zh.wikipedia.org/zh-cn/Windows_Subsystem_for_Linux">WSL(Windows Subsystem for Linux)</a> 。</p>
+<p>　　注意 Windows 10 秋季创意者更新（版本 1709 ）的 WSL 存在<a href="https://github.com/Microsoft/WSL/issues/2606">已知可导致并行构建失败的缺陷</a> ，以及可能有的<a href="https://github.com/Microsoft/BashOnWindows/issues/2534">其它问题</a> ，本项目不针对这些问题单独提供变通。</p>
 <h1><a class="header" href="#其它构建环境" id="其它构建环境">其它构建环境</a></h1>
-<p>集成开发环境是可选的，参见<a href="Build.zh-CN.html">构建</a>。</p>
-<p>关于文档构建需要的依赖，参见<a href="BuildDocumentation.zh-CN.html">构建文档</a>。</p>
-<p>关于执行工具脚本需要的环境，参见<a href="Tools/Scripts.zh-CN.html">脚本</a>。</p>
+<p>　　集成开发环境是可选的，参见<a href="Build.zh-CN.html">构建</a>。</p>
+<p>　　关于文档构建需要的依赖，参见<a href="BuildDocumentation.zh-CN.html">构建文档</a>。</p>
+<p>　　关于执行工具脚本需要的环境，参见<a href="Tools/Scripts.zh-CN.html">脚本</a>。</p>
 
                     </main>
 
