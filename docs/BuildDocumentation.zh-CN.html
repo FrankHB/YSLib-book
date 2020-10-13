@@ -162,13 +162,17 @@
 <li>安装 Graphviz/Dot 工具（见注意事项）</li>
 </ul>
 <h1><a class="header" href="#构建" id="构建">构建</a></h1>
-<p>使用 Doxywizard(Doxygen GUI) 打开目录下的 Doxygen 文件，选择 Run 选项卡，点击 Run doxygen 按钮等待完成即可。</p>
-<p>构建文档的内容主要来自源文件中的注释。</p>
-<p>默认的输出路径在 <code>doc/html</code> 。打开其中的 <code>index.html</code> 进入主页。</p>
+<p>　　使用 Doxywizard(Doxygen GUI) 打开目录下的 Doxygen 文件，选择 Run 选项卡，点击 Run doxygen 按钮等待完成即可。</p>
+<p>　　构建文档的内容主要来自源文件中的注释。</p>
+<p>　　默认的输出路径在 <code>doc/html</code> 。打开其中的 <code>index.html</code> 进入主页。</p>
 <h1><a class="header" href="#注意事项" id="注意事项">注意事项</a></h1>
 <ul>
-<li>Dot 工具的路径是被硬编码的。如果不确定安装的位置，使用前清空 DOT_PATH ，并设置 PATH 环境变量使二进制文件能被找到。可以直接编辑 Doxyfile 或者在 Expert 选项卡的 Dot 项中设置 DOT_PATH 。</li>
-<li>当前配置使用 DOT_IMAGE_FORMAT 为 <code>svg</code> 而不是默认的 <code>png</code> ，生成的文件不支持 Intenet Explorer 9 以前版本的浏览器。</li>
+<li>Dot 工具的路径是被硬编码的。
+<ul>
+<li>如果不确定安装的位置，使用前清空 <code>DOT_PATH</code> ，并设置 <code>PATH</code> 环境变量使二进制文件能被找到。可以直接编辑 Doxyfile 或者在 Expert 选项卡的 Dot 项中设置 <code>DOT_PATH</code> 。</li>
+</ul>
+</li>
+<li>当前配置使用 <code>DOT_IMAGE_FORMAT</code> 为 <code>svg</code> 而不是默认的 <code>png</code> ，生成的文件不支持 Intenet Explorer 9 以前版本的浏览器。</li>
 </ul>
 
                     </main>

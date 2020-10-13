@@ -156,29 +156,29 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#概述" id="概述">概述</a></h1>
-<p>NPL 是 YSLib 提供的语言集合，它在语言规范层次上被设计为可扩展的。</p>
-<p>通过派生(derive) 现有的语言（ <strong>NPL 方言</strong>），避免完全重新设计新的语言，来满足需要一些新语言的场合下的需求。被派生的语言是 NPL 的<strong>抽象语言实现</strong>。翻译或执行 NPL 或 NPL 抽象语言实现的程序是 NPL （方言）的<strong>具体语言实现</strong>。具有具体语言实现的方言仍可以派生新的语言作为<a href="https://en.wikipedia.org/wiki/Domain-specific_language">领域特定语言</a>。</p>
-<p>派生领域特定语言的一个其它的例子是 <a href="https://en.wikipedia.org/wiki/XML">XML</a> 。</p>
+<p>　　NPL 是 YSLib 提供的语言集合，它在语言规范层次上被设计为可扩展的。</p>
+<p>　　通过派生(derive) 现有的语言（ <strong>NPL 方言</strong>），避免完全重新设计新的语言，来满足需要一些新语言的场合下的需求。被派生的语言是 NPL 的<strong>抽象语言实现</strong>。翻译或执行 NPL 或 NPL 抽象语言实现的程序是 NPL （方言）的<strong>具体语言实现</strong>。具有具体语言实现的方言仍可以派生新的语言作为<a href="https://en.wikipedia.org/wiki/Domain-specific_language">领域特定语言</a>。</p>
+<p>　　派生领域特定语言的一个其它的例子是 <a href="https://en.wikipedia.org/wiki/XML">XML</a> 。</p>
 <h1><a class="header" href="#语法" id="语法">语法</a></h1>
-<p>NPL 的语法基于形式文法上可递归构造的<strong>表达式</strong>，其中的子表达式在此称为<strong>项</strong>。</p>
-<p>非正式地， NPL 使用类似 <a href="https://en.wikipedia.org/wiki/S-expression">S 表达式</a>的基本语法，但不使用二元有序对（和终止符号）而直接支持列表；即表达式直接以是否为括号作为边界，分为<strong>列表表达式</strong>和<strong>非列表表达式</strong>。</p>
-<p>正式语法中，项可以是列表或非列表项的<strong>混合表达式</strong>(<code>composite-expression</code>) 规约列表项中的一部分代替有序对的地位，以要求任意项可被无歧义地进行从左到右的语法分析。</p>
-<p>NPL 只要求小括号作为列表表达式的边界。其它替代的括号由派生实现约定。对于适用于多个 NPL 实现的可移植代码，避免使用其它语言中习惯作为代替括号边界的字符表示替代的括号以外的含义，特别地， ISO C++ 文法 <code>balanced-token</code> 中的边界字符 <code>()[]{}</code> 。</p>
-<p>NPL 对标识符的限制较为宽松。 ISO C 和 ISO C++ 的所有标识符都是 NPL 标识符。但派生实现可加以限制。</p>
-<p>NPL 不提供专用的注释语法。以特定形式的项（如表示字符串的字面量）替代注释是预期的惯用法(idiom) 。这不妨碍派生语言可能添加预处理器扩展特性。</p>
+<p>　　NPL 的语法基于形式文法上可递归构造的<strong>表达式</strong>，其中的子表达式在此称为<strong>项</strong>。</p>
+<p>　　非正式地， NPL 使用类似 <a href="https://en.wikipedia.org/wiki/S-expression">S 表达式</a>的基本语法，但不使用二元有序对（和终止符号）而直接支持列表；即表达式直接以是否为括号作为边界，分为<strong>列表表达式</strong>和<strong>非列表表达式</strong>。</p>
+<p>　　正式语法中，项可以是列表或非列表项的<strong>混合表达式</strong>(<code>composite-expression</code>) 规约列表项中的一部分代替有序对的地位，以要求任意项可被无歧义地进行从左到右的语法分析。</p>
+<p>　　NPL 只要求小括号作为列表表达式的边界。其它替代的括号由派生实现约定。对于适用于多个 NPL 实现的可移植代码，避免使用其它语言中习惯作为代替括号边界的字符表示替代的括号以外的含义，特别地， ISO C++ 文法 <code>balanced-token</code> 中的边界字符 <code>()[]{}</code> 。</p>
+<p>　　NPL 对标识符的限制较为宽松。 ISO C 和 ISO C++ 的所有标识符都是 NPL 标识符。但派生实现可加以限制。</p>
+<p>　　NPL 不提供专用的注释语法。以特定形式的项（如表示字符串的字面量）替代注释是预期的惯用法(idiom) 。这不妨碍派生语言可能添加预处理器扩展特性。</p>
 <h1><a class="header" href="#语义" id="语义">语义</a></h1>
-<p>NPL 提供了一些通用的概念但不构成语义规则。语义规则由派生实现约定。</p>
+<p>　　NPL 提供了一些通用的概念但不构成语义规则。语义规则由派生实现约定。</p>
 <h1><a class="header" href="#实现" id="实现">实现</a></h1>
-<p>在 YFramework/NPL 提供一些参考具体实现。当前 YFramework 主要使用抽象实现 NPLA 的具体<em>派生(derived)</em> 的实现 NPLA1 ，在这个基础上用于不同的目的，如<a href="../Tutorial/Configuration.zh-CN.html">程序配置</a>、<a href="../Tutorial/GUI.zh-CN.html">动态加载的 GUI</a> 等。</p>
-<p>这些实现基于模块 YSLib::Core::ValueNode 提供的数据结构，可以方便地修改和组合语法和语义节点的内容。</p>
-<p>NPLA 提供了比大多数现有的程序设计语言更强大的一般抽象。这集中体现在：</p>
+<p>　　在 YFramework/NPL 提供一些参考具体实现。当前 YFramework 主要使用抽象实现 NPLA 的具体<em>派生(derived)</em> 的实现 NPLA1 ，在这个基础上用于不同的目的，如<a href="../Tutorial/Configuration.zh-CN.html">程序配置</a>、<a href="../Tutorial/GUI.zh-CN.html">动态加载的 GUI</a> 等。</p>
+<p>　　这些实现基于模块 YSLib::Core::ValueNode 提供的数据结构，可以方便地修改和组合语法和语义节点的内容。</p>
+<p>　　NPLA 提供了比大多数现有的程序设计语言更强大的一般抽象。这集中体现在：</p>
 <ul>
 <li>和 NPL 的原始设计一致，不提供也不要求区分实现的阶段(phase) 。</li>
 <li>支持一等环境(first-class environment) 不修改现有语言的求值算法即可实现共享类似语法的新语言。</li>
 <li>允许以一般手段表达求值和未求值表达式的差异。</li>
 </ul>
-<p>这意味着 NPLA 是本质上动态的语言，但和一般语言不同，用户可以很大程度上动态地替换现有语言实现，包括在运行时替换一个解释实现为一个或多个优化编译器。这也意味着语言设计上既不需要区分解释实现和编译实现（本质上不对立），也不需要区分动态和静态（因为随时能从基础语言上构造出静态子集）。</p>
-<p>这样的特性设计在绝大多数语言中不存在并且几乎无法支持。作者已知唯一的例外是 <a href="http://web.cs.wpi.edu/%7Ejshutt/kernel.html">Kernel</a> ，在这些特性上有极大的相似，尽管实际上基本特性是<strong>独立设计的</strong>，并且在基本设计哲学上有极大不同（ NPL 和 <a href="ftp://ftp.cs.wpi.edu/pub/techreports/pdf/05-07.pdf">RnRK</a> 中明确的 guidelines有很大不同且基本不兼容）。不过，考察设计的完整性， NPL 的派生语言也从中借鉴了一些重要的附加特性：</p>
+<p>　　这意味着 NPLA 是本质上动态的语言，但和一般语言不同，用户可以很大程度上动态地替换现有语言实现，包括在运行时替换一个解释实现为一个或多个优化编译器。这也意味着语言设计上既不需要区分解释实现和编译实现（本质上不对立），也不需要区分动态和静态（因为随时能从基础语言上构造出静态子集）。</p>
+<p>　　这样的特性设计在绝大多数语言中不存在并且几乎无法支持。作者已知唯一的例外是 <a href="http://web.cs.wpi.edu/%7Ejshutt/kernel.html">Kernel</a> ，在这些特性上有极大的相似，尽管实际上基本特性是<strong>独立设计的</strong>，并且在基本设计哲学上有极大不同（ NPL 和 <a href="ftp://ftp.cs.wpi.edu/pub/techreports/pdf/05-07.pdf">RnRK</a> 中明确的 guidelines有很大不同且基本不兼容）。不过，考察设计的完整性， NPL 的派生语言也从中借鉴了一些重要的附加特性：</p>
 <ul>
 <li><a href="http://lambda-the-ultimate.org/node/4093"><code>$vau</code></a> 、 <em>合并子(combiner)</em> /<em>应用子(applicative)</em> /<em>操作子(operative)</em> 等术语。</li>
 <li>在绑定构造中支持模式匹配的形式参数树(parameter tree) 。</li>
@@ -191,7 +191,7 @@
 </ul>
 </li>
 </ul>
-<p>一些值得注意的和类似语言的主要设计差异（原理详见开发文档）：</p>
+<p>　　一些值得注意的和类似语言的主要设计差异（原理详见开发文档）：</p>
 <ul>
 <li>NPL 和 Kernel 类似，强调一等对象(first-class object) ，但含义有所不同。此处的“对象”和 ISO C 及 ISO C++ 中的定义类似，具有比 Kernel 更严格的含义。
 <ul>
@@ -237,15 +237,15 @@
 <li>NPLA 的规约(reduction) 框架和 vau 演算的操作语义几乎完全一致，不过实际上（因为先前语言设计上的不确定）显著地保留了更多的可扩展和可修改性。</li>
 </ul>
 <h2><a class="header" href="#当前实现" id="当前实现">当前实现</a></h2>
-<p>当前派生实现的 NPLA1 由 YFramework 提供 API 。其中包括 REPL (read-eval-print loop) 的解释实现。外部文件的形式的 NPLA1 脚本可被基于这些 API 实现的 <a href="SHBuild.zh-CN.html">stage 1 SHBuild</a> 调用并用于 YFramework 的构建。</p>
-<p>由 YFramework 对外部编码的假设，NPLA1 实现加载的文件流的剩余内容的编码视为 UTF-8 ；同时支持 CR+LF 或 LF 为换行符。</p>
+<p>　　当前派生实现的 NPLA1 由 YFramework 提供 API 。其中包括 REPL (read-eval-print loop) 的解释实现。外部文件的形式的 NPLA1 脚本可被基于这些 API 实现的 <a href="SHBuild.zh-CN.html">stage 1 SHBuild</a> 调用并用于 YFramework 的构建。</p>
+<p>　　由 YFramework 对外部编码的假设，NPLA1 实现加载的文件流的剩余内容的编码视为 UTF-8 ；同时支持 CR+LF 或 LF 为换行符。</p>
 <h1><a class="header" href="#进一步阅读" id="进一步阅读">进一步阅读</a></h1>
-<p>语言特性设计的需求参见<a href="https://github.com/FrankHB/pl-docs/blob/master/en-US/calling-for-language-features.md">这里(en-US)</a> 。</p>
-<p>关于 NPL 语言及当前使用的实现的规格，参照 YSLib 项目文档 <code>doc/NPL.txt</code> 。</p>
+<p>　　语言特性设计的需求参见<a href="https://github.com/FrankHB/pl-docs/blob/master/en-US/calling-for-language-features.md">这里(en-US)</a> 。</p>
+<p>　　关于 NPL 语言及当前使用的实现的规格，参照 YSLib 项目文档 <code>doc/NPL.txt</code> 。</p>
 <h2><a class="header" href="#kernel-实现" id="kernel-实现">Kernel 实现</a></h2>
-<p>NPL 文法是 S-expression 语法和 Kernel 兼容语义的简化，某些 NPLA1 程序可以原封不动地作为 Kernel 程序运行。因为参考文献可用性以及相似性几乎独一无二，建议深入使用前参照 Kernel 相关的文档并实际使用，以和 NPL 进行比较（当前 NPL 开发文档也引用包括 RnRK 在内的一些规格说明）。现有较完整可用的一个 Kernel 实现是 <a href="http://klisp.org/">Klisp</a> 。</p>
+<p>　　NPL 文法是 S-expression 语法和 Kernel 兼容语义的简化，某些 NPLA1 程序可以原封不动地作为 Kernel 程序运行。因为参考文献可用性以及相似性几乎独一无二，建议深入使用前参照 Kernel 相关的文档并实际使用，以和 NPL 进行比较（当前 NPL 开发文档也引用包括 RnRK 在内的一些规格说明）。现有较完整可用的一个 Kernel 实现是 <a href="http://klisp.org/">Klisp</a> 。</p>
 <h2><a class="header" href="#计划支持特性" id="计划支持特性">计划支持特性</a></h2>
-<p>在 Kernel 中已存在但当前 NPLA1 未支持，而计划在未来添加的特性：</p>
+<p>　　在 Kernel 中已存在但当前 NPLA1 未支持，而计划在未来添加的特性：</p>
 <ul>
 <li>一等续延(first-class continuation)
 <ul>
@@ -275,7 +275,7 @@
 </ul>
 </li>
 </ul>
-<p>已提供但未直接使用，考虑可能优化实现的特性：</p>
+<p>　　已提供但考虑可能优化实现的特性：</p>
 <ul>
 <li><a href="http://klisp.org/docs/Encapsulations.html#Encapsulations">封装类型</a>
 <ul>
@@ -283,7 +283,7 @@
 </ul>
 </li>
 </ul>
-<p>计划考虑提供其它设计替代选项的 Klisp 特性：</p>
+<p>　　计划考虑提供其它设计替代选项的 Klisp 特性：</p>
 <ul>
 <li><a href="http://klisp.org/docs/Characters.html#Characters">Characters</a>
 <ul>
@@ -296,7 +296,7 @@
 </ul>
 </li>
 </ul>
-<p>其它 NPL 计划实现特性：</p>
+<p>　　其它 NPL 计划实现特性：</p>
 <ul>
 <li>模块化框架</li>
 <li>支持类型系统的子语言

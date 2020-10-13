@@ -156,51 +156,51 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#概要" id="概要">概要</a></h1>
-<p>本文档记录发布工程(release engineering) 相关的规则、历史记录和相关计划。</p>
-<p>发布策略控制版本更新。</p>
-<p>关于版本(revison) 的详细规则参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
+<p>　　本文档记录发布工程(release engineering) 相关的规则、历史记录和相关计划。</p>
+<p>　　发布策略控制版本更新。</p>
+<p>　　关于版本(revison) 的详细规则参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
 <h1><a class="header" href="#分支branching" id="分支branching">分支(branching)</a></h1>
-<p>一个项目可有多个分支(branch) ，包括至少一个保持工作进行的活动(active) 分支。</p>
-<p>发布时使用活动分支，以项目版本库的分支为准。</p>
-<p>当前只有主分支(master branch) 。</p>
+<p>　　一个项目可有多个分支(branch) ，包括至少一个保持工作进行的活动(active) 分支。</p>
+<p>　　发布时使用活动分支，以项目版本库的分支为准。</p>
+<p>　　当前只有主分支(master branch) 。</p>
 <h1><a class="header" href="#标识identification" id="标识identification">标识(identification)</a></h1>
-<p>阶段(phase) 标识连续的版本，描述一个分支在一个时期内版本的发布状态。</p>
-<p>当前位于 Alpha 非正式发布阶段。</p>
+<p>　　阶段(phase) 标识连续的版本，描述一个分支在一个时期内版本的发布状态。</p>
+<p>　　当前位于 Alpha 非正式发布阶段。</p>
 <h2><a class="header" href="#迭代阶段iteration-phase" id="迭代阶段iteration-phase">迭代阶段(iteration phase)</a></h2>
-<p>迭代阶段是工程意义上的版本标识，适用于所有在开发、测试和维护生命周期中的分支，包括仅包含开发和测试版本的场合。</p>
-<p>PreAlpha 阶段不对 API （应用程序编程接口）稳定性进行任何保证。</p>
-<p>Alpha 阶段尽量保证公开 API 的非向后兼容的修改最小化，但仍然不保证兼容。</p>
-<p>Beta 阶段保证主要项目的 API 向后兼容性。非兼容的改动视为缺陷。</p>
-<p>Beta 阶段开始提供面向非开发者的部署方案。</p>
-<p>允许在每个迭代周期中按以上顺序补充新的阶段。</p>
-<p>关于项目内的提交版本(revision) ，详见项目文档 <code>doc/Dependencies.txt</code> 的约定。</p>
-<h2><a class="header" href="#发行阶段release-phase" id="发行阶段release-phase">发行阶段(release phase)</a></h2>
-<p>发行阶段使用的版本标识是被用户用于区分产品特性的标识。</p>
-<p>正式标记形式为以 <code>V</code> 起始，跟随符合<a href="http://semver.org/lang/zh-CN/">语义化版本</a>规范<strong>语法</strong>的版本号。</p>
+<p>　　迭代阶段是工程意义上的版本标识，适用于所有在开发、测试和维护生命周期中的分支，包括仅包含开发和测试版本的场合。</p>
+<p>　　PreAlpha 阶段不对 API （应用程序编程接口）稳定性进行任何保证。</p>
+<p>　　Alpha 阶段尽量保证公开 API 的非向后兼容的修改最小化，但仍然不保证兼容。</p>
+<p>　　Beta 阶段保证主要项目的 API 向后兼容性。非兼容的改动视为缺陷。</p>
+<p>　　Beta 阶段开始提供面向非开发者的部署方案。</p>
+<p>　　允许在每个迭代周期中按以上顺序补充新的阶段。</p>
+<p>　　关于项目内的提交版本(revision) ，详见项目文档 <code>doc/Dependencies.txt</code> 的约定。</p>
+<h2><a class="header" href="#发布阶段release-phase" id="发布阶段release-phase">发布阶段(release phase)</a></h2>
+<p>　　发布阶段使用的版本标识是被用户用于区分产品特性的标识。</p>
+<p>　　正式标记形式为以 <code>V</code> 起始，跟随符合<a href="http://semver.org/lang/zh-CN/">语义化版本</a>规范<strong>语法</strong>的版本号。</p>
 <h3><a class="header" href="#非正式版" id="非正式版">非正式版</a></h3>
-<p>非正式版的版本号小于 1.0.0 ，不保证任何平台上的 ABI （应用程序二进制接口）兼容性。</p>
-<p>所有非正式版共享一组迭代阶段。</p>
+<p>　　非正式版的版本号小于 1.0.0 ，不保证任何平台上的 ABI （应用程序二进制接口）兼容性。</p>
+<p>　　所有非正式版共享一组迭代阶段。</p>
 <h3><a class="header" href="#正式版" id="正式版">正式版</a></h3>
-<p>正式版的初始版本号为 1.0.0 。</p>
-<p>正式版提供版本检查的 API 。</p>
-<p>版本号同时符合语义化版本规范的<strong>语义</strong>：在语言实现保持兼容的前提下，相同主版本号的发布应保持 ABI 向后兼容。</p>
+<p>　　正式版的初始版本号为 1.0.0 。</p>
+<p>　　正式版提供版本检查的 API 。</p>
+<p>　　版本号同时符合语义化版本规范的<strong>语义</strong>：在语言实现保持兼容的前提下，相同主版本号的发布应保持 ABI 向后兼容。</p>
 <p><strong>注意</strong> 非标记为发布版本的开发版本不需要保证以上要求。</p>
-<p>正式版对应的开发和测试版本使用以上除 PreAlpha 以外的阶段，具有上述相同的要求。</p>
+<p>　　正式版对应的开发和测试版本使用以上除 PreAlpha 以外的阶段，具有上述相同的要求。</p>
 <h1><a class="header" href="#支持策略" id="支持策略">支持策略</a></h1>
-<p>支持策略基于发布规则。</p>
-<p>当前仅对最新的非正式版及版本库活动开发分支上的最新提交版本(tip) 提供公开支持。</p>
-<p>正式版适用的规则另行具体指定。</p>
+<p>　　支持策略基于发布规则。</p>
+<p>　　当前仅对最新的非正式版及版本库活动开发分支上的最新提交版本(tip) 提供公开支持。</p>
+<p>　　正式版适用的规则另行具体指定。</p>
 <h1><a class="header" href="#持续集成continuous-integration" id="持续集成continuous-integration">持续集成(continuous integration)</a></h1>
 <h2><a class="header" href="#构建" id="构建">构建</a></h2>
-<p>提供有限的构建自动化(build automation) 支持。</p>
-<p>关于使用的构建工具，参见<a href="Prerequisitions.zh-CN.html">先决条件</a>，并参见<a href="Build.zh-CN.html">构建</a>过程。</p>
-<p>在宿主环境下使用项目内自行开发的工具支持，参见 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 和 <a href="Sysroot.zh-CN.html">Sysroot</a> 。</p>
+<p>　　提供有限的构建自动化(build automation) 支持。</p>
+<p>　　关于使用的构建工具，参见<a href="Prerequisitions.zh-CN.html">先决条件</a>，并参见<a href="Build.zh-CN.html">构建</a>过程。</p>
+<p>　　在宿主环境下使用项目内自行开发的工具支持，参见 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 和 <a href="Sysroot.zh-CN.html">Sysroot</a> 。</p>
 <h1><a class="header" href="#里程碑和路线图" id="里程碑和路线图">里程碑和路线图</a></h1>
-<p>本节略述发布版本的参照目标，包括重要的特性实现。</p>
-<p>关于包含较详细特性变更说明的发布版本的发布注记(release note) ，参见版本库中的文档 <code>doc/Dependencies.txt</code> ；关于提交版本的详细变更记录(change log) ，参见项目文档 <code>doc/ChangeLog.*.txt</code> 。</p>
+<p>　　本节略述发布版本的参照目标，包括重要的特性实现。</p>
+<p>　　关于包含较详细特性变更说明的发布版本的发布注记(release note) ，参见版本库中的文档 <code>doc/Dependencies.txt</code> ；关于提交版本的详细变更记录(change log) ，参见项目文档 <code>doc/ChangeLog.*.txt</code> 。</p>
 <h2><a class="header" href="#已实现的重要特性" id="已实现的重要特性">已实现的重要特性</a></h2>
 <h3><a class="header" href="#prealpha" id="prealpha">PreAlpha</a></h3>
-<p>PreAlpha 阶段实现平台中立的基础设施和 GUI 。每个发布版本包含重要的新增特性。</p>
+<p>　　PreAlpha 阶段实现平台中立的基础设施和 GUI 。每个发布版本包含重要的新增特性。</p>
 <ul>
 <li><strong>PreAlpha 1</strong> 实现可在 DS 和 DeSmuME 运行的 GUI 程序。</li>
 <li><strong>PreAlpha 2</strong> 完善 GUI 部件并提供框架。</li>
@@ -209,7 +209,7 @@
 <li><strong>PreAlpha 5</strong> 支持桌面程序特性：界面风格、动画及分离构建等。</li>
 </ul>
 <h3><a class="header" href="#alpha" id="alpha">Alpha</a></h3>
-<p>Alpha 阶段仍包含若干重要特性改进，但发布版本不再以添加单一特性为重点，而侧重提升环境的整体可用性。</p>
+<p>　　Alpha 阶段仍包含若干重要特性改进，但发布版本不再以添加单一特性为重点，而侧重提升环境的整体可用性。</p>
 <ul>
 <li><strong>V0.6</strong> 完善项目结构并提升宿主环境下的开发可用性支持。
 <ul>
@@ -266,12 +266,12 @@
 </li>
 </ul>
 <h1><a class="header" href="#待定事项todos" id="待定事项todos">待定事项(TODOs)</a></h1>
-<p>版本发布的待定事项参照上述目标。</p>
-<p><a href="Home.zh-CN.html">贡献到问题跟踪系统</a>的内容可能包含特性请求和没有立刻解决的缺陷记录，其实现会被考虑列入待定事项。</p>
-<p>完整列表当前仅被内部参照，没有公开。</p>
+<p>　　版本发布的待定事项参照上述目标。</p>
+<p>　　<a href="Home.zh-CN.html">贡献到问题跟踪系统</a>的内容可能包含特性请求和没有立刻解决的缺陷记录，其实现会被考虑列入待定事项。</p>
+<p>　　完整列表当前仅被内部参照，没有公开。</p>
 <h1><a class="header" href="#版本发布记录" id="版本发布记录">版本发布记录</a></h1>
-<p>发布页可能包括后续开发信息。</p>
-<p>关于被发布的资源，参见<a href="Archives.zh-CN.html">归档</a> 。</p>
+<p>　　发布页可能包括后续开发信息。</p>
+<p>　　关于被发布的资源，参见<a href="Archives.zh-CN.html">归档</a> 。</p>
 <h2><a class="header" href="#prealpha-发布页" id="prealpha-发布页">PreAlpha 发布页</a></h2>
 <h3><a class="header" href="#prealpha-1" id="prealpha-1">PreAlpha 1</a></h3>
 <p>http://tieba.baidu.com/p/767225536 。</p>
@@ -295,11 +295,11 @@
 <h3><a class="header" href="#07" id="07">0.7</a></h3>
 <p>http://tieba.baidu.com/p/4701412006 。</p>
 <h1><a class="header" href="#版本日程记录" id="版本日程记录">版本日程记录</a></h1>
-<p>记录的时间来自存档和提交记录，使用时区 UTC+8 。</p>
-<p>发布版本的计划时间为截止时间。评估计划完成情况时，实际时间应早于此时间。</p>
+<p>　　记录的时间来自存档和提交记录，使用时区 UTC+8 。</p>
+<p>　　发布版本的计划时间为截止时间。评估计划完成情况时，实际时间应早于此时间。</p>
 <h2><a class="header" href="#prealpha-1" id="prealpha-1">PreAlpha</a></h2>
-<p>早期开发版本计划未定。发布版本为每 100 个开发更新版本中形成。</p>
-<p>计划（追溯）及里程碑版本：</p>
+<p>　　早期开发版本计划未定。发布版本为每 100 个开发更新版本中形成。</p>
+<p>　　计划（追溯）及里程碑版本：</p>
 <ul>
 <li><strong>PreAlpha 0</strong> 2009-02 W3
 <ul>
@@ -317,8 +317,8 @@
 </ul>
 </li>
 </ul>
-<p>使用版本控制，开发更新版本对应提交版本。提交版本仅主分支版本。更新频率逐步控制为 8 提交版本/月，其中月以自然月计，折合 4 周工作量。</p>
-<p>计划及实际发布版本：</p>
+<p>　　使用版本控制，开发更新版本对应提交版本。提交版本仅主分支版本。更新频率逐步控制为 8 提交版本/月，其中月以自然月计，折合 4 周工作量。</p>
+<p>　　计划及实际发布版本：</p>
 <ul>
 <li><strong>PreAlpha 2</strong> 2011-03 W4
 <ul>
@@ -342,8 +342,8 @@
 </li>
 </ul>
 <h2><a class="header" href="#alpha-1" id="alpha-1">Alpha</a></h2>
-<p>保持提交和发布版本更新频率不变。</p>
-<p>计划及实际发布版本：</p>
+<p>　　保持提交和发布版本更新频率不变。</p>
+<p>　　计划及实际发布版本：</p>
 <ul>
 <li><strong>V0.6</strong> 2015-05 W4
 <ul>
@@ -356,13 +356,13 @@
 </ul>
 </li>
 </ul>
-<p>为便于特性整合和进度统计， 2017 Q2 计划提交和发布版本基准周期增加 1 倍。</p>
-<p>新的发布计划日程安排于 2017-07-01 启用。追溯 Alpha 发布历史并调整截止日程：</p>
+<p>　　为便于特性整合和进度统计， 2017 Q2 计划提交和发布版本基准周期增加 1 倍。</p>
+<p>　　新的发布计划日程安排于 2017-07-01 启用。追溯 Alpha 发布历史并调整截止日程：</p>
 <ul>
 <li><strong>V0.6</strong> 2016-06 W2</li>
 <li><strong>V0.7</strong> 2018-07 W2</li>
 </ul>
-<p>使用以下日程同步计划过渡到新的截止日期：</p>
+<p>　　使用以下日程同步计划过渡到新的截止日期：</p>
 <ul>
 <li>同步目标外推 4 次，至 <strong>V0.11</strong> 2026-11 W2 。</li>
 <li>计划使用在新的基准周期外的至多和原提交周期相同的额外缓冲时间和截止日程同步。
@@ -377,7 +377,7 @@
 </ul>
 </li>
 </ul>
-<p>随之改订的计划及待定发布版本：</p>
+<p>　　随之改订的计划及待定发布版本：</p>
 <ul>
 <li><strong>V0.8</strong> 2017-08 W2
 <ul>
@@ -401,7 +401,7 @@
 </li>
 </ul>
 <h2><a class="header" href="#beta" id="beta">Beta</a></h2>
-<p>待定。</p>
+<p>　　待定。</p>
 
                     </main>
 

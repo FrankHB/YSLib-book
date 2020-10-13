@@ -161,46 +161,46 @@
 <li>参见<a href="ProjectDependencies.zh-CN.html">项目依赖性</a>了解 YSLib 子项目之间的联系</li>
 </ul>
 <h1><a class="header" href="#外部依赖项构建" id="外部依赖项构建">外部依赖项构建</a></h1>
-<p>这是可选的：若已获取库文件，可以跳过。</p>
-<p>YSLib 发布的文件和对应使用的外部依赖项可以<a href="Archives.zh-CN.html">从归档仓库下载</a>。</p>
-<p>进入 <code>3rdparty</code> 对应库的目录查看 <code>Readme</code> 文件说明。按此说明进行构建，一般方法为：</p>
+<p>　　这个步骤是可选的。若已获取二进制的库文件，可以跳过。</p>
+<p>　　YSLib 发布的文件和对应使用的外部依赖项（包括二进制的库文件）可以<a href="Archives.zh-CN.html">从归档仓库下载</a>。</p>
+<p>　　进入 <code>3rdparty</code> 对应库的目录查看 <code>Readme</code> 文件说明。按此说明进行构建，一般方法为：</p>
 <ul>
 <li>自行获取指定的公开发行的源代码</li>
 <li>复制 <code>3rdparty</code> 库的目录中的文件到源代码，替换源代码中的原始文件</li>
 <li>运行指定的构建脚本命令行</li>
 </ul>
 <h1><a class="header" href="#库和示例程序构建" id="库和示例程序构建">库和示例程序构建</a></h1>
-<p>以下描述构建项目的默认目标：库和示例程序。</p>
+<p>　　以下描述构建项目的默认目标：库和示例程序。</p>
 <p><strong>注意</strong> 除了 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 外，当前没有实现子项目间的依赖管理。由于<a href="Releases.zh-CN.html">非正式版不保证二进制兼容性</a>，直接增量构建可能在更新代码后失败。此时可手动清理构建生成的中间目录即 <code>build</code>。</p>
-<p>另见<a href="BuildDocumentation.zh-CN.html">构建文档</a>。</p>
+<p>　　另见<a href="BuildDocumentation.zh-CN.html">构建文档</a>。</p>
 <h2><a class="header" href="#shbuild" id="shbuild">SHBuild</a></h2>
-<p>宿主平台的建议方式。</p>
-<p>详见 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 和 <a href="Sysroot.zh-CN.html">Sysroot</a> 。</p>
-<p>build 600 起用于发布和测试的二进制文件使用此方式构建。</p>
+<p>　　宿主平台的建议方式。</p>
+<p>　　详见 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 和 <a href="Sysroot.zh-CN.html">Sysroot</a> 。</p>
+<p>　　b600 起用于发布和测试的二进制文件使用此方式构建。</p>
 <h2><a class="header" href="#microsoft-visual-studio" id="microsoft-visual-studio">Microsoft Visual Studio</a></h2>
-<p>源代码包含 Microsoft Visual Studio 2012/2013 解决方案 .sln 文件。可以直接生成解决方案。注意若修改被依赖项目代码后直接生成，依赖项目也不会重新编译，需要手动清除或重新编译。</p>
-<p>当前包含了平台中立项目（便于源代码管理，不实际生成）、 DS 项目 、 MinGW32 项目和 Android 项目，但仅支持生成使用 make 的平台（ DS 和 Android ，需要对应的工具链支持）。因为正确支持的语言特性不足， Visual Studio 使用的编译器不能正常生成 Win32 项目。</p>
-<p>使用 Microsoft Visual Studio 打开文件，需特定的环境变量以保证使用 makefile 的项目可构建。以下（使用 兼容 <code>bash</code> 的）路径仅为示例：</p>
-<p>DS 项目：</p>
+<p>　　源代码包含 Microsoft Visual Studio 2012/2013 解决方案 .sln 文件。可以直接生成解决方案。注意若修改被依赖项目代码后直接生成，依赖项目也不会重新编译，需要手动清除或重新编译。</p>
+<p>　　当前包含了平台中立项目（便于源代码管理，不实际生成）、 DS 项目 、 MinGW32 项目和 Android 项目，但仅支持生成使用 make 的平台（ DS 和 Android ，需要对应的工具链支持）。因为正确支持的语言特性不足， Visual Studio 使用的编译器不能正常生成 Win32 项目。</p>
+<p>　　使用 Microsoft Visual Studio 打开文件，需特定的环境变量以保证使用 makefile 的项目可构建。以下（使用 兼容 <code>bash</code> 的）路径仅为示例：</p>
+<p>　　DS 项目：</p>
 <pre><code>DEVKITPRO=/opt/devkitpro
 </code></pre>
-<p>Android 项目：</p>
+<p>　　Android 项目：</p>
 <pre><code>ANDROID_SDK = /d/Android/sdk
 PATH = /d/clang-android/bin:/c/Program\ Files/Java/jdk1.8.0_211/bin:$PATH
 </code></pre>
 <p><strong>注意</strong> Visual Studio 项目使用的 makefile 命令行依赖 <code>bash</code> 以及时检测到错误停止生成，可参见<a href="Prerequisitions.zh-CN.html">先决条件</a>配置宿主环境。</p>
-<p>支持生成的 Visual Studio 项目包含依赖性，不需要另行设置；也支持清理命令。</p>
+<p>　　支持生成的 Visual Studio 项目包含依赖性，不需要另行设置；也支持清理命令。</p>
 <h2><a class="header" href="#codeblocks" id="codeblocks">Code::Blocks</a></h2>
-<p>从 b217 (2011-06-13) 起支持。</p>
-<p>源代码包含 Code::Blocks 工作空间 .workspace 文件，建议使用 Code::Blocks 12.11 或以上版本打开。</p>
+<p>　　从 b217 (2011-06-13) 起支持。</p>
+<p>　　源代码包含 Code::Blocks 工作空间 .workspace 文件，建议使用 Code::Blocks 12.11 或以上版本打开。</p>
 <p><strong>注意</strong> 打开工作空间后直接生成，其中的项目不都能成功构建，因为并非所有项目都保证能生成。项目名没有平台后缀的不用于构建，仅作为项目原型便于开发。</p>
-<p>当前包含了平台中立项目（项目名不含下划线，便于源代码管理，不实际生成）、 DS 项目和 MinGW32 项目，支持构建 DS 项目和 MinGW32 项目，每个分别包含 debug 和 release 配置。除此之外， MinGW32 项目还支持 debug_DLL 配置和 release_DLL 配置，用于生成动态链接库或使用动态链接库生成可执行文件。</p>
-<p>对于 DS 可以分别编译其它各个项目，但不能运行。可以在工具菜单添加 DeSmuME 命令行运行。</p>
-<p>b599 (2015-05-21) 起支持通过<a href="Tools/Scripts.zh-CN.html">脚本 GenerateProjects.sh</a> 生成 .cbp 文件。和 Visual Studio 不同，项目文件的内容不保证最新。这些文件以后仅保证在<a href="Releases.zh-CN.html">发布版本</a>更新。</p>
-<p>build 600 前用于发布和测试的二进制文件使用此方式构建。因为编译时使用的文件路径不同等原因，构建的二进制文件和 SHBuild 不完全等价。</p>
+<p>　　当前包含了平台中立项目（项目名不含下划线，便于源代码管理，不实际生成）、 DS 项目和 MinGW32 项目，支持构建 DS 项目和 MinGW32 项目，每个分别包含 debug 和 release 配置。除此之外， MinGW32 项目还支持 debug_DLL 配置和 release_DLL 配置，用于生成动态链接库或使用动态链接库生成可执行文件。</p>
+<p>　　对于 DS 可以分别编译其它各个项目，但不能运行。可以在工具菜单添加 DeSmuME 命令行运行。</p>
+<p>　　b599 (2015-05-21) 起支持通过<a href="Tools/Scripts.zh-CN.html">脚本 GenerateProjects.sh</a> 生成 .cbp 文件。和 Visual Studio 不同，项目文件的内容不保证最新。这些文件以后仅保证在<a href="Releases.zh-CN.html">发布版本</a>更新。</p>
+<p>　　b600 前用于发布和测试的二进制文件使用此方式构建。因为编译时使用的文件路径不同等原因，构建的二进制文件和 SHBuild 不完全等价。</p>
 <h2><a class="header" href="#make-命令行" id="make-命令行">make 命令行</a></h2>
-<p>和 Visual Studio 类似，Code::Blocks 项目文件仅用于查看项目文件，当前不作为首要的构建途径被支持。</p>
-<p>虽然 Code::Blocks 具有模块化设计，但仍有一些欠缺可配置性及文档的逻辑被集成在核心（使用 C++ 实现，且不容易改动）而造成问题，如：</p>
+<p>　　和 Visual Studio 类似，Code::Blocks 项目文件仅用于查看项目文件，当前不作为首要的构建途径被支持。</p>
+<p>　　虽然 Code::Blocks 具有模块化设计，但仍有一些欠缺可配置性及文档的逻辑被集成在核心（使用 C++ 实现，且不容易改动）而造成问题，如：</p>
 <ul>
 <li>头文件搜索使用字符串匹配。
 <ul>
@@ -217,23 +217,23 @@ PATH = /d/clang-android/bin:/c/Program\ Files/Java/jdk1.8.0_211/bin:$PATH
 </ul>
 </li>
 </ul>
-<p>由于这些自身的局限性，Code::Blocks 不适合作为现代的集成开发环境，没有在现状以外其它的改进支持的计划。</p>
-<p>使用 <code>make</code> 构建适用于使用 Makefile 的平台，当前包括 DS 和 Android 。</p>
-<p>设 $Configuration 是生成配置名称，则</p>
-<p>在各个项目目录下运行</p>
+<p>　　由于这些自身的局限性，Code::Blocks 不适合作为现代的集成开发环境，没有在现状以外其它的改进支持的计划。</p>
+<p>　　使用 <code>make</code> 构建适用于使用 Makefile 的平台，当前包括 DS 和 Android 。</p>
+<p>　　设 $Configuration 是生成配置名称，则</p>
+<p>　　在各个项目目录下运行</p>
 <pre><code>make -r BUILD=$Configuration
 </code></pre>
-<p>即可生成。</p>
-<p>在各个项目目录下运行</p>
+<p>　　即可生成。</p>
+<p>　　在各个项目目录下运行</p>
 <pre><code>make -r BUILD=$Configuration rebuild
 </code></pre>
-<p>即可重新生成。</p>
-<p>在各个项目目录下运行</p>
+<p>　　即可重新生成。</p>
+<p>　　在各个项目目录下运行</p>
 <pre><code>make -r BUILD=$Configuration clean
 </code></pre>
-<p>即可清除生成。</p>
+<p>　　即可清除生成。</p>
 <p><strong>注意</strong> 因为不同子项目的 makefile 之间不追溯依赖关系，直接运行 makefie 需明确依赖顺序，参见<a href="ProjectDependencies.zh-CN.html">项目依赖性</a>。</p>
-<p>和其它构建方式类似，YFramework 依赖于 YBase 。对 DS 项目，注意附加的项目依赖性以确定生成顺序：</p>
+<p>　　和其它构建方式类似，YFramework 依赖于 YBase 。对 DS 项目，注意附加的项目依赖性以确定生成顺序：</p>
 <ul>
 <li>YSTest/DS_ARM9 依赖 YFramework 。</li>
 <li>YSTest 依赖 YSTest/DS_ARM7 和 YSTest/DS_ARM9 。</li>

@@ -156,8 +156,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#开发说明" id="开发说明">开发说明</a></h1>
-<p>关于环境配置，详见<a href="Run.zh-CN.html">运行</a>。当前没有其它的面向最终用户的说明。</p>
-<p>以下为面向开发者的说明。</p>
+<p>　　关于环境配置，详见<a href="Run.zh-CN.html">运行</a>。当前没有其它的面向最终用户的说明。</p>
+<p>　　以下为面向开发者的说明。</p>
 <h1><a class="header" href="#准备" id="准备">准备</a></h1>
 <ul>
 <li>了解<a href="Prerequisitions.zh-CN.html">先决条件</a></li>
@@ -165,14 +165,14 @@
 <li>了解<a href="ProjectDependencies.zh-CN.html">项目依赖性</a></li>
 <li>了解<a href="Terminology.zh-CN.html">术语概要</a>的体例以备参考</li>
 </ul>
-<p>YSLib 项目文档位于 YSLib 项目而不是本 wiki 项目中。</p>
-<p>维护者参考的细节和一般规则详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> ；术语的完整定义详见 YSLib 项目文档 <code>doc/CommonRules.txt</code> 。</p>
+<p>　　YSLib 项目文档位于 YSLib 项目而不是本 wiki 项目中。</p>
+<p>　　维护者参考的细节和一般规则详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> ；术语的完整定义详见 YSLib 项目文档 <code>doc/CommonRules.txt</code> 。</p>
 <h1><a class="header" href="#项目过程" id="项目过程">项目过程</a></h1>
-<p>基本规则参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。
-本 wiki 项目作为用户手册和开发者补充文档的形式作为实现及之后阶段输出。
-实现的附加输出为库和工具。
-之前阶段（如设计）为前期过程，其文档和适用于维护过程的项目规则位于 YSLib 项目文档（位于 <code>doc/</code> ）。
-其中整体过程由 <code>doc/Designation.txt</code> 指定。当前内联设计以外的过程，因此不存在设计外前期过程的单独文档。</p>
+<p>　　基本规则参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
+<p>　　本 wiki 项目作为用户手册和开发者补充文档的形式作为实现及之后阶段输出。</p>
+<p>　　实现的附加输出为库和工具。</p>
+<p>　　之前阶段（如设计）为前期过程，其文档和适用于维护过程的项目规则位于 YSLib 项目文档（位于 <code>doc/</code> ）。</p>
+<p>　　其中整体过程由 <code>doc/Designation.txt</code> 指定。当前内联设计以外的过程，因此不存在设计外前期过程的单独文档。</p>
 <h1><a class="header" href="#开发" id="开发">开发</a></h1>
 <ul>
 <li><a href="Build.zh-CN.html">构建</a>
@@ -184,28 +184,29 @@
 <li>使用 <a href="Sysroot.zh-CN.html">Sysroot</a> 开发和部署程序</li>
 </ul>
 <h1><a class="header" href="#平台" id="平台">平台</a></h1>
-<p>关于<strong>外部依赖</strong>、<strong>平台</strong>、<strong>目标平台</strong>和<strong>宿主平台</strong>等概念的一般定义参见<a href="Terminology.zh-CN.html">术语概要</a>。</p>
-<p>YSLib 项目约定一个体系结构和使用的外部依赖是一个平台。</p>
-<p>YSLib 支持不同的目标平台。类似 ISO C/C++ 的独立实现(freestanding implementation) 和宿主实现(hosted implementation) ，平台分为两类：<strong>独立实现平台</strong>和<strong>宿主实现平台</strong>。后者存在操作系统的支持而前者没有。</p>
+<p>　　关于<strong>外部依赖</strong>、<strong>平台</strong>、<strong>目标平台</strong>和<strong>宿主平台</strong>等概念的一般定义参见<a href="Terminology.zh-CN.html">术语概要</a>。</p>
+<p>　　YSLib 项目约定一个体系结构和使用的外部依赖是一个平台。</p>
+<p>　　YSLib 支持不同的目标平台。类似 ISO C/C++ 的独立实现(freestanding implementation) 和宿主实现(hosted implementation) ，平台分为两类：<strong>独立实现平台</strong>和<strong>宿主实现平台</strong>。后者存在操作系统的支持而前者没有。</p>
 <h2><a class="header" href="#语言使用和实现要求" id="语言使用和实现要求">语言使用和实现要求</a></h2>
-<p>本节适用于本项目，不直接限制依赖项和用户程序。项目中特定部分的规则及适用性详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
-<p>使用 ISO C++ 作为主要开发语言。</p>
-<p>不使用和 ISO C++03 以后被接受的特性不兼容的特性，包括但不限于：</p>
+<p>　　本节适用于本项目，不直接限制依赖项和用户程序。项目中特定部分的规则及适用性详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
+<p>　　使用 ISO C++ 作为主要开发语言。</p>
+<p>　　不使用和 ISO C++03 以后被接受的特性不兼容的特性，包括但不限于：</p>
 <ul>
 <li>被取消的特性，如 <code>export</code> 关键字；</li>
 <li>在 ISO C++03 中标记为 deprecated 而在之后版本去除的特性，如 const char 数组类型左值到 char* 右值的转换，</li>
 <li>在 ISO C++03 中标记为 deprecated 但在之后版本重新取消 deprecated 的特性，如修饰命名空间作用域声明的 <code>static</code> ；</li>
 <li>实现的 Defect Report ，如 <a href="http://wg21.cmeerw.net/cwg/issue615">CWG 615</a> 。</li>
 </ul>
-<p>注意即使使用特定模式，一些实现也可能引入之后的 Defect Report 而不保证兼容，如 <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65890">GCC PR65890</a> 。</p>
-<p>关于精确的特性使用规则、具体使用及备选的特性的清单等，详见<a href="StandardUsing.en-US.html">标准使用（英文）</a> 。</p>
-<p>以下对语言实现的要求和支持情况适用整个项目。具体内容可能会在未来变动。</p>
+<p>　　注意即使使用特定模式，一些实现也可能引入之后的 Defect Report 而不保证兼容，如 <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65890">GCC PR65890</a> 。</p>
+<p>　　关于精确的特性使用规则、具体使用及备选的特性的清单等，详见<a href="StandardUsing.en-US.html">标准使用（英文）</a> 。</p>
+<p>　　以下对语言实现的要求和支持情况适用整个项目。具体内容可能会在未来变动。</p>
 <h3><a class="header" href="#基准实现要求" id="基准实现要求">基准实现要求</a></h3>
-<p>默认基于 ISO C++11 环境，但并不要求实现完整支持所有特性。</p>
-<p>依赖 ISO C++ 独立实现或宿主实现，附加以下要求：</p>
+<p>　　默认基于 ISO C++11 环境，但并不要求实现完整支持所有特性。</p>
+<p>　　依赖 ISO C++ 独立实现或宿主实现，附加以下要求：</p>
 <ul>
-<li>标准库要求等同于 ISO C++11 定义的宿主实现。</li>
 <li>满足 ISO C++11 [implimits] 建议的最小实现要求。</li>
+<li>标准库要求基于 ISO C++11 定义的宿主实现。
+<ul>
 <li>需以下整数类型（ ISO C++11 中为可选支持）：
 <ul>
 <li>定宽整数 <code>std::intN_t</code> 和 <code>std::uintN_t</code> （其中 N 为 8 、 16 、 32 或 64 ）；</li>
@@ -220,6 +221,13 @@
 <li>假定用于迭代器 <code>difference_type</code>（含 <code>std::ptrdiff_t</code> ）或坐标计算的有符号整数作为显式转换的目标类型且结果不能在范围内表示时，不引起副作用且结果的值不是能在此范围内表示的任意值（即为小于 <code>0</code> 的值）。
 <ul>
 <li>当前标准中结果由实现定义。<a href="http://wg21.link/p0907">WG21 P0907</a> 已提议修改使用补码表示，符合此要求。</li>
+</ul>
+</li>
+<li>假定特定类型的特定操作无异常抛出（但不依赖异常规范的行为），当前包括：
+<ul>
+<li><code>std::string</code> 的默认构造函数（ <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4002.pdf">WG21 N4002</a> 引入了显式指定 <code>noexcept</code> ，仅从标准草案 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4296.pdf">WG21 N4296</a> 起有效）。</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>实现已解决<a href="StandardUsing.en-US.html">标准使用(en-US)</a> 中的 Workarounds 列出的 Defect Report 问题。</li>
@@ -239,12 +247,16 @@
 <li>基于 <a href="https://mentorembedded.github.io/cxx-abi/abi.html#closure-types">Itanium ABI</a> 的实现符合这个条件。</li>
 </ul>
 </li>
-<li>假定特定类型的特定操作无异常抛出（但不依赖异常规范的行为），当前包括：
+<li>对宿主环境中程序外部的状态的并发修改不引起未定义行为。
 <ul>
-<li><code>std::string</code> 的默认构造函数（ <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4002.pdf">WG21 N4002</a> 引入了显式指定 <code>noexcept</code> ，仅从标准草案 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4296.pdf">WG21 N4296</a> 起有效）。</li>
+<li>现有操作系统和文件系统提供的接口和实现普遍不能保证避免 <a href="https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use">TOCTTOU 访问(en-US)</a> 导致的问题。具体修改的结果未指定，但应不直接引起无法预测的程序行为。</li>
+<li>除非另行指定，本项目的实现不保证检查外部程序的修改。</li>
 </ul>
 </li>
-<li>假定用户代码中的异常和标准库 RTTI 对象满足 ODR ，即使是在使用动态库的宿主实现中，但影响用户代码生成的实现的二进制约定（如 <a href="llvm.org/rL205139">ARM64</a> ）除外。
+</ul>
+<p>假定 YSLib 实现和用户程序的代码满足以下要求：</p>
+<ul>
+<li>假定异常和标准库 RTTI 对象满足 ODR ，即使是在使用动态库的宿主实现中，但影响用户代码生成的实现的二进制约定（如 <a href="llvm.org/rL205139">ARM64</a> ）除外。
 <ul>
 <li>这要求用户代码不依赖影响相关符号可见性而导致 ODR 失效的特性。
 <ul>
@@ -274,15 +286,15 @@
 </li>
 </ul>
 </li>
-<li>对宿主环境中程序外部的状态的并发修改不引起未定义行为。
+<li>假定在标准库宏 <code>NDEBUG</code> 被定义的翻译单元中的代码不违反异常规范。
 <ul>
-<li>现有操作系统和文件系统提供的接口和实现普遍不能保证避免 <a href="https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use">TOCTTOU 访问(en-US)</a> 导致的问题。具体修改的结果未指定，但应不直接引起无法预测的程序行为。</li>
-<li>除非另行指定，本项目的实现不保证检查外部程序的修改。</li>
+<li>这允许改进代码生成，如使用 <a href="https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Dialect-Options.html">G++ 的 <code>-fno-enforce-eh-specs</code> 选项</a>。</li>
+<li>程序应不依赖违反异常规范时调用标准库的函数的行为。否则，程序行为未定义。</li>
 </ul>
 </li>
 </ul>
 <h3><a class="header" href="#历史实现要求" id="历史实现要求">历史实现要求</a></h3>
-<p>以下要求已被修改或取消。</p>
+<p>　　以下要求已被修改或取消。</p>
 <ul>
 <li>假定提供撤销标准库未定义行为的保证：
 <ul>
@@ -318,33 +330,34 @@
 </li>
 </ul>
 <h3><a class="header" href="#可选实现支持" id="可选实现支持">可选实现支持</a></h3>
-<p>允许使用 ISO C++11 以后兼容最新标准草案的正式标准中的特性（可通过 <code>__cplusplus</code> 宏和 <a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations">SG10 建议的特性检查</a>判断）。</p>
+<p>　　允许使用 ISO C++11 以后兼容最新标准草案的正式标准中的特性（可通过 <code>__cplusplus</code> 宏和 <a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations">SG10 建议的特性检查</a>判断）。</p>
 <h3><a class="header" href="#其它" id="其它">其它</a></h3>
-<p>不依赖实现的方言扩展，但在确保实现能支持时，在特定的代码中可通过条件包含等方式选用。</p>
-<p>若实现默认具有不符合标准的特性，在本项目的代码中不依赖这些特性，即便外部依赖项可能对此进行配置（如 MinGW G++ 为了和 Microsoft VC++ 兼容启用的 <code>-mms-bitfields</code> ，而 MSYS2 安装的 freetype2 的 <code>pkg-config</code> 的 CFLAGS 隐含此参数）。</p>
+<p>　　不依赖实现的方言扩展，但在确保实现能支持时，在特定的代码中可通过条件包含等方式选用。</p>
+<p>　　若实现默认具有不符合标准的特性，在本项目的代码中不依赖这些特性，即便外部依赖项可能对此进行配置（如 MinGW G++ 为了和 Microsoft VC++ 兼容启用的 <code>-mms-bitfields</code> ，而 MSYS2 安装的 freetype2 的 <code>pkg-config</code> 的 CFLAGS 隐含此参数）。</p>
 <h2><a class="header" href="#保留名称" id="保留名称">保留名称</a></h2>
-<p>YSLib 项目中，除了 YBase.LibDefect 是对标准库实现的修正外，并不是语言的实现，因此公开接口遵循 ISO C++ 对保留名称的使用，如不引入以 <code>__</code> 起始的标识符。</p>
-<p>对实现环境已经以保留标识符提供的接口，适用以下规则：</p>
+<p>　　YSLib 项目中，除了 YBase.LibDefect 是对标准库实现的修正外，并不是语言的实现，因此公开接口遵循 ISO C++ 对保留名称的使用，如不引入以 <code>__</code> 起始的标识符。</p>
+<p>　　对实现环境已经以保留标识符提供的接口，适用以下规则：</p>
 <ul>
 <li><code>&lt;ydef.h&gt;</code> 提供宏包装特定实现的标识符。</li>
 <li>除标准预定义的（如 <code>__cplusplus</code> ）和用于特性检查的标识符（以 <code>__cpp</code> 或 <code>__has</code> 起始），以及上述被包装时的宏定义，不在注解（作为宏 <code>YB_ATTR</code> 和 <code>YB_ATTR_STD</code> 的参数）外直接使用保留标识符。</li>
 </ul>
-<p><code>&lt;ydef.h&gt;</code> 和其它一些 YSLib 项目头文件保留特定的不被标准保留的标识符，详见 YSLib 项目文档 <code>doc/Definitions.txt</code> 。</p>
+<p>　　<code>&lt;ydef.h&gt;</code> 和其它一些 YSLib 项目头文件保留特定的不被标准保留的标识符，详见 YSLib 项目文档 <code>doc/Definitions.txt</code> 。</p>
 <h1><a class="header" href="#库概述" id="库概述">库概述</a></h1>
-<p>YSLib 项目由多个子项目组成。其中主要的有顶级子项目： YBase 和 YFramework 。它们是开发 YSLib 应用的必备的库。每个库被构建为单独的映像（静态库或动态库）。</p>
-<p>YSLib 的组件有些是依赖于特定平台的，但更多是<strong>平台中立</strong>的。关于库的组件在此的不同，详见下文的解释。</p>
+<p>　　YSLib 项目由多个子项目组成。其中主要的有顶级子项目：YBase 和 YFramework 。它们是开发 YSLib 应用的必备的库。每个库被构建为单独的映像（静态库或动态库）。</p>
+<p>　　YSLib 的组件有些是依赖于特定平台的，但更多是<strong>平台中立</strong>的。关于库的组件在此的不同，详见下文的解释。</p>
+<p>　　静态库、动态库或其它可能被库构建时依赖的输入以及构建使用的工具是库构建的<strong>依赖项</strong>。关于依赖项的一般说明，详见<a href="Terminology.zh-CN.html">术语</a>中关于依赖管理的说明。</p>
 <h2><a class="header" href="#平台模拟" id="平台模拟">平台模拟</a></h2>
-<p>除非另行指定，文档中的狭义的“模拟”概念指程序模拟。</p>
-<p>YSLib 项目中，**平台模拟(platform emulation)**主要指直接以运行时环境适配层嵌入宿主平台运行时，在具体程序中提供类似被模拟的目标平台的具体特性和接口。</p>
-<p>完整的定义详见 YSLib 项目文档 <code>doc/CommonRules.txt</code> 。</p>
+<p>　　除非另行指定，文档中的狭义的“模拟”概念指程序模拟。</p>
+<p>　　YSLib 项目中，**平台模拟(platform emulation)**主要指直接以运行时环境适配层嵌入宿主平台运行时，在具体程序中提供类似被模拟的目标平台的具体特性和接口。</p>
+<p>　　完整的定义详见 YSLib 项目文档 <code>doc/CommonRules.txt</code> 。</p>
 <h2><a class="header" href="#外部依赖项" id="外部依赖项">外部依赖项</a></h2>
-<p><strong>外部依赖项</strong>是不由本项目维护和单独发布的依赖项。</p>
-<p>YSLib 项目严格使用 ISO C++ 的子集和特定实现的可选的扩展。关于依赖的语言特性，参见<a href="StandardUsing.en-US.html">这里(en-US)</a> 。</p>
-<p>在所有目标平台上，除了<strong>系统库</strong>外，外部依赖项是相同的，但可能使用不同的版本，也不一定按相同的配置构建。系统库的概念和 <a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a> 的 <a href="http://www.gnu.org/licenses/gpl-faq.html#SystemLibraryException">system library exception</a> 中的 system library 定义类似，在此指特定平台或操作系统提供运行时支持的、由特定第三方环境提供开发支持的外部依赖，例如提供特定平台的 ISO C++ 标准库部分实现的 libstdc++ 和提供 Windows API 实现的 GDI32 等。</p>
-<p>除了系统库外，一部分外部依赖项可选或必须使用自行构建的（可能被修改的）版本。这些外部依赖项的修改和构建脚本位于版本库的 <code>3rdparty</code> 目录，默认按原始许可证发行。</p>
-<p>YBase 只直接依赖 ISO C++ 标准库。</p>
-<p>YFramework 默认依赖经过修改的 FreeType2 和 FreeImage 。其中前者当前仅修改头文件，经过特别处理和官方发布的直接构建的版本二进制兼容，可以被系统库替换。</p>
-<p>当前版本中，不同宿主平台对应的静态库文件（后缀名为 <code>.a</code> ）查找的目录如下：</p>
+<p>　　<strong>外部依赖项</strong>在构建项目的上下文中，指构建时可能使用的外部依赖，是不由本项目维护和单独发布的依赖项。</p>
+<p>　　YSLib 项目严格使用 ISO C++ 的子集和特定实现的可选的扩展。关于依赖的语言特性，参见<a href="StandardUsing.en-US.html">这里(en-US)</a> 。</p>
+<p>　　在所有目标平台上，除了<strong>系统库</strong>外，外部依赖项是相同的，但可能使用不同的版本，也不一定按相同的配置构建。系统库的概念和 <a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a> 的 <a href="http://www.gnu.org/licenses/gpl-faq.html#SystemLibraryException">system library exception</a> 中的 system library 定义类似，在此指特定平台或操作系统提供运行时支持的、由特定第三方环境提供开发支持的外部依赖，例如提供特定平台的 ISO C++ 标准库部分实现的 libstdc++ 和提供 Windows API 实现的 GDI32 等。</p>
+<p>　　除了系统库外，一部分外部依赖项可选或必须使用自行构建的（可能被修改的）版本。这些外部依赖项的修改和构建脚本位于版本库的 <code>3rdparty</code> 目录，默认按原始许可证发行。</p>
+<p>　　YBase 只直接依赖 ISO C++ 标准库。</p>
+<p>　　YFramework 默认依赖经过修改的 FreeType2 和 FreeImage 。其中前者当前仅修改头文件，经过特别处理和官方发布的直接构建的版本二进制兼容，可以被系统库替换。</p>
+<p>　　当前版本中，不同宿主平台对应的静态库文件（后缀名为 <code>.a</code> ）查找的目录如下：</p>
 <ul>
 <li>/YFramework/DS/lib</li>
 <li>/YFramework/MinGW32/lib</li>
@@ -352,60 +365,60 @@
 <li>/YFramework/Android/lib</li>
 <li>/YFramework/Linux/lib</li>
 </ul>
-<p>（当前 Android 和 Linux 仅支持单一本机体系结构，实际仅测试 Android ARMv7 和 Linux x86_64 。）</p>
-<p>构建 YFramework 时需包含 <code>3rdparty/include</code> 目录的头文件。 <a href="Sysroot.zh-CN.html">Sysroot</a> 安装脚本 <a href="Tools/Scripts.zh-CN.html">Tools/install-sysroot.sh</a> 会复制包括上面的头文件在内的文件。</p>
-<p>当前已经使用的详细外部依赖项详见 YSLib 项目文档 <code>doc/Dependencies.txt</code> 。</p>
+<p>　　其中，使用的 FreeImage 静态库对应 YFramework 的 <code>debug</code> 和非 <code>debug</code> 配置，文件名分别为 <code>libFreeImaged.a</code> 和 <code>libFreeImage.a</code> 。这可在同一个目录树中共存。</p>
+<p>　　（当前 Android 和 Linux 仅支持单一本机体系结构，实际仅测试 Android ARMv7 和 Linux x86_64 。）</p>
+<p>　　构建 YFramework 时需包含 <code>3rdparty/include</code> 目录的头文件。 <a href="Sysroot.zh-CN.html">Sysroot</a> 安装脚本 <a href="Tools/Scripts.zh-CN.html">Tools/install-sysroot.sh</a> 会复制包括上面的头文件在内的文件。</p>
+<p>　　当前已经使用的详细外部依赖项详见 YSLib 项目文档 <code>doc/Dependencies.txt</code> 。</p>
 <p><strong>注意</strong> 版本库历史中包括静态库(<code>.a</code>) 文件，但为减少版本库大小，不再更新且可能移除，使用外部源或自行构建的方式替代。参见<a href="Archives.zh-CN.html">归档</a>获取单独配置或和源代码目录集成的已编译的外部依赖项。</p>
-<p>在 build 885 之前，版本库历史的对应的宿主平台中的静态库位于以下位置：</p>
+<p>　　在 build 885 之前，版本库历史的对应的宿主平台中的静态库位于以下位置：</p>
 <ul>
 <li>/YFramework/DS/lib</li>
 <li>/YFramework/MinGW32/lib-i686</li>
 <li>/YFramework/Android/lib</li>
 <li>/YFramework/Linux/lib-x86_64</li>
 </ul>
-<p>其中 Android 平台只包括 FreeType2 ，Linux 平台只包括 FreeImage 。其它平台包括 FreeType2 和 FreeImage 库文件。</p>
-<p>其它平台中，只有随其它文件的发布版本包含完整更新，否则压缩包中可能只有其中一个库文件。</p>
-<p>关于自行构建外部依赖项的方法，参见<a href="Build.zh-CN.html">构建说明</a>。</p>
+<p>　　其中 Android 平台只包括 FreeType2 ，Linux 平台只包括 FreeImage 。其它平台包括 FreeType2 和 FreeImage 库文件。</p>
+<p>　　其它平台中，只有随其它文件的发布版本包含完整更新，否则压缩包中可能只有其中一个库文件。</p>
+<p>　　关于自行构建外部依赖项的方法，参见<a href="Build.zh-CN.html">构建说明</a>。</p>
 <h2><a class="header" href="#模块" id="模块">模块</a></h2>
-<p>YSLib 项目组织为一个逻辑上的树形结构，其叶节点称为<strong>模块</strong>。类似文件系统，非叶节点称为<strong>模块目录</strong>。在源代码中使用<strong>模块路径</strong>来标识不同的模块，其分隔符为 <code>::</code> 。在 YSLib 项目下直接划分的<strong>顶级子项目</strong>的名称仅在必要时出现在模块路径中，完整模块路径一般从<strong>次级子项目</strong>的名称起始。</p>
-<p>C 和 C++ 源代码的一个模块由以下三种形式之一构成：</p>
+<p>　　YSLib 项目组织为一个逻辑上的树形结构，其叶节点称为<strong>模块</strong>。类似文件系统，非叶节点称为<strong>模块目录</strong>。在源代码中使用<strong>模块路径</strong>来标识不同的模块，其分隔符为 <code>::</code> 。在 YSLib 项目下直接划分的<strong>顶级子项目</strong>的名称仅在必要时出现在模块路径中，完整模块路径一般从<strong>次级子项目</strong>的名称起始。</p>
+<p>　　C 和 C++ 源代码的一个模块由以下三种形式之一构成：</p>
 <ul>
 <li>一个头文件</li>
 <li>一个非头文件的源文件</li>
 <li>一个头文件和对应的源文件</li>
 </ul>
-<p>作为公开接口的模块是公开模块。公开模块的头文件在单独的目录中以便部署。</p>
-<p>按 ISO C 和 ISO C++ 规定， C 或 C++ 模块中存在的非头文件的源文件和包含的头文件构成一个 C 或 C++ （预处理）翻译单元，简称<strong>单元</strong>。注意这里包含的头文件不仅限于模块中的头文件。</p>
-<p>关于模块的进一步说明以及模块路径的形式文法和头文件依赖的基本规则，参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
+<p>　　作为公开接口的模块是公开模块。公开模块的头文件在单独的目录中以便部署。</p>
+<p>　　按 ISO C 和 ISO C++ 规定， C 或 C++ 模块中存在的非头文件的源文件和包含的头文件构成一个 C 或 C++ （预处理）翻译单元，简称<strong>单元</strong>。注意这里包含的头文件不仅限于模块中的头文件。</p>
+<p>　　关于模块的进一步说明以及模块路径的形式文法和头文件依赖的基本规则，参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
 <h2><a class="header" href="#文件系统布局" id="文件系统布局">文件系统布局</a></h2>
-<p>作为 C++ 项目， YSLib 把每个顶级子项目的源文件和公开模块头文件分别保存在不同的目录中，即 <code>include</code> 和 <code>source</code> 。非公开模块若有头文件，也位于 <code>source</code> 。</p>
-<p>特定于目标平台配置的代码会直接位于 <code>平台名</code> 目录下，称为<strong>平台扩展</strong>。对应的两个目录为 <code>平台名/include</code> 和 <code>平台名/source</code> 。</p>
-<p>除了平台扩展的内容，文件系统目录和模块目录的每一级对应。平台扩展的模块目录名是对应平台中立部分加上后缀 <code>_(平台名)</code> 。</p>
-<p>举例：顶级子项目 YFramework 下的次级子项目 Helper 的非平台扩展的源代码在目录 <code>YFramework/include/Helper</code> 和 <code>YFramework/source/Helper</code> 中，它的 DS 平台扩展的源代码位于 <code>YFramework/DS/include/Helper</code> 和 <code>YFramework/DS/source/Helper</code> 中。</p>
-<p>提供平台扩展的次级子项目只有 YCLib 和 Helper 。</p>
-<p>编译项目时包含的头文件是合并的，如编译器命令行 <code>-IYFramework/DS/include -IYFramework/include</code> 在一次编译中同时使用平台中立和特定于平台 DS 的模块的 YFramework 头文件。</p>
+<p>　　作为 C++ 项目， YSLib 把每个顶级子项目的源文件和公开模块头文件分别保存在不同的目录中，即 <code>include</code> 和 <code>source</code> 。非公开模块若有头文件，也位于 <code>source</code> 。</p>
+<p>　　特定于目标平台配置的代码会直接位于 <code>平台名</code> 目录下，称为<strong>平台扩展</strong>。对应的两个目录为 <code>平台名/include</code> 和 <code>平台名/source</code> 。</p>
+<p>　　除了平台扩展的内容，文件系统目录和模块目录的每一级对应。平台扩展的模块目录名是对应平台中立部分加上后缀 <code>_(平台名)</code> 。</p>
+<p>　　举例：顶级子项目 YFramework 下的次级子项目 Helper 的非平台扩展的源代码在目录 <code>YFramework/include/Helper</code> 和 <code>YFramework/source/Helper</code> 中，它的 DS 平台扩展的源代码位于 <code>YFramework/DS/include/Helper</code> 和 <code>YFramework/DS/source/Helper</code> 中。</p>
+<p>　　提供平台扩展的次级子项目只有 YCLib 和 Helper 。</p>
+<p>　　编译项目时包含的头文件是合并的，如编译器命令行 <code>-IYFramework/DS/include -IYFramework/include</code> 在一次编译中同时使用平台中立和特定于平台 DS 的模块的 YFramework 头文件。</p>
 <h2><a class="header" href="#yslib-及其本体" id="yslib-及其本体">YSLib 及其本体</a></h2>
-<p>在 YBase 和 YFramework 分离之前， YSLib 是一整个库。原 YSLib 大部分仍然在 YFramework 中，仍然可称为 YSLib ，是一个 YFramework 下的次级子项目。注意和整个项目名的不同，以下称为 <strong>YSLib 库</strong>，以示区分。</p>
-<p>YSLib 库中， Adaptor 用于适配特定于具体外部依赖的接口。可以通过修改其中的代码替换外部依赖，包括部分标准库兼容接口。</p>
-<p>其它部分的接口和实现都是严格平台中立且不依赖外部特定接口而变化的，称为<strong>本体</strong>。本体中提供了 YSLib 的主要功能。</p>
+<p>　　在 YBase 和 YFramework 分离之前， YSLib 是一整个库。原 YSLib 大部分仍然在 YFramework 中，仍然可称为 YSLib ，是一个 YFramework 下的次级子项目。注意和整个项目名的不同，以下称为 <strong>YSLib 库</strong>，以示区分。</p>
+<p>　　YSLib 库中， Adaptor 用于适配特定于具体外部依赖的接口。可以通过修改其中的代码替换外部依赖，包括部分标准库兼容接口。</p>
+<p>　　其它部分的接口和实现都是严格平台中立且不依赖外部特定接口而变化的，称为<strong>本体</strong>。本体中提供了 YSLib 的主要功能。</p>
 <h2><a class="header" href="#helper" id="helper">Helper</a></h2>
-<p>如果需要开发依赖平台特定的应用，本体接口可能不足，而需要使用平台扩展。此外，可能需要一些便利功能。</p>
-<p>在 YSLib 库之上，Helper 对此类需求提供了一致而灵活的接口。</p>
-<p>若需要更接近特定平台实现的接口，可以使用 YCLib 及其平台扩展。</p>
-<p>YCLib 和 Helper 在宿主实现上都提供了更加丰富的功能。</p>
+<p>　　若需要开发依赖平台特定的应用，本体接口可能不足，而需要使用平台扩展。此外，可能需要一些便利功能。</p>
+<p>　　在 YSLib 库之上，Helper 对此类需求提供了一致而灵活的接口。</p>
+<p>　　若需要更接近特定平台实现的接口，可以使用 YCLib 及其平台扩展。</p>
+<p>　　YCLib 和 Helper 在宿主实现上都提供了更加丰富的功能。</p>
 <h1><a class="header" href="#代码规范" id="代码规范">代码规范</a></h1>
-<p>YSLib 项目维护的代码规范符合 YSLib 项目中的文档约定的规则，包括：</p>
+<p>　　YSLib 项目维护的代码规范符合 YSLib 项目中的文档约定的规则，包括：</p>
 <ul>
 <li><code>doc/CommonRules.txt</code> 一般规范</li>
 <li><code>doc/ProjectRules.txt</code> 项目规范</li>
 <li><code>doc/LanguageConvention.txt</code> 语言使用约定</li>
 </ul>
 <h2><a class="header" href="#代码格式化" id="代码格式化">代码格式化</a></h2>
-<p><code>doc/CommonRules.txt</code> 中规定了命名风格和参考的代码格式。由于格式化代码涉及语义分析，并不保证可以完全自动化进行，需要在编码时注意调整。</p>
-<p>以下工具配置可以把其中的主要工作自动化进行：</p>
+<p>　　<code>doc/CommonRules.txt</code> 中规定了命名风格和参考的代码格式。由于格式化代码涉及语义分析，并不保证可以完全自动化进行，需要在编码时注意调整。</p>
+<p>　　以下工具配置可以把其中的主要工作自动化进行：</p>
 <ul>
-<li>
-<p><code>clang-format</code></p>
+<li><code>clang-format</code>
 <ul>
 <li>可通过 MSYS2 包 <code>mingw-w64-i686-clang</code> 或 <code>mingw-w64-x86_64-clang</code> 安装，以下配置以这里的 3.7 版本为基准测试</li>
 <li>配置选项的文档参见<a href="http://clang.llvm.org/docs/ClangFormatStyleOptions.html">这里</a></li>
@@ -425,8 +438,7 @@
 <li>命令行示例（同时替换 <code>template &lt;</code> ）： <code>find YBase YFramework YSTest -name &quot;*.h&quot; -o -name &quot;*.hpp&quot; -o -name &quot;*. cpp&quot; | xargs -i sh -c &quot;clang-format -i -style=file {} &amp;&amp; sed -bi 's/template &lt;/template&lt;/g' {}&quot;</code></li>
 </ul>
 </li>
-<li>
-<p><code>astyle</code></p>
+<li><code>astyle</code>
 <ul>
 <li>可通过 MSYS2 包 <code>mingw-w64-i686-astyle</code> 或 <code>mingw-w64-x86_64-astyle</code> 安装，以下命令行以这里的 2.05.1 版本为基准测试</li>
 <li>（版本 2.05 ）命令行选项的文档参见<a href="http://astyle.sourceforge.net/astyle.html">这里</a>
