@@ -156,13 +156,20 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#概要" id="概要">概要</a></h1>
-<p>归档文件目前存放于<a href="http://pan.baidu.com">百度云网盘</a>中。进入 <a href="http://pan.baidu.com/s/1mgjxaY0#list/path=%2FShared%2FYSLib">YSLib 主仓库</a>查看所有发布的文件，可转存或直接下载。</p>
-<p>因为分享限制，地址可能需要更新。</p>
+<p>　　归档文件目前存放于以下位置：</p>
+<ul>
+<li><a href="http://pan.baidu.com">百度云网盘</a>：进入 <a href="http://pan.baidu.com/s/1mgjxaY0#list/path=%2FShared%2FYSLib">YSLib 主仓库</a>查看所有发布的文件，可转存或直接下载。
+<ul>
+<li>因为分享限制，地址可能需要更新。</li>
+</ul>
+</li>
+<li><a href="https://osdn.net">OSDN</a>：进入 <a href="https://osdn.net/projects/yslib/releases/">YSLib 项目下载页</a>查看发布的文件。</li>
+</ul>
 <p><strong>注意</strong> 作为归档的压缩包文件一般统一使用 7z ，但不同的归档使用不同的压缩算法和选项，对系统资源要求不尽相同。作为极端情况， V0.6 后的 <code>doc</code> 下的压缩包使用具有 1.5GiB 字典的 PPMd 达到约 5% 的压缩比，这一般也要求解压缩时需<strong>预留 20 倍压缩包大小的空余空间，以及 1.5GiB 空余（物理）内存</strong>。</p>
 <h1><a class="header" href="#命名规约" id="命名规约">命名规约</a></h1>
-<p>文件名使用 <code>[平台环境标识-]包名-版本[-配置]</code>.后缀 。“<code>[]</code>”中为可选项。特定平台的目录名可参照此规约。</p>
-<p>对于二进制文件和库文件，<a href="Terminology.zh-CN.html">平台环境标识</a>使用目标三元组分类：<code>archc-OS-toolchain</code> ；不限定体系结构的使用 &quot;<code>any</code>&quot; 。</p>
-<p>发布时若文件没有更新，则不另行更新版本。若某个包不存在预期的版本，尝试使用之前最近的版本代替。</p>
+<p>　　文件名使用 <code>[平台环境标识-]包名-版本[-配置]</code>.后缀 。“<code>[]</code>”中为可选项。特定平台的目录名可参照此规约。</p>
+<p>　　对于二进制文件和库文件，<a href="Terminology.zh-CN.html">平台环境标识</a>使用目标三元组分类：<code>archc-OS-toolchain</code> ；不限定体系结构的使用 &quot;<code>any</code>&quot; 。</p>
+<p>　　发布时若文件没有更新，则不另行更新版本。若某个包不存在预期的版本，尝试使用之前最近的版本代替。</p>
 <h2><a class="header" href="#顶级目录结构" id="顶级目录结构">顶级目录结构</a></h2>
 <ul>
 <li><code>src</code> 可用于直接构建的源代码（包括外部依赖项的二进制库文件）包</li>
@@ -174,6 +181,7 @@
 <li><code>arm-linux-androideabi</code> Android ARM 平台文件</li>
 <li><code>x86_64-linux-gnu</code> Linux x64 平台文件</li>
 </ul>
+<p><strong>注意</strong> 因为包含所有平台的库文件过大且文件重复，考虑到存储和传输开销，V0.9 起不提供 YSLib 整体的源代码包（位于 <code>src</code>）。请直接参照<a href="GettingSources.zh-CN.html">获取源代码</a>中的来源，同步版本库或下载源代码，再下载所需平台的外部依赖项的归档文件，并按<a href="Development.zh-CN.html">开发说明</a>存储到相应位置。Sysroot 归档中仍包含对应的外部依赖项。</p>
 <h2><a class="header" href="#包概要" id="包概要">包概要</a></h2>
 <p>以下为各个具体体系结构目录下的包的概要（并不一定保证每个体系结构具有所有这些包）。</p>
 <ul>
@@ -182,33 +190,33 @@
 <li><code>YSTest</code> YSTest 二进制文件</li>
 <li><code>YDE</code> 二进制文件</li>
 </ul>
-<p>内容详见以下二进制文件说明。</p>
-<p>以下为 <code>any</code> 目录下的包的概要。</p>
+<p>　　内容详见以下二进制文件说明。</p>
+<p>　　以下为 <code>any</code> 目录下的包的概要。</p>
 <ul>
 <li><code>yslib-data</code> YSLib 运行时依赖的数据文件，参见<a href="Run.zh-CN.html">运行说明</a></li>
 <li><code>ybase-header</code> YBase 头文件</li>
 <li><code>yframework-header</code> YFramework 头文件</li>
 </ul>
 <p>V0.6 起不单独提供头文件，可使用源代码包或 Sysroot 包代替。</p>
-<p>此外，源代码包名以 <code>-src</code> 为后缀，在 <code>src</code> 目录下；而 <code>Doxygen-html</code> 是通过 Doxygen 生成的 HTML/XHTML 文档的包名，在 <code>doc</code> 目录下。</p>
+<p>　　此外，源代码包名以 <code>-src</code> 为后缀，在 <code>src</code> 目录下；而 <code>Doxygen-html</code> 是通过 Doxygen 生成的 HTML/XHTML 文档的包名，在 <code>doc</code> 目录下。</p>
 <h1><a class="header" href="#二进制文件说明" id="二进制文件说明">二进制文件说明</a></h1>
-<p><a href="Releases.zh-CN.html">Beta 阶段</a>前，二进制文件不用于对所有被支持的平台提供完整可用的环境。</p>
-<p>除以下另行指定， V0.6(build 600) 起，仅第一类支持（支持等级详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> ）且具有 Sysroot 的平台配置提供完整的二进制文件，包括库和示例项目等。</p>
+<p>　　<a href="Releases.zh-CN.html">Beta 阶段</a>前，二进制文件不用于对所有被支持的平台提供完整可用的环境。</p>
+<p>　　除以下另行指定， V0.6(build 600) 起，仅第一类支持（支持等级详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> ）且具有 Sysroot 的平台配置提供完整的二进制文件，包括库和示例项目等。</p>
 <h2><a class="header" href="#external" id="external">External</a></h2>
-<p>单独<a href="Build.zh-CN.html">构建</a>的<a href="Development.zh-CN.html">外部依赖项</a>，一般是二进制库文件。对所有支持的平台提供。</p>
-<p>V0.6(build 600) 起<a href="Development.zh-CN.html">版本库中不再保持二进制文件</a>。源代码包 <code>src-*.7z</code> 中包括已经编译的外部依赖项。此外，各个平台目录下的 <code>External-*.7z</code> 单独对依赖项打包，可参照前文中的位置自行放置。</p>
+<p>　　单独<a href="Build.zh-CN.html">构建</a>的<a href="Development.zh-CN.html">外部依赖项</a>，一般是二进制库文件。对所有支持的平台提供。</p>
+<p>　　V0.6(build 600) 起<a href="Development.zh-CN.html">版本库中不再保持二进制文件</a>。源代码包 <code>src-*.7z</code> 中包括已经编译的外部依赖项。此外，各个平台目录下的 <code>External-*.7z</code> 单独对依赖项打包，可参照前文中的位置自行放置。</p>
 <h2><a class="header" href="#a-hrefsysrootzh-cnhtmlsysroota" id="a-hrefsysrootzh-cnhtmlsysroota"><a href="Sysroot.zh-CN.html">Sysroot</a></a></h2>
-<p>b600 起提供在 release 配置下构建部署的 MinGW Sysroot ，包名为 <code>Sysroot</code> 。</p>
-<p>因为归档文件限制，符号链接压缩为空文件。如需使用符号链接位置的库，可以手动恢复，流程参见<a href="Tools/Scripts.zh-CN.html">构建脚本</a>。</p>
+<p>　　b600 起提供在 release 配置下构建部署的 MinGW Sysroot ，包名为 <code>Sysroot</code> 。</p>
+<p>　　因为归档文件限制，符号链接压缩为空文件。如需使用符号链接位置的库，可以手动恢复，流程参见<a href="Tools/Scripts.zh-CN.html">构建脚本</a>。</p>
 <h2><a class="header" href="#ystest" id="ystest">YSTest</a></h2>
-<p>源代码中默认构建的<a href="Features.zh-CN.html">测试用示例项目</a>，按内容命名为 YReader 。</p>
+<p>　　源代码中默认构建的<a href="Features.zh-CN.html">测试用示例项目</a>，按内容命名为 YReader 。</p>
 <h2><a class="header" href="#a-hrefydezh-cnhtmlydea" id="a-hrefydezh-cnhtmlydea"><a href="YDE.zh-CN.html">YDE</a></a></h2>
-<p>b600 起提供 release 配置下在 Sysroot 上构建的 YDE 合集，包名为 <code>YDE</code> 。</p>
-<p>其中的可执行文件依赖 YBase 和 YFramework 动态库。</p>
+<p>　　b600 起提供 release 配置下在 Sysroot 上构建的 YDE 合集，包名为 <code>YDE</code> 。</p>
+<p>　　其中的可执行文件依赖 YBase 和 YFramework 动态库。</p>
 <h1><a class="header" href="#构建环境" id="构建环境">构建环境</a></h1>
-<p><a href="https://pan.baidu.com/s/18CcFi4qGRwDMKkIt553tTQ#list/path=%2FShared">这里</a>提供了 YSLib 历史和当前版本使用的构建环境相关的归档，其中 YSLib 目录即上述发布仓库。</p>
+<p>　　<a href="https://pan.baidu.com/s/18CcFi4qGRwDMKkIt553tTQ#list/path=%2FShared">这里</a>提供了 YSLib 历史和当前版本使用的构建环境相关的归档，其中 YSLib 目录即上述发布仓库。</p>
 <h2><a class="header" href="#基本环境和工具链" id="基本环境和工具链">基本环境和工具链</a></h2>
-<p>仅提供宿主环境操作系统为 Windows 的二进制文件。</p>
+<p>　　仅提供宿主环境操作系统为 Windows 的二进制文件。</p>
 <h3><a class="header" href="#mingw32-目标和宿主环境" id="mingw32-目标和宿主环境">MinGW32 目标和宿主环境</a></h3>
 <ul>
 <li><a href="https://pan.baidu.com/s/18CcFi4qGRwDMKkIt553tTQ#list/path=%2FShared%2Fsf.net%2Fmingwbuilds">mingw-builds</a></li>

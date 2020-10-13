@@ -156,8 +156,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#概述" id="概述">概述</a></h1>
-<p>这是单列的测试顶级子项目。</p>
-<p>预期覆盖整个项目中的各个<a href="Features.zh-CN.html">库</a>，但目前仅测试 YBase 。框架部分的主要测试由示例程序 YReader 完成。</p>
+<p>　　这是单列的测试顶级子项目。</p>
+<p>　　预期覆盖整个项目中的各个<a href="Features.zh-CN.html">库</a>，但目前仅测试 YBase 。框架部分的主要测试由示例程序 YReader 完成。</p>
 <h1><a class="header" href="#准备" id="准备">准备</a></h1>
 <ul>
 <li>参见<a href="Build.zh-CN.html">构建</a></li>
@@ -165,21 +165,21 @@
 <li>配置满足<a href="Prerequisitions.zh-CN.html">先决条件</a>的对应平台运行环境</li>
 </ul>
 <h1><a class="header" href="#依赖" id="依赖">依赖</a></h1>
-<p>当前测试脚本 <code>test.sh</code> 依赖<a href="Tools/Scripts.zh-CN.html">工具脚本</a> ，并使用相同的解释环境。</p>
+<p>　　当前测试脚本 <code>test.sh</code> 依赖<a href="Tools/Scripts.zh-CN.html">工具脚本</a> ，并使用相同的解释环境。</p>
 <h1><a class="header" href="#运行" id="运行">运行</a></h1>
-<p>测试脚本 <code>test.sh</code> 构建测试程序并运行。</p>
-<p>当前测试程序只包括 YBase::YStandardEx 的相关内容。</p>
-<p>以标准输出显示测试项的数量和每个测试项的结果。通过为 <code>PASS.</code> ，失败为 <code>FAIL.</code> 。</p>
+<p>　　测试脚本 <code>test.sh</code> 构建测试程序并运行。</p>
+<p>　　当前测试程序只包括 YBase::YStandardEx 的相关内容。</p>
+<p>　　以标准输出显示测试项的数量和每个测试项的结果。通过为 <code>PASS.</code> ，失败为 <code>FAIL.</code> 。</p>
 <h2><a class="header" href="#配置" id="配置">配置</a></h2>
-<p>变量 <code>TestDir</code> 表示当前测试使用的目录，默认值即为 <code>test</code> 目录。</p>
-<p>和工具脚本类似，变量 <code>SHBuild_ToolDir</code> 指定工具脚本目录。测试脚本据此包含工具脚本 <code>Tools/Scripts/SHBuild-BuildApp.sh</code> 。因为默认定位到此路径，不需要依赖 <a href="Sysroot.zh-CN.html">Sysroot</a> 安装脚本。</p>
-<p>在包含 <code>Tools/Scripts/SHBuild-BuildApp.sh</code> 前，测试脚本使用（当前被直接硬编码在脚本中）以下配置：</p>
+<p>　　变量 <code>TestDir</code> 表示当前测试使用的目录，默认值即为 <code>test</code> 目录。</p>
+<p>　　和工具脚本类似，变量 <code>SHBuild_ToolDir</code> 指定工具脚本目录。测试脚本据此包含工具脚本 <code>Tools/Scripts/SHBuild-BuildApp.sh</code> 。因为默认定位到此路径，不需要依赖 <a href="Sysroot.zh-CN.html">Sysroot</a> 安装脚本。</p>
+<p>　　在包含 <code>Tools/Scripts/SHBuild-BuildApp.sh</code> 前，测试脚本使用（当前被直接硬编码在脚本中）以下配置：</p>
 <pre><code>CXXFLAGS_OPT_UseAssert=true
 SHBuild_Debug=debug
 SHBuild_NoAdjustSubsystem=true
 </code></pre>
-<p>因为包含了 <code>SHBuild-BuildApp.sh</code> ，也接受 <code>-c</code> 参数，但不会调用 <code>SHBuild</code> 。此处的参数指定的配置用于控制构建时命令行选项。</p>
-<p>和构建 YBase 和 YFramework 库的工具脚本类似，测试脚本支持预编译头文件。但因为默认直接使用 <code>TestDir</code> 作为输出路径，修改配置后可能需要手动清理 <code>gch</code> 文件以免预编译头文件失效。</p>
+<p>　　因为包含了 <code>SHBuild-BuildApp.sh</code> ，也接受 <code>-c</code> 参数，但不会调用 <code>SHBuild</code> 。此处的参数指定的配置用于控制构建时命令行选项。</p>
+<p>　　和构建 YBase 和 YFramework 库的工具脚本类似，测试脚本支持预编译头文件。但因为默认直接使用 <code>TestDir</code> 作为输出路径，修改配置后可能需要手动清理 <code>gch</code> 文件以免预编译头文件失效。</p>
 
                     </main>
 

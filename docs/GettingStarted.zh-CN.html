@@ -156,12 +156,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#导航" id="导航">导航</a></h1>
-<p><a href="Home.zh-CN.html">YSLib 是什么？</a></p>
-<p>返回<a href="Contents.zh-CN.html">目录</a>查看其它内容。</p>
+<p>　　<a href="Home.zh-CN.html">YSLib 是什么？</a></p>
+<p>　　返回<a href="Contents.zh-CN.html">目录</a>查看其它内容。</p>
 <h1><a class="header" href="#目标读者" id="目标读者">目标读者</a></h1>
-<p>本文预期的读者是对了解如何使用 YSLib 创建项目感兴趣的<strong>开发者</strong>。</p>
+<p>　　本文预期的读者是对了解如何使用 YSLib 创建项目感兴趣的<strong>开发者</strong>。</p>
 <h2><a class="header" href="#基础知识" id="基础知识">基础知识</a></h2>
-<p>本文假定读者已经掌握或了解以下知识，不详细展开讨论：</p>
+<p>　　本文假定读者已经掌握或了解以下知识，不详细展开讨论：</p>
 <ul>
 <li>计算机体系结构常识</li>
 <li>了解规范 C++ 语言的标准（ISO/IEC 14882）</li>
@@ -169,12 +169,12 @@
 <li>有必要时，能避免依赖只在特定实现支持的方言特性</li>
 </ul>
 <h1><a class="header" href="#概要" id="概要">概要</a></h1>
-<p>本文档说明开发 YSLib 程序的简易操作。以下仅提供操作步骤和主要意义的解释。</p>
+<p>　　本文档说明开发 YSLib 程序的简易操作。以下仅提供操作步骤和主要意义的解释。</p>
 <p><strong>注意</strong> 若需自行定制构建，参照以下引用的文档的全文，而非某个特定章节；再按照<a href="Build.zh-CN.html">构建</a>中的步骤执行。</p>
-<p>当前只有关于 Windows 下使用 MinGW32 的内容，基于 MSYS2 环境。</p>
+<p>　　当前只有关于 Windows 下使用 MinGW32 的内容，基于 MSYS2 环境。</p>
 <h1><a class="header" href="#环境配置" id="环境配置">环境配置</a></h1>
-<p>使用 YSLib 开发需要配置 YSLib 环境，以确保 YSLib 的库和相关环境可用。</p>
-<p>当前建议直接在本机环境中从源代码构建安装 YSLib ，参照以下步骤和要点：</p>
+<p>　　使用 YSLib 开发需要配置 YSLib 环境，以确保 YSLib 的库和相关环境可用。</p>
+<p>　　当前建议直接在本机环境中从源代码构建安装 YSLib ，参照以下步骤和要点：</p>
 <ul>
 <li>参照<a href="Prerequisitions.zh-CN.html">先决条件</a>的<strong>PC(MinGW32)<strong>一节给出的链接下载 MSYS2 并配置环境，执行脚本安装所需的工具；或者参照</strong>PC/Linux</strong>一节配置 Linux 开发环境。</li>
 <li><a href="GettingSources.zh-CN.html">获取源代码</a>。
@@ -190,12 +190,12 @@
 </li>
 </ul>
 <h1><a class="header" href="#开发基础" id="开发基础">开发基础</a></h1>
-<p>以下介绍使用 YSLib 开发须知的基础要点，并说明如何开发示例程序。</p>
+<p>　　以下介绍使用 YSLib 开发须知的基础要点，并说明如何开发示例程序。</p>
 <h2><a class="header" href="#控制台程序和图形用户界面gui-程序" id="控制台程序和图形用户界面gui-程序">控制台程序和图形用户界面(GUI) 程序</a></h2>
-<p>需要注意，在 Windows 中控制台程序仍然可以包含 GUI 。</p>
-<p>YSLib 支持各种用户应用程序。为了简便起见，以下只介绍 GUI 程序的使用。更具体的说明参见 <a href="Prerequisitions.zh-CN.html">Windows 子系统</a>。</p>
+<p>　　需要注意，在 Windows 中控制台程序仍然可以包含 GUI 。</p>
+<p>　　YSLib 支持各种用户应用程序。为了简便起见，以下只介绍 GUI 程序的使用。更具体的说明参见 <a href="Prerequisitions.zh-CN.html">Windows 子系统</a>。</p>
 <h2><a class="header" href="#编写-hello-world-程序" id="编写-hello-world-程序">编写 Hello World 程序</a></h2>
-<p>新建 C++ 源文件（名称任意，但需要<a href="Tools/SHBuild.zh-CN.html#markdown-header-_1">以 <code>.cpp</code> 等作为扩展名以保证 SHBuild 作为 C++ 源文件处理</a>），内容如下：</p>
+<p>　　新建 C++ 源文件（名称任意，但需要<a href="Tools/SHBuild.zh-CN.html#markdown-header-_1">以 <code>.cpp</code> 等作为扩展名以保证 SHBuild 作为 C++ 源文件处理</a>），内容如下：</p>
 <pre><code>#include &lt;YSBuild.h&gt;
 #include YFM_Helper_GUIApplication
 #include YFM_YSLib_UI_Label
@@ -214,40 +214,40 @@ main()
 }
 </code></pre>
 <h3><a class="header" href="#关于头文件" id="关于头文件">关于头文件</a></h3>
-<p>可以安全地重复包含头文件。</p>
-<p>注意到 <code>#include</code> 后可以是一个宏。这里表示路径的宏 <code>YFM_*</code> 由 <code>&lt;YSBuild.h&gt;</code> 保证定义，因此这个头文件需要在使用这些宏之前被包含。</p>
-<p>使用宏表示 YFramework 的大多数头文件名是兼容性的需要。用户程序不需要使用这种策略，尤其是集成开发环境可能会对这样引入的头文件的修改不敏感而导致的构建遗漏。</p>
-<p>MinGW32 平台的 Helper::HostedUI 的头文件已经保证包含了 <code>&lt;Windows.h&gt;</code> 中宿主窗口的声明，不需要显式包含。</p>
+<p>　　可以安全地重复包含头文件。</p>
+<p>　　注意到 <code>#include</code> 后可以是一个宏。这里表示路径的宏 <code>YFM_*</code> 由 <code>&lt;YSBuild.h&gt;</code> 保证定义，因此这个头文件需要在使用这些宏之前被包含。</p>
+<p>　　使用宏表示 YFramework 的大多数头文件名是兼容性的需要。用户程序不需要使用这种策略，尤其是集成开发环境可能会对这样引入的头文件的修改不敏感而导致的构建遗漏。</p>
+<p>　　MinGW32 平台的 Helper::HostedUI 的头文件已经保证包含了 <code>&lt;Windows.h&gt;</code> 中宿主窗口的声明，不需要显式包含。</p>
 <h2><a class="header" href="#使用-shbuild-buildapp-脚本构建程序" id="使用-shbuild-buildapp-脚本构建程序">使用 SHBuild-BuildApp 脚本构建程序</a></h2>
-<p>把上面的文件保存到<strong>一个空的目录</strong>下，以下以 <code>$SRC</code> 指定这个目录名。</p>
-<p>执行以下命令：</p>
+<p>　　把上面的文件保存到<strong>一个空的目录</strong>下，以下以 <code>$SRC</code> 指定这个目录名。</p>
+<p>　　执行以下命令：</p>
 <pre><code>bash -c &quot;cd $SRC; . SHBuild-BuildApp.sh; SHBuild_BuildApp .&quot;
 </code></pre>
-<p>在目录 <code>$SRC/.shbuild</code> 下找到构建好的可执行文件（具体文件名取决于源文件名），执行观察结果。</p>
+<p>　　在目录 <code>$SRC/.shbuild</code> 下找到构建好的可执行文件（具体文件名取决于源文件名），执行观察结果。</p>
 <h3><a class="header" href="#说明" id="说明">说明</a></h3>
-<p><code>bash -c</code> 启动新的 shell 执行命令。</p>
-<p><code>cd $SRC</code> 切换 shell 的当前工作目录到源代码目录。</p>
-<p><code>. SHBuild-BuildApp.sh</code> 包含脚本 <code>SHBuild-BuildApp.sh</code> ，详见 <a href="Sysroot.zh-CN.html">Sysroot</a> 。这里的 <code>.</code> 是 <code>bash</code> 内建包含指令，也可以替换成 <code>source</code> 。</p>
-<p><code>SHBuild_BuildApp .</code> 以表示当前工作目录（即 <code>$SRC</code> ）的 <code>.</code> 作为参数，调用上述脚本中的函数 <code>SHBuild_BuildApp</code> 。</p>
-<p><code>SHBuild_BuildApp</code> 调用 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 构建，默认会递归扫描整个目录（除了名称以 <code>.</code> 起始的子目录外）。若存在多个源文件，这些文件都会被一起编译并链接。为了避免预期以外的结果，之前要求源文件在空目录中。</p>
+<p>　　<code>bash -c</code> 启动新的 shell 执行命令。</p>
+<p>　　<code>cd $SRC</code> 切换 shell 的当前工作目录到源代码目录。</p>
+<p>　　<code>. SHBuild-BuildApp.sh</code> 包含脚本 <code>SHBuild-BuildApp.sh</code> ，详见 <a href="Sysroot.zh-CN.html">Sysroot</a> 。这里的 <code>.</code> 是 <code>bash</code> 内建包含指令，也可以替换成 <code>source</code> 。</p>
+<p>　　<code>SHBuild_BuildApp .</code> 以表示当前工作目录（即 <code>$SRC</code> ）的 <code>.</code> 作为参数，调用上述脚本中的函数 <code>SHBuild_BuildApp</code> 。</p>
+<p>　　<code>SHBuild_BuildApp</code> 调用 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 构建，默认会递归扫描整个目录（除了名称以 <code>.</code> 起始的子目录外）。若存在多个源文件，这些文件都会被一起编译并链接。为了避免预期以外的结果，之前要求源文件在空目录中。</p>
 <h3><a class="header" href="#使用自定义输出目录" id="使用自定义输出目录">使用自定义输出目录</a></h3>
-<p>注意 <code>SHBuild_BuildApp</code> 的参数不需要是当前目录。若直接执行以下命令：</p>
+<p>　　注意 <code>SHBuild_BuildApp</code> 的参数不需要是当前目录。若直接执行以下命令：</p>
 <pre><code>bash -c &quot;. SHBuild-BuildApp.sh; SHBuild_BuildApp $SRC&quot;
 </code></pre>
-<p>则输出在当前工作目录下的 <code>.shbuild</code> 子目录中。</p>
-<p>此外，也可以不启动新的 shell ，直接</p>
+<p>　　则输出在当前工作目录下的 <code>.shbuild</code> 子目录中。</p>
+<p>　　此外，也可以不启动新的 shell ，直接执行</p>
 <pre><code>. SHBuild-BuildApp.sh; SHBuild_BuildApp $SRC
 </code></pre>
-<p>这样 <code>SHBuild-BuildApp.sh</code> 中的函数直接被导入当前 shell ，之后可以省略这一步骤，直接调用：</p>
+<p>　　这样 <code>SHBuild-BuildApp.sh</code> 中的函数直接被导入当前 shell ，之后可以省略这一步骤，直接调用：</p>
 <pre><code>SHBuild_BuildApp $SRC
 </code></pre>
-<p><code>.shbuild</code> 目录可以由 <code>SHBuild-BuildApp.sh</code> 通过 <code>-c</code> 选项指定配置改变。注意 <code>SHBuild-BuildApp.sh</code> 的输出都有前缀 <code>.</code> 。如果需要任意自定义目录，直接调用 <code>SHBuild</code> 。</p>
+<p>　　<code>.shbuild</code> 目录可以由 <code>SHBuild-BuildApp.sh</code> 通过 <code>-c</code> 选项指定配置改变。注意 <code>SHBuild-BuildApp.sh</code> 的输出都有前缀 <code>.</code> 。如果需要任意自定义目录，直接调用 <code>SHBuild</code> 。</p>
 <h3><a class="header" href="#其它方法" id="其它方法">其它方法</a></h3>
-<p>也可以直接调用 <code>SHBuild</code> 或者编译器命令行，但需要手动指定调用编译器的参数以及链接的库等，较为复杂，在此从略。</p>
+<p>　　也可以直接调用 <code>SHBuild</code> 或者编译器命令行，但需要手动指定调用编译器的参数以及链接的库等，较为复杂，在此从略。</p>
 <h3><a class="header" href="#清理" id="清理">清理</a></h3>
-<p>无论是 <code>SHBuild</code> 还是 <code>SHBuild-BuildApp.sh</code> 当前都不提供清理功能。因为包括中间文件的输出文件都在同一个输出目录中，直接删除输出的目录即可。</p>
+<p>　　无论是 <code>SHBuild</code> 还是 <code>SHBuild-BuildApp.sh</code> 当前都不提供清理功能。因为包括中间文件的输出文件都在同一个输出目录中，直接删除输出的目录即可。</p>
 <h1><a class="header" href="#进一步阅读" id="进一步阅读">进一步阅读</a></h1>
-<p>参见<a href="Development.zh-CN.html">开发说明</a>的相应章节和进阶的<a href="Tutorial.zh-CN.html">教程</a>。</p>
+<p>　　参见<a href="Development.zh-CN.html">开发说明</a>的相应章节和进阶的<a href="Tutorial.zh-CN.html">教程</a>。</p>
 
                     </main>
 

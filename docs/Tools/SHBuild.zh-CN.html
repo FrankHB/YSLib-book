@@ -156,32 +156,32 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#shbuild" id="shbuild">SHBuild</a></h1>
-<p>位于 <code>Tools/SHBuild</code> ，是可以用来递归遍历目录编译链接本机程序的命令行工具。当前仅支持 MinGW32/MinGW64 环境。其它平台详见以下章节。</p>
-<p>直接（不带参数）运行 <code>SHBuild</code> 查询使用方法和选项等说明。</p>
-<p>通过设置环境变量控制 SHBuild 使用调用的后端工具。</p>
-<p>除以 <code>-x</code> 起始的特定选项（详见说明），当前 SHBuild 支持的命令行直接传除递给后端，若需要构建复杂项目，可以使用其它的脚本支持。</p>
-<p>若环境变量 SHBuild_CFLAGS 和 SHBuild_CXXFLAGS 被定义为非空值，调用 C 和 C++ 编译器命令行时，变量的值会先于上述命令行选项被传递，两者之间以一个空格间隔。</p>
+<p>　　位于 <code>Tools/SHBuild</code> ，是可以用来递归遍历目录编译链接本机程序的命令行工具。当前仅支持 MinGW32/MinGW64 环境。其它平台详见以下章节。</p>
+<p>　　直接（不带参数）运行 <code>SHBuild</code> 查询使用方法和选项等说明。</p>
+<p>　　通过设置环境变量控制 SHBuild 使用调用的后端工具。</p>
+<p>　　除以 <code>-x</code> 起始的特定选项（详见说明），当前 SHBuild 支持的命令行直接传除递给后端，若需要构建复杂项目，可以使用其它的脚本支持。</p>
+<p>　　若环境变量 SHBuild_CFLAGS 和 SHBuild_CXXFLAGS 被定义为非空值，调用 C 和 C++ 编译器命令行时，变量的值会先于上述命令行选项被传递，两者之间以一个空格间隔。</p>
 <h2><a class="header" href="#构建" id="构建">构建</a></h2>
-<p>本节说明 SHBuild 的构建。关于使用 SHBuild 构建用户程序，参见前述概要和之后的章节。</p>
-<p>除非另行指定，其它章节也适用于本节内构建的非最终阶段 SHBuild 。本章仅补充仅适用于这些 SHBuild 的特点和功能。</p>
-<p>关于使用 <code>bash</code> 构建库、 SHBuild 、测试项目和基于 SHBuild 上的用户程序，参见<a href="../Sysroot.zh-CN.html">关于 <strong>MinGW Sysroot</strong> 的说明</a>。</p>
-<p>当前只支持<a href="Terminology.zh-CN.html">本机构建</a>。</p>
-<p>除了指定调用编译器等工具的名称外的其它情形对 SHBuild 是<em>透明(transparent)</em> 的，即 SHBuild 不使用<a href="Terminology.zh-CN.html">目标平台的标识</a>执行不同逻辑。这样，也可能不经修改调用命令的情况下成功<a href="Terminology.zh-CN.html">交叉构建</a>，但当前未测试。</p>
+<p>　　本节说明 SHBuild 的构建。关于使用 SHBuild 构建用户程序，参见前述概要和之后的章节。</p>
+<p>　　除非另行指定，其它章节也适用于本节内构建的非最终阶段 SHBuild 。本章仅补充仅适用于这些 SHBuild 的特点和功能。</p>
+<p>　　关于使用 <code>bash</code> 构建库、 SHBuild 、测试项目和基于 SHBuild 上的用户程序，参见<a href="../Sysroot.zh-CN.html">关于 <strong>MinGW Sysroot</strong> 的说明</a>。</p>
+<p>　　当前只支持<a href="Terminology.zh-CN.html">本机构建</a>。</p>
+<p>　　除了指定调用编译器等工具的名称外的其它情形对 SHBuild 是<em>透明(transparent)</em> 的，即 SHBuild 不使用<a href="Terminology.zh-CN.html">目标平台的标识</a>执行不同逻辑。这样，也可能不经修改调用命令的情况下成功<a href="Terminology.zh-CN.html">交叉构建</a>，但当前未测试。</p>
 <h3><a class="header" href="#引导bootstrapping" id="引导bootstrapping">引导(bootstrapping)</a></h3>
-<p>SHBuild 支持引导，即在受支持的构建环境中直接构建 SHBuild ，不依赖预先构建的 SHBuild 二进制映像。</p>
-<p>运行脚本 <code>Tools/Scripts/SHBuild-build.sh</code> 生成 SHBuild 可执行文件。</p>
-<p>脚本直接选取 YSLib 中的源文件作为依赖进行构建。因为直接调用编译器驱动链接，不支持显式指定并行编译，相对比较慢。编译的结果是静态链接的，二进制映像较大。</p>
-<p>这个过程只需要 C++ 工具链和 shell ，不需要直接调用 <code>make</code> ，但 GCC 使用 <code>-flto</code> 进行优化仍然需要 GNU make 。</p>
-<p>当前构建最后的链接器警告可以安全忽略。</p>
-<p>如能成功使用以下的多阶段构建方法（会按需调用引导脚本），一般不建议使用直接构建的版本。</p>
+<p>　　SHBuild 支持引导，即在受支持的构建环境中直接构建 SHBuild ，不依赖预先构建的 SHBuild 二进制映像。</p>
+<p>　　运行脚本 <code>Tools/Scripts/SHBuild-build.sh</code> 生成 SHBuild 可执行文件。</p>
+<p>　　脚本直接选取 YSLib 中的源文件作为依赖进行构建。因为直接调用编译器驱动链接，不支持显式指定并行编译，相对比较慢。编译的结果是静态链接的，二进制映像较大。</p>
+<p>　　这个过程只需要 C++ 工具链和 shell ，不需要直接调用 <code>make</code> ，但 GCC 使用 <code>-flto</code> 进行优化仍然需要 GNU make 。</p>
+<p>　　当前构建最后的链接器警告可以安全忽略。</p>
+<p>　　如能成功使用以下的多阶段构建方法（会按需调用引导脚本），一般不建议使用直接构建的版本。</p>
 <h3><a class="header" href="#自举self-hosting" id="自举self-hosting">自举(self hosting)</a></h3>
-<p>SHBuild 支持自举，即可使用构建的 SHBuild 继续构建自身。</p>
+<p>　　SHBuild 支持自举，即可使用构建的 SHBuild 继续构建自身。</p>
 <p>除需 <code>SHBuild</code> 外，对外部环境的要求和引导一致。</p>
-<p>SHBuild 一直使用简单的源代码结构，设计初期即支持自举，现时仍不限制自举需要的版本。但由于仅测试相同版本的自举构建，因此一般建议使用相同版本。</p>
-<p>以下多阶段构建在引导的基础上自举构建 SHBuild 。</p>
-<p>此外，也可以直接使用 <code>SHBuild-self-host.sh</code> 和 <code>SHBuild-self-host-DLL.sh</code> 进行直接自举。这两个脚本主要用于内部测试。</p>
+<p>　　SHBuild 一直使用简单的源代码结构，设计初期即支持自举，现时仍不限制自举需要的版本。但由于仅测试相同版本的自举构建，因此一般建议使用相同版本。</p>
+<p>　　以下多阶段构建在引导的基础上自举构建 SHBuild 。</p>
+<p>　　此外，也可以直接使用 <code>SHBuild-self-host.sh</code> 和 <code>SHBuild-self-host-DLL.sh</code> 进行直接自举。这两个脚本主要用于内部测试。</p>
 <h3><a class="header" href="#多阶段构建" id="多阶段构建">多阶段构建</a></h3>
-<p>使用<a href="Scripts.zh-CN.html">工具脚本</a>安装 <a href="../Sysroot.zh-CN.html">Sysroot</a> 时，按需构建 SHBuild 。当前这个过程分为两步：</p>
+<p>　　使用<a href="Scripts.zh-CN.html">工具脚本</a>安装 <a href="../Sysroot.zh-CN.html">Sysroot</a> 时，按需构建 SHBuild 。当前这个过程分为两步：</p>
 <ul>
 <li>第一阶段(stage 1) ：引导。
 <ul>
@@ -196,39 +196,39 @@
 </ul>
 </li>
 </ul>
-<p>这些阶段需要的外部环境对应称为 stage 1 环境和 stage 2 环境。</p>
-<p>由于<a href="Terminology.zh-CN.html">多平台构建</a>的自然要求，这些环境需要相同（本机构建），或至少保持兼容性。当前工具脚本没有另行显示指定使用不同平台的接口，因此只支持本机构建。</p>
+<p>　　这些阶段需要的外部环境对应称为 stage 1 环境和 stage 2 环境。</p>
+<p>　　由于<a href="Terminology.zh-CN.html">多平台构建</a>的自然要求，这些环境需要相同（本机构建），或至少保持兼容性。当前工具脚本没有另行显示指定使用不同平台的接口，因此只支持本机构建。</p>
 <h2><a class="header" href="#内建规则" id="内建规则">内建规则</a></h2>
-<p>遍历扫描目录时，不需要使用领域特定语言的外部脚本， <code>SHBuild</code> 识别名称符合特定模式串的文件。</p>
-<p>当前支持后缀名。</p>
-<p>文件名符合以下通配符模式的文件视为 C 源文件：</p>
+<p>　　遍历扫描目录时，不需要使用领域特定语言的外部脚本， <code>SHBuild</code> 识别名称符合特定模式串的文件。</p>
+<p>　　当前支持后缀名。</p>
+<p>　　文件名符合以下通配符模式的文件视为 C 源文件：</p>
 <ul>
-<li>*.c</li>
+<li><code>*.c</code></li>
 </ul>
-<p>文件名符合以下通配符模式的文件视为 C++ 源文件：</p>
+<p>　　文件名符合以下通配符模式的文件视为 C++ 源文件：</p>
 <ul>
-<li>*.cpp</li>
-<li>*.cc</li>
-<li>*.cxx</li>
+<li><code>*.cpp</code></li>
+<li><code>*.cc</code></li>
+<li><code>*.cxx</code></li>
 </ul>
-<p>对以上文件，对应的内建 C 和 C++ 编译器规则分别被调用。其它文件不被视为源文件。</p>
-<p>和 <code>make</code> 类似， SHBuild 的内建规则依赖文件修改时间(mtime) 判断一个目标是否最新。</p>
-<p>内建规则使用的编译器和环境变量参见直接运行 <code>SHBuild</code> 的使用说明。</p>
+<p>　　对以上文件，对应的内建 C 和 C++ 编译器规则分别被调用。其它文件不被视为源文件。</p>
+<p>　　和 <code>make</code> 类似， SHBuild 的内建规则依赖文件修改时间(mtime) 判断一个目标是否最新。</p>
+<p>　　内建规则使用的编译器和环境变量参见直接运行 <code>SHBuild</code> 的使用说明。</p>
 <h2><a class="header" href="#构建应用程序" id="构建应用程序">构建应用程序</a></h2>
-<p>使用 SHBuild 构建应用程序所需的环境和多阶段构建的最后一个阶段的相同。当前和自举时相同，即 stage 2 环境。</p>
+<p>　　使用 SHBuild 构建应用程序所需的环境和多阶段构建的最后一个阶段的相同。当前和自举时相同，即 stage 2 环境。</p>
 <h2><a class="header" href="#其它平台" id="其它平台">其它平台</a></h2>
-<p>除构建 stage 1 SHBuild 外，当前未正式支持 Linux 。</p>
-<p>因为 SHBuild 本身和直接依赖的代码已经保证了可移植性，所以静态链接可以成功。得到的可执行文件除了没有扩展名，用法和前述 MinGW 下相同。</p>
-<p>在进一步编译 YFramework 时会出错，因为 YFramework 中宿主 GUI 支持未在 Linux 上实现。这不影响已经构建的 SHBuild 的可用性。</p>
+<p>　　除构建 stage 1 SHBuild 外，当前未正式支持 Linux 。</p>
+<p>　　因为 SHBuild 本身和直接依赖的代码已经保证了可移植性，所以静态链接可以成功。得到的可执行文件除了没有扩展名，用法和前述 MinGW 下相同。</p>
+<p>　　在进一步编译 YFramework 时会出错，因为 YFramework 中宿主 GUI 支持未在 Linux 上实现。这不影响已经构建的 SHBuild 的可用性。</p>
 <p><strong>已知限制</strong> 若系统时间不正确，可能导致冗余的重复构建或无法构建。若文件时间戳无法被正确更新（如编译器或者文件系统实现问题导致无法在命令执行后正确地更新被修改的文件时间，或者不恰当的缓存配置导致修改时间没有立即更新），可能导致冗余的重复构建。</p>
-<p>当前不支持上述以外的其它平台。</p>
+<p>　　当前不支持上述以外的其它平台。</p>
 <h2><a class="header" href="#npl-支持" id="npl-支持">NPL 支持</a></h2>
-<p>SHBuild 运行 <code>-xcmd,RunNPL</code> 和 <code>-xcmd,RunNPLFile</code> 命令支持解释 <a href="../Features/NPL.zh-CN.html">NPLA1</a> 翻译单元。</p>
-<p>调用方式详见帮助文本。</p>
-<p>后者的翻译单元为文本文件。当前支持文件头可选的 UTF BOM 。**若找到 BOM ，直接跳过继续读取文件内容。在 SHBuild 中不假设文件编码，直接以窄字符流透明地处理。后续编码内容格式按<a href="../Features/NPL.zh-CN.html"> YFramework 提供的当前实现</a>的方式支持。</p>
-<p>因此，一般应使用 UTF-8 + BOM ，或不带 BOM 的 UTF-8 作为编码。</p>
+<p>　　SHBuild 运行 <code>-xcmd,RunNPL</code> 和 <code>-xcmd,RunNPLFile</code> 命令支持解释 <a href="../Features/NPL.zh-CN.html">NPLA1</a> 翻译单元。</p>
+<p>　　调用方式详见帮助文本。</p>
+<p>　　后者的翻译单元为文本文件。当前支持文件头可选的 UTF BOM 。**若找到 BOM ，直接跳过继续读取文件内容。在 SHBuild 中不假设文件编码，直接以窄字符流透明地处理。后续编码内容格式按<a href="../Features/NPL.zh-CN.html"> YFramework 提供的当前实现</a>的方式支持。</p>
+<p>　　因此，一般应使用 UTF-8 + BOM ，或不带 BOM 的 UTF-8 作为编码。</p>
 <h3><a class="header" href="#应用" id="应用">应用</a></h3>
-<p>当前 stage 1 SHBuild 构建 YSLib 库使用<a href="Scripts.zh-CN.html">脚本</a>已以此方式实现。 Shell 脚本调用 stage 1 SHBuild 解释这些脚本，其中进一步调用 stage 1 SHBuild 执行其它构建命令。</p>
+<p>　　当前 stage 1 SHBuild 构建 YSLib 库使用<a href="Scripts.zh-CN.html">脚本</a>已以此方式实现。 Shell 脚本调用 stage 1 SHBuild 解释这些脚本，其中进一步调用 stage 1 SHBuild 执行其它构建命令。</p>
 
                     </main>
 

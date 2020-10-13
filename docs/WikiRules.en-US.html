@@ -159,7 +159,12 @@
 <h2><a class="header" href="#scope" id="scope">Scope</a></h2>
 <p>This document describes a set of rules for creating and maintaining documentations or some other kinds of materials, which is not project-specific. This document is also self-conforming to these rules.</p>
 <h2><a class="header" href="#notation" id="notation">Notation</a></h2>
-<p>Terms are emphasized at first appearence in <em>italic</em>.</p>
+<p>Specific formats may be used. The visual output may depend on the method of rendering.</p>
+<p>Texts intended to be handled differently (for example, portions of program source code) may be in <code>some specific format</code>. Other texts are considered normal.</p>
+<p><a href="https://en.wikipedia.org/wiki/Hyperlink">Hyperlinks</a> may be used in normal texts pointing to external references, local pages, or anchors in specific documents.</p>
+<p>Normal text empasized in general are in <strong>the specific format</strong>, usually (visually) bold.</p>
+<p>Local terms in the normal text are emphasized at first appearence in <em>the specific format</em>, usually (visually) italic.</p>
+<p>For terms used globally in this document and any other derivations, see below.</p>
 <h2><a class="header" href="#terms-and-definitions" id="terms-and-definitions">Terms and definitions</a></h2>
 <h3><a class="header" href="#resources" id="resources">Resources</a></h3>
 <p>Contents of materials are split as <em>resources</em> (e.g. <a href="http://en.wikipedia.org/wiki/Computer_file"><em>files</em></a>) in possibly nested <em>namespaces</em> (e.g. <a href="http://en.wikipedia.org/wiki/Directory_%28computing%29"><em>directories</em></a>). A namespace is also considered as a resource for convenience.</p>
@@ -171,7 +176,9 @@
 <p>An <em>identifier</em> is a path with exactly one components without any separators, which can be used to differentiate resources in the same namespace or to collectively name some sets of resources in various namespaces.</p>
 <p>A resource may be denoted with not necessarily the unique identifier or path. However, all resources this document discussed below are named.</p>
 <h2><a class="header" href="#languages" id="languages">Languages</a></h2>
-<p>English wording documentation is intended to be conforming to <a href="http://std.dkuug.dk/jtc1/sc22/wg9/isodir3.pdf">the ISO/IEC directive, part 3</a>. Note the use of modal verbs is distinct with <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>. For RFC documents, RFC 2119 is preferred, but not necessary with the case clarification (i.e. <a href="https://tools.ietf.org/html/rfc8174">RFC 8174</a>) for documents published earlier than RFC 8174 due to compatibility issues.</p>
+<p>Rules of natural languages are specified in this subclause. They have effects on normal texts.</p>
+<p>Normal text of noun phrases may have embedded translations for different natural languages or more detailed descriptions following its first occurence, in parentheses (<code>(</code> and <code>)</code>).</p>
+<p>Different <a href="https://en.wikipedia.org/wiki/Letter_case">letter cases</a> (if appropriate) may be used for sentences, acronyms and words in the titles of clauses.</p>
 <h3><a class="header" href="#editions-in-languages" id="editions-in-languages">Editions in languages</a></h3>
 <p>A set of documentation may be in one (natural) language. The <a href="http://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a> with at least one subtag and an additional prefix dot(<code>.</code>) shall be placed in the end of identifier of the resource before the dot and the extension name (if any). Otherwise the documentation shall be in multiple languages or without text contents (e.g. containing only ideographic images), and no language code shall be in the identifier of the resource.</p>
 <p>When the additional dot and tag is removed, all different resource with same names shall refer to the same set of contents only in different languages, or at least one of them shall be <em>incomplete</em> which means to be <em>completed</em> as in former case. The resource is one <em>edition</em> in the specific language of the documentation.</p>
@@ -184,13 +191,25 @@
 </ul>
 <p>If no one edition in above languages is complete, the documentation is defective.</p>
 <p>A language tag may be used to annotate one or more words in text. An annotation of such use is a <em>language tag annotation</em>, which consists of a tag combined with one pair of enclosing parentheses (namely, <code>(</code> and <code>)</code>).</p>
-<p><a href="https://en.wikipedia.org/wiki/Hyperlink">Hyperlinks</a> in pages should preferrably link to localized contents corresponding to the language or one of the major languages used in the page (if any) when suitable. If contents of the linked target is in other languages (esp. when there are more than one semantically identical editions in multiple languages), at least one language tag for majority of the contents should be noted subsequent to the hyperlink; otherwise, the tag should be omitted.</p>
+<p>Hyperlinks in pages should preferrably link to localized contents corresponding to the language or one of the major languages used in the page (if any) when suitable. If contents of the linked target is in other languages (esp. when there are more than one semantically identical editions in multiple languages), at least one language tag for majority of the contents should be noted subsequent to the hyperlink; otherwise, the tag should be omitted.</p>
 <p>For compatibility of client programs, each link of <a href="https://en.wikipedia.org/wiki/URI">URI</a> should be encoded in form of normalized <a href="https://tools.ietf.org/html/rfc3986#section-2.1">Percent-Encoding in RFC 3986</a>.</p>
 <p>Additionally, several hyperlinks are normalized with the same form for a specific language. Currently the rule consists of following cases:</p>
 <ul>
 <li>For <a href="https://zh.wikipedia.org/zh-cn">Chinese Wikipedia(zh-CN)</a>, the link shall following the rule in <a href="https://zh.wikipedia.org/zh-cn/Help:%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E7%9A%84%E7%B9%81%E7%AE%80%E3%80%81%E5%9C%B0%E5%8C%BA%E8%AF%8D%E5%A4%84%E7%90%86">the section in the language conversion help page(zh-CN)</a>, with small letter &quot;cn&quot; in the link.</li>
 </ul>
-<h3><a class="header" href="#grammartical-notes" id="grammartical-notes">Grammartical notes</a></h3>
+<h3><a class="header" href="#in-english" id="in-english">In English</a></h3>
+<p>Stylistic usage of letter cases shall be respected in the following precedence:</p>
+<ol>
+<li>All uppercase should not be used normally.</li>
+<li>Acronyms and other proper noun (pharses) shall be in the appropriate styles.</li>
+<li>The title case style shall be used for page or document titles.</li>
+<li>Either the title case or the sentence case shall be used in the titles in a page. This shall be consistent within a document.</li>
+<li>Either the title case or the sentence case shall be used in the detailed descriptions for acronyms in parentheses. This may vary in the same page.</li>
+<li>Detailed descriptions for acronyms in parentheses may use title case or sentence case.</li>
+<li>All lowercase style shall be used for words in the embedded translations or detailed descriptions in parentheses in other cases.</li>
+<li>Sentence case should be used otherwise.</li>
+</ol>
+<p>English wording documentation is intended to be conforming to <a href="http://std.dkuug.dk/jtc1/sc22/wg9/isodir3.pdf">the ISO/IEC directive, part 3</a>. Note the use of modal verbs is distinct with <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>. For RFC documents, RFC 2119 is preferred, but not necessary with the case clarification (i.e. <a href="https://tools.ietf.org/html/rfc8174">RFC 8174</a>) for documents published earlier than RFC 8174 due to compatibility issues.</p>
 <p>The following grammartical forms of English (with <code>en</code> or <code>en-US</code> tags) are considered idiomatic and application of such forms may be preferred:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Answer_ellipsis">answer ellipsis</a> to elide the subject in the summary of commit messages where a question for the topic of the log message is assumed</li>
