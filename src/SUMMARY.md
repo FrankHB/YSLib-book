@@ -29,6 +29,9 @@
 	* [ProjectGenerator](Tools/ProjectGenerator.zh-CN.md)
 	* [脚本](Tools/Scripts.zh-CN.md)
 * [教程](Tutorial.zh-CN.md)
+	* [综述](Tutorial/Overview.zh-CN.md)
+	* [GUI](Tutorial/GUI.zh-CN.md)
+	* [程序配置](Tutorial/Configuration.zh-CN.md)
 
 * [附录/Appendix](EMPTY.md)
 	* [术语概要](Terminology.zh-CN.md)
