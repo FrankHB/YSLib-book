@@ -260,7 +260,7 @@
 <ul>
 <li>这要求用户代码不依赖影响相关符号可见性而导致 ODR 失效的特性。
 <ul>
-<li>例如，这不允许如 <code>dlopen</code> 使用 <code>RTLD_LOCAL</code> 加载具有相关符号的库。</li>
+<li>例如，这不允许如 <code>dlopen</code> 使用 <code>RTLD_LOAD</code> 加载具有相关符号的库。</li>
 </ul>
 </li>
 <li>这允许 <code>std::type_info</code> 的比较操作的散列操作的高效实现。
