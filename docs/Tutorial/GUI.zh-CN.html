@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>GUI - The YSLib Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="../Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="../Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="../GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="../Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="../GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="../Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="../Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="../Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li></ol></li><li class="chapter-item expanded "><a href="../Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="../Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="../YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="../Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="../Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="../Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="../Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="../Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="../Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="../Tutorial/GUI.zh-CN.html" class="active"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="../Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="../StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="../ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="../WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The YSLib Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#图形支持" id="图形支持">图形支持</a></h1>
+<p>　　YSLib 现阶段不强调图形学功能。作为 GUI 的基础， YSLib 主要在命名空间 <code>Drawing</code> 内提供以下两类图形接口：</p>
+<ul>
+<li>在 YSLib::Core::YGDIBase 描述图形的位置、大小等几何属性的对象 <code>Point</code> 、 <code>Size</code> 和 <code>Rect</code> 。</li>
+<li>在 YSLib::Service 中提供简单图形和字形的光栅化、像素操作和块传输等绘制功能。</li>
+</ul>
+<p>　　在了解 YSLib 开发时会少量涉及上述的第一类接口，需要了解其意义和简单的用法。进一步描述详见接口文档。</p>
+<h2><a class="header" href="#标量类型" id="标量类型">标量类型</a></h2>
+<p>　　YSLib 默认使用整数坐标。表示屏幕坐标位置的有符号数类型 <code>SPos</code> 和大小的无符号数类型 <code>SDst</code> 的范围和平台相关，由 YCLib 提供，一般保证至少 16 位，但应避免依赖其具体范围。</p>
+<h2><a class="header" href="#类模板和类类型" id="类模板和类类型">类模板和类类型</a></h2>
+<p>　　类模板 <code>GBinaryGroup</code> 表示两个标量的有序对，被用于表示屏幕坐标。以 <code>SPos</code> 作为模板参数的实例 <code>Point</code> 和 <code>Vec</code> 表示点的位置和二维向量，当前是一致的。</p>
+<p>　　类 <code>Size</code> 包括两个 <code>SDst</code> 分量，用于表示大小。</p>
+<p>　　类 <code>Rect</code> 约定了一个边和屏幕坐标系总是共线的矩形：保存一个左上角位置的 <code>Point</code> 和表示宽度和高度的 <code>Size</code> 对象。</p>
+<p>　　一个 Rect 对象可以直接通过位置和大小构造：</p>
+<pre><code>Rect r1(Point(10, 20), Size(40, 50));
+Rect r2({10, 20}, {40, 50}); // 同上。
+Rect r3(10, 20, 40, 50); // 同上。
+Rect r4{10, 20, 40, 50}; // 同上。
+</code></pre>
+<p>　　类模板 <code>GGraphics</code> 表示<em>二维图形接口上下文</em> ，是一个表示缓冲区的指针（不保证具有所有权）和大小组成的数据结构。一般使用的是其实例 <code>Graphics</code> 和 <code>ConstGraphics</code> 。</p>
+<p>　　类 <code>PaintContext</code> 包含了 GUI 绘制中的一些必要信息，其中由 <code>Graphics</code> 对象表示目标， <code>Point</code> 对象表示参考位置， <code>Rect</code> 对象表示需要保证绘制的边界范围。</p>
+<h1><a class="header" href="#gui-应用接口概述" id="gui-应用接口概述">GUI 应用接口概述</a></h1>
+<h2><a class="header" href="#shell-和-guistate" id="shell-和-guistate">Shell 和 GUIState</a></h2>
+<p>　　Helper::GUIShell 模块提供的类 <code>Shells::GUIShell</code> 是专用于不同平台 GUI 程序处理的 shell ，它隐藏了控制和响应 GUI 需要处理的具体消息，使用户输入被分发到更高级的 <code>UI::GUIState</code> 类的对象中。</p>
+<p>　　GUIState 是模块 YSLib::UI::YGUI 提供的平台中立的 GUI 公共逻辑处理的实现。默认 GUIState 对象预先构造的<strong>单态(monostate)</strong> 对象，即被全局共享，可以储存和 GUI 相关的公共状态。</p>
+<p>　　通过 YSLib::UI::YGUI 提供的函数 <code>UI::FetchGUIState</code> 取得取默认图形用户界面公共状态：</p>
+<pre><code>using namespace UI;
+auto&amp; state(FetchGUIState());
+</code></pre>
+<h2><a class="header" href="#事件event" id="事件event">事件(event)</a></h2>
+<p>　　<code>UI::GUIState</code> 的成员函数被 <code>Shells::GUIShell</code> 直接或间接调用以按需构造不同的<strong>事件</strong> 。</p>
+<p>　　一般意义的事件本质上是可以容纳回调(callback) 的对象，是发布-订阅模式的实现。用户通过事件提供的接口注册回调，在事件被触发调用时订阅者可以调用这些被预先发布的回调。</p>
+<p>　　YSLib 事件由模块 YSLib::Core::YEvent 提供的 <code>GEvent</code> 类模板提供，包含多播支持，即 <code>GEvent</code> 中可以有多个回调函数，在触发事件时依优先级和插入顺序调用这些回调函数。 <code>GEvent</code> 支持的回调通过<strong>事件处理器(event handler)</strong> <code>GHEvent</code> 类模板提供，除限定返回类型 <code>void</code> 外，使用方式基本兼容于 <code>std::function</code> （提供 ISO C++ 定义的<strong>可调用对象(callable object)</strong> 作为回调），此外提供两个方面的增强：</p>
+<ul>
+<li>可比较相等。这意味着 <code>GEvent</code> 不需要保存特定的引用即可支持查询或移除特定回调（若可调用对象自身支持 <code>==</code> 则通过 <code>==</code> 操作定义结果，否则总是认为同类型可调用对象都相等）。</li>
+<li>通过 YBase 库模块 YStandardEx::Functional 的 <code>ystdex::make_expanded</code> 模板提供允许比事件处理器提供模板更少参数的可调用对象的支持，允许省略在右边的若干参数。缺乏此支持时，一个可调用对象的函数形参即使未被使用，仍然需要出现在声明的参数列表中，带来一些不便。</li>
+</ul>
+<p>　　另外， GEvent 的 <code>operator()</code> 会忽略回调抛出的 <code>std::bad_function_call</code> 异常。</p>
+<p>　　和消息不同， YSLib 的事件默认总是被同步处理的。不同的事件使用不同的枚举标识，携带特定类型的<strong>事件参数(event argument)</strong> 对象。</p>
+<p>　　用户通过给事件提供不同的可调用对象作为回调，在其中可以实现应用程序特定的逻辑。</p>
+<h2><a class="header" href="#部件widget" id="部件widget">部件(widget)</a></h2>
+<p>　　部件是 GUI 的可见元素抽象。体现 GUI 逻辑的事件最终被分发到具体的<strong>部件</strong>上，在部件持有的事件上进行响应。</p>
+<p>　　部件具有一系列基本的可视化属性，例如位置和大小。其它一些状态决定它如何被绘制以及和其它部件的关系或者具有用户程序关心的数据。 YSLib 中的部件实现模块 YSLib::UI::YWidget 提供的 <code>UI::IWidget</code> 接口以及作为基类的 <code>UI::Widget</code> ，通过处理 <code>UI::Paint</code> 事件使其被绘制。</p>
+<p>　　基本的部件只能处理 <code>UI::Paint</code> 标识的绘制事件，可以处理其它事件（例如直接响应表示用户输入的事件）的部件称为<strong>控件(control)</strong> 。模块 YSLib::UI::YControl 提供了控件的基类 <code>UI::Control</code> 。其它大部分部件派生于这个类以提供不同的功能。</p>
+<p>　　调整部件的特定属性即可以基本完成一个 GUI 应用。</p>
+<p>　　模块 YSLib::UI::YWidgetEvent 提供了 UI::VisualEvent 枚举标识默认支持的 GUI 事件，其中不同的枚举项表示不同的 GUI 事件，可能对应不同的事件参数类型。默认支持的事件参数类型都是类类型的右值引用类型，但和标准库的右值引用参数类型不同，约定被转移后状态可预测。</p>
+<p>　　从一个控件取得一个指定事件标识的的事件左值，可以使用 YSLib::UI::YControl 提供的函数模板 <code>UI::FetchEvent</code> 。可以直接在取得的事件上进行操作，所以不必要直接声明一个变量。</p>
+<pre><code>using namespace Drawing; // 使用 Drawing::Size 等。模块 YSLib::UI::YControl 已在命名空间 YSLib 中有此声明，若包含了对应的头文件，可以省略。
+using namespace UI;
+Control ctl(Size(80, 20)); // 创建一个 Control 类型的控件 ctl ，初始大小为 (80, 20) 。
+auto&amp; paint_event(FetchEvent&lt;Paint&gt;(ctl)); // 取 ctl 的 UI::Paint 事件，通常是不必要的。
+
+// 使用 lambda 表达式添加回调是简便的做法：
+FetchEvent&lt;Click&gt;(ctl) += [](CursorEventArgs&amp;&amp;){
+	std::cout &lt;&lt; &quot;Control clicked!&quot; &lt;&lt; std::endl; 
+};
+FetchEvent&lt;Click&gt;(ctl) += []{ // 得力于 GHEvent 允许省略参数的特性，这里可以省略没有用到的形式参数。
+	std::cout &lt;&lt; &quot;Control clicked again!&quot; &lt;&lt; std::endl; 
+};
+</code></pre>
+<p>　　当 ctl 被点击时，上面 <code>UI::Click</code> 事件上添加的两个回调会被依次执行，在标准输出上输出两行字符串。</p>
+<h2><a class="header" href="#指定部件的视图属性" id="指定部件的视图属性">指定部件的视图属性</a></h2>
+<p>　　部件的视图属性包括<strong>位置</strong>和<strong>大小</strong>等。</p>
+<p>　　上例中通过指定 <code>Size</code> 对象表示部件初始化时的大小。这个类型和下面涉及的位置以及边界类型都由模块 YSLib::Core::YGDIBase 提供，头文件默认已经被包含在 GUI 中所以不需要显式包含。</p>
+<p>　　位置由二维的点 <code>Point</code> 类型表示。此处并没有明确位置是相对于哪个坐标系的。创建部件以后，并没有直接指定部件应在哪被显示，所以这里的位置本身只具有相对意义。</p>
+<p>　　也可以通过直接指定 <code>Rect</code> 类型的矩形的<strong>边界</strong>：</p>
+<pre><code>Control ctl2(Rect(10, 20, 40, 20)); // 位置为 (10, 20) ，大小为 (40, 20) 。
+Control ctl3({10, 20, 40, 20}); // 同上。
+</code></pre>
+<p>　　出于动态加载部件的需要， YSLib 提供的部件总是可以通过一个 Rect 值构造以及默认构造（相当于 Rect 为空），因此不限于 <code>UI::Control</code> 使用。</p>
+<p>　　在创建部件之后，使用函数 <code>GetLocationOf</code> 、 <code>GetSizeOf</code> 和 <code>GetBoundsOf</code> 等查询这些属性；相对地，使用函数 <code>SetLocationOf</code> 、 <code>SetSizeOf</code> 和 <code>SetBoundsOf</code> 等设置这些属性。通过这些函数设置位置和大小会分别触发 <code>Move</code> 和 <code>Resize</code> 事件。 </p>
+<h2><a class="header" href="#视图树和容器" id="视图树和容器">视图树和容器</a></h2>
+<p>　　YSLib 提供了单一的<strong>视图树</strong>结构作为显示视图的抽象。通过指定部件所在的<strong>容器</strong>限定显示的范围。容器自身是一个部件，可以嵌套在另外的部件中。容器中的部件（<strong>子部件</strong>）的位置使用容器部件的边界的左上角作为原点，即位置表示子部件的边界的左上角相对于容器的边界的左上角。这样的结构典型地构成一颗树，只有作为树根的<strong>顶层部件</strong>没有容器。</p>
+<p>　　容器通过 <code>UI::IWdiget</code> 提供一般的迭代遍历支持。不是所有容器都支持动态添加子部件。模块 YSLib::UI::YPanel 提供一般的面板容器 <code>UI::Panel</code> 支持这个特性：</p>
+<pre><code>using namespace Drawing;
+using namespace UI;
+Panel pnl(Size(200, 100));
+Control ctl({10, 20, 100, 40});
+
+pnl += ctl; // ctl 作为 pnl 的子部件，在 pnl 左上角的位置 (10, 20) 显示。
+yassume(&amp;pnl == FetchContainerPtrOf(ctl)); // 宏 yassume 由 YBase 提供，默认和标准库的宏 assert 行为一致，表示断言； 函数 FetchContainerPtr 取得指向容器的指针。
+</code></pre>
+<h3><a class="header" href="#顶层窗口top-level-window" id="顶层窗口top-level-window">顶层窗口(top level window)</a></h3>
+<p>　　部件最终需要通过顶层部件的 <code>UI::Paint</code> 事件被显示。在独立实现中，顶层部件一般是模块 YSLib::UI::YDesktop 提供的 <code>UI::Desktop</code> 。在宿主实现中，由于需要和宿主环境的 GUI 集成，使用不同的接口。在一个有桌面环境的宿主平台中，这样的顶层部件一般称为<strong>顶层窗口</strong>。</p>
+<p>　　Helper 模块对顶层窗口提供了和平台相关的实现。通过模块 Helper::HostedUI 提供的函数 Host::ShowTopLevel 使一个部件成为一个顶层窗口。</p>
+<pre><code>using namespace UI;
+Control ctl(Size(200, 100));
+
+Host::ShowTopLevel(ctl);
+</code></pre>
+<p>　　对 Windows ， <code>Host::ShowTopLevel</code> 支持更多的样式和扩展样式参数调整宿主窗口。具体使用详见 <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms632680(v=vs.85).aspx">MSDN</a> 。当调用 <code>Host::ShowTopLevel</code> 时，会自动创建具有独立线程和（ Win32 意义上的）消息循环 Windows 窗口，这个过程可能发生阻塞。</p>
+<h2><a class="header" href="#常用部件" id="常用部件">常用部件</a></h2>
+<p>　　<code>UI</code> 命名空间下除了 <code>Widget</code> 、 <code>Control</code> 、 <code>Panel</code> 和 <code>YDesktop</code> 几类直接作为框架必要类型的部件外，还有更多提供不同实用功能的部件。</p>
+<p>　　注意，非控件的部件不能取 <code>UI::Paint</code> 外的事件，否则会抛出异常。</p>
+<h3><a class="header" href="#uilabel" id="uilabel">UI::Label</a></h3>
+<p>　　这是显示文本标签的部件。</p>
+<p>　　简单的用法是创建部件后，修改 <code>Text</code> 属性。它接受的是模块 YSLib::Core::YString 提供的 <code>String</code> 类型的 UCS-2 字符串，可以直接通过 <code>std::u16string</code> 或 <code>const char16_t*</code> 等构造。因此内建的 <code>u</code> 前缀的字面量可以直接用于赋值 <code>Text</code> 。 YSLib 中 GUI 的其它部分也使用这样的字符串。</p>
+<h3><a class="header" href="#uibutton" id="uibutton">UI::Button</a></h3>
+<p>　　按钮控件。</p>
+<p>　　类似 <code>UI::Label</code> 可以显示文本，但它是一个控件，可以点击并添加 <code>UI::Click</code> 事件回调。</p>
+<h2><a class="header" href="#动态加载" id="动态加载">动态加载</a></h2>
+<p>　　模块 YSLib::UI::Loader 提供了在运行时读取 <a href="../Features/NPL.zh-CN.html">NPLA1</a> 配置加载部件视图树的 API 。</p>
+<p>　　这些 API 当前相对不稳定，可能较容易改变，因此不作详细介绍。具体用法可参照<a href="../Features.zh-CN.html">示例程序 YReader</a> 的源代码。</p>
+<h1><a class="header" href="#小结" id="小结">小结</a></h1>
+<p>　　通过以上讨论，读者可以回顾<a href="../GettingStarted.zh-CN.html">入门</a>中的示例，分析其中的各个部分的具体意义。</p>
+<p>　　在这个基础上，参阅 Doxygen 文档查找 <code>UI</code> 命名空间下的其它 API 以开发自己的 GUI 应用。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../Tutorial/Overview.zh-CN.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../Tutorial/Configuration.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../Tutorial/Overview.zh-CN.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../Tutorial/Configuration.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
