@@ -1,0 +1,5 @@
+# NOTE: This file is require to work around the issue
+#	https://github.com/rust-lang/mdBook/issues/1441.
+*.md
+*/*.md
+
