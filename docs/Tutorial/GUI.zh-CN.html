@@ -135,9 +135,9 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="图形支持"><a class="header" href="#图形支持">图形支持</a></h1>
-<p>　　YSLib 现阶段不强调图形学功能。作为 GUI 的基础， YSLib 主要在命名空间 <code>Drawing</code> 内提供以下两类图形接口：</p>
+<p>　　YSLib 现阶段不强调图形学功能。作为 GUI 的基础，YSLib 主要在命名空间 <code>Drawing</code> 内提供以下两类图形接口：</p>
 <ul>
-<li>在 YSLib::Core::YGDIBase 描述图形的位置、大小等几何属性的对象 <code>Point</code> 、 <code>Size</code> 和 <code>Rect</code> 。</li>
+<li>在 YSLib::Core::YGDIBase 描述图形的位置、大小等几何属性的对象 <code>Point</code> 、<code>Size</code> 和 <code>Rect</code> 。</li>
 <li>在 YSLib::Service 中提供简单图形和字形的光栅化、像素操作和块传输等绘制功能。</li>
 </ul>
 <p>　　在了解 YSLib 开发时会少量涉及上述的第一类接口，需要了解其意义和简单的用法。进一步描述详见接口文档。</p>
@@ -154,7 +154,7 @@ Rect r3(10, 20, 40, 50); // 同上。
 Rect r4{10, 20, 40, 50}; // 同上。
 </code></pre>
 <p>　　类模板 <code>GGraphics</code> 表示<em>二维图形接口上下文</em> ，是一个表示缓冲区的指针（不保证具有所有权）和大小组成的数据结构。一般使用的是其实例 <code>Graphics</code> 和 <code>ConstGraphics</code> 。</p>
-<p>　　类 <code>PaintContext</code> 包含了 GUI 绘制中的一些必要信息，其中由 <code>Graphics</code> 对象表示目标， <code>Point</code> 对象表示参考位置， <code>Rect</code> 对象表示需要保证绘制的边界范围。</p>
+<p>　　类 <code>PaintContext</code> 包含了 GUI 绘制中的一些必要信息，其中由 <code>Graphics</code> 对象表示目标，<code>Point</code> 对象表示参考位置，<code>Rect</code> 对象表示需要保证绘制的边界范围。</p>
 <h1 id="gui-应用接口概述"><a class="header" href="#gui-应用接口概述">GUI 应用接口概述</a></h1>
 <h2 id="shell-和-guistate"><a class="header" href="#shell-和-guistate">Shell 和 GUIState</a></h2>
 <p>　　Helper::GUIShell 模块提供的类 <code>Shells::GUIShell</code> 是专用于不同平台 GUI 程序处理的 shell ，它隐藏了控制和响应 GUI 需要处理的具体消息，使用户输入被分发到更高级的 <code>UI::GUIState</code> 类的对象中。</p>
@@ -166,17 +166,17 @@ auto&amp; state(FetchGUIState());
 <h2 id="事件event"><a class="header" href="#事件event">事件(event)</a></h2>
 <p>　　<code>UI::GUIState</code> 的成员函数被 <code>Shells::GUIShell</code> 直接或间接调用以按需构造不同的<strong>事件</strong> 。</p>
 <p>　　一般意义的事件本质上是可以容纳回调(callback) 的对象，是发布-订阅模式的实现。用户通过事件提供的接口注册回调，在事件被触发调用时订阅者可以调用这些被预先发布的回调。</p>
-<p>　　YSLib 事件由模块 YSLib::Core::YEvent 提供的 <code>GEvent</code> 类模板提供，包含多播支持，即 <code>GEvent</code> 中可以有多个回调函数，在触发事件时依优先级和插入顺序调用这些回调函数。 <code>GEvent</code> 支持的回调通过<strong>事件处理器(event handler)</strong> <code>GHEvent</code> 类模板提供，除限定返回类型 <code>void</code> 外，使用方式基本兼容于 <code>std::function</code> （提供 ISO C++ 定义的<strong>可调用对象(callable object)</strong> 作为回调），此外提供两个方面的增强：</p>
+<p>　　YSLib 事件由模块 YSLib::Core::YEvent 提供的 <code>GEvent</code> 类模板提供，包含多播支持，即 <code>GEvent</code> 中可以有多个回调函数，在触发事件时依优先级和插入顺序调用这些回调函数。<code>GEvent</code> 支持的回调通过<strong>事件处理器(event handler)</strong> <code>GHEvent</code> 类模板提供，除限定返回类型 <code>void</code> 外，使用方式基本兼容于 <code>std::function</code> （提供 ISO C++ 定义的<strong>可调用对象(callable object)</strong> 作为回调），此外提供两个方面的增强：</p>
 <ul>
 <li>可比较相等。这意味着 <code>GEvent</code> 不需要保存特定的引用即可支持查询或移除特定回调（若可调用对象自身支持 <code>==</code> 则通过 <code>==</code> 操作定义结果，否则总是认为同类型可调用对象都相等）。</li>
 <li>通过 YBase 库模块 YStandardEx::Functional 的 <code>ystdex::make_expanded</code> 模板提供允许比事件处理器提供模板更少参数的可调用对象的支持，允许省略在右边的若干参数。缺乏此支持时，一个可调用对象的函数形参即使未被使用，仍然需要出现在声明的参数列表中，带来一些不便。</li>
 </ul>
-<p>　　另外， GEvent 的 <code>operator()</code> 会忽略回调抛出的 <code>std::bad_function_call</code> 异常。</p>
-<p>　　和消息不同， YSLib 的事件默认总是被同步处理的。不同的事件使用不同的枚举标识，携带特定类型的<strong>事件参数(event argument)</strong> 对象。</p>
+<p>　　另外，GEvent 的 <code>operator()</code> 会忽略回调抛出的 <code>std::bad_function_call</code> 异常。</p>
+<p>　　和消息不同，YSLib 的事件默认总是被同步处理的。不同的事件使用不同的枚举标识，携带特定类型的<strong>事件参数(event argument)</strong> 对象。</p>
 <p>　　用户通过给事件提供不同的可调用对象作为回调，在其中可以实现应用程序特定的逻辑。</p>
 <h2 id="部件widget"><a class="header" href="#部件widget">部件(widget)</a></h2>
 <p>　　部件是 GUI 的可见元素抽象。体现 GUI 逻辑的事件最终被分发到具体的<strong>部件</strong>上，在部件持有的事件上进行响应。</p>
-<p>　　部件具有一系列基本的可视化属性，例如位置和大小。其它一些状态决定它如何被绘制以及和其它部件的关系或者具有用户程序关心的数据。 YSLib 中的部件实现模块 YSLib::UI::YWidget 提供的 <code>UI::IWidget</code> 接口以及作为基类的 <code>UI::Widget</code> ，通过处理 <code>UI::Paint</code> 事件使其被绘制。</p>
+<p>　　部件具有一系列基本的可视化属性，例如位置和大小。其它一些状态决定它如何被绘制以及和其它部件的关系或者具有用户程序关心的数据。YSLib 中的部件实现模块 YSLib::UI::YWidget 提供的 <code>UI::IWidget</code> 接口以及作为基类的 <code>UI::Widget</code> ，通过处理 <code>UI::Paint</code> 事件使其被绘制。</p>
 <p>　　基本的部件只能处理 <code>UI::Paint</code> 标识的绘制事件，可以处理其它事件（例如直接响应表示用户输入的事件）的部件称为<strong>控件(control)</strong> 。模块 YSLib::UI::YControl 提供了控件的基类 <code>UI::Control</code> 。其它大部分部件派生于这个类以提供不同的功能。</p>
 <p>　　调整部件的特定属性即可以基本完成一个 GUI 应用。</p>
 <p>　　模块 YSLib::UI::YWidgetEvent 提供了 UI::VisualEvent 枚举标识默认支持的 GUI 事件，其中不同的枚举项表示不同的 GUI 事件，可能对应不同的事件参数类型。默认支持的事件参数类型都是类类型的右值引用类型，但和标准库的右值引用参数类型不同，约定被转移后状态可预测。</p>
@@ -188,10 +188,10 @@ auto&amp; paint_event(FetchEvent&lt;Paint&gt;(ctl)); // 取 ctl 的 UI::Paint �
 
 // 使用 lambda 表达式添加回调是简便的做法：
 FetchEvent&lt;Click&gt;(ctl) += [](CursorEventArgs&amp;&amp;){
-	std::cout &lt;&lt; &quot;Control clicked!&quot; &lt;&lt; std::endl; 
+	std::cout &lt;&lt; &quot;Control clicked!&quot; &lt;&lt; std::endl;
 };
 FetchEvent&lt;Click&gt;(ctl) += []{ // 得力于 GHEvent 允许省略参数的特性，这里可以省略没有用到的形式参数。
-	std::cout &lt;&lt; &quot;Control clicked again!&quot; &lt;&lt; std::endl; 
+	std::cout &lt;&lt; &quot;Control clicked again!&quot; &lt;&lt; std::endl;
 };
 </code></pre>
 <p>　　当 ctl 被点击时，上面 <code>UI::Click</code> 事件上添加的两个回调会被依次执行，在标准输出上输出两行字符串。</p>
@@ -203,8 +203,8 @@ FetchEvent&lt;Click&gt;(ctl) += []{ // 得力于 GHEvent 允许省略参数的�
 <pre><code>Control ctl2(Rect(10, 20, 40, 20)); // 位置为 (10, 20) ，大小为 (40, 20) 。
 Control ctl3({10, 20, 40, 20}); // 同上。
 </code></pre>
-<p>　　出于动态加载部件的需要， YSLib 提供的部件总是可以通过一个 Rect 值构造以及默认构造（相当于 Rect 为空），因此不限于 <code>UI::Control</code> 使用。</p>
-<p>　　在创建部件之后，使用函数 <code>GetLocationOf</code> 、 <code>GetSizeOf</code> 和 <code>GetBoundsOf</code> 等查询这些属性；相对地，使用函数 <code>SetLocationOf</code> 、 <code>SetSizeOf</code> 和 <code>SetBoundsOf</code> 等设置这些属性。通过这些函数设置位置和大小会分别触发 <code>Move</code> 和 <code>Resize</code> 事件。 </p>
+<p>　　出于动态加载部件的需要，YSLib 提供的部件总是可以通过一个 Rect 值构造以及默认构造（相当于 Rect 为空），因此不限于 <code>UI::Control</code> 使用。</p>
+<p>　　在创建部件之后，使用函数 <code>GetLocationOf</code> 、<code>GetSizeOf</code> 和 <code>GetBoundsOf</code> 等查询这些属性；相对地，使用函数 <code>SetLocationOf</code> 、<code>SetSizeOf</code> 和 <code>SetBoundsOf</code> 等设置这些属性。通过这些函数设置位置和大小会分别触发 <code>Move</code> 和 <code>Resize</code> 事件。</p>
 <h2 id="视图树和容器"><a class="header" href="#视图树和容器">视图树和容器</a></h2>
 <p>　　YSLib 提供了单一的<strong>视图树</strong>结构作为显示视图的抽象。通过指定部件所在的<strong>容器</strong>限定显示的范围。容器自身是一个部件，可以嵌套在另外的部件中。容器中的部件（<strong>子部件</strong>）的位置使用容器部件的边界的左上角作为原点，即位置表示子部件的边界的左上角相对于容器的边界的左上角。这样的结构典型地构成一颗树，只有作为树根的<strong>顶层部件</strong>没有容器。</p>
 <p>　　容器通过 <code>UI::IWdiget</code> 提供一般的迭代遍历支持。不是所有容器都支持动态添加子部件。模块 YSLib::UI::YPanel 提供一般的面板容器 <code>UI::Panel</code> 支持这个特性：</p>
@@ -214,7 +214,7 @@ Panel pnl(Size(200, 100));
 Control ctl({10, 20, 100, 40});
 
 pnl += ctl; // ctl 作为 pnl 的子部件，在 pnl 左上角的位置 (10, 20) 显示。
-yassume(&amp;pnl == FetchContainerPtrOf(ctl)); // 宏 yassume 由 YBase 提供，默认和标准库的宏 assert 行为一致，表示断言； 函数 FetchContainerPtr 取得指向容器的指针。
+yassume(&amp;pnl == FetchContainerPtrOf(ctl)); // 宏 yassume 由 YBase 提供，默认和标准库的宏 assert 行为一致，表示断言；函数 FetchContainerPtr 取得指向容器的指针。
 </code></pre>
 <h3 id="顶层窗口top-level-window"><a class="header" href="#顶层窗口top-level-window">顶层窗口(top level window)</a></h3>
 <p>　　部件最终需要通过顶层部件的 <code>UI::Paint</code> 事件被显示。在独立实现中，顶层部件一般是模块 YSLib::UI::YDesktop 提供的 <code>UI::Desktop</code> 。在宿主实现中，由于需要和宿主环境的 GUI 集成，使用不同的接口。在一个有桌面环境的宿主平台中，这样的顶层部件一般称为<strong>顶层窗口</strong>。</p>
@@ -224,13 +224,13 @@ Control ctl(Size(200, 100));
 
 Host::ShowTopLevel(ctl);
 </code></pre>
-<p>　　对 Windows ， <code>Host::ShowTopLevel</code> 支持更多的样式和扩展样式参数调整宿主窗口。具体使用详见 <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms632680(v=vs.85).aspx">MSDN</a> 。当调用 <code>Host::ShowTopLevel</code> 时，会自动创建具有独立线程和（ Win32 意义上的）消息循环 Windows 窗口，这个过程可能发生阻塞。</p>
+<p>　　对 Windows ，<code>Host::ShowTopLevel</code> 支持更多的样式和扩展样式参数调整宿主窗口。具体使用详见 <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms632680(v=vs.85).aspx">MSDN</a> 。当调用 <code>Host::ShowTopLevel</code> 时，会自动创建具有独立线程和（ Win32 意义上的）消息循环 Windows 窗口，这个过程可能发生阻塞。</p>
 <h2 id="常用部件"><a class="header" href="#常用部件">常用部件</a></h2>
-<p>　　<code>UI</code> 命名空间下除了 <code>Widget</code> 、 <code>Control</code> 、 <code>Panel</code> 和 <code>YDesktop</code> 几类直接作为框架必要类型的部件外，还有更多提供不同实用功能的部件。</p>
+<p>　　<code>UI</code> 命名空间下除了 <code>Widget</code> 、<code>Control</code> 、<code>Panel</code> 和 <code>YDesktop</code> 几类直接作为框架必要类型的部件外，还有更多提供不同实用功能的部件。</p>
 <p>　　注意，非控件的部件不能取 <code>UI::Paint</code> 外的事件，否则会抛出异常。</p>
 <h3 id="uilabel"><a class="header" href="#uilabel">UI::Label</a></h3>
 <p>　　这是显示文本标签的部件。</p>
-<p>　　简单的用法是创建部件后，修改 <code>Text</code> 属性。它接受的是模块 YSLib::Core::YString 提供的 <code>String</code> 类型的 UCS-2 字符串，可以直接通过 <code>std::u16string</code> 或 <code>const char16_t*</code> 等构造。因此内建的 <code>u</code> 前缀的字面量可以直接用于赋值 <code>Text</code> 。 YSLib 中 GUI 的其它部分也使用这样的字符串。</p>
+<p>　　简单的用法是创建部件后，修改 <code>Text</code> 属性。它接受的是模块 YSLib::Core::YString 提供的 <code>String</code> 类型的 UCS-2 字符串，可以直接通过 <code>std::u16string</code> 或 <code>const char16_t*</code> 等构造。因此内建的 <code>u</code> 前缀的字面量可以直接用于赋值 <code>Text</code> 。YSLib 中 GUI 的其它部分也使用这样的字符串。</p>
 <h3 id="uibutton"><a class="header" href="#uibutton">UI::Button</a></h3>
 <p>　　按钮控件。</p>
 <p>　　类似 <code>UI::Label</code> 可以显示文本，但它是一个控件，可以点击并添加 <code>UI::Click</code> 事件回调。</p>

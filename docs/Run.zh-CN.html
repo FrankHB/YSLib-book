@@ -155,6 +155,51 @@
 <h1 id="硬件资源要求"><a class="header" href="#硬件资源要求">硬件资源要求</a></h1>
 <p>　　占用的硬件资源不确定，取决于平台配置以及具体应用程序。</p>
 <p><strong>注意</strong> 特定平台可能有额外限制，详见各个平台运行时环境的说明。</p>
+<h1 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h1>
+<p>　　<a href="https://zh.wikipedia.org/zh-cn/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>是程序的实现环境（典型地，如操作系统）的运行环境提供的一种机制。程序在运行时可能访问这些环境变量，以提供不同的行为，或在程序之间、程序与外部环境之间传递信息。</p>
+<p><strong>注释</strong> 非宿主实现的平台可能不支持环境变量。本项目的程序在这些平台上不使用环境变量。</p>
+<p>　　没有依赖这些具体应用或其提供的实现环境时，如有可能，应当避免使用依赖这些具体的使用方式。</p>
+<p>　　一些情形程序通过判断特定的环境变量配置功能。特别地，设置特定的环境变量为非空值可能启用功能。</p>
+<p>　　一般地，只要环境变量被支持，一个环境变量总是能被设置为非空的字符串（至少本项目支持的平台能假定如此）。但是，访问环境变量的行为仍可能依赖具体平台的不同细节，而影响可移植性：</p>
+<ul>
+<li>环境变量的名称可能是大小写敏感或不敏感的：名称仅有大小写不同的环境变量可能被视为不同或同一个。
+<ul>
+<li>例如，Windows（指 Win32 环境，下同）的环境变量名对大小写不敏感。其它大部分实现环境对环境变量的大小写敏感。</li>
+<li>因此，作为公开接口提供的环境变量应当总是具有固定的、大小写敏感的拼写，且避免出现仅有不同大小写的可能因同名冲突的不同环境变量名。</li>
+</ul>
+</li>
+<li>环境变量可被设置为空值。具有空值的环境变量可能会或不会被视为没有被设置（或被取消设置）的环境变量。
+<ul>
+<li>例如，设置 Windows 的某个环境变量为空值，效果即删除环境变量。其它大部分实现环境中，设置环境变量为空值，环境变量不被删除。</li>
+<li>一些环境可能指定不同的行为，如<a href="https://www.msys2.org/news/#2022-09-24-changed-behavior-for-empty-env-vars">较新版本的 MSYS2 支持配置 <code>MSYS=noemptyenvvalues</code> </a> 。</li>
+<li>因此，不直接判断环境变量被设置，而判断环境变量是否为空值。</li>
+</ul>
+</li>
+<li>环境变量名可能具有不同的限制。
+<ul>
+<li>仅假定 ISO C 基本字符集的标识符（大小写拉丁字母、数字和下划线 <code>_</code> ）可被用于环境变量名。</li>
+</ul>
+</li>
+<li>具体环境变量的访问方式可能和具体宿主平台中访问环境变量的具体程序相关，如：
+<ul>
+<li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_05_03">POSIX shell 变量</a>引用 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08">XBD 环境变量</a>，可使用 <code>$VAR</code> 访问变量 <code>VAR</code> 的值。</li>
+<li><a href="https://learn.microsoft.com/windows-server/administration/windows-commands/set_1">Windows <code>set</code> 命令</a> 显示或设置环境变量，可使用 <code>%VAR%</code> 访问变量 <code>VAR</code> 的值。</li>
+<li><a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_environment_variables">Powershell 支持环境变量</a>，可通过 <code>$Env:VAR</code> 访问变量 <code>VAR</code> 的值。</li>
+</ul>
+</li>
+<li>以下<em>周知的(well-known)</em> 环境变量因在各个被本项目支持的宿主实现平台普遍可用，而可被直接使用，但使用方式并非完全相同：
+<ul>
+<li><a href="https://zh.wikipedia.org/zh-cn/PATH_%28%E5%8F%98%E9%87%8F%29"><code>PATH</code></a> 表示程序中执行（外部程序提供的）命令使用的搜索路径。
+<ul>
+<li>对 Windows ，另见 <a href="https://learn.microsoft.com/windows-server/administration/windows-commands/path"><code>path</code> 命令</a>（其中使用 <code>%PATH%</code> 引用环境变量 <code>PATH</code> ）。</li>
+<li>另见 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_09_01_01">POSIX</a> 的规定。</li>
+<li><code>PATH</code> 的值可支持多个路径名称，其中分隔符不一定相同，如 Windows 使用 <code>;</code> ，而 POSIX 使用 <code>:</code> 。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>　　除非需要依赖具体实现环境或另行指定，本项目中提供的环境变量应当避免上述依赖差异。</p>
 <h1 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h1>
 <p>　　为最大化可移植性，原则上 YSLib 的程序逻辑<strong>不依赖自身组件具有显式编码的具体文件路径</strong>，因此默认不要求在具体系统约定的周知(well-known) 的文件系统位置（如 <a href="https://docs.microsoft.com/zh-cn/windows/win32/dlls/dynamic-link-library-search-order">Windows DLL 搜索路径</a>中的目录和 [FHS](https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B
 6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86) 定义的目录）部署。但具体平台配置可以自行限定目录布局作为默认运行时环境，如 <a href="Sysroot.zh-CN.html">Sysroot</a> 。其中外部文件可有默认路径，参见以下相关章节。</p>
@@ -169,7 +214,7 @@
 </li>
 <li>要求支持符合 YSLib 项目规范的开发（参见项目的 <code>doc/ProjectRules.txt</code> ）。</li>
 </ul>
-<p>　　一般地， YBase 不要求文件系统访问；使用 YFramework 框架的程序，由 YFramework 中的框架初始化等逻辑引入文件系统访问。</p>
+<p>　　一般地，YBase 不要求文件系统访问；使用 YFramework 框架的程序，由 YFramework 中的框架初始化等逻辑引入文件系统访问。</p>
 <h1 id="二进制依赖项"><a class="header" href="#二进制依赖项">二进制依赖项</a></h1>
 <p>　　按以上文件路径约定，构建得到的目标程序没有预设特定的位置限制，可按需转移。</p>
 <p>　　运行程序前，应确保程序能找到二进制依赖项：</p>
@@ -235,7 +280,7 @@
 <p>　　文件 <code>yconf.txt</code> 为 YFramework 程序的公共<a href="Tutorial/Configuration.zh-CN.html">配置</a>文件，在框架初始化时，先于其它配置文件之前处理。若不存在，提供默认内容。其位置是预先指定的，和平台相关。详见下一章对框架初始化的说明。</p>
 <p>　　为避免 YFramework 程序在运行时出错或行为不符合预期，注意确保满足前述访问约定的要求。若无法在程序映像文件所在目录（详见以下关于框架初始化的说明）创建文件，配置不能保存到外部文件。</p>
 <p>　　在 Win32 上一个正确的公共配置文件的内容可能是这样的：</p>
-<pre><code>YFramework 
+<pre><code>YFramework
 (
 	DataDirectory &quot;C:\Data\\&quot;
 )
@@ -260,7 +305,7 @@
 <p>　　当前可用数据文件位于 YSLib 项目的 <code>/Data</code> 下，可自行复制到数据目录。</p>
 <h3 id="chrlib-的-gbk-转换例程初始化"><a class="header" href="#chrlib-的-gbk-转换例程初始化">CHRLib 的 GBK 转换例程初始化</a></h3>
 <p>　　对使用 CHRLib 提供的 GBK 编码转换的程序，需保证数据目录下存在数据文件 <code>cp113.bin</code> 。</p>
-<p>　　对 Win32 平台， CHRLib 初始化 GBK 转换例程读取数据文件失败时，首先尝试使用 NLS 替代：</p>
+<p>　　对 Win32 平台，CHRLib 初始化 GBK 转换例程读取数据文件失败时，首先尝试使用 NLS 替代：</p>
 <ul>
 <li>通过读取注册表取得 NLS 文件路径，默认为系统目录下的 <code>C_936.NLS</code>（文件名大小写可能不同，这不影响加载）。</li>
 <li><strong>注意</strong> 并非所有 Windows 安装带有指定的 NLS 文件。
@@ -292,7 +337,7 @@
 </ul>
 <h1 id="特定平台运行环境"><a class="header" href="#特定平台运行环境">特定平台运行环境</a></h1>
 <h2 id="ds"><a class="header" href="#ds">DS</a></h2>
-<p>　　以下说明中， <code>$NDSEmulator</code> 为模拟器 <a href="DeSmuME.en-US.html">DeSmuME</a> 可执行文件的绝对路径， <code>$TargetPath</code> 为 ROM 映像文件（ <code>.nds</code> 文件）的路径， $FAT_Path为 FAT 目录路径（见以下说明）。</p>
+<p>　　以下说明中，<code>$NDSEmulator</code> 为模拟器 <a href="DeSmuME.en-US.html">DeSmuME</a> 可执行文件的绝对路径，<code>$TargetPath</code> 为 ROM 映像文件（ <code>.nds</code> 文件）的路径，$FAT_Path为 FAT 目录路径（见以下说明）。</p>
 <p>　　之前经测试的最小版本为 0.9.6 。建议使用最新版本。</p>
 <p>　　运行时，需在运行模拟器的宿主机中准备一个目录作为映射到设备中的虚拟 FAT 目录。宿主的目录在运行中不会被 DeSmuME 修改；宿主目录的文件系统不要求为 FAT 。运行时会加载虚拟目录的内容。</p>
 <p><strong>注意</strong> 官方版的 DeSmuME 不支持包含非 ASCII 字符的宿主路径而忽略这些文件。部分修改版可能没有这个限制。</p>
@@ -328,7 +373,7 @@ path=H:\NDS\efsroot\
 <p>　　可使用 <code>adb</code> 命令安装 APK 包，如：</p>
 <pre><code>&quot;$ANDROID_SDK/platform-tools/adb&quot; -e install -r &quot;$1&quot;
 </code></pre>
-<p>　　此处 <code>-e</code> 指定 TCP/IP 设备（通常是模拟器），若使用 USB 设备（通常是物理机器）应移除或使用较新的 <code>adb</code> 的 <code>-d</code> 选项代替； <code>&quot;$1&quot;</code> 指定 APK 文件路径。</p>
+<p>　　此处 <code>-e</code> 指定 TCP/IP 设备（通常是模拟器），若使用 USB 设备（通常是物理机器）应移除或使用较新的 <code>adb</code> 的 <code>-d</code> 选项代替；<code>&quot;$1&quot;</code> 指定 APK 文件路径。</p>
 <p>　　之后，在 Android 的 GUI 环境下直接运行安装的程序。</p>
 <p>　　若因签名变更等原因无法覆盖安装或更新，需要先卸载后再安装。</p>
 <p><strong>注意</strong> Android 安装 <code>.apk</code> 包时需要占用额外存储资源。为避免内置存储空间不足导致不直接表现安装失败（需要 <code>logcat</code> 查看）但直至运行时找不到二进制库而导致启动失败，应保留足够的空间，特别是对占用较大的 debug 配置构建的映像。保留空间的大小一般大于 <code>.apk</code> 作为 <code>.zip</code> 解压缩占用的空间。另见<a href="https://code.google.com/p/android/issues/detail?id=21670">此处报告的未确认的类似问题</a>。</p>
@@ -349,16 +394,16 @@ path=H:\NDS\efsroot\
 <p>　　框架初始化加载配置文件，其中配置文件路径的确定方式参见以下节的说明。成功公共加载配置文件后，框架初始化检查配置文件的内容，并访问框架公共配置。若检查失败，抛出异常。</p>
 <p>　　修改 YFramework 模块 Helper::Initialization 重新编译后，可修改默认设置改变初始化行为。以下行为<strong>可能会在未来改变</strong>。</p>
 <h2 id="根路径"><a class="header" href="#根路径">根路径</a></h2>
-<p>　　**根路径(root path)**是框架初始化时参考的基本路径，由如下方式确定：</p>
+<p>　　<strong>根路径(root path)</strong> 是框架初始化时参考的基本路径，由如下方式确定：</p>
 <ul>
 <li>Win32 和 Linux（除 Android ）：程序映像所在的目录。</li>
-<li>Android ：SD 卡目录（自动按顺序检测 <code>/sdcard</code> 、 <code>/mnt/sdcard</code> 或 <code>/storage/sdcard0</code> 之一）。</li>
+<li>Android ：SD 卡目录（自动按顺序检测 <code>/sdcard</code> 、<code>/mnt/sdcard</code> 或 <code>/storage/sdcard0</code> 之一）。</li>
 <li>其它平台：第一次初始化时的当前工作目录。</li>
 </ul>
 <p>　　确定根路径在框架初始化或要求确定根路径时进行。若定位程序映像，同时会解析符号链接。若定位根路径失败，抛出异常。</p>
 <p>　　抛出的异常默认不被框架处理，可使程序退出。用户代码捕获特定异常可改变默认退出行为。</p>
 <h2 id="配置路径"><a class="header" href="#配置路径">配置路径</a></h2>
-<p>　　公共配置文件 <code>yconf.txt</code> 所在目录的路径前缀（结尾带有路径分隔符）称为框架的<strong>配置路径(configuration path)</strong>，决定和平台相关的配置加载起始位置。配置路径和配置文件相对路径（对 <code>yconf.txt</code> ，即配置文件名）组合得到配置文件路径。</p>
+<p>　　公共配置文件 <code>yconf.txt</code> 所在目录的路径前缀（结尾带有路径分隔符）称为框架的<strong>配置路径(configuration path)</strong> ，决定和平台相关的配置加载起始位置。配置路径和配置文件相对路径（对 <code>yconf.txt</code> ，即配置文件名）组合得到配置文件路径。</p>
 <p>　　配置路径的确定方式和平台相关。</p>
 <p>　　任意平台总能确定一个首选的配置路径。</p>
 <p>　　除首选的配置路径外，一些平台还支持一个或多个不同的<strong>后备(fallback) 配置路径</strong>。在读写特定的配置文件时，若根路径访问失败，但存在后备配置路径，依序使用这些路径重试直至成功或全部访问失败。这样的配置文件当前包括 <code>yconf.txt</code> 。具体应用可使用初始化 API 以类似的方式加载其它配置文件。</p>

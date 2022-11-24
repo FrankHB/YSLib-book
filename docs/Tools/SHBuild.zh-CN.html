@@ -140,7 +140,7 @@
 <h2 id="构建"><a class="header" href="#构建">构建</a></h2>
 <p>　　本节说明 SHBuild 的构建。关于使用 SHBuild 构建用户程序，参见前述概要和之后的章节。</p>
 <p>　　除非另行指定，其它章节也适用于本节内构建的非最终阶段 SHBuild 。本章仅补充仅适用于这些 SHBuild 的特点和功能。</p>
-<p>　　关于使用 <code>bash</code> 构建库、 SHBuild 、测试项目和基于 SHBuild 上的用户程序，参见<a href="../Sysroot.zh-CN.html">关于 <strong>MinGW Sysroot</strong> 的说明</a>。</p>
+<p>　　关于使用 <code>bash</code> 构建库、SHBuild 、测试项目和基于 SHBuild 上的用户程序，参见<a href="../Sysroot.zh-CN.html">关于 <strong>MinGW Sysroot</strong> 的说明</a>。</p>
 <p>　　当前只支持<a href="Terminology.zh-CN.html">本机构建</a>。</p>
 <p>　　除了指定调用编译器等工具的名称外的其它情形对 SHBuild 是<em>透明(transparent)</em> 的，即 SHBuild 不使用<a href="Terminology.zh-CN.html">目标平台的标识</a>执行不同逻辑。这样，也可能不经修改调用命令的情况下成功<a href="Terminology.zh-CN.html">交叉构建</a>，但当前未测试。</p>
 <h3 id="引导bootstrapping"><a class="header" href="#引导bootstrapping">引导(Bootstrapping)</a></h3>
@@ -184,7 +184,7 @@
 <p>　　命令行参数 <code>--</code> 钱的参数中，以 <code>-x</code> 起始的特定选项（详见运行 <code>SHBuild</code> 的说明）被作为 SHBuild 选项。命令行参数 <code>--</code> 后的参数不被识别为 SHBuild 选项，而被传递给后端或作为命令模式的参数。</p>
 <h3 id="构建模式"><a class="header" href="#构建模式">构建模式</a></h3>
 <p>　　构建模式递归扫描指定的源代码目录，以其中符合内建规则要求的文件作为输入，调用相应的后端命令行构建。构建包括对符合内建规则的输入的编译，以及对得到的目标文件进行链接。除 SHBuild 选项的命令行参数直接传除递给后端编译器。若需要构建复杂项目，可以使用其它的脚本支持。</p>
-<p>　　调用的构建后端工具的名称以及链接器命令行选项可使用环境变量指定。此外，若环境变量 <code>SHBuild_CFLAGS</code> 和 <code>SHBuild_CXXFLAGS</code> 被定义为非空值，调用 C 和 C++ 编译器命令行时，变量的值会先于生成的命令选项以及上述命令行选项被传递。关于支持的环境变量，详见运行 <code>SHBuild</code> 的说明。</p>
+<p>　　调用的构建后端工具的名称以及链接器命令行选项可使用<a href="../Development.zh-CN.html">环境变量</a>指定。此外，若环境变量 <code>SHBuild_CFLAGS</code> 和 <code>SHBuild_CXXFLAGS</code> 被定义为非空值，调用 C 和 C++ 编译器命令行时，变量的值会先于生成的命令选项以及上述命令行选项被传递。关于支持的环境变量，详见运行 <code>SHBuild</code> 的说明。</p>
 <p>　　调用的后端命令行的不同的命令行选项之间应确保以空白符间隔。环境变量确定的选项不被检查；由 SHBuild 生成的命令行选项之间以一个空格分隔。</p>
 <h3 id="内建规则"><a class="header" href="#内建规则">内建规则</a></h3>
 <p>　　遍历扫描目录时，不需要使用领域特定语言的外部脚本，<code>SHBuild</code> 识别名称符合特定模式串的文件。</p>
@@ -200,7 +200,7 @@
 <li><code>*.cxx</code></li>
 </ul>
 <p>　　对以上文件，对应的内建 C 和 C++ 编译器规则分别被调用。其它文件不被视为源文件。</p>
-<p>　　和 <code>make</code> 类似， SHBuild 的内建规则依赖文件修改时间(mtime) 判断一个目标是否最新。</p>
+<p>　　和 <code>make</code> 类似，SHBuild 的内建规则依赖文件修改时间(mtime) 判断一个目标是否最新。</p>
 <p>　　内建规则使用的编译器和环境变量参见直接运行 <code>SHBuild</code> 的使用说明。</p>
 <h3 id="命令模式"><a class="header" href="#命令模式">命令模式</a></h3>
 <p>　　参见运行 <code>SHBuild</code> 的说明。</p>
@@ -218,7 +218,7 @@
 <p>　　后者的翻译单元为文本文件。当前支持文件头可选的 UTF BOM 。**若找到 BOM ，直接跳过继续读取文件内容。在 SHBuild 中不假设文件编码，直接以窄字符流透明地处理。后续编码内容格式按<a href="../Features/NPL.zh-CN.html"> YFramework 提供的当前实现</a>的方式支持。</p>
 <p>　　因此，一般应使用 UTF-8 + BOM ，或不带 BOM 的 UTF-8 作为编码。</p>
 <h3 id="应用"><a class="header" href="#应用">应用</a></h3>
-<p>　　当前 stage 1 SHBuild 构建 YSLib 库使用<a href="Scripts.zh-CN.html">脚本</a>已以此方式实现。 Shell 脚本调用 stage 1 SHBuild 解释这些脚本，其中进一步调用 stage 1 SHBuild 执行其它构建命令。</p>
+<p>　　当前 stage 1 SHBuild 构建 YSLib 库使用<a href="Scripts.zh-CN.html">脚本</a>已以此方式实现。Shell 脚本调用 stage 1 SHBuild 解释这些脚本，其中进一步调用 stage 1 SHBuild 执行其它构建命令。</p>
 
                     </main>
 

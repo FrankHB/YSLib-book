@@ -142,8 +142,8 @@
 <p>　　NPL 的语法基于形式文法上可递归构造的<strong>表达式</strong>，其中的子表达式在此称为<strong>项</strong>。</p>
 <p>　　非正式地， NPL 使用类似 <a href="https://en.wikipedia.org/wiki/S-expression">S 表达式</a>的基本语法，但不使用二元有序对（和终止符号）而直接支持列表；即表达式直接以是否为括号作为边界，分为<strong>列表表达式</strong>和<strong>非列表表达式</strong>。</p>
 <p>　　正式语法中，项可以是列表或非列表项的<strong>混合表达式</strong>(<code>composite-expression</code>) 规约列表项中的一部分代替有序对的地位，以要求任意项可被无歧义地进行从左到右的语法分析。</p>
-<p>　　NPL 只要求小括号作为列表表达式的边界。其它替代的括号由派生实现约定。对于适用于多个 NPL 实现的可移植代码，避免使用其它语言中习惯作为代替括号边界的字符表示替代的括号以外的含义，特别地， ISO C++ 文法 <code>balanced-token</code> 中的边界字符 <code>()[]{}</code> 。</p>
-<p>　　NPL 对标识符的限制较为宽松。 ISO C 和 ISO C++ 的所有标识符都是 NPL 标识符。但派生实现可加以限制。</p>
+<p>　　NPL 只要求小括号作为列表表达式的边界。其它替代的括号由派生实现约定。对于适用于多个 NPL 实现的可移植代码，避免使用其它语言中习惯作为代替括号边界的字符表示替代的括号以外的含义，特别地，ISO C++ 文法 <code>balanced-token</code> 中的边界字符 <code>()[]{}</code> 。</p>
+<p>　　NPL 对标识符的限制较为宽松。ISO C 和 ISO C++ 的所有标识符都是 NPL 标识符。但派生实现可加以限制。</p>
 <p>　　NPL 不提供专用的注释语法。以特定形式的项（如表示字符串的字面量）替代注释是预期的惯用法(idiom) 。这不妨碍派生语言可能添加预处理器扩展特性。</p>
 <h1 id="语义"><a class="header" href="#语义">语义</a></h1>
 <p>　　NPL 提供了一些通用的概念但不构成语义规则。语义规则由派生实现约定。</p>
@@ -157,9 +157,9 @@
 <li>允许以一般手段表达求值和未求值表达式的差异。</li>
 </ul>
 <p>　　这意味着 NPLA 是本质上动态的语言，但和一般语言不同，用户可以很大程度上动态地替换现有语言实现，包括在运行时替换一个解释实现为一个或多个优化编译器。这也意味着语言设计上既不需要区分解释实现和编译实现（本质上不对立），也不需要区分动态和静态（因为随时能从基础语言上构造出静态子集）。</p>
-<p>　　这样的特性设计在绝大多数语言中不存在并且几乎无法支持。作者已知唯一的例外是 <a href="http://web.cs.wpi.edu/%7Ejshutt/kernel.html">Kernel</a> ，在这些特性上有极大的相似，尽管实际上基本特性是<strong>独立设计的</strong>，并且在基本设计哲学上有极大不同（ NPL 和 <a href="ftp://ftp.cs.wpi.edu/pub/techreports/pdf/05-07.pdf">RnRK</a> 中明确的 guidelines有很大不同且基本不兼容）。不过，考察设计的完整性， NPL 的派生语言也从中借鉴了一些重要的附加特性：</p>
+<p>　　这样的特性设计在绝大多数语言中不存在并且几乎无法支持。已知唯一的例外是 <a href="http://web.cs.wpi.edu/%7Ejshutt/kernel.html">Kernel</a> ，在这些特性上有极大的相似，尽管实际上基本特性是<strong>独立设计的</strong>，并且在基本设计哲学上有极大不同（ NPL 和 <a href="ftp://ftp.cs.wpi.edu/pub/techreports/pdf/05-07.pdf">RnRK</a> 中明确的 guidelines有很大不同且基本不兼容）。不过，考察设计的完整性，NPL 的派生语言也从中借鉴了一些重要的设计：</p>
 <ul>
-<li><a href="http://lambda-the-ultimate.org/node/4093"><code>$vau</code></a> 、 <em>合并子(combiner)</em> /<em>应用子(applicative)</em> /<em>操作子(operative)</em> 等术语。</li>
+<li><a href="http://lambda-the-ultimate.org/node/4093"><code>$vau</code></a> 、<em>合并子(combiner)</em> /<em>应用子(applicative)</em> /<em>操作子(operative)</em> 等术语。</li>
 <li>在绑定构造中支持模式匹配的形式参数树(parameter tree) 。</li>
 <li>一些以合并子形式提供的操作。
 <ul>
@@ -174,7 +174,7 @@
 <ul>
 <li>NPL 和 Kernel 类似，强调一等对象(first-class object) ，但含义有所不同。此处的“对象”和 ISO C 及 ISO C++ 中的定义类似，具有比 Kernel 更严格的含义。
 <ul>
-<li>和 Kernel 合并子及 Scheme 过程类似， NPLA 默认使用按值调用(call by value) ；但与之不同，不隐式对实际参数别名(aliasing) ，不共享对象。</li>
+<li>和 Kernel 合并子及 Scheme 过程类似，NPLA 默认使用按值调用(call by value) ；但与之不同，不隐式对实际参数别名(aliasing) ，不共享对象。</li>
 </ul>
 </li>
 <li>NPLA 和派生实现的语法和整体的求值类似 Scheme 和 Kernel 大多数基于 S 表达式的 <a href="https://en.wikipedia.org/wiki/Lisp_%28programming_language%29">Lisp</a> 方言，但有一些显著的区别。
@@ -191,7 +191,7 @@
 <li>不过 NPLA 也提供了 <code>$quote</code> 的派生而非如 Kernel 一样完全避免。</li>
 </ul>
 </li>
-<li>和 Kernel 不同， NPL 明确支持资源抽象，<strong>不保证支持</strong>循环引用，而 NPLA 明确<strong>不支持</strong>循环引用。</li>
+<li>和 Kernel 不同，NPL 明确支持资源抽象，<strong>不保证支持</strong>循环引用，而 NPLA 明确<strong>不支持</strong>循环引用。</li>
 <li>NPLA 明确支持基于 C++ 实现的对象模型和互操作，且明确<strong>不要求</strong>支持全局 <a href="https://zh.wikipedia.org/zh-cn/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6_%28%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8%29">GC</a> 。
 <ul>
 <li>从在互操作的目的出发，和 C++ 具有相似性和相容性。
@@ -211,7 +211,7 @@
 <li>没有在其它语言发现这种不支持全局 GC 和支持类似 C++ 副作用的情形下的 PTC 支持的先例。</li>
 </ul>
 </li>
-<li>和 Kernel 不同， NPLA 不完全强制对象类型的封装(encapsulation) ；且基于支持互操作的考虑，支持开放的类型系统，而不要求覆盖所有值（即要求对象类型分区(partition) ）。</li>
+<li>和 Kernel 不同，NPLA 不完全强制对象类型的封装(encapsulation) ；且基于支持互操作的考虑，支持开放的类型系统，而不要求覆盖所有值（即要求对象类型分区(partition) ）。</li>
 <li>对机器数（不论是整数还是浮点数）的操作被剥离了，当前不被支持，需要用户代码添加个别操作。</li>
 <li>NPLA 的规约(reduction) 框架和 vau 演算的操作语义几乎完全一致，不过实际上（因为先前语言设计上的不确定）显著地保留了更多的可扩展和可修改性。</li>
 </ul>
@@ -229,7 +229,7 @@
 <li>一等续延(first-class continuation)
 <ul>
 <li><a href="http://okmij.org/ftp/continuations/against-callcc.html">基于一些显著的理论和实现可用性的理由</a>，需要考察有界续延(delimited continuation) （如 <code>shift</code>/<code>reset</code> ）而不是传统的 <code>call/cc</code> 的支持。</li>
-<li>和 Klisp 的异步实现方式类似但不同， NPLA1 核心已使用一种同 <a href="http://www.ccs.neu.edu/home/dvanhorn/pubs/vanhorn-might-icfp10.pdf">CESK-style 的抽象机</a> 的异步风格独立重新实现（<a href="http://www.brics.dk/RS/05/16/BRICS-RS-05-16.pdf">原理参考</a>），并兼容混合原有实现。并且状态支持已提供基本操作，但仍待更多测试。</li>
+<li>和 Klisp 的异步实现方式类似但不同，NPLA1 核心已使用一种同 <a href="http://www.ccs.neu.edu/home/dvanhorn/pubs/vanhorn-might-icfp10.pdf">CESK-style 的抽象机</a> 的异步风格独立重新实现（<a href="http://www.brics.dk/RS/05/16/BRICS-RS-05-16.pdf">原理参考</a>），并兼容混合原有实现。并且状态支持已提供基本操作，但仍待更多测试。</li>
 </ul>
 </li>
 <li><a href="http://klisp.org/docs/Promises.html#Promises">Promises</a>
@@ -290,7 +290,7 @@
 <li>类似 <a href="https://www.scheme.com/">Chez Scheme</a> 对 <a href="http://nanopass.org/">Nanopass</a> 的使用。</li>
 </ul>
 </li>
-<li><a href="https://en.wikipedia.org/wiki/Metacompilation">元编译(metacompilation)(en-US)</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Metacompilation">元编译(metacompilation)(en-US)</a></li>
 </ul>
 
                     </main>

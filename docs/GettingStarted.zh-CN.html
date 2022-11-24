@@ -155,7 +155,11 @@
 <p>　　使用 YSLib 开发需要配置 YSLib 环境，以确保 YSLib 的库和相关环境可用。</p>
 <p>　　当前建议直接在本机环境中从源代码构建安装 YSLib ，参照以下步骤和要点：</p>
 <ul>
-<li>参照<a href="Prerequisitions.zh-CN.html">先决条件</a>的<strong>PC(MinGW32)<strong>一节给出的链接下载 MSYS2 并配置环境，执行脚本安装所需的工具；或者参照</strong>PC/Linux</strong>一节配置 Linux 开发环境。</li>
+<li>参照<a href="Prerequisitions.zh-CN.html">先决条件</a>的 <strong>PC(MinGW32)</strong> 一节给出的链接下载 MSYS2 并配置环境，执行脚本安装所需的工具。
+<ul>
+<li><strong>注释</strong> 若不需要构建 GUI 应用程序，也可以参照先决条件的 <strong>PC/Linux</strong> 一节，在 Linux 环境下本机构建。</li>
+</ul>
+</li>
 <li><a href="GettingSources.zh-CN.html">获取源代码</a>。
 <ul>
 <li>若直接从版本库获取，直接构建可能找不到库而在链接时失败。可以自行参照文档构建缺少的外部依赖项，或<a href="Archives.zh-CN.html">从归档仓库下载</a>二进制文件放置到指定的库文件路径中，详见<a href="Development.zh-CN.html">开发说明</a>。</li>
@@ -168,6 +172,7 @@
 </ul>
 </li>
 </ul>
+<p><strong>注释</strong> 以上是对新手的建议步骤。为了避免在之后的步骤中出现需要回溯解决的问题，这些步骤务求详尽。若已了解构建环境配置或为自动化部署，通常总是可以使用一行脚本在受支持的环境中直接构建 Sysroot 。</p>
 <h1 id="开发基础"><a class="header" href="#开发基础">开发基础</a></h1>
 <p>　　以下介绍使用 YSLib 开发须知的基础要点，并说明如何开发示例程序。</p>
 <h2 id="控制台程序和图形用户界面gui-程序"><a class="header" href="#控制台程序和图形用户界面gui-程序">控制台程序和图形用户界面(GUI) 程序</a></h2>
@@ -209,7 +214,7 @@ main()
 <p>　　<code>SHBuild-BuildPkg.sh</code> 调用构建脚本。脚本的参数分别是：</p>
 <ul>
 <li><code>release</code> 是一个配置名称。配置名称决定保存生成的文件的输出目录相对当前工作目录的位置，这里输出目录是当前工作目录下的 <code>.release</code> 子目录。可以更换配置名称以指定不同的输出目录。
-　　* 若配置名称以 <code>debug</code> 起始，启用调试配置，自动使用调试库和构建选项。 </li>
+　　* 若配置名称以 <code>debug</code> 起始，启用调试配置，自动使用调试库和构建选项。</li>
 <li><code>.</code> 表示构建的目录源代码的根目录为当前工作目录。</li>
 <li>之后的可选参数在此省略。</li>
 </ul>

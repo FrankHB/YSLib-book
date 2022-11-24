@@ -202,7 +202,7 @@
 </ul>
 </li>
 <li>计算(computation) ：由可计算性定义的操作的等价类。</li>
-<li>计算模型(computation model) ：描述计算的模型，是对计算建模的结果。 </li>
+<li>计算模型(computation model) ：描述计算的模型，是对计算建模的结果。</li>
 <li>集合(set) ：一种数学模型，参见 <a href="https://zh.wikipedia.org/zh-cn/%E5%86%AF%E8%AF%BA%E4%BC%8A%E6%9B%BC-%E5%8D%9A%E5%86%85%E6%96%AF-%E5%93%A5%E5%BE%B7%E5%B0%94%E9%9B%86%E5%90%88%E8%AE%BA">NBG 集合论</a>。</li>
 <li><a href="https://zh.wikipedia.org/zh-cn/%E7%B1%BB_%28%E6%95%B0%E5%AD%A6%29">类</a>(class) ：参见 NBG 集合论和范畴论。</li>
 <li>真类(proper class) ：参见 NBG 集合论和范畴论。</li>
@@ -295,7 +295,6 @@
 <li>程序(program) ：具体语言实现接受的以代码表示的输入，或被变换后对应的输出。</li>
 <li>行为(behavior) ：语言实现或在满足符合性的具体语言实现中的程序的外部表现。基于可操作性考虑，一般仅约束实现的机器<a href="#%E9%9D%9E%E8%87%AA%E6%8C%87">接口</a>。</li>
 <li>计算作用(computational effect) ：可被某个形式化计算模型描述的行为。</li>
-<li>作用(effect) ：语言支持的一定上下文内的表达式规约的结果的计算作用，包括计算得到的值、产生的副作用以及其它可由区域和变化的状态二元组描述的实体。</li>
 <li>翻译(translation) ：不同语言的程序之间的变换，可作为语言实现的形式。
 <ul>
 <li><strong>注释</strong> 输入和输出具有相同表示的恒等变换不被视为翻译。</li>
@@ -376,9 +375,9 @@
 <p>　　源代码用于生成指定目标代码(target code) 。</p>
 <p>　　通常源代码以文件形式保存，即源代码文件(source code file) ，简称源文件(source file) 。</p>
 <h2 id="版本库"><a class="header" href="#版本库">版本库</a></h2>
-<p>　　项目使用的版本控制系统(version controlling system) 具有版本库(repository)作为持久存储实体。</p>
+<p>　　项目使用的版本控制系统(version controlling system) 具有存储库(repository) 作为持久存储实体，即版本库。</p>
 <p>　　当前使用的主要版本控制系统为 <a href="https://www.mercurial-scm.org/">Mercurial</a> 。因为是分布式版本控制，也用于直接分发源代码。</p>
-<p>　　每个文件系统上存储的版本库实例中， <code>.hg</code> 目录存储版本库元数据。</p>
+<p>　　每个文件系统上存储的版本库实例中，<code>.hg</code> 目录存储版本库元数据。</p>
 <h1 id="设计和模型"><a class="header" href="#设计和模型">设计和模型</a></h1>
 <h2 id="环境"><a class="header" href="#环境">环境</a></h2>
 <p>　　程序中的某一部分的外界称为<strong>环境(environment)</strong>。根据限定程序的范围，可以有更确切的定义，如<a href="#%E8%A7%84%E8%8C%83">实现环境</a>（对一类语言实现而言）、运行时环境（对共享实现环境的一类程序而言）。</p>
@@ -426,24 +425,192 @@
 <p>　　在一般意义上，<strong>仿真(simulation)</strong> 指对需要分析的问题建立的模型(model) 的过程、方法和机制，在软件工程以外也被称为模拟，如计算机模拟(computer simulation) 。对于以计算机系统为目标的仿真，建立的模型可以是具体的实物（包括硬件和软件），称为仿真器(simulator) 。以软件接口为主要操作方式实现的仿真器同时实现了环境模拟，但侧重不同：精确重现需要分析行为，而非实用的功能等价性和体系中的可替换性。</p>
 <h3 id="平台配置"><a class="header" href="#平台配置">平台配置</a></h3>
 <p>　　实际的平台实现可能复用部分实现，配置之间可存在某种构成依赖关系的<a href="https://zh.wikipedia.org/zh-cn/%E5%81%8F%E5%BA%8F%E5%85%B3%E7%B3%BB">偏序关系</a>（如继承关系）。这些在项目中所有被配置的平台称为<em>公共平台(common platform)</em> ，其中能对应生成输出的称为<em>具体平台(concrete platform)</em> ，否则为<em>抽象平台(abstract platform)</em> 。</p>
+<p>　　对一个平台配置，程序可提供更多的子配置共用现有的相同的配置。子配置可继续对平台特性具体特化，而对原始配置的用户程序隐藏细节。</p>
+<p>　　普遍适用于一般功能配置也可被作为平台配置的一部分而作为子配置。</p>
+<p><strong>注释</strong> 例如，多线程和非多线程版本、调试和非调试版本可作为平台配置的功能子配置。</p>
+<p><strong>原理</strong> 尽管功能配置提供的特性可能是普遍的，但它的实现依赖的特性不都在每个平台中存在，而可能需要一定程度的模拟和仿真，或可选地提供部分特性。提供功能子配置可把这些特性作为次要的实现细节，和原始的平台上的更显著特性隔离。</p>
+<p>　　若存在这样的子配置，应当满足：</p>
+<ul>
+<li>这些子配置应当在每个部署的用户程序的依赖中保持唯一，即一个环境中不能同时依赖不同的子配置的程序映像。
+<ul>
+<li><strong>原理</strong> 这样不但不需要保持子配置之间的 ABI 兼容性，同时 API 也可以存在不兼容（而不仅仅是调试符号等附加元数据的差异）。</li>
+</ul>
+</li>
+<li>相应地，依赖不同子配置的用户程序也具有对应的子配置。用户程序可以仅提供其中的部分子配置的程序映像。
+<ul>
+<li><strong>原理</strong> 对每个子配置需要提供单独的依赖路径以避免冲突，因此一般不能在同一个部署中直接复用不同子配置的程序映像。为了避免不必要的资源占用，支持用户程序仅提供部分子配置（而非所有子配置的映像）是必要的。</li>
+</ul>
+</li>
+<li>除非另行指定，被复用的公开库的程序名称在不同子配置中应当存在差异。
+<ul>
+<li><strong>原理</strong> 尽管不会同时被一个用户程序依赖，每个部署中，不同的子配置的程序映像通常仍需共存。在名称上要求差异允许文件系统直接支持这种策略。</li>
+</ul>
+</li>
+</ul>
 <h3 id="标识"><a class="header" href="#标识">标识</a></h3>
 <p>　　不同平台可以标识符加以区分。由于平台受到不同环境因素决定的正交性，通常此类标识符可以分解为表示这些正交环境的标识符的元组形式，用 <code>-</code> 等字符分隔。</p>
 <p>　　一种常用的方式是 GNU 构建系统的<a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/System-Type.html#System-Type">系统类型(en-US)</a>，经典表示方式为三元组(triplet) ，或其省略形式：</p>
 <ul>
-<li>一般包括体系结构、系统厂商和系统软件环境</li>
-<li>第一项不可省略，之后的项可省略</li>
-<li>体系结构一般指定 CPU 要求的最小指令集架构</li>
-<li>系统厂商指集成平台的环境厂商</li>
-<li>系统软件环境保证满足 ABI 要求，可以包含操作系统及本机语言运行时实现的名称</li>
+<li>一般包括体系结构、系统厂商和系统软件环境。</li>
+<li>第一项不可省略，之后的项可省略。</li>
+<li>体系结构一般指定 CPU 要求的最小指令集架构。</li>
+<li>系统厂商指集成平台的环境厂商。</li>
+<li>系统软件环境保证满足 ABI 要求，可以包含操作系统及本机语言运行时实现的名称。</li>
 </ul>
 <p>　　确定为宿主环境时，系统软件同时指定操作系统和运行时环境而拆分为两项，三元组扩充为四元组，如 <a href="https://wiki.gentoo.org/wiki/CHOST">Gentoo 使用的 CHOST (en-US)</a>。</p>
 <p>　　在不够充分体现平台的必要差异（尤其是体系结构相关的配置）时也可通过自行定义标识符并指定与三元组的对应关系，如 <a href="%5Bhttps://wiki.debian.org/Multiarch/Tuples%5D">Debian multiarch (en-US)</a> 。</p>
-<p>　　除非必要时另行指定， YSLib 使用三元组作为指定平台标识的基本形式。</p>
+<p>　　系统类型用来提供一定程度的兼容（替换和互操作）：</p>
+<ul>
+<li>系统类型代表了系统厂商的预设的配置集合，因此可提供符合相对上的（事实）标准的构建和运行环境。</li>
+<li>这种兼容性有时会被过度依赖，乃至被误认为完全的 ABI 兼容：
+<ul>
+<li>系统类型不保证涵盖所有 ABI 细节，满足相同的系统类型的程序实例之间不一定符合完全相同的 ABI 而可相互替换或互操作，即原则上即不保证完全的 ABI 兼容。
+<ul>
+<li><strong>原理</strong> 实现的差异原则上不适合或无法通过系统类型区分。否则，系统类型事实上需要任意地长以涵盖不同细节，而会导致程序部署环境的碎片化，使维护兼容性的原始目的失去主要意义。</li>
+</ul>
+</li>
+<li>一个主要实例：不同构建工具链生成的二进制程序之间不总是保证完全的 ABI 兼容。
+<ul>
+<li>同一个版本的同一工具链通过某些构建选项即可能构建出不能保证 ABI 兼容的二进制程序映像。
+<ul>
+<li>例如，GCC 使用 <code>-m</code> 前缀选项可能影响 ABI 。</li>
+</ul>
+</li>
+<li>即便使用工具链发行版固定的默认预设选项，不同版本工具链在设计上不能完全保证二进制兼容性。
+<ul>
+<li>例如，为兼容 ISO C++11 中关于 <code>std::basic_string</code> 和 <code>std::list</code> 等 API 改动，GCC 5 显式提供<a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/using_dual_abi.html">不同的 ABI 配置</a> 而在支持这些改动的配置上[放弃对原有 libstdc++ 的 ABI 兼容保证。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>相同的系统类型可以对应不同的依赖集合，已被作为实用的维护兼容性的方法。
+<ul>
+<li>这种差异通常隐藏在系统库之下，此时提供不同的二进制兼容映像可以在部署时对依赖系统库的程序隐藏这些差异。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 现代 Microsoft Windows（基于 Windows NT 执行体）是应用包括这类兼容性在内的多种策略的一个典型实例：
+<ul>
+<li>隐藏二进制差异的主要实例是 Microsoft Windows NT 的 Win32 和 <a href="https://zh.wikipedia.org/zh-cn/%E5%BE%AE%E8%BD%AFPOSIX%E5%AD%90%E7%B3%BB%E7%BB%9F">POSIX 子系统</a>，用户程序通过链接到不同的子系统 DLL ，可共享上层 ABI 。</li>
+<li><a href="https://www.cygwin.com/">Cygwin</a> 是一个类似的 POSIX 子系统替代实现，其用户程序当前默认依赖系统库 <code>cygwin1.dll</code> 。</li>
+<li>Windows Subsystem for Linux (WSL) 则不是这种兼容性的实例。
+<ul>
+<li>因为映像格式的差异，它的用户空间程序使用的系统类型更接近 x86_64-pc-linux（具体系统类型取决于安装的发行版；典型地是 x86_64-pc-linux-gnu ）。</li>
+<li>部署 WSL 环境需要涉及一整套不同系统类型的二进制映像，仅在子系统的内部实现存在（对 Windows NT 执行体而言的）隐藏实现差异的情形。</li>
+</ul>
+</li>
+<li>不涉及子系统但同样通过 DLL 隐藏二进制的实例是隐藏系统库的版本差异：不同版本的 C 运行时(CRT) 和 Microsoft VC++ 运行时库可以在一个 Windows 系统实例中共存。
+<ul>
+<li>特别地，MSVCRT 和 UCRT 作为不同的 CRT ，可在同一个系统映像中安装，并作为同一个系统类型的不同实现提供。</li>
+<li>同时，不同的 CRT 可具有不同的工具链支持。</li>
+<li>不同版本的运行时中每个子配置（多线程和非多线程版本、调试和非调试版本）共用相同的配置，在此不视为存在差异。</li>
+<li>CRT 的多版本部署和其它一些系统中 libc 显式影响系统类型不同。
+<ul>
+<li><strong>原理</strong> 尽管同样是作为语言实现的一部分部署的系统库（至少在通常以此<a href="https://www.gnu.org/licenses/gcc-exception-3.1-faq.html">为由</a>取得<a href="https://www.gnu.org/licenses/gcc-exception-3.1.html">许可证豁免</a>的意义上），仅有后者通常是影响整个系统部署的库，而不适合通过相同的系统类型提供二进制不兼容的版本。否则，这会使整个系统中的几乎所有二进制程序映像之间都不具有二进制兼容性，而无法通过<a href="https://en.wikipedia.org/wiki/Dynamic_linker#Implementations">通常的机制</a>共享二进制代码。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.msys2.org/docs/environments/MSYS">MSYS2 提供的不同环境</a> 是体现上述所有各种不同兼容性方式的一个复杂实例。
+<ul>
+<li>其中，MSYS2 环境基于 Cygwin ，是通过类似子系统 DLL 部署的兼容层，其用户程序当前默认依赖系统库 <code>msys-2.0.dll</code> 。</li>
+<li>其余环境被视为原生的 Win32 应用，使用 Win32 子系统。按体系结构归类分组，每一组内可存在原生的共用相同系统类型的不同实现。
+<ul>
+<li>例如，<code>/mingw64</code> 、<code>/clang64</code> 和 <code>/ucrt64</code> 中部署的二进制程序共享系统类型 <code>x86_64-w64-mingw32</code> 。</li>
+<li>其中 <code>/mingw64</code> 中的程序依赖的 CRT 和另两种共享 <code>x86_64-w64-mingw32</code> 的环境不同，而 <code>/clang64</code> 中的程序依赖的 C++ 运行时库也和另两种环境不同。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>上述的这些配置仍然没有穷尽系统库的 ABI 的差异。
+<ul>
+<li>例如，GCC 工具链中预设了<a href="https://github.com/FrankHB/pl-docs/blob/master/zh-CN/mingw-vs-mingw-v64.md">无法保证 ABI 相互兼容的不同异常处理和线程模型</a>（每个不同的模型同时可需要部署不同的 DLL 作为系统库依赖）。</li>
+</ul>
+</li>
+<li>包括上述 MSYS2 中的每个环境的使用 GCC 的不同发行版都预设了具体的内部依赖，如：
+<ul>
+<li>MSYS2 中，<code>x86_64-w64-mingw32</code> 环境使用 SEH 异常处理模型，其用户程序当前默认依赖系统库 <code>libgcc_s_seh-1.dll</code> 。</li>
+<li>MSYS2 中，<code>i686-w64-mingw32</code> 环境使用 Dwarf2 线程处理模型，其用户程序当前默认依赖系统库 <code>libgcc_s_dw2-1.dll</code> 。</li>
+<li>一些发行版如 <a href="https://github.com/niXman/mingw-builds">MinGW-builds</a> 默认使用 SjLj 异常处理模型，其用户程序当前默认依赖系统库 <code>libgcc_s_sjlj-1.dll</code> 。</li>
+<li>MSYS2 和大多数其它 <a href="https://www.mingw-w64.org/">MinGW-w64</a> 发行版中长期使用 POSIX 线程模型提供较完善的 C++ 标准库线程特性实现，当前使用 <a href="https://www.mingw-w64.org/#headers-libraries-and-runtime">winpthreads</a> ，其用户程序当前默认依赖系统库 <code>libwinpthread-1.dll</code> 。</li>
+<li>预期可在现代环境中替代 <a href="https://www.mingw-w64.org/contribute/#mcfgthread">winpthreads</a> 的 <a href="https://github.com/lhmouse/mcfgthread">mcfgthread</a> 对<a href="https://gcc.gnu.org/pipermail/gcc-patches/2022-October/602704.html">上游的修改已被讨论</a>，使用新的线程模型 <code>mcf</code> ，其用户程序会依赖不同的系统库。</li>
+</ul>
+</li>
+<li>实现系统库时，可依赖非系统库 API 。通常，系统库可直接在运行时依赖 Windows NT 执行体。系统库之间也可存在其它单向的内部依赖。这些情形下，系统库自身不是符合环境要求的程序。
+<ul>
+<li>例如，mcfgthread 依赖非 Win32 API ，自身不是严格意义的 Win32 程序（尽管构建时仍在运行于 Win32 子系统的假定下链接）。</li>
+<li>POSIX 子系统依赖 Win32 系统。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>为了避免兼容性保证过程的复杂性，除非另行指定，关于系统类型：
+<ul>
+<li>可标识通过源代码部署的单一配置。构建支持和其它外部环境应当被文档明确。</li>
+<li>避免认为其它形式部署的唯一依据。特别地，支持可共享相同二进制部署的<a href="#%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AE">平台子配置</a>。</li>
+</ul>
+</li>
+</ul>
+<p>　　除非另行指定：</p>
+<ul>
+<li>本项目的文档描述使用和三元组兼容的方式指定平台标识的基本形式。</li>
+<li>若同一个平台配置存在多个不同的标识符，默认使用以下规则确定：
+<ul>
+<li>对使用 MinGW-w64 实现的工具链，使用<a href="https://sourceforge.net/p/mingw-w64/wiki2/TypeTriplets/">工具链定义的三元组</a></li>
+<li>否则，使用 <a href="https://savannah.gnu.org/projects/config">GNU config</a> 的最新版本中指定的标识符。
+<ul>
+<li>即 <a href="https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD">config.guess</a> 和 <a href="https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD">config.sub</a> 脚本。</li>
+</ul>
+</li>
+<li><strong>注意</strong> MinGW.org 和 MinGW-w64 都使用 <code>mingw32</code> 而非 <code>mingw64</code> ，这和 GNU guess 不同。应当避免<a href="https://github.com/msys2/MINGW-packages/issues/8020">可能存在的混淆</a>。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 通常不使用 <a href="https://clang.llvm.org/docs/CrossCompilation.html#target-triple">Clang 的三元组</a>。
+<ul>
+<li><strong>原理</strong> 尽管形式上更清晰，<code>&lt;sys&gt;-&lt;abi&gt;</code> 的划分实际使之成为四元组而非三元组，这种明确划分不总是符合现实的复杂需求。
+<ul>
+<li>这在关于 ABI 兼容的不明确性和歧义更加显著。这类不一致对适配更多不在现有清单上的平台更加困难，特别是未指定 <code>&lt;vendor&gt;</code> 时。
+<ul>
+<li><strong>注释</strong> 一个歧义的例子：<code>gnu</code> 在 Linux 上特指 glibc ，而在 Windows 上却指 libstdc++ 代表的 Itanium C++ ABI 实现。后者的 C 运行时库（通称 CRT ）却和 <code>msvc</code> 兼容。</li>
+</ul>
+</li>
+<li>和 GNU guess 不同，Clang 三元组使用的情形相当有限，甚至<a href="https://stackoverflow.com/questions/15036909/">长期以来并不具有用户文档中明确的列表或检查规则</a>。
+<ul>
+<li>虽然 <code>clang</code> 接受 <code>-triple</code> 指定三元组，<code>clang --print-targets</code> 却输出平台标识符而非三元组。</li>
+<li>三元组实际来自 <a href="https://llvm.org/doxygen/Triple_8h_source.html">LLVM 而非 Clang 的支持</a>。</li>
+<li>更接近此处需求的是同时使用 LLVM 的 <a href="https://docs.rust-embedded.org/embedonomicon/compiler-support.html#built-in-target"><code>rustc --print target-list</code></a> 的输出。</li>
+</ul>
+</li>
+<li>默认 <code>&lt;unknown&gt;</code> 但不一定在清单中被排除。这种随意性引起一些解析和理解上的困难。
+<ul>
+<li><strong>注释</strong> 在清单中滥用 <code>&lt;unknown&gt;</code> 的大量（却不是每个）例子可在 <code>rustc --print target-list</code> 的输出中找到。例如，通常读者（和系统维护者）难以理解：为何存在 <code>wasm32-unknown-emscripten</code> 和 <code>wasm32-wasi</code> 的同时还有 <code>wasm32-unknown-unknown</code> 而非 <code>wasm32-unknown</code> ？</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>具体构建过程可按需不同形式的标识符。
+<ul>
+<li><strong>原理</strong> 平台配置不一定通过系统类型描述。
+<ul>
+<li><strong>注释</strong> 例如，<code>cmake -G</code> 支持的标识依赖生成系统的配置，而非运行程序的系统类型。</li>
+</ul>
+</li>
+<li><strong>原理</strong> 在不需要关心系统类型中各个组成部分的情形，其它的平台标识符可提供更简单明确的替代。
+<ul>
+<li><strong>注释</strong> <code>cmake -G clang --print-targets</code> 的结果是一个实例。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="多平台构建"><a class="header" href="#多平台构建">多平台构建</a></h3>
 <p>　　构建系统中可能涉及多个平台。</p>
 <p>　　运行构建系统的环境和被构建的程序的环境不需要相同，对应的平台分别称为宿主平台(host platform) 和目标平台(target platform) 。宿主平台和目标平台相同时称为本机(native) 构建；不同时称为交叉(build) 构建。</p>
 <p>　　多个构建过程可能串联组成更大的构建过程。不同构建过程存在输出和输入之间的依赖。此时，前一过程输出的目标平台需要兼容于后一过程作为输入的宿主平台，否则无法直接运行。典型情况下这些平台是相同的，但也可以存在平台之间自身保证二进制<a href="#%E8%A7%84%E8%8C%83">互操作</a>兼容性（如支持 x86_64 的体系结构上混用 i686 和 x86_64 ）的情况。</p>
-<p>　　一些构建系统如 <a href="https://gcc.gnu.org/onlinedocs/gccint/Configure-Terms.html">GNU 工具链(en-US) 使用更复杂的术语</a>，单独引入构建(build) 平台。为确保一般性并简化模型， YSLib 不使用这个概念，而把构建平台作为第一级构建过程（即 GNU autoconf 的“配置”）的宿主平台。</p>
+<p>　　一些构建系统如 <a href="https://gcc.gnu.org/onlinedocs/gccint/Configure-Terms.html">GNU 工具链(en-US) 使用更复杂的术语</a>，单独引入构建(build) 平台。为确保一般性并简化模型，YSLib 不使用这个概念，而把构建平台作为第一级构建过程（即 GNU autoconf 的“配置”）的宿主平台。</p>
 
                     </main>
 

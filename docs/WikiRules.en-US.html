@@ -168,6 +168,7 @@
 <li><code>zh-CN</code></li>
 <li><code>zh</code></li>
 </ul>
+<p><strong>NOTE</strong> The form of these literals conforms to the recommendation of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, specifically, the &quot;language&quot; and &quot;region&quot; syntax elements in <a href="https://www.rfc-editor.org/rfc/rfc5646.html">RFC 5646</a>.</p>
 <p>If no one edition in above languages is complete, the documentation is defective.</p>
 <p>A language tag may be used to annotate one or more words in text. An annotation of such use is a <em>language tag annotation</em>, which consists of a tag combined with one pair of enclosing parentheses (namely, <code>(</code> and <code>)</code>).</p>
 <p>Hyperlinks in pages should preferrably link to localized contents corresponding to the language or one of the major languages used in the page (if any) when suitable. If contents of the linked target is in other languages (esp. when there are more than one semantically identical editions in multiple languages), at least one language tag for majority of the contents should be noted subsequent to the hyperlink; otherwise, the tag should be omitted.</p>
@@ -188,7 +189,9 @@
 <li>All lowercase style shall be used for words in the embedded translations or detailed descriptions in parentheses in other cases.</li>
 <li>Sentence case should be used otherwise.</li>
 </ol>
-<p>English wording documentation is intended to be conforming to <a href="http://std.dkuug.dk/jtc1/sc22/wg9/isodir3.pdf">the ISO/IEC directive, part 3</a>. Note the use of modal verbs is distinct with <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>. For RFC documents, RFC 2119 is preferred, but not necessary with the case clarification (i.e. <a href="https://tools.ietf.org/html/rfc8174">RFC 8174</a>) for documents published earlier than RFC 8174 due to compatibility issues.</p>
+<p>English wording documentation is intended to be conforming to <a href="http://std.dkuug.dk/jtc1/sc22/wg9/isodir3.pdf">the ISO/IEC directive, part 3</a>.</p>
+<p><strong>NOTE</strong> The use of modal verbs is distinct with <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.</p>
+<p>For wording referenced from RFC documents, RFC 2119 is preferred, but not necessary with the case clarification (i.e. <a href="https://tools.ietf.org/html/rfc8174">RFC 8174</a>) for documents published earlier than RFC 8174 due to compatibility issues.</p>
 <p>The following grammartical forms of English (with <code>en</code> or <code>en-US</code> tags) are considered idiomatic and application of such forms may be preferred:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Answer_ellipsis">answer ellipsis</a> to elide the subject in the summary of commit messages where a question for the topic of the log message is assumed</li>
@@ -240,13 +243,29 @@
 <p>BOM should be omitted for text files dedicated to tools without capability of properly handling it. Otherwise, BOM shall be used as possible when it can clarify the encoding being used.</p>
 <p>Unless definitely intended and explictly specified in documentation, newlines shall be consistent. Default use of newline is <a href="http://en.wikipedia.org/wiki/CRLF">CR+LF</a>.</p>
 <p>Two subsequent newlines indicate an <a href="http://en.wikipedia.org/wiki/End-of-file">EOF</a> logically. Subsequent newlines out of verbatim quoted text (including source code) should only be used at EOF.</p>
-<p>Except at the first of line, each word which consists of <a href="http://en.wikipedia.org/wiki/Alphanumeric">alphanumeric</a> characters should be seperated by a single space character(U+0020) with other words.</p>
-<p>No <a href="http://en.wikipedia.org/wiki/Space_characters#Spaces_in_Unicode">space characters</a> should be at <a href="http://en.wikipedia.org/wiki/End-of-line">EOL</a>.</p>
-<p>To keep the semantics rules clear, use <a href="http://en.wikipedia.org/wiki/Tab_key#Tab_characters">horizontal tab character(U+0009)</a> instead of <a href="http://en.wikipedia.org/wiki/Space_%28punctuation%29">other spaces(i.e. U+0020)</a> to indent, unless the text is verbatim quoted.</p>
+<p>There are also some default rules on typography implemented by ordinary characters in plain texts:</p>
+<ul>
+<li>No <a href="http://en.wikipedia.org/wiki/Space_characters#Spaces_in_Unicode">space characters</a> should be at <a href="http://en.wikipedia.org/wiki/End-of-line">EOL</a>.</li>
+<li>For text other than verbatim quoted, no more than one <a href="https://en.wikipedia.org/wiki/Whitespace_character">whitespace characters</a> should be used to represent a single indent, except there are preferred combination in the language.
+<ul>
+<li><strong>Rationale</strong> By default, no more than one whitespaces should be used to represent an indent, because there should be no chance to insert a character in the middle of an indent.</li>
+<li><strong>NOTE</strong> An example of preferred exceptional case is that the hanging indent (in the first line of a paragraph) in east Asian languages where dedicated combination of <a href="https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms">fullwidth</a> whitespaces are preferred. Typically, the sequence consists of 2 <a href="https://en.wikipedia.org/wiki/Whitespace_character#Unicode">ideographic space (U+3000)</a>.</li>
+<li><strong>NOTE</strong> To keep the semantics rules clear, when possible (in horizontal texts and out of the context of making tables) and no other forms are more preferred by the rules of the language, use <a href="http://en.wikipedia.org/wiki/Tab_key#Tab_characters">horizontal tab character(U+0009)</a> instead of <a href="http://en.wikipedia.org/wiki/Space_%28punctuation%29">other spaces (i.e. U+0020)</a> to indent.</li>
+</ul>
+</li>
+<li>For Western languages, except at the first of line, each word which consists of <a href="http://en.wikipedia.org/wiki/Alphanumeric">alphanumeric</a> characters should be seperated by a single space character (U+0020) with other words.</li>
+<li>Space characters (U+0020) should be used for alignment when portability is required.
+<ul>
+<li><strong>Rationale</strong> This makes the visal effect easy to predicate in the usual settings with monospaced fonts in contexts like source code of programs.</li>
+<li><strong>NOTE</strong> Other spaces like <a href="https://en.wikipedia.org/wiki/Non-breaking_space">non-breaking space (U+00A0)</a> may be better in specific uses, but not portable as U+0020.</li>
+</ul>
+</li>
+</ul>
 <h2 id="markdown"><a class="header" href="#markdown"><a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a></a></h2>
 <p>Names of markdown files should be with <code>.md</code> extension.</p>
 <h3 id="dialects"><a class="header" href="#dialects">Dialects</a></h3>
-<p>Unless explicitly specified elsewhere, only common dialects are to be used. Currently this should be <a href="https://help.github.com/articles/github-flavored-markdown">GFM</a>.</p>
+<p>Unless explicitly specified elsewhere, only common dialects are to be used. Currently this should be <a href="https://help.github.com/articles/github-flavored-markdown">GFM (GitHub Flavored Markdown)</a>.</p>
+<p><strong>NOTE</strong> This is not <a href="https://docs.gitlab.com/ee/user/markdown.html">GLFM (GitLab Flavored Markdown)</a>, which also abbreviated as GFM formerly.</p>
 <p>And if the content may be presented on <a href="https://bitbucket.org">Bitbucket</a> wiki, stricter rules applies, notably:</p>
 <ul>
 <li>There is currently <a href="https://jira.atlassian.com/browse/BCLOUD-6930">no inline HTML support</a>.</li>
@@ -257,15 +276,54 @@
 <p>As text files, markdown files shall obey the same rules above. The indentation rule is necessary to avoid some compatibility issues, e.g. <a href="https://bitbucket.org/site/master/issue/7748/markdown-nested-lists-not-working-bb-8925">this</a>.</p>
 <p>As specified, reserved characters defined by RFC 3986 should be percentage-encoded. Notably, the parentheses(<code>()</code>) in hyperlinks shall be encoded to make it more fault-tolerent for some editors.</p>
 <p>Headers should be prefixed by <code>#</code>s.</p>
-<p>For sake of compact annotation representation, there should be no redundant characters allowed between the annotated words and annotation (esp. <a href="https://en.wikipedia.org/wiki/Whitespace_character">whitespace characters</a>), even there are whitespaces in the words. The annotation in this rule includes any language tag annotation defined in previous subclause.</p>
-<p>The whitespace rules in the language annotation is also</p>
+<p>There should be no redundant characters allowed between the annotated words and annotation (esp. whitespace characters), even there are whitespaces in the words. The annotation in this rule includes any language tag annotation defined in previous subclause.</p>
+<p><strong>Rational</strong> This is for the sake of compact annotation representations.</p>
+<p><strong>NOTE</strong> The whitespace rules in the language annotation is also applicable. Instead, it is also allowed to use word combination (instead of the annotation) when gramatically correct, so this rule does not apply.</p>
 <h1 id="cross-references"><a class="header" href="#cross-references">Cross references</a></h1>
-<p>This document is used by the YSLib project. It may be also referenced by other repositories. </p>
+<p>This document is used by the YSLib project. It may be also referenced by other repositories.</p>
 <p><strong>Except for the following list, do not edit unless ultimately necessary.</strong></p>
 <p>Known refereced by:</p>
 <ul>
 <li><a href="https://github.com/FrankHB/pl-docs">Programming Language Documentations</a> by FrankHB</li>
 </ul>
+<h1 id="annex-informative"><a class="header" href="#annex-informative">Annex (Informative)</a></h1>
+<h2 id="alternaive-imcompatible-rules"><a class="header" href="#alternaive-imcompatible-rules">Alternaive imcompatible rules</a></h2>
+<p>Usually there the rules of documentation here are compatible to other rules in various specifications. However, some of the well-known rules are considered overspecified (albeit not rigouous) and with insufficient quality in specification. Thus, these rules are <em>deliberately</em> kept incompatible, and never accepted here:</p>
+<ul>
+<li>The specification may be too vague by missing separating the comformance rules and the suggestions, so it is difficult to manually verify the conformance just by the specification text.
+<ul>
+<li>Some confusions may be from the lack of rules on the modal verbs.</li>
+<li>Some rules may be underspecified for external resources. For example, the claim of &quot;be a valid Markdown file&quot; is unclear without further notes, because there is no unique standard to determine the definition of &quot;valid&quot;, since there are multiple dialects of the Markdown language and no flavor is definitely more representative than others.</li>
+</ul>
+</li>
+<li>The rules of mandated letter cases (in particular, capitalization) may be too restrictive.
+<ul>
+<li>This may be generally too subjective. It can be good to sticking to a well-name for to ease for use cases for technical merits (like for machine verication), but the fixed spelling on cases may be overspecified.
+<ul>
+<li>The exception is when the name is standardized and machine-oriented by default.</li>
+<li>As a notable instance, <a href="https://www.rfc-editor.org/rfc/rfc5646.html">RFC 5646</a> recommends but does not mandate the capitalization for the codes from <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> and <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1</a>, while the preferred capitalization diverges in the 2 standards.</li>
+</ul>
+</li>
+<li>On the other hand, mandotory like &quot;README&quot; instead of &quot;Readme&quot; is too restrictve. It will be problatic to be transferred between case-insensitive enviornments and case-sensitive environments (e.g. names in filesystems), where one environment may allow entries of <code>README</code> and <code>Readme</code> coexisting but another may not.
+<ul>
+<li>When techically feasible to having different cases coexisting, &quot;README&quot; and &quot;Readme&quot; are symmentric, i.e. no one is definitely more preferred than the other for machines. It is then not intuitive to reason why &quot;README&quot; must be preferred to &quot;Readme&quot; instead of the exact opposite in the specification, in particular with the fact that such entry is mainly created for human readers but not machines.</li>
+<li>Instead, keeping one overridable as well as a recommended default form (which does not necessarily to be all capitalized) of spelling is better for both portability and other needs.</li>
+<li>Further, names like &quot;README.md&quot; are less consistent to &quot;README.MD&quot;. The latter is at least required in some ancient systems not support the small case, hence even more preferred for portability (in extreme cases).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Prioritizing non-regional subtags for languages should not be recommended normally, because this is less accurate, and the confusion may even be offensive to specific culture, since there can be lack of consensus that one subtag can override another without changing the meaning of the text (which is not the case of the relationship between tags and subtags).</li>
+<li>Validation of hyperlinks should be acknowledged not always possible when the linked resource is out of the control (i.e. external) in a document.
+<ul>
+<li>Anyway, there is no persistency guarantee for most hyperlinks in the Web.</li>
+<li>Mandating the state of the referenced resource of hyperlinks unconditionally will make any verification result one-time, because the exteranl links may be broken immediately after the verification. Then the conformance is non-deterministic.</li>
+<li>Such mandatory is applicable only for hyperlinks provable to be persistent. But this is infeasible with automatic methods at least for external links on the Web, because the test of persistency may be unreliable until the link is broken.</li>
+<li>So, unless external links are not allowed (which seems an overkill), rules having impractical assumptions of the validation process should be in the specification.</li>
+</ul>
+</li>
+</ul>
+<p>An example of most bullets above can be found in the <a href="https://github.com/RichardLitt/standard-readme/blob/master/spec.md">specification</a> of <a href="https://github.com/RichardLitt/standard-readme">standard-readme</a>.</p>
 
                     </main>
 

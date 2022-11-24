@@ -194,7 +194,7 @@
 <li><strong>注释</strong> 语言实现不需要是完整的宿主实现。</li>
 <li>提供以下符合标准的整数类型：
 <ul>
-<li>定宽整数 <code>std::intN_t</code> 和 <code>std::uintN_t</code> （其中 N 为 8 、 16 、 32 或 64 ）。</li>
+<li>定宽整数 <code>std::intN_t</code> 和 <code>std::uintN_t</code> （其中 N 为 8 、16 、32 或 64 ）。</li>
 <li>类型 <code>std::uintptr_t</code> 。</li>
 <li><strong>注释</strong> 定宽整数在 ISO C++11 中为可选支持。</li>
 </ul>
@@ -301,7 +301,7 @@
 </li>
 <li>使用默认分配器（ <code>std::allocator</code> 的实例）的关联容器（即 <code>std::map</code> 和 <code>std::set</code> ）的 <code>value_type</code> 类型。
 <ul>
-<li>对 <code>std::vector</code> 、 <code>std::list</code> 和 <code>std::forward_list</code> ， <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html">WG21 N4510</a> 引入了不完整类型的支持。这<strong>不在</strong>此处要求。关联容器的要求预期在未来被添加。</li>
+<li>对 <code>std::vector</code> 、<code>std::list</code> 和 <code>std::forward_list</code> ，<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html">WG21 N4510</a> 引入了不完整类型的支持。这<strong>不在</strong>此处要求。关联容器的要求预期在未来被添加。</li>
 <li>已知 libstdc++ 的实现符合这个条件。</li>
 <li>在 YSLib 中仅被 <code>YSLib::ValueNode</code> 通过在 <code>std::map</code> 使用递归的键类型的实现从 b338[2012-09-13] 起依赖。</li>
 <li>因为使用 <code>ystdex::map</code> 替代 <code>std::map</code> ，从 b830[2017-08-11] 起取消这个要求，不再依赖标准库实现提供的扩展特性。</li>
@@ -359,7 +359,7 @@
 </ul>
 <p>　　其中，使用的 FreeImage 静态库对应 YFramework 的 <code>debug</code> 和非 <code>debug</code> 配置，文件名分别为 <code>libFreeImaged.a</code> 和 <code>libFreeImage.a</code> 。这可在同一个目录树中共存。</p>
 <p>　　（当前 Android 和 Linux 仅支持单一本机体系结构，实际仅测试 Android ARMv7 和 Linux x86_64 。）</p>
-<p>　　构建 YFramework 时需包含 <code>3rdparty/include</code> 目录的头文件。 <a href="Sysroot.zh-CN.html">Sysroot</a> 安装脚本 <a href="Tools/Scripts.zh-CN.html">Tools/install-sysroot.sh</a> 会复制包括上面的头文件在内的文件。</p>
+<p>　　构建 YFramework 时需包含 <code>3rdparty/include</code> 目录的头文件。<a href="Sysroot.zh-CN.html">Sysroot</a> 安装脚本 <a href="Tools/Scripts.zh-CN.html">Tools/install-sysroot.sh</a> 会复制包括上面的头文件在内的文件。</p>
 <p>　　当前已经使用的详细外部依赖项详见 YSLib 项目文档 <code>doc/Dependencies.txt</code> 。</p>
 <p><strong>注意</strong> 版本库历史中包括静态库(<code>.a</code>) 文件，但为减少版本库大小，不再更新且可能移除，使用外部源或自行构建的方式替代。参见<a href="Archives.zh-CN.html">归档</a>获取单独配置或和源代码目录集成的已编译的外部依赖项。</p>
 <p>　　在 build 885 之前，版本库历史的对应的宿主平台中的静态库位于以下位置：</p>
@@ -381,18 +381,18 @@
 <li>一个头文件和对应的源文件</li>
 </ul>
 <p>　　作为公开接口的模块是公开模块。公开模块的头文件在单独的目录中以便部署。</p>
-<p>　　按 ISO C 和 ISO C++ 规定， C 或 C++ 模块中存在的非头文件的源文件和包含的头文件构成一个 C 或 C++ （预处理）翻译单元，简称<strong>单元</strong>。注意这里包含的头文件不仅限于模块中的头文件。</p>
+<p>　　按 ISO C 和 ISO C++ 规定，C 或 C++ 模块中存在的非头文件的源文件和包含的头文件构成一个 C 或 C++ （预处理）翻译单元，简称<strong>单元</strong>。注意这里包含的头文件不仅限于模块中的头文件。</p>
 <p>　　关于模块的进一步说明以及模块路径的形式文法和头文件依赖的基本规则，参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
 <h2 id="文件系统布局"><a class="header" href="#文件系统布局">文件系统布局</a></h2>
-<p>　　作为 C++ 项目， YSLib 把每个顶级子项目的源文件和公开模块头文件分别保存在不同的目录中，即 <code>include</code> 和 <code>source</code> 。非公开模块若有头文件，也位于 <code>source</code> 。</p>
+<p>　　作为 C++ 项目，YSLib 把每个顶级子项目的源文件和公开模块头文件分别保存在不同的目录中，即 <code>include</code> 和 <code>source</code> 。非公开模块若有头文件，也位于 <code>source</code> 。</p>
 <p>　　特定于目标平台配置的代码会直接位于 <code>平台名</code> 目录下，称为<strong>平台扩展</strong>。对应的两个目录为 <code>平台名/include</code> 和 <code>平台名/source</code> 。</p>
 <p>　　除了平台扩展的内容，文件系统目录和模块目录的每一级对应。平台扩展的模块目录名是对应平台中立部分加上后缀 <code>_(平台名)</code> 。</p>
 <p>　　举例：顶级子项目 YFramework 下的次级子项目 Helper 的非平台扩展的源代码在目录 <code>YFramework/include/Helper</code> 和 <code>YFramework/source/Helper</code> 中，它的 DS 平台扩展的源代码位于 <code>YFramework/DS/include/Helper</code> 和 <code>YFramework/DS/source/Helper</code> 中。</p>
 <p>　　提供平台扩展的次级子项目只有 YCLib 和 Helper 。</p>
 <p>　　编译项目时包含的头文件是合并的，如编译器命令行 <code>-IYFramework/DS/include -IYFramework/include</code> 在一次编译中同时使用平台中立和特定于平台 DS 的模块的 YFramework 头文件。</p>
 <h2 id="yslib-及其本体"><a class="header" href="#yslib-及其本体">YSLib 及其本体</a></h2>
-<p>　　在 YBase 和 YFramework 分离之前， YSLib 是一整个库。原 YSLib 大部分仍然在 YFramework 中，仍然可称为 YSLib ，是一个 YFramework 下的次级子项目。注意和整个项目名的不同，以下称为 <strong>YSLib 库</strong>，以示区分。</p>
-<p>　　YSLib 库中， Adaptor 用于适配特定于具体外部依赖的接口。可以通过修改其中的代码替换外部依赖，包括部分标准库兼容接口。</p>
+<p>　　在 YBase 和 YFramework 分离之前，YSLib 是一整个库。原 YSLib 大部分仍然在 YFramework 中，仍然可称为 YSLib ，是一个 YFramework 下的次级子项目。注意和整个项目名的不同，以下称为 <strong>YSLib 库</strong>，以示区分。</p>
+<p>　　YSLib 库中，Adaptor 用于适配特定于具体外部依赖的接口。可以通过修改其中的代码替换外部依赖，包括部分标准库兼容接口。</p>
 <p>　　其它部分的接口和实现都是严格平台中立且不依赖外部特定接口而变化的，称为<strong>本体</strong>。本体中提供了 YSLib 的主要功能。</p>
 <h2 id="helper"><a class="header" href="#helper">Helper</a></h2>
 <p>　　若需要开发依赖平台特定的应用，本体接口可能不足，而需要使用平台扩展。此外，可能需要一些便利功能。</p>
@@ -436,7 +436,7 @@
 <li>可通过 MSYS2 包 <code>mingw-w64-i686-astyle</code> 或 <code>mingw-w64-x86_64-astyle</code> 安装，以下命令行以这里的 2.05.1 版本为基准测试</li>
 <li>（版本 2.05 ）命令行选项的文档参见<a href="http://astyle.sourceforge.net/astyle.html">这里</a>
 <ul>
-<li><code>--help</code> 取得的文档可能<a href="https://github.com/Alexpux/MINGW-packages/issues/1011">有问题</a>， <code>--delete-empty-lines</code> 对应的短选项应为 <code>-xe</code> 而不是 <code>-xd</code></li>
+<li><code>--help</code> 取得的文档可能<a href="https://github.com/Alexpux/MINGW-packages/issues/1011">有问题</a>，<code>--delete-empty-lines</code> 对应的短选项应为 <code>-xe</code> 而不是 <code>-xd</code></li>
 </ul>
 </li>
 <li>使用命令行选项 <code>-A1 -T -p -U -k1 -xj -xy -xC80</code>
@@ -552,7 +552,7 @@
 </li>
 <li>命令解释器同 <code>bash</code> 的 <code>-p</code> 选项启用时效果相同。
 <ul>
-<li>用户应保证不设置 <code>CDPATH</code> 等 <code>-p</code> 忽略的环境变量及 <code>$BASH_ENV</code> 等启动文件，以避免未预期的不同行为。</li>
+<li>用户应保证不设置 <code>CDPATH</code> 等 <code>-p</code> 忽略的<a href="Run.zh-CN.html">环境变量</a>及 <code>$BASH_ENV</code> 等启动文件，以避免未预期的不同行为。</li>
 </ul>
 </li>
 <li>脚本文件不是目标在不同目录中的符号链接。
@@ -575,7 +575,7 @@
 <h3 id="shell-语言使用规约"><a class="header" href="#shell-语言使用规约">Shell 语言使用规约</a></h3>
 <p>　　脚本程序不调整影响别名扩展的 shell 选项（如 bash 的 <code>shopt -u expand_aliases</code> ）。</p>
 <p>　　除非另行指定，已定义的 shell 函数假定不被其它变量覆盖。这允许实现省略 <code>readonly -f</code> 或 <code>declare -g -r -f</code> 声明，且允许使用相同的定义覆盖以简化调试。</p>
-<p>　　除非另行指定，脚本不区分未设置的环境变量和已设置但具有空值的环境变量，以允许在外部环境配置脚本的执行。这两种情形脚本都可能指定一个非空的初始值，称为变量的<em>默认值(default value)</em> 。变量是否使用默认值总在先于第一次使用变量的值的初始化时确定。变量的初始化和默认值满足以下约定：</p>
+<p>　　依照<a href="Run.zh-CN.html">运行时环境的约定</a>，除非另行指定，脚本不区分未设置的环境变量和已设置但具有空值的环境变量，以允许在外部环境配置脚本的执行。这两种情形下，被用于脚本中的变量的环境变量都可能指定一个非空的初始值，称为变量的<em>默认值(default value)</em> 。变量是否使用默认值总在先于第一次使用变量的值的初始化时确定。变量的初始化和默认值满足以下约定：</p>
 <ul>
 <li>初始化的变量是否只读未指定。</li>
 <li>初始化变量时若需使用默认值，可能发生附加的求值（如命令调用）以其结果确定具体默认值。</li>
@@ -584,7 +584,7 @@
 <li>除非另行指定，初始化时使用的外部环境变量的值可假定和脚本运行环境直接或间接调用脚本前相同。</li>
 </ul>
 <p>　　除非另行指定，返回非数值的 shell 函数使用 <code>echo</code> 或功能蕴含 <code>echo</code> 的命令调用输出返回的值。</p>
-<p>　　非生成的代码中不使用包含 <code>__</code> 的名称。</p>
+<p>　　非生成的脚本源代码中不使用包含 <code>__</code> 的名称。</p>
 <p>　　公开函数的函数名及公开的变量名不以 <code>_</code> 结尾，否则以一个 <code>_</code> 结尾。</p>
 <p>　　对 <a href="SHBuild.zh-CN.html">SHBuild</a> 相关工具使用的函数，使用前缀 <code>SHBuild</code> 。</p>
 <p>　　函数出错且无法恢复时退出脚本。</p>
@@ -606,7 +606,7 @@
 </li>
 </ul>
 </li>
-<li>用于指定版本库中的资源： 
+<li>用于指定版本库中的资源：
 <ul>
 <li><code>SHBuild_BaseDir</code> : SHBuild 目录，是工具目录中提供 SHBuild 源代码的目录。
 <ul>
@@ -642,8 +642,8 @@
 </ul>
 </li>
 <li>用于配置构建环境：
-* 其它情形不用于指定输出目录，不保证具有默认值。
 <ul>
+<li>其它情形不用于指定输出目录，不保证具有默认值。</li>
 <li><code>SHBuild_Env_TempDir</code> ：构建时使用的临时目录路径。
 <ul>
 <li>由脚本 Tools/Scripts/SHBuild-common.sh 的函数 <code>SHBuild_PrepareBuild</code> 初始化。</li>

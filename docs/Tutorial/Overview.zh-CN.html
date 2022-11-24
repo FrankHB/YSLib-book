@@ -141,25 +141,25 @@
 <p>　　这些宏名直接定义在各个 <code>include</code> 目录的 <code>YModules.h</code> 中。而头文件 <code>&lt;YSBuild.h&gt;</code> 则包含了一系列的 <code>YModules.h</code> 和其它模块的头文件，因此可以直接包含它来简化使用。</p>
 <h2 id="命名空间"><a class="header" href="#命名空间">命名空间</a></h2>
 <p>　　YSLib 中不同的次级子项目引入不同的命名空间。</p>
-<p>　　关于每个顶级子项目下不同的命名空间参见 <code>doc/YBase.txt</code> 和 <code>doc/YFramework.txt</code> 以及 Doxygen 生成的文档。 </p>
-<p>　　<strong>在以下讨论中，若没有特别说明，所有非宏名的标识符都在 <code>namespace YSLib</code> 中。</strong></p>
-<p>　　注意避免命名空间使用冲突。除非是在一个很有限的块作用域内，一般而言， <code>using namespace std;</code> 总是不被推荐的，但 <code>using namespace YSLib;</code> 在<strong>非头文件</strong>中则是被允许的。</p>
+<p>　　关于每个顶级子项目下不同的命名空间参见 <code>doc/YBase.txt</code> 和 <code>doc/YFramework.txt</code> 以及 Doxygen 生成的文档。</p>
+<p><strong>注意</strong> 在以下讨论中，若没有特别说明，所有非宏名的标识符都在 <code>namespace YSLib</code> 中。</p>
+<p>　　注意避免命名空间使用冲突。除非是在一个很有限的块作用域内，一般而言，<code>using namespace std;</code> 总是不被推荐的，但 <code>using namespace YSLib;</code> 在<strong>非头文件</strong>中则是被允许的。</p>
 <p>　　在 YSLib 的头文件中，无论是 <code>using</code> 声明还是 <code>using</code> 指令或是命名空间别名，都是经过<strong>慎重考虑</strong>的，特别是为了实现平台中立的兼容。</p>
 <ul>
 <li>如 YCLib::Mutex 模块支持标准库的对应接口，即使语言的实现如 libstdc++ 在单线程平台上不提供支持，也通过回退到 YBase::PseudoMutex 而允许不改动用户代码并直接保证空行为。允许不改动用户代码的性质可通过 <code>using namespace platform::Concurrency</code> 实现。</li>
 </ul>
 <p>　　所有其它不经意的在头文件中使用都应被避免。</p>
 <h2 id="标识符命名"><a class="header" href="#标识符命名">标识符命名</a></h2>
-<p>因为无法完全避免使用不同风格命名的外部依赖， YSLib 强调区分命名的来源而不是使用单一命名风格。</p>
-<p>YBase 使用和 ISO C++ 标准库相容的风格。 YFramework 则约定使用框架名称，其中可能包含一些前缀，如 <code>I</code> 表示只有抽象方法的类（接口类）， <code>G</code> 表示用于泛型（与元编程目的相区别）的类模板的名称等。</p>
-<p>详细的命名规约参见 <code>doc/CommonRules.txt</code> 和 <code>doc/YFramework.txt</code> 。</p>
+<p>　　因为无法完全避免使用不同风格命名的外部依赖，YSLib 强调区分命名的来源而不是使用单一命名风格。</p>
+<p>　　YBase 使用和 ISO C++ 标准库相容的风格。YFramework 则约定使用框架名称，其中可能包含一些前缀，如 <code>I</code> 表示只有抽象方法的类（接口类），<code>G</code> 表示用于泛型（与元编程目的相区别）的类模板的名称等。</p>
+<p>　　详细的命名规约参见 <code>doc/CommonRules.txt</code> 和 <code>doc/YFramework.txt</code> 。</p>
 <h1 id="yslib-应用程序基本模型"><a class="header" href="#yslib-应用程序基本模型">YSLib 应用程序基本模型</a></h1>
 <h2 id="程序的启动运行和终止"><a class="header" href="#程序的启动运行和终止">程序的启动、运行和终止</a></h2>
-<p>　　启动一个应用一般可以分为两个部分：创建内容；让内容被显示。 YSLib 对此提供了整体性的便利解决方案。以下说明以典型的 GUI 程序为例（非 GUI 程序实际上不必要使用特别的支持）。</p>
+<p>　　启动一个应用一般可以分为两个部分：创建内容；让内容被显示。YSLib 对此提供了整体性的便利解决方案。以下说明以典型的 GUI 程序为例（非 GUI 程序实际上不必要使用特别的支持）。</p>
 <p>　　Helper::GUIApplication 模块提供的 <code>GUIApplication</code> 类的单例对象初始化中集成了 GUI 程序必要的初始化。之后，可以部署必要的操作，例如决定哪些内容被初始地呈现。程序通过 Helper::GUIApplication 提供的函数 <code>Execute</code> 调用被封装的<strong>消息循环(message loop)</strong> ，接受用户输入并按需响应。最后，当特定条件被满足时，退出 <code>Execute</code> 函数，程序结束。</p>
 <h2 id="消息循环消息和消息队列"><a class="header" href="#消息循环消息和消息队列">消息循环、消息和消息队列</a></h2>
 <p>　　消息循环，或称<strong>事件循环(event loop)</strong> ，是交互式应用的典型实现方式。程序通过处理(handling) 不同的<strong>消息(message)</strong> 完成期望的行为。除了少数特殊消息（例如表示“退出”以结束程序的消息），消息循环自身通常不能决定如何处理一个消息，因此需要<strong>分发(dispatching)</strong> 到用户提供程序中。</p>
-<p>　　基本的消息循环的是一个<strong>轮询(polling)</strong> 操作，一次循环尝试确定一个需要被处理的消息。所有被处理的消息储存于<strong>消息队列(message queue)</strong> 内。当消息循环从消息队列取得消息时，通常即在队列中删除此消息。适当的操作产生消息发送至消息队列内以待处理。这种机制能让消息之间具有一定的顺序保证。但要注意，为了满足调度的需要，此处的队列并不一定需要是严格先进先出的。 YSLib 使用模块 YSLib::Core::YMessage 提供的 <code>Messaging::Message</code> 类表示消息， <code>Messaging::MessageQueue</code> 类表示支持优先级的消息队列。</p>
+<p>　　基本的消息循环的是一个<strong>轮询(polling)</strong> 操作，一次循环尝试确定一个需要被处理的消息。所有被处理的消息储存于<strong>消息队列(message queue)</strong> 内。当消息循环从消息队列取得消息时，通常即在队列中删除此消息。适当的操作产生消息发送至消息队列内以待处理。这种机制能让消息之间具有一定的顺序保证。但要注意，为了满足调度的需要，此处的队列并不一定需要是严格先进先出的。YSLib 使用模块 YSLib::Core::YMessage 提供的 <code>Messaging::Message</code> 类表示消息，<code>Messaging::MessageQueue</code> 类表示支持优先级的消息队列。</p>
 <p>　　当没有消息需要被处理时即进入<strong>空闲(idle)</strong> 状态，库需要保证消息循环不被立刻终止，可以采取如下操作：</p>
 <ul>
 <li>发送特定的空闲消息并立即处理。</li>
