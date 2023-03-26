@@ -4,8 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>运行 - The YSLib Book</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -16,25 +18,29 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -62,12 +68,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -83,7 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -93,7 +101,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,6 +118,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -123,8 +132,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -201,8 +211,7 @@
 </ul>
 <p>　　除非需要依赖具体实现环境或另行指定，本项目中提供的环境变量应当避免上述依赖差异。</p>
 <h1 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h1>
-<p>　　为最大化可移植性，原则上 YSLib 的程序逻辑<strong>不依赖自身组件具有显式编码的具体文件路径</strong>，因此默认不要求在具体系统约定的周知(well-known) 的文件系统位置（如 <a href="https://docs.microsoft.com/zh-cn/windows/win32/dlls/dynamic-link-library-search-order">Windows DLL 搜索路径</a>中的目录和 [FHS](https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B
-6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86) 定义的目录）部署。但具体平台配置可以自行限定目录布局作为默认运行时环境，如 <a href="Sysroot.zh-CN.html">Sysroot</a> 。其中外部文件可有默认路径，参见以下相关章节。</p>
+<p>　　为最大化可移植性，原则上 YSLib 的程序逻辑<strong>不依赖自身组件具有显式编码的具体文件路径</strong>，因此默认不要求在具体系统约定的周知(well-known) 的文件系统位置（如 <a href="https://docs.microsoft.com/zh-cn/windows/win32/dlls/dynamic-link-library-search-order">Windows DLL 搜索路径</a>中的目录和 <a href="https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86">FHS</a> 定义的目录）部署。但具体平台配置可以自行限定目录布局作为默认运行时环境，如 <a href="Sysroot.zh-CN.html">Sysroot</a> 。其中外部文件可有默认路径，参见以下相关章节。</p>
 <p>　　YSLib 中的库使用的文件系统路径具有以下约束：</p>
 <ul>
 <li>不依赖兼容 POSIX 的文件系统和路径表示。
@@ -219,7 +228,7 @@
 <p>　　按以上文件路径约定，构建得到的目标程序没有预设特定的位置限制，可按需转移。</p>
 <p>　　运行程序前，应确保程序能找到二进制依赖项：</p>
 <ul>
-<li>确保<a href="Prerequisition.zh-CN.html">先决条件</a>中的依赖项可以在 <code>PATH</code> 环境变量的目录被找到，或者复制到程序所在的目录。</li>
+<li>确保<a href="Prerequisitions.zh-CN.html">先决条件</a>中的依赖项可以在 <code>PATH</code> 环境变量的目录被找到，或者复制到程序所在的目录。</li>
 <li>对于静态链接 YFramework 和 YBase 程序，不需要其它二进制程序文件的部署。</li>
 <li>使用 DLL 的程序可能依赖 YFramework.dll 和 YBase.dll ，或者 debug 配置的 YFrameworkd.dll 和 YBased.dll 。这些库已经在 sysroot 的 <code>bin</code> 目录下安装，因此可以直接把 <code>bin</code> 目录加入 <code>PATH</code> 环境变量，而不必复制或移动库文件。</li>
 </ul>
@@ -302,7 +311,7 @@
 <li>Android ： SD 卡目录（自动检测同上）下的 <code>Data</code> 目录</li>
 <li>其它平台：当前工作目录</li>
 </ul>
-<p>　　当前可用数据文件位于 YSLib 项目的 <code>/Data</code> 下，可自行复制到数据目录。</p>
+<p>　　当前可用数据文件位于 YSLib 存储库的 <code>Data</code> 目录下，可自行复制到数据目录。</p>
 <h3 id="chrlib-的-gbk-转换例程初始化"><a class="header" href="#chrlib-的-gbk-转换例程初始化">CHRLib 的 GBK 转换例程初始化</a></h3>
 <p>　　对使用 CHRLib 提供的 GBK 编码转换的程序，需保证数据目录下存在数据文件 <code>cp113.bin</code> 。</p>
 <p>　　对 Win32 平台，CHRLib 初始化 GBK 转换例程读取数据文件失败时，首先尝试使用 NLS 替代：</p>
@@ -452,9 +461,11 @@ path=H:\NDS\efsroot\
                             <a rel="prev" href="Test.zh-CN.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="Features.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -464,6 +475,7 @@ path=H:\NDS\efsroot\
                     <a rel="prev" href="Test.zh-CN.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="Features.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -471,16 +483,25 @@ path=H:\NDS\efsroot\
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>

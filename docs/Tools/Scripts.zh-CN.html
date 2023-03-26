@@ -4,8 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>脚本 - The YSLib Book</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -16,25 +18,29 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -62,12 +68,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -83,7 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -93,7 +101,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,6 +118,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -123,8 +132,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -136,8 +146,8 @@
                     <main>
                         <h1 id="概述"><a class="header" href="#概述">概述</a></h1>
 <p>　　YSLib 项目提供一系列工具脚本。这些脚本主要集中位于 <code>Tools</code> 和 <code>Tools/Scripts</code> 。其余特定局部用途的脚本可能位于其它目录，这些脚本可能依赖版本库内的工具脚本或 YSLib 安装时部署的工具脚本。</p>
-<p>　　关于脚本的解释环境和其它一般规则，参见<a href="../Development.zh-CN.html">关于脚本的开发说明</a>。</p>
-<p><strong>注释</strong> 维护者和开发者需要阅读开发说明，以保持脚本程序符合文档的描述。其中的一些信息（如关于环境变量等运行时环境的描述）也可能提供对脚本的非开发者用户有帮助的说明，作为<a href="Run.zh-CN.html">运行环境</a>中说明的补充。</p>
+<p>　　关于脚本的解释环境和其它一般规则，参见<a href="../Development.zh-CN.html#%E8%84%9A%E6%9C%AC">关于脚本的开发说明</a>。</p>
+<p><strong>注释</strong> 维护者和开发者需要阅读开发说明，以保持脚本程序符合文档的描述。其中的一些信息（如关于环境变量等运行时环境的描述）也可能提供对脚本的非开发者用户有帮助的说明，作为<a href="../Run.zh-CN.html">运行环境</a>中说明的补充。</p>
 <h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
 <p>　　未归类的工具目录。这个目录的脚本是可用于整个项目或非特定子项目的工具脚本，如公用的构建脚本。</p>
 <p>　　工具脚本位于版本库目录 <code>Tools</code> 及其子目录 <code>Scripts</code> 下。</p>
@@ -150,16 +160,20 @@
 <p>　　构建脚本同时可安装文件，完成 Sysroot 所需文件的部署。安装的起始目标位置由称为<strong>安装路径</strong>的目录路径指定，其字符串形式去除结尾分隔符的目录文件名为<strong>安装路径前缀</strong>。安装过程在必要时可创建 Sysroot 根目录、安装路径指定的目录及其子目录。安装路径的确定方式详见以下的使用方式。</p>
 <p>　　部署时使用 stage 1 SHBuild 更新文件和目录，在必要时创建符号链接或硬链接，若失败则改为普通复制。仅当被部署的文件为中间目标启用硬链接，以免后续操作意外覆盖源文件。注意在 Windows 上创建符号链接可能因为权限不足失败，取决于用户和组策略。建议使用系统管理权限运行以避免可能的权限问题。</p>
 <h3 id="基本使用"><a class="header" href="#基本使用">基本使用</a></h3>
-<p>　　脚本接受在 stage 2 使用的<code>SHBuild</code> 命令行中的选项为命令行参数，如</p>
+<p>　　脚本接受在 stage 2 使用的 <code>SHBuild</code> 命令行中的选项为命令行参数，如</p>
 <pre><code>Tools/install-sysroot.sh -xj,2
 </code></pre>
 <p>　　使用 2 个并行线程构建。</p>
-<p>　　脚本也支持变量配置构建使用的路径，默认如下：</p>
+<p>　　脚本也支持变量配置构建使用的路径，默认相当于使用如下 bash 命令配置变量：</p>
 <pre><code class="language-bash">: ${SHBuild_SysRoot:=&quot;$YSLib_BaseDir/sysroot&quot;}
 SHBuild_PrepareBuild
 : ${SHBuild_BuildDir:=&quot;$YSLib_BaseDir/build/$(SHBuild_GetBuildName)&quot;}
 </code></pre>
-<p>　　其中，各个变量的作用参见以上 shell 环境变量的说明。</p>
+<p>　　其中：</p>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0-shbuild_preparebuild"><code>SHBuild_PrepareBuild</code></a> 是 <code>Tools/Scripts/SHBuild-common.sh</code> 中的函数。</li>
+<li>各个变量参见<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">开发文档中的环境变量的说明</a>。</li>
+</ul>
 <p>　　在 stage 1 SHBuild 构建调用 NPLA1 脚本 <code>Tools/Scripts/SHBuild-YSLib*.txt</code> ，调用方式和接受的配置（构建目标等）、具体默认设置和注意事项见对应 shell 脚本的文档相关章节。</p>
 <h1 id="toolsscripts"><a class="header" href="#toolsscripts">Tools/Scripts</a></h1>
 <p>　　这个目录的脚本可用于整个项目或项目核心部分的构建工具使用。</p>
@@ -185,15 +199,10 @@ SHBuild_PrepareBuild
 <h2 id="toolsscriptspatchrevisionsh"><a class="header" href="#toolsscriptspatchrevisionsh">Tools/Scripts/PatchRevision.sh</a></h2>
 <p>　　开发过程中使用 <a href="RevisionPatcher.zh-CN.html">RevisionPatcher</a> 维护源文件中版本号的脚本。</p>
 <p>　　当前只支持 Mercurial 或 Git 版本库的已添加或修改的未提交文件。</p>
-<p>　　以下环境变量确定使用 Mercurial 或 Git ：</p>
-<ul>
-<li>若环境变量 <code>PatchHg</code> 非空，则检查 <code>hg</code> 命令可用；</li>
-<li>否则，若环境变量 <code>PatchGit</code> 非空，则检查 <code>git</code> 命令可用；</li>
-<li>否则，依次检查 <code>hg</code> 和 <code>git</code> 命令可用，若 <code>hg</code> 可用则不再检查 <code>git</code> 。</li>
-</ul>
-<p>　　检查可用的命令要求在对应的仓库中，同时确定仓库的顶层目录路径（对 Git ，要求存在工作区）。否则，若检查都失败，则脚本出错，不再继续运行。</p>
+<p>　　使用的版本控制系统会被检查。通过检查的条件、确定使用的版本控制的机制及支持的控制检查的环境变量同 Tools/Scripts/SHBuild-YSLib*.txt 公用的版本控制系统支持，参见以下相关章节的说明。</p>
+<p>　　若检查都失败，则脚本出错，不再继续运行。</p>
 <p>　　脚本利用 <code>hg</code> 或 <code>git</code> 命令把未提交的这些修改导出为补丁备份到版本库根目录的 <code>bak.patch</code> ，然后使用这些内容调用 RevisionPatcher 取得文件和对应的新的版本号列表，最后使用 <code>sed</code> 查找对应文件并更新版本号。</p>
-<p>　　使用的 <code>sed</code> 应支持 <code>-b -i</code> 选项。可使用 Linux 或 MSYS2 的发行版中的 sed 4.8 程序。</p>
+<p>　　脚本依赖 <code>sed</code> 命令。使用的 <code>sed</code> 应支持 <code>-b -i</code> 选项。可使用 Linux 或 MSYS2 的发行版中的 sed 4.8 程序。</p>
 <p><strong>警告</strong> 某些 Win32 版本的 <code>sed</code> ，如 MSYS2 MinGW64 sed 4.4 可能损坏文本文件的行尾。有些替代版本可能解决<a href="https://stackoverflow.com/questions/4652652">这一问题</a>。</p>
 <p><strong>注释</strong> 当前不检查特定版本 <code>sed</code> 对选项的支持。</p>
 <p>　　若没有找到 <code>\version r</code> 模式的版本号前缀则忽略写入版本号。写入的版本号不影响换行符。</p>
@@ -215,8 +224,28 @@ SHBuild_PrepareBuild
 <h2 id="toolsscriptsshbuild-buildsh"><a class="header" href="#toolsscriptsshbuild-buildsh">Tools/Scripts/SHBuild-build.sh</a></h2>
 <p>　　编译 <a href="SHBuild.zh-CN.html">stage 1 SHBuild</a> 的脚本。</p>
 <p>　　使用变量 <code>SHBuild_Output</code> 指定输出路径。默认值为 <code>SHBuild</code> ，即在当前工作目录下生成名为 <code>SHBuild</code> 的可执行文件（视宿主平台不同可能带后缀如 Win32 带 <code>.exe</code> ）。</p>
-<p>　　调用函数 <code>SHBuild_CheckPCH</code> 检查预编译头：若变量 SHBuild_NoPCH 非空则跳过预编译头，否则使用预编译头包含标准库头。预编译的头文件目标由 YBase 下的 <code>stdinc.h</code> ，之后构建时包含预编译头路径为 <code>$SHBuild_PCH_stdinc_h</code> 。后者的默认路径为当前工作目录下的 <code>stdinc.h</code> 。</p>
-<p><strong>已知缺陷</strong> 不自动更新预编译头。</p>
+<p>　　调用函数 <code>SHBuild_CheckPCH</code> 检查预编译头：若变量 <code>SHBuild_NoPCH</code> 非空则跳过预编译头，否则使用预编译头包含标准库头。预编译的头文件目标由 YBase 下的 <code>stdinc.h</code> ，之后构建时包含预编译头路径为 <code>$SHBuild_PCH_stdinc_h</code> 。后者的默认路径为当前工作目录下的 <code>stdinc.h</code> 。</p>
+<p>　　因为升级或更换编译器和/或选项，可导致预编译头文件（ <code>.gch</code> 文件）不和生成的环境匹配而不被识别。</p>
+<p><strong>注意</strong> 预编译头文件不保证对不同的操作系统版本兼容，参见<a href="../Prerequisitions.zh-CN.html">先决条件</a>中 PC(Win32) 平台关于操作系统版本的说明。</p>
+<p>　　不被识别的预编译头文件通常：</p>
+<ul>
+<li>可引起编译器警告，并忽略预编译头文件。
+<ul>
+<li>若仅需避免产生警告，确保编译器命令行使用恰当选项，如添加 <code>-Wno-invalid-pch</code> 。</li>
+</ul>
+</li>
+<li>可能引起无法构建的错误。</li>
+</ul>
+<p>　　一般仍然需要避免使用不匹配的预编译头文件。若无法保证预编译头文件和使用的工具链和选项匹配：</p>
+<ul>
+<li>可设置变量 <code>SHBuild_NoPCH</code> 的值非空以跳过预编译头文件的使用。</li>
+<li>可以手动删除生成的预编译头文件。在没有设置变量 <code>SHBuild_NoPCH</code> 的情形下构建通常会默认自动生成。
+<ul>
+<li><strong>注释</strong> 具体的支持和生成预编译头文件的位置参见具体构建目标的说明，如 <a href="../Sysroot.zh-CN.html#%E6%9E%84%E5%BB%BA%E4%B8%AD%E9%97%B4%E6%96%87%E4%BB%B6">Sysroot</a> 。</li>
+</ul>
+</li>
+</ul>
+<p><strong>已知缺陷</strong> 构建时不自动更新预编译头。</p>
 <h2 id="toolsscriptsshbuild-buildappsh"><a class="header" href="#toolsscriptsshbuild-buildappsh">Tools/Scripts/SHBuild-BuildApp.sh</a></h2>
 <p>　　应用程序构建脚本。这个脚本被保留，不再具有实际功能。</p>
 <p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>bin</code> 目录下。</p>
@@ -279,7 +308,7 @@ SHBuild_PrepareBuild
 <li><code>aarch64</code> ：输入是 aarch64 。</li>
 <li><code>unknown</code> ：不支持的体系结构。</li>
 </ul>
-<p>　　若同时指定环境变量 <code>SHBuild_Env_Arch</code> 和 <code>SHBuild_Env_OS</code> ，不进行<a href="Prerequisitions.zh-CN.html">自动环境检测</a>，不依赖 <code>uname</code> 。</p>
+<p>　　若同时指定环境变量 <code>SHBuild_Env_Arch</code> 和 <code>SHBuild_Env_OS</code> ，不进行<a href="../Prerequisitions.zh-CN.html">自动环境检测</a>，不依赖 <code>uname</code> 。</p>
 <h3 id="函数-shbuild_gettempdir"><a class="header" href="#函数-shbuild_gettempdir">函数 SHBuild_GetTempDir</a></h3>
 <p>　　取临时目录的路径。</p>
 <p>　　依次检查以下环境变量的值，若非空则作为结果：</p>
@@ -338,7 +367,7 @@ SHBuild_PrepareBuild
 <h3 id="函数-shbuild_buildgch"><a class="header" href="#函数-shbuild_buildgch">函数 SHBuild_BuildGCH</a></h3>
 <p>　　接受第一个参数指定的路径的头文件安装到第二个参数指定的路径下并使用第三个参数指定的命令行构建 GNU 预编译头。</p>
 <h3 id="函数-shbuild_checkpch"><a class="header" href="#函数-shbuild_checkpch">函数 SHBuild_CheckPCH</a></h3>
-<p>　　检查是否设置了非空的 <code>SHBuild_NoPCH</code> ，否则调用 <code>SHBuild_BuildGCH</code> 并生成 GNU 风格预编译头文件并设置内部变量 <code>SHBuild_IncPCH</code> 为合适的命令行选项用于包含生成的预编译头文件。</p>
+<p>　　检查是否设置了非空的变量 <code>SHBuild_NoPCH</code> ，否则调用 <code>SHBuild_BuildGCH</code> 并生成 GNU 风格预编译头文件并设置内部变量 <code>SHBuild_IncPCH</code> 为合适的命令行选项用于包含生成的预编译头文件。</p>
 <p>　　支持两个参数，同 <code>SHBuild_BuildGCH</code> 的前两个参数。</p>
 <h3 id="函数-shbuild_2w"><a class="header" href="#函数-shbuild_2w">函数 SHBuild_2w</a></h3>
 <p>　　接受 1 个表示路径的参数，调用 <code>cygpath</code> 转换 UNIX 路径到 Windows 路径。</p>
@@ -371,13 +400,13 @@ SHBuild_PrepareBuild
 <p>　　通常系统前缀因为之前仍有非空的其它前缀（如 <code>SHBuild_SysRoot</code> 指定的值）而不是绝对路径的前缀。因此，系统前缀以 <code>/</code> 起始而不需要考虑所在的环境是否符合 FHS 的问题。</p>
 <p>　　当前支持的结果包括：</p>
 <ul>
-<li>参数为 <code>MinGW64</code> 时，结果为 <code>/mingw64</code> ；</li>
-<li>参数为 <code>MinGW32</code> 时，结果为 <code>/mingw32</code> ；</li>
+<li>参数为 <code>MinGW64</code> 时，结果为 <code>/mingw64</code> 。</li>
+<li>参数为 <code>MinGW32</code> 时，结果为 <code>/mingw32</code> 。</li>
 <li>否则，结果为 <code>/usr</code> 。</li>
 </ul>
 <p>　　本函数的结果符合 <a href="../Sysroot.zh-CN.html">Sysroot</a> 中关于 Sysroot 的目录布局的约定。</p>
 <h3 id="函数-shbuild_s2_prepare"><a class="header" href="#函数-shbuild_s2_prepare">函数 SHBuild_S2_Prepare</a></h3>
-<p>　　初始化 <a href="../sysroot.zh-CN.html">stage 2 Sysroot</a> 环境。</p>
+<p>　　初始化 <a href="../Sysroot.zh-CN.html">stage 2 Sysroot</a> 环境。</p>
 <p>　　函数可使用一个参数作为变量 <code>SHBuild_SysRoot</code> 的默认值。</p>
 <p>　　初始化这个变量后，断言其值非空，以其值作为创建目录，若指定的目录已存在则忽略。然后，初始化变量 <code>SHBuild_SystemPrefix</code>（参见 <code>Tools/Scripts/SHBuild-YSLib-build.txt</code> 的说明）。之后，初始化变量 <code>SR_Prefix</code> 的值为 <code>&quot;$SHBuild_SysRoot$SHBuild_SystemPrefix&quot;</code> 。</p>
 <h3 id="函数-shbuild_s2_prepare_build"><a class="header" href="#函数-shbuild_s2_prepare_build">函数 SHBuild_S2_Prepare_Build</a></h3>
@@ -583,13 +612,13 @@ LDFLAGS_OPT_DBG=' '
 <p>　　使用 SHBuild 编译并静态链接构建 SHBuild 。和 stage 1 SHBuild 类似，直接使用 YSLib 源文件。</p>
 <h2 id="toolsscriptsshbuild-self-host-dllsh"><a class="header" href="#toolsscriptsshbuild-self-host-dllsh">Tools/Scripts/SHBuild-self-host-DLL.sh</a></h2>
 <p>　　<a href="SHBuild.zh-CN.html">SHBuild</a> 自举测试用脚本。</p>
-<p>　　使用 SHBuild 编译并动态链接构建 SHBuild 。依赖 <code>/usr/lib</code> 中存在的 YFramework.dll 和 YBase.dll 。</p>
+<p>　　使用 SHBuild 编译并动态链接构建 SHBuild 。依赖 <code>/usr/lib</code> 中存在的 YFramework 和 YBase 动态库文件。</p>
 <h2 id="toolsscriptsshbuild-yslibsh"><a class="header" href="#toolsscriptsshbuild-yslibsh">Tools/Scripts/SHBuild-YSLib.sh</a></h2>
 <p>　　作为 stage 1 SHBuild 公共配置脚本被不同的 stage 1 构建脚本包含。</p>
 <p>　　包含脚本依次执行：</p>
 <ul>
-<li>初始化变量 <a href="../Development.zh-CN.html"><code>SHBuild_ToolDir</code></a> 。</li>
-<li>初始化变量 <a href="../Development.zh-CN.html"><code>YSLib_BaseDir</code></a> 。</li>
+<li>初始化变量 <a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><code>SHBuild_ToolDir</code></a> 。</li>
+<li>初始化变量 <a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><code>YSLib_BaseDir</code></a> 。</li>
 <li>初始化变量 <code>SHBuild_PCH_stdinc_h</code> 。</li>
 <li>包含脚本 Tools/Scripts/SHBuild-common-options.sh 。</li>
 <li>赋值变量 <code>INCLUDE_PCH</code> 为版本库的 YBase/include/stdinc.h 。</li>
@@ -611,9 +640,32 @@ LDFLAGS_OPT_DBG=' '
 </ul>
 <p>　　调用方式详见 <a href="SHBuild.zh-CN.html">stage 1 SHBuild 中关于 NPL 支持的说明</a>。</p>
 <p>　　可通过外部环境变量配置脚本行为。</p>
-<h3 id="toolsscriptsshbuild-yslib-commontxt"><a class="header" href="#toolsscriptsshbuild-yslib-commontxt">Tools/Scripts/SHBuild-YSLib-common.txt</a></h3>
+<h3 id="版本控制系统支持"><a class="header" href="#版本控制系统支持">版本控制系统支持</a></h3>
+<p>　　脚本以相同的方式检查和识别版本控制系统。</p>
+<p>　　以下环境变量提示使用 Mercurial 或 Git ：</p>
+<ul>
+<li>若<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量 <code>SHBuild_VCS_hg</code></a> 非空，则检查 <code>hg</code> 命令可用。</li>
+<li>否则，若<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量 <code>SHBuild_VCS_git</code></a> 非空，则检查 <code>git</code> 命令可用。</li>
+<li>否则，依次检查 <code>hg</code> 和 <code>git</code> 命令可用，若 <code>hg</code> 可用则不再检查 <code>git</code> 。</li>
+</ul>
+<p>　　命令可用需要满足以下条件：</p>
+<ul>
+<li>被检查的命令应在 <code>$PATH</code> 中。
+<ul>
+<li>若在 Windows 中使用 shell ，可能需要提前设置环境以确保继承环境变量。
+　　* <strong>注意</strong> MSYS2 提供的 <code>mercurial</code> 包的可执行文件是脚本而不是可执行文件，不被 NPLA1 脚本调用的 Windows 命令行支持。
+　　* <strong>注释</strong> 不使用 <code>HG</code> 环境变量，因为可能设置为不被支持的 <code>hg</code> 程序路径。事实上，MSYS2 的包 <code>mercurial</code> 安装到 <code>/etc/profile.d/mercurial.sh</code> 设置 <code>HG</code> 为脚本，覆盖从其它位置继承的 <code>hg.exe</code> 。</li>
+</ul>
+</li>
+<li>且当前工作目录求在对应的版本库中，同时确定仓库的顶层目录路径。
+<ul>
+<li>对 Git ，要求存在工作区。</li>
+</ul>
+</li>
+</ul>
+<h2 id="toolsscriptsshbuild-yslib-commontxt"><a class="header" href="#toolsscriptsshbuild-yslib-commontxt">Tools/Scripts/SHBuild-YSLib-common.txt</a></h2>
 <p>　　<code>Tools/Scripts/SHBuild-YSLib-common.txt</code> 包含一些公共的库，包括支持类似 <code>Tools/Scripts/SHBuild-common-options.sh</code> 和 <code>Tools/Scripts/SHBuild-common-toolchain.sh</code> 的选项以环境变量的方式配置，但 C 编译器相关的选项除外（不使用而被忽略）。</p>
-<p>　　除<a href="../Development.zh-CN.html">关于 shell 和 NPLA1 脚本之间的一般差异</a>外，和 <code>Tools/Scripts/SHBuild-common-options.sh</code> 和 <code>Tools/Scripts/SHBuild-common-toolchain.sh</code> 的不同为：</p>
+<p>　　除关于 <a href="../Development.zh-CN.html#shell-%E8%84%9A%E6%9C%AC">shell 脚本</a>和 <a href="../Development.zh-CN.html#npla1-%E8%84%9A%E6%9C%AC">NPLA1 脚本</a>之间的一般差异外，与 <code>Tools/Scripts/SHBuild-common-options.sh</code> 和 <code>Tools/Scripts/SHBuild-common-toolchain.sh</code> 的不同为：</p>
 <ul>
 <li>通过调用函数进入<strong>构建环境变量检测</strong>并在之后进入回调函数中构建。
 <ul>
@@ -631,7 +683,7 @@ LDFLAGS_OPT_DBG=' '
 <p>　　脚本支持外部调用这个脚本的命令行设置变量的默认值，以覆盖直接指定构建环境变量检测确定的选项，如：</p>
 <pre><code>CXX=clang++ CXXFLAGS='-std=c++11 -O2' Tools/install-sysroot.sh
 </code></pre>
-<p>　　<strong>使用预编译头选项和缺陷同 <code>Tools/Scripts/SHBuild-build.sh</code> 。其中的特性未指定使用 shell 实现，和后者可能存在 shell 环境中可见的差异。</strong></p>
+<p><strong>警告</strong> 使用预编译头选项和缺陷同 <a href="#toolsscriptsshbuild-buildsh"><code>Tools/Scripts/SHBuild-build.sh</code></a> 。其中的特性未指定使用 shell 实现，和后者可能存在 shell 环境中可见的差异。</p>
 <p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>var/NPLA1</code> 目录下。</p>
 <h3 id="变量-ldflags_dyn_base"><a class="header" href="#变量-ldflags_dyn_base">变量 LDFLAGS_DYN_BASE</a></h3>
 <p>　　指定动态库基础链接选项。</p>
@@ -695,7 +747,7 @@ LDFLAGS_OPT_DBG=' '
 <li><code>SHBuild_NoDynamic</code> 非空时跳过动态库构建。</li>
 <li><code>SHBuild_No3rd</code> 非空时跳过第三方库安装。
 <ul>
-<li>对<a href="../Development.zh-CN.html">外部依赖项</a>中的库，只安装启用的配置决定的必要的外部依赖。启用的配置由 <code>SHBuild_UseDebug</code> 和 <code>SHBuild_UseRelease</code> 指定。</li>
+<li>对<a href="../Development.zh-CN.html#%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96%E9%A1%B9">外部依赖项</a>中的库，只安装启用的配置决定的必要的外部依赖。启用的配置由 <code>SHBuild_UseDebug</code> 和 <code>SHBuild_UseRelease</code> 指定。</li>
 </ul>
 </li>
 <li><code>SHBuild_NoDev</code> 非空时跳过可选的开发工具构建和安装。</li>
@@ -746,6 +798,7 @@ LDFLAGS_OPT_DBG=' '
 <li>默认值以 <code>-I</code> 起始，使用版本库目录下的 <code>3rdparty/freetype/include</code> 目录带有适当引号的完整路径。</li>
 </ul>
 </li>
+<li><a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量 <code>SHBuild_VCS_hg</code> 或 <code>SHBuild_VCS_git</code></a> 指定构建时的版本控制系统，作用参见以下说明。</li>
 </ul>
 <p>　　在 stage 2 构建时接受以下外部环境变量（部分被 SHBuild 直接以环境变量的方式接受）：</p>
 <ul>
@@ -755,6 +808,16 @@ LDFLAGS_OPT_DBG=' '
 <li><code>LIBS_RPATH</code> ：非 Windows 平台使用的 <code>rpath</code> 路径。</li>
 <li>SHBuild 附加构建选项环境变量：参见 Tools/Scripts/SHBuild-YSLib-common.txt 。其中变量 <code>SHBuild_CXXFLAGS</code> 同时作用在预编译头构建。</li>
 </ul>
+<h3 id="版本字符串"><a class="header" href="#版本字符串">版本字符串</a></h3>
+<p>　　在 stage 1 构建 YFramework 前，通过选择的版本控制系统指定确定版本字符串，可在被构建的 YFramework 库中引用。</p>
+<p>　　确定版本字符串时，检查对应的命令，具体方式详见以上关于版本控制系统支持的描述。若检查都失败，则版本字符串为空串。否则，使用第一个检查成功的命令生成对应的版本字符串。</p>
+<p><strong>已知限制</strong> 若使用 <code>git</code> 生成版本字符串，当前同时依赖 <code>sed</code> 命令。</p>
+<p>　　若版本字符串非空，则通过宏定义的方式参与之后的构建。当前影响以下源文件所在的翻译单元：</p>
+<ul>
+<li><code>YFramework/source/YSLib/Core/YCoreUtilities.cpp</code></li>
+</ul>
+<p>　　在构建前，若被影响的上述翻译单元已被构建，在生成目录中对应的（以 <code>.d</code> 为扩展名的）依赖文件被修改，以添加对版本控制系统中的特定文件的依赖。这能使最新的版本控制系统的修改影响生成的目标代码，而无需手动修改这些翻译单元的源文件。</p>
+<p><strong>已知限制</strong> 当前自动更新依赖的实现同时依赖 <code>sed -i</code> 命令。</p>
 <h2 id="toolsscriptsshbuild-buildapptxt"><a class="header" href="#toolsscriptsshbuild-buildapptxt">Tools/Scripts/SHBuild-BuildApp.txt</a></h2>
 <p>　　NPLA1 应用程序构建脚本。可利用此工具脚本调用 SHBuild 构建特定<em>配置(configuration)</em> 下使用 YSLib 库和基础环境开发的应用程序。</p>
 <p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>var/NPLA1</code> 目录下。</p>
@@ -811,9 +874,11 @@ LDFLAGS_OPT_DBG=' '
                             <a rel="prev" href="../Tools/ProjectGenerator.zh-CN.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../Tutorial.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -823,6 +888,7 @@ LDFLAGS_OPT_DBG=' '
                     <a rel="prev" href="../Tools/ProjectGenerator.zh-CN.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../Tutorial.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -830,16 +896,25 @@ LDFLAGS_OPT_DBG=' '
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>

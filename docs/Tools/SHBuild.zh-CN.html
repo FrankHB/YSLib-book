@@ -4,8 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>SHBuild - The YSLib Book</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -16,25 +18,29 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -62,12 +68,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -83,7 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -93,7 +101,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,6 +118,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -123,8 +132,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -141,51 +151,171 @@
 <p>　　本节说明 SHBuild 的构建。关于使用 SHBuild 构建用户程序，参见前述概要和之后的章节。</p>
 <p>　　除非另行指定，其它章节也适用于本节内构建的非最终阶段 SHBuild 。本章仅补充仅适用于这些 SHBuild 的特点和功能。</p>
 <p>　　关于使用 <code>bash</code> 构建库、SHBuild 、测试项目和基于 SHBuild 上的用户程序，参见<a href="../Sysroot.zh-CN.html">关于 <strong>MinGW Sysroot</strong> 的说明</a>。</p>
-<p>　　当前只支持<a href="Terminology.zh-CN.html">本机构建</a>。</p>
-<p>　　除了指定调用编译器等工具的名称外的其它情形对 SHBuild 是<em>透明(transparent)</em> 的，即 SHBuild 不使用<a href="Terminology.zh-CN.html">目标平台的标识</a>执行不同逻辑。这样，也可能不经修改调用命令的情况下成功<a href="Terminology.zh-CN.html">交叉构建</a>，但当前未测试。</p>
-<h3 id="引导bootstrapping"><a class="header" href="#引导bootstrapping">引导(Bootstrapping)</a></h3>
-<p>　　SHBuild 支持引导，即在受支持的构建环境中直接构建 SHBuild ，不依赖预先构建的 SHBuild 二进制映像。</p>
+<p>　　当前只支持<a href="../Terminology.zh-CN.html">本机构建</a>。</p>
+<p>　　除了指定调用编译器等工具的名称外的其它情形对 SHBuild 是<em>透明(transparent)</em> 的，即 SHBuild 不使用<a href="../Terminology.zh-CN.html">目标平台的标识</a>执行不同逻辑。这样，也可能不经修改调用命令的情况下成功<a href="../Terminology.zh-CN.html">交叉构建</a>，但当前未测试。</p>
+<h3 id="引导"><a class="header" href="#引导">引导</a></h3>
+<p>　　SHBuild 支持<em>引导(bootstrapping</em>) ，即在受支持的构建环境中直接构建 SHBuild ，不依赖预先构建的 SHBuild 二进制映像。</p>
 <p>　　运行脚本 <code>Tools/Scripts/SHBuild-build.sh</code> 生成 SHBuild 可执行文件。</p>
 <p>　　脚本直接选取 YSLib 中的源文件作为依赖进行构建。因为直接调用编译器驱动链接，不支持显式指定并行编译，相对比较慢。编译的结果是静态链接的，二进制映像较大。</p>
 <p>　　这个过程只需要 C++ 工具链和 shell ，不需要直接调用 <code>make</code> ，但 GCC 使用 <code>-flto</code> 进行优化仍然需要 GNU make 。</p>
-<p>　　当前构建最后的链接器警告可以安全忽略。</p>
 <p>　　如能成功使用以下的多阶段构建方法（会按需调用引导脚本），一般不建议使用直接构建的版本。</p>
-<h3 id="自举self-hosting"><a class="header" href="#自举self-hosting">自举(Self hosting)</a></h3>
-<p>　　SHBuild 支持自举，即可使用构建的 SHBuild 继续构建自身。</p>
-<p>除需 <code>SHBuild</code> 外，对外部环境的要求和引导一致。</p>
+<h3 id="自举"><a class="header" href="#自举">自举</a></h3>
+<p>　　SHBuild 支持<em>自举(self hosting)</em> ，即可使用构建的 SHBuild 继续构建自身。</p>
+<p>　　除需 <code>SHBuild</code> 可执行程序外，对外部环境的要求和引导一致。</p>
 <p>　　SHBuild 一直使用简单的源代码结构，设计初期即支持自举，现时仍不限制自举需要的版本。但由于仅测试相同版本的自举构建，因此一般建议使用相同版本。</p>
 <p>　　以下多阶段构建在引导的基础上自举构建 SHBuild 。</p>
 <p>　　此外，也可以直接使用 <code>SHBuild-self-host.sh</code> 和 <code>SHBuild-self-host-DLL.sh</code> 进行直接自举。这两个脚本主要用于内部测试。</p>
 <h3 id="多阶段构建"><a class="header" href="#多阶段构建">多阶段构建</a></h3>
 <p>　　使用<a href="Scripts.zh-CN.html">工具脚本</a>安装 <a href="../Sysroot.zh-CN.html">Sysroot</a> 时，按需构建 SHBuild 。当前这个过程分为两步：</p>
+<p>　　运行<a href="Scripts.zh-CN.html#toolsinstall-sysrootsh">Sysroot 安装脚本</a>可直接完成以下多个阶段的构建和目标程序的部署(deployment) ：</p>
 <ul>
-<li>第一阶段(stage 1) ：引导。
+<li>Stage 1 ，即第一阶段：<a href="#%E5%BC%95%E5%AF%BC">引导</a>。
 <ul>
-<li>调用脚本 <code>Tools/Scripts/SHBuild-build.sh</code> 构建 stage 1 SHBuild 。只依赖编译器进行编译链接。</li>
-<li>主要用于下一阶段使用。不保证具有所有 SHBuild 的功能特性。一般不建议直接使用。</li>
+<li>这个阶段运行 <a href="Scripts.zh-CN.html#toolsscriptsshbuild-buildsh"><code>Tools/Scripts/SHBuild-build.sh</code></a> 构建 stage 1 SHBuild 。
+<ul>
+<li>若已存在构建了的 stage 1 SHBuild 可执行程序，Sysroot 安装脚本不再重新构建 stage 1 SHBuild 。
+<ul>
+<li>可指定非空的 <code>SHBuild_Rebuild_S1</code> 环境变量值以要求 Sysroot 安装脚本无视已存在的 stage 1 SHBuild 的可执行程序而重新构建。</li>
 </ul>
 </li>
-<li>第二阶段(stage 2) ：自举。
+<li><strong>原理</strong> 为可维护性，stage 1 SHBuild 的构建直接使用静态链接，且过程依赖避免系统库（工具链提供的环境）以外的外部二进制依赖项和网络连接。
 <ul>
-<li>在脚本 <code>Tools/install-sysroot.sh</code> 内直接调用成功引导的 <code>SHBuild</code> ，构建时链接到之前构建的 YFramework 和 YBase 动态库。</li>
-<li>自举结果为 stage 2 SHBuild ，这是当前最终生成的 SHBuild ，链接和运行依赖上述动态库。</li>
+<li>不依赖外部工具的串行构建可能相当费时，但仍可被接受。</li>
 </ul>
 </li>
 </ul>
-<p>　　这些阶段需要的外部环境对应称为 stage 1 环境和 stage 2 环境。</p>
-<p>　　由于<a href="Terminology.zh-CN.html">多平台构建</a>的自然要求，这些环境需要相同（本机构建），或至少保持兼容性。当前工具脚本没有另行显示指定使用不同平台的接口，因此只支持本机构建。</p>
+</li>
+<li>引导结果为 stage 1 SHBuild 程序，主要用于下一阶段使用，不保证具有所有 SHBuild 的功能特性。
+<ul>
+<li>可执行程序不被另行部署。</li>
+<li>一般不建议直接使用。</li>
+</ul>
+</li>
+<li><strong>原理</strong> 因为 stage 1 的目的是引导宿主构建的 SHBuild 并构建 YSLib 和其它依赖 YSLib 的应用，所以使用不依赖 YSLib 项目输出的原始的<a href="../Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主环境</a>。
+<ul>
+<li>依照<a href="../Development.zh-CN.html">开发说明</a>配置的宿主环境是受支持的可用于运行构建工具的环境作为 stage 1 构建和运行环境。
+<ul>
+<li>构建时依赖这个环境的脚本运行环境运行构建脚本，并依赖其中的工具链进行编译链接。</li>
+</ul>
+</li>
+<li>显然地，stage 1 不使用已被部署的 <code>SHBuild</code> 可执行程序。</li>
+<li>因为不假设 <a href="../Development.zh-CN.html#npla1-%E8%84%9A%E6%9C%AC">NPLA1</a> 实现（默认由 SHBuild 提供）的可用性，<a href="Scripts.zh-CN.html#toolsscriptsshbuild-buildsh">构建 stage 1 SHBuild 的脚本</a>是 <a href="../Development.zh-CN.html#shell-%E8%84%9A%E6%9C%AC">shell 脚本</a>而非 <a href="../Development.zh-CN.html#npla1-%E8%84%9A%E6%9C%AC">NPLA1 脚本</a>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Stage 2 ，即第二阶段：<a href="#%E8%87%AA%E4%B8%BE">自举</a>。
+<ul>
+<li>这个阶段在 Sysroot 安装脚本内调用成功引导的 stage 1 SHBuild 运行 NPLA1 脚本程序继续构建。
+<ul>
+<li>继续构建通过运行 <a href="Scripts.zh-CN.html#toolsscriptsshbuild-yslib-buildtxt"><code>Tools/Scripts/SHBuild-YSLib-build.txt</code></a> 实现，步骤包括：
+<ul>
+<li>构建 YBase 和 YFramework 库。</li>
+<li>自举构建 <code>SHBuild</code> ，链接到之前构建的 YFramework 和 YBase 动态库。</li>
+</ul>
+</li>
+<li>Sysroot 安装脚本可通过 <a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><code>SHBuild</code> 环境变量</a>指定 YSLib 库构建过程中使用的 SHBuild 命令。
+<ul>
+<li>若不指定变量 <code>SHBuild</code> ，默认值是（先前应已被检查并确保按需构建的）stage 1 SHBuild 的路径。</li>
+<li><strong>原理</strong> 默认不需要另行部署 SHBuild 即可完成自举和之后的安装。但若在当前宿主环境中已存在可用的 <code>SHBuild</code> 可执行程序，指定 <code>SHBuild</code> 可避免 Sysroot 安装脚本中默认的不必要的 stage 1 SHBuild 构建。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>自举结果为 stage 2 SHBuild 。
+<ul>
+<li>这是当前最终生成的 SHBuild ，链接和运行依赖上述 YBase 和 YFramework 动态库。</li>
+<li>当前 stage 2 SHBuild 总是需要 release 动态库，因此除非先前已部署（足够新版本的兼容的）对应配置的库，不包含这个目标时 stage 2 SHBuild 会符合预期地构建失败。</li>
+</ul>
+</li>
+<li><strong>原理</strong> 构建 YSLib 库是整个 Sysroot 环境安装的主要目标，是构建 stage 2 SHBuild 前的必要步骤，整体一般比构建 stage 1 SHBuild 更加费时，但是：
+<ul>
+<li>借助 SHBuild ，这些构建目标的编译过程是可并行的。</li>
+<li>NPLA1 脚本接收的环境变量可通过调用 Sysroot 安装脚本指定，允许更灵活地控制构建使用的并行任务数等选项，且同时允许选择性仅构建和安装部分构建配置（包括 debug 或 release 模式，静态或动态库）的目标而节约开销。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用 SHBuild 运行当前 YSLib 存储库中的特定的 NPLA1 脚本可选地构建其它目标，包括 <code>Tools</code> 中的 <code>SHBuild</code> 以外的二进制工具。
+<ul>
+<li>默认使用新近生成的 stage 2 SHBuild 可执行程序。</li>
+<li>可通过 <a href="../Development.zh-CN.html#npla1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><code>SHBuild</code> 环境变量</a>指定使用的 SHBuild 命令以被 NPLA1 脚本递归地调用。</li>
+<li>这同时作为直接的部署后环境可用性测试，因而不提供指定其它 SHBuild 工具的选项。</li>
+</ul>
+</li>
+<li>安装 stage 2 SHBuild 和（可选的）其它工具。
+<ul>
+<li><a href="../Development.zh-CN.html#%E8%84%9A%E6%9C%AC">开发脚本</a>中的<a href="Scripts.zh-CN.html">一部分被部署到 Sysroot</a> 的 stage 2 运行环境，也可在开发 YSLib 应用以外的情形被直接运行。</li>
+</ul>
+</li>
+</ul>
+<p>　　两个阶段需要的外部环境对应称为 stage 1 环境和 stage 2 环境；部署 stage 2 SHBuild（和可选的目标）后的环境是部署后环境。</p>
+<p>　　作为更一般的开发环境和最终用户部署基于 Sysroot 的 YSLib 的应用的运行环境，stage 2 和部署后环境相对 stage 1 环境具有更多的假设和更少的限制：</p>
+<ul>
+<li>用于构建时，假定 <code>PATH</code> 中存在兼容的 <code>SHBuild</code> 可执行程序的命令。
+<ul>
+<li>在 Sysroot 构建 YSLib 的库时，默认使用先前 stage 1 SHBuild ，其它情形默认使用 stage 2 SHbuild 。</li>
+<li>应确保 SHBuild 程序和使用的 NPLA1 脚本的版本匹配，一般来自同一个 Sysroot 安装。
+<ul>
+<li>若 <code>SHBuild</code> 没有与更新版本的脚本匹配，运行可能失败，这不被支持。
+<ul>
+<li>此时仍建议重新构建 stage 1 SHBuild ；参见以上 stage 1 的说明。</li>
+</ul>
+</li>
+<li>但除非另行指定，NPLA1 脚本的内容不依赖具体实现环境，且仅通过 SHBuild 调用。</li>
+<li>这些实际脚本通过可直接复制到兼容的安装的位置部署。
+<ul>
+<li>但这些位置不保证作为公开接口而保持不变；同时需注意在运行环境中具有可读权限。</li>
+</ul>
+</li>
+<li>因此除非必要，一般仍建议使用 Sysroot 默认配置进行部署。</li>
+</ul>
+</li>
+<li>除非另行指定，Sysroot 构建不依赖 stage 1 和 stage 2 的 SHBuild 中可能具有的差异。
+<ul>
+<li>因此，可（通过环境变量）指定任意的预先安装的和 NPLA1 脚本匹配版本的 SHBuild 程序。</li>
+</ul>
+</li>
+<li>一般建议开发环境中把某个 Sysroot 的 <code>bin</code> 目录加入 <code>PATH</code> 环境变量，以使用其中的 <code>SHBuild</code> 命令。
+<ul>
+<li>使用这个环境开发时，运行环境和 stage 2 构建环境相同，且可使用 stage 2 SHBuild 和其它工具。</li>
+<li>需要使用不同的 SHBuild 程序时仍可通过 <code>SHBuild</code> 环境变量指定。否则，变量 <code>SHBuild</code> 的默认值是 <code>SHBuild</code> ，因此 <code>PATH</code> 环境变量应存在名为 <code>SHBuild</code> 可执行程序。这被这个环境中默认满足。</li>
+<li>在 Windows 系统中，被 Sysroot 构建和部署的 SHBuild 的可执行文件名总是 <code>SHBuild.exe</code> 。除非有同名的目录（在部署中不会出现），在 Windows 的命令行运行这个可执行文件不需要后缀。</li>
+<li>在其它运行环境中，被 Sysroot 部署的 SHBuild 的可执行文件通常是 <code>SHBuild</code> 。但在此之前，<a href="#%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F">为避免和同名的目录冲突，使用 SHBuild 构建时直接得到的可执行文件总是带有 <code>.exe</code> 扩展名</a>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>这些环境使用 NPLA1 脚本而不是 stage 1 的 shell 脚本提供可用的构建功能。
+<ul>
+<li>这些功能<a href="Scripts.zh-CN.html#toolsscriptsshbuild-yslib-commontxt">部分相似但也有一定差异</a>。</li>
+</ul>
+</li>
+</ul>
+<p>　　由于<a href="../Terminology.zh-CN.html">多平台构建</a>的自然要求，这些环境需要相同（本机构建），或至少保持兼容性。当前工具脚本没有另行显示指定使用不同平台的接口，因此只支持本机构建。</p>
 <h2 id="运行"><a class="header" href="#运行">运行</a></h2>
-<p>　　SHBuild 通过参数执行命令，支持不同的运行模式：</p>
+<p>　　通过以下方式调用 <code>SHBuild</code> 命令输出帮助消息并退出：</p>
+<ul>
+<li>没有命令行参数。</li>
+<li>使用 <code>-h</code> 或 <code>--help</code> 作为命令行参数。</li>
+</ul>
+<p>　　通过以下方式调用 <code>SHBuild</code> 命令输出版本信息并退出：</p>
+<ul>
+<li>使用 <code>-V</code> 或 <code>--version</code> 作为命令行参数。</li>
+</ul>
+<p>　　其它情形调用 <code>SHBuild</code> ，使用参数执行命令，支持不同的运行模式：</p>
 <ul>
 <li>构建模式：调用递归扫描指定的目录以调用构建后端工具。</li>
 <li>命令模式：执行内建的功能。</li>
 </ul>
 <p>　　命令模式以 <code>-xcmd,</code> 起始的选项指定。其它情形的运行使用构建模式。</p>
-<p>　　命令行参数 <code>--</code> 钱的参数中，以 <code>-x</code> 起始的特定选项（详见运行 <code>SHBuild</code> 的说明）被作为 SHBuild 选项。命令行参数 <code>--</code> 后的参数不被识别为 SHBuild 选项，而被传递给后端或作为命令模式的参数。</p>
+<p>　　命令行参数 <code>--</code> 钱的参数中，以 <code>-x</code> 起始的特定选项（详见帮助消息）被作为 SHBuild 选项。命令行参数 <code>--</code> 后的参数不被识别为 SHBuild 选项，而被传递给后端或作为命令模式的参数。</p>
 <h3 id="构建模式"><a class="header" href="#构建模式">构建模式</a></h3>
 <p>　　构建模式递归扫描指定的源代码目录，以其中符合内建规则要求的文件作为输入，调用相应的后端命令行构建。构建包括对符合内建规则的输入的编译，以及对得到的目标文件进行链接。除 SHBuild 选项的命令行参数直接传除递给后端编译器。若需要构建复杂项目，可以使用其它的脚本支持。</p>
 <p>　　调用的构建后端工具的名称以及链接器命令行选项可使用<a href="../Development.zh-CN.html">环境变量</a>指定。此外，若环境变量 <code>SHBuild_CFLAGS</code> 和 <code>SHBuild_CXXFLAGS</code> 被定义为非空值，调用 C 和 C++ 编译器命令行时，变量的值会先于生成的命令选项以及上述命令行选项被传递。关于支持的环境变量，详见运行 <code>SHBuild</code> 的说明。</p>
 <p>　　调用的后端命令行的不同的命令行选项之间应确保以空白符间隔。环境变量确定的选项不被检查；由 SHBuild 生成的命令行选项之间以一个空格分隔。</p>
+<p>　　使用 SHBuild 构建若得到的库文件，则按<a href="../Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主平台</a>确定添加的文件扩展名；而可执行文件总是带有 <code>.exe</code> 后缀，以避免递归扫描生成的输出文件目录和可执行文件重名导致无法生成。</p>
+<p>　　通过<a href="../Development.zh-CN.html#%E8%84%9A%E6%9C%AC">开发脚本</a>等方式部署 SHBuild 输出的文件时，可以调整安装的文件名。</p>
 <h3 id="内建规则"><a class="header" href="#内建规则">内建规则</a></h3>
 <p>　　遍历扫描目录时，不需要使用领域特定语言的外部脚本，<code>SHBuild</code> 识别名称符合特定模式串的文件。</p>
 <p>　　当前支持后缀名区分源文件。</p>
@@ -201,9 +331,9 @@
 </ul>
 <p>　　对以上文件，对应的内建 C 和 C++ 编译器规则分别被调用。其它文件不被视为源文件。</p>
 <p>　　和 <code>make</code> 类似，SHBuild 的内建规则依赖文件修改时间(mtime) 判断一个目标是否最新。</p>
-<p>　　内建规则使用的编译器和环境变量参见直接运行 <code>SHBuild</code> 的使用说明。</p>
+<p>　　内建规则使用的编译器和环境变量参见帮助消息。</p>
 <h3 id="命令模式"><a class="header" href="#命令模式">命令模式</a></h3>
-<p>　　参见运行 <code>SHBuild</code> 的说明。</p>
+<p>　　参见帮助消息。</p>
 <h2 id="构建应用程序"><a class="header" href="#构建应用程序">构建应用程序</a></h2>
 <p>　　使用 SHBuild 构建应用程序所需的环境和多阶段构建的最后一个阶段的相同。当前和自举时相同，即 stage 2 环境。</p>
 <h2 id="其它平台"><a class="header" href="#其它平台">其它平台</a></h2>
@@ -227,9 +357,11 @@
                             <a rel="prev" href="../EMPTY.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../Tools/RevisionPatcher.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -239,6 +371,7 @@
                     <a rel="prev" href="../EMPTY.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../Tools/RevisionPatcher.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -246,16 +379,25 @@
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>
