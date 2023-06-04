@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -31,7 +31,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -61,42 +61,69 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html" class="active"><strong aria-hidden="true">3.5.</strong> 运行</a></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html" class="active"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -151,9 +178,9 @@
 <li>配置满足<a href="Prerequisitions.zh-CN.html">先决条件</a>的对应平台运行环境</li>
 </ul>
 <h1 id="平台环境"><a class="header" href="#平台环境">平台环境</a></h1>
-<p>　　以下适用包含 YSLib 程序和其它程序的构建和运行环境。并非每一个程序都需要区分特定平台，一些程序的行为是平台中立的。关于 YSLib 版本库内的及安装 YSLib 部署的脚本的运行环境，另见<a href="Development.zh-CN.html">脚本运行</a>的相关说明。</p>
+<p>　　以下适用包含 YSLib 程序和其它程序的构建和运行环境。并非每一个程序都需要区分特定<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0">平台</a>，一些程序的行为是<a href="Terminology.zh-CN.html#%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%80%A7">平台中立</a>的。</p>
 <h2 id="yslib-程序"><a class="header" href="#yslib-程序">YSLib 程序</a></h2>
-<p><strong>注意</strong> 示例程序最大化地使用了 YSLib 的平台模拟特性，支持特定的<a href="Development.zh-CN.html">目标平台</a>在运行时作为<a href="Development.zh-CN.html">宿主平台</a>对另一平台的<a href="Development.zh-CN.html">平台模拟</a>，即运行的原生示例程序和被模拟平台的原生程序保持基本相同的功能效果；但并不保证所有其它 YSLib 程序同样支持。</p>
+<p><strong>注意</strong> 示例程序最大化地使用了 YSLib 的<a href="Development.zh-CN.html#%E5%B9%B3%E5%8F%B0%E6%A8%A1%E6%8B%9F">平台模拟</a>特性，支持特定的<a href="Development.zh-CN.html#%E5%B9%B3%E5%8F%B0">目标平台</a>在运行时作为<a href="Development.zh-CN.html">宿主平台</a>对另一平台的平台模拟，即运行的原生示例程序和被模拟平台的原生程序保持基本相同的功能效果；但并不保证所有其它 YSLib 程序同样支持。</p>
 <p>　　被正式支持的平台模拟列表如下：</p>
 <ul>
 <li>PC 模拟 DS</li>
@@ -166,7 +193,7 @@
 <p>　　占用的硬件资源不确定，取决于平台配置以及具体应用程序。</p>
 <p><strong>注意</strong> 特定平台可能有额外限制，详见各个平台运行时环境的说明。</p>
 <h1 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h1>
-<p>　　<a href="https://zh.wikipedia.org/zh-cn/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>是程序的实现环境（典型地，如操作系统）的运行环境提供的一种机制。程序在运行时可能访问这些环境变量，以提供不同的行为，或在程序之间、程序与外部环境之间传递信息。</p>
+<p>　　<a href="https://zh.wikipedia.org/zh-cn/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>是程序的实现环境（典型地，如操作系统）的运行<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">环境</a>提供的一种机制。程序在运行时可能访问这些环境变量，以提供不同的行为，或在程序之间、程序与外部环境之间传递信息。</p>
 <p><strong>注释</strong> 非宿主实现的平台可能不支持环境变量。本项目的程序在这些平台上不使用环境变量。</p>
 <p>　　没有依赖这些具体应用或其提供的实现环境时，如有可能，应当避免使用依赖这些具体的使用方式。</p>
 <p>　　一些情形程序通过判断特定的环境变量配置功能。特别地，设置特定的环境变量为非空值可能启用功能。</p>
@@ -181,8 +208,9 @@
 <li>环境变量可被设置为空值。具有空值的环境变量可能会或不会被视为没有被设置（或被取消设置）的环境变量。
 <ul>
 <li>例如，设置 Windows 的某个环境变量为空值，效果即删除环境变量。其它大部分实现环境中，设置环境变量为空值，环境变量不被删除。</li>
-<li>一些环境可能指定不同的行为，如<a href="https://www.msys2.org/news/#2022-09-24-changed-behavior-for-empty-env-vars">较新版本的 MSYS2 支持配置 <code>MSYS=noemptyenvvalues</code> </a> 。</li>
-<li>因此，不直接判断环境变量被设置，而判断环境变量是否为空值。</li>
+<li>一些环境可能指定不同的行为，如<a href="https://www.msys2.org/news/#2022-09-24-changed-behavior-for-empty-env-vars">较新版本的 MSYS2 支持配置 <code>MSYS=noemptyenvvalues</code></a> 。</li>
+<li>特定的实现被设置的环境变量具有空值，如 <a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_environment_variables">PowerShell</a> 。</li>
+<li>为避免这些不同实现的复杂性，不直接判断环境变量被设置，而访问环境变量并检查是否为空值。未设置的环境变量被视为具有空值。</li>
 </ul>
 </li>
 <li>环境变量名可能具有不同的限制。
@@ -199,17 +227,142 @@
 </li>
 <li>以下<em>周知的(well-known)</em> 环境变量因在各个被本项目支持的宿主实现平台普遍可用，而可被直接使用，但使用方式并非完全相同：
 <ul>
+<li><strong>原理</strong> 以下约定简化可移植的使用。</li>
 <li><a href="https://zh.wikipedia.org/zh-cn/PATH_%28%E5%8F%98%E9%87%8F%29"><code>PATH</code></a> 表示程序中执行（外部程序提供的）命令使用的搜索路径。
 <ul>
 <li>对 Windows ，另见 <a href="https://learn.microsoft.com/windows-server/administration/windows-commands/path"><code>path</code> 命令</a>（其中使用 <code>%PATH%</code> 引用环境变量 <code>PATH</code> ）。</li>
 <li>另见 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_09_01_01">POSIX</a> 的规定。</li>
 <li><code>PATH</code> 的值可支持多个路径名称，其中分隔符不一定相同，如 Windows 使用 <code>;</code> ，而 POSIX 使用 <code>:</code> 。</li>
+<li>Windows 可能直接提供 <code>Path</code> 环境变量，而在 <code>cmd.exe</code> 中仍然被识别为 <code>PATH</code> 。此时，使用 <code>PATH</code> 。</li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/COMSPEC">环境变量 <code>COMSPEC</code> 或 <code>ComSpec</code> (en-US)</a> 指定命令解释器。
+<ul>
+<li>Windows 可能直接提供 <code>ComSpec</code> 环境变量，而在 <code>cmd.exe</code> 中仍然被识别为 <code>COMSPEC</code> 。此时，使用 <code>COMSPEC</code> 。</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <p>　　除非需要依赖具体实现环境或另行指定，本项目中提供的环境变量应当避免上述依赖差异。</p>
+<h2 id="应用程序变量"><a class="header" href="#应用程序变量">应用程序变量</a></h2>
+<p>　　应用程序继承环境，可能根据环境变量指定不同的行为。</p>
+<p>　　除非另行指定，以下环境变量若被本项目提供的程序支持，则具有一致的含义：</p>
+<ul>
+<li><code>NO_COLOR</code> ：若这个环境变量被设置为非空值，宿主实现环境忽略终端支持的彩色和其它视觉效果格式（如下划线）特性。
+<ul>
+<li><strong>注释</strong> <code>NO_COLOR</code> 的检查符合 <a href="https://no-color.org/">no-color.org</a> 的约定。</li>
+<li><strong>注释</strong> 一些命令解释环境的实现直接支持 <code>NO_COLOR</code> ，如 <a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_environment_variables">PowerShell</a>。</li>
+</ul>
+</li>
+</ul>
+<p>　　除标准库和系统配置外，YFramework 可使用特定的环境变量改变运行时行为，参见 YSLib 项目文档 <code>doc/YFramework.txt</code> 。</p>
+<p>　　除非另行指定，程序可假定以上环境变量不变，即仅在程序初始化时检查一次。</p>
+<p>　　提供给程序的环境变量可能被命令行工具的选项覆盖，如 <a href="Tools/SHBuild.zh-CN.html#%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F">SHBuild 构建模式</a>中指定变量定义的选项 。</p>
+<h1 id="多任务环境"><a class="header" href="#多任务环境">多任务环境</a></h1>
+<p>　　以下执行其它程序的约定在以下情形适用：</p>
+<ul>
+<li>通过用户界面运行 YSLib 程序。</li>
+<li>以上方式间接运行的其它程序。
+<ul>
+<li><strong>注释</strong> 例如，在程序中调用<a href="Development.zh-CN.html#%E8%84%9A%E6%9C%AC">脚本</a>，或者程序使用基于 <code>std::system</code> 等本机 <a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">API</a> 实现的互操作。YSLib 安装程序可能间接调用其它程序。</li>
+</ul>
+</li>
+</ul>
+<p>　　除非另行指定，通过 YSLib 安装程序调用的程序或者依赖 YSLib 的命令行程序假定以下的外部环境和交互方式：</p>
+<ul>
+<li>非<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主环境</a>：执行其它程序的<em>宿主(host)</em> 未指定。
+<ul>
+<li>被视为默认不支持外部程序。</li>
+<li><strong>注释</strong> 程序使用 <code>std::system</code> 等实现定义的行为可能导致非预期但可被定义的结果。</li>
+</ul>
+</li>
+<li>宿主环境：
+<ul>
+<li>以被执行的当前程序或脚本解释器作为执行其它程序的宿主。
+<ul>
+<li><strong>注释</strong> 一般由操作系统在用户空间规范提供约定，且系统的安装提供完整的环境。例如，Windows 提供 <code>cmd.exe</code> 作为命令行解释器，而 UNIX 系统提供 shell 程序解释 shell 语言命令和脚本。</li>
+</ul>
+</li>
+<li>以宿主定义的规则解析命令行参数。
+<ul>
+<li>Windows ：命令行<a href="https://daviddeley.com/autohotkey/parameters/parameters.htm#WINPASS">由程序实现指定</a>。对未指定宿主程序的情形，视为和 <code>cmd.exe</code> 一致。
+<ul>
+<li><strong>注释</strong> Windows 可通过 shell 程序传递命令，这<em>不是</em>默认假定的环境。</li>
+<li>Windows ：对引号的解析，兼容<a href="https://daviddeley.com/autohotkey/parameters/parameters.htm#WINCRULESDOC">未被文档指定的新规则</a>，即仅在引号有效地块中 <code>&quot;&quot;</code> 转义未 <code>&quot;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>的约定。</li>
+<li>若<a href="https://pubs.opengroup.org/onlinepubs/9699919799/xrat/V4_xbd_chap08.html#tag_21_08_03_03">环境变量 <code>SHELL</code></a> 被设置，则：
+<ul>
+<li>假定被正确设置至支持的 shell 程序的路径。</li>
+<li>假定 <a href="https://pubs.opengroup.org/onlinepubs/009695299/utilities/contents.html">POSIX.1-2004 环境的命令</a>可用。</li>
+<li><strong>注释</strong> 在 shell 环境内部通常不需要检查。可能使用其它 POSIX 兼容 shell 兼容 POSIX shell 或 GNU bash 的运行环境。</li>
+</ul>
+</li>
+<li>非 Windows 宿主平台：使用 POSIX shell 或 GNU bash 作为执行环境的 shell 。</li>
+<li>Windows ：使用随系统分发的 <code>cmd.exe</code> 作为命令行解释器。
+<ul>
+<li>不显式依赖<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量 <code>COMSPEC</code> 或 <code>ComSpec</code></a>。</li>
+<li>对使用 <a href="https://www.msys2.org/">MSYS2</a> 或与之兼容的环境，使用<a href="https://www.msys2.org/docs/environments/">环境变量 <code>MSYSTEM</code></a> 指定活动的环境和子系统。</li>
+</ul>
+</li>
+<li>不要求支持嵌套不同的命令行环境最终重入到非 POSIX 兼容 shell 的情形。
+<ul>
+<li><strong>注释</strong> 若 <code>SHELL</code> 被设置为非空值，即视当前 shell 是 POSIX 兼容 shell 。</li>
+<li><strong>原理</strong> 被继承的环境变量检查可能嵌套的命令行环境不可靠。可靠检查通常依赖进程间通信确定当前的程序，为减少复杂性，不被要求。</li>
+</ul>
+</li>
+<li>以上环境变量在相关规范定义明确允许的情形以外，可被程序假定不被修改。</li>
+<li>运行其它程序时，不检查或隔离外部环境。
+<ul>
+<li><strong>警告</strong> 尽管 YSLib 项目提供的程序的大部分实现会避免明显的安全性问题，任何可能执行第三方程序仍然可能有潜在的安全性风险。因此，在完全审计环境并确保外部环境可信之前，<strong>不建议使用特权运行包括 YSLib 安装脚本内的这些程序</strong>。
+<ul>
+<li><strong>注释</strong> 利用方式如拦截在程序中已知会调用的外部命令（包括命令解释器），以及使用环境变量 <code>IFS</code> 等特定外部命令的机制注入。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用包含带有 Windows 环境变量展开语法（以 <code>%</code> 起始和结尾）的参数未指定。
+<ul>
+<li><strong>原理</strong> Windows 命令行解释器脚本可使用 <code>%%</code> 转义，但这对交互式命令行环境的调用不适用。因此，包含这种形式的参数可因是否使用 Windows 命令行解释器表现不同的行为。</li>
+<li><strong>注释</strong> <a href="Development.zh-CN.html#npla1-%E8%84%9A%E6%9C%AC">NPLA1 脚本</a>可调用依赖 Windows 命令行解释器执行的命令。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>原理</strong> POSIX shell 和 <code>cmd.exe</code> 是平台默认分发的应用，通过<a href="Terminology.zh-CN.html#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">构建平台或宿主平台</a>直接区分是可行的。
+<ul>
+<li>同时，一些语法兼容，使有些命令不需要区分两者。即便在一些基本语法上（如重定向错误流）不完全兼容，默认仍然可以通过特定的环境区分两者。</li>
+<li>环境变量 <code>SHELL</code> 在不同实现的支持情形不同，不适合提供统一的假定：
+<ul>
+<li>环境变量 <code>SHELL</code> 在 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/mindex.html">POSIX.1-2017</a> 的 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08">基本定义中出现</a>，而其含义决定若这个环境变量被定义，其值非空。<a href="https://pubs.opengroup.org/onlinepubs/9699919799/xrat/V4_xbd_chap08.html#tag_21_08_03_03">相关原理</a>解释了 <code>SHELL</code> 具有可被系统配置为非 POSIX shell 的含义。</li>
+<li>环境变量 <code>SHELL</code> 不是<a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_05_03">被定义的 shell 执行环境</a>的一部分，不被要求影响 shell 的执行，但仍能判断系统配置。</li>
+<li>环境变量 <code>SHELL</code> 的值通常被初始化环境的启动程序（如传统的 <code>login</code>，仍被 <a href="https://www.unix.com/man-page/posix/1/login/">BSD</a> 和 <a href="https://man7.org/linux/man-pages/man1/login.1.html">Linux</a> 等使用）设置。</li>
+<li>GNU bash <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-SHELL">确保启动时 <code>SHELL</code> 的值被设置</a>。</li>
+<li>其它兼容 POSIX shell 可使用环境变量 <code>SHELL</code> 执行命令，但通常不设置它的值（如 <a href="https://www.ibm.com/docs/aix/7.1?topic=shell-variables-used-by-korn-posix">Korn shell</a>）。</li>
+</ul>
+</li>
+<li>环境变量 <code>COMSPEC</code> 和 <code>ComSpec</code> 缺乏标准化，且会被继承。
+<ul>
+<li>这通常仅用于判断在 Windows 同时使用兼容 POSIX shell 环境。</li>
+<li>Windows 可能使用嵌套的兼容 POSIX 的 shell 而同时继承 <code>COMSPEC</code> 且被设置 <code>SHELL</code> 的情形。</li>
+<li>为避免复杂性，一般避免单独检查这些环境变量。</li>
+<li>C 运行时实现使用 <a href="https://learn.microsoft.com/cpp/c-runtime-library/reference/system-wsystem"><code>std::system</code> 和 <code>::_wsystem</code></a> 实际可能总是依赖 <code>COMSPEC</code> 和 <code>cmd.exe</code> ，因此成功互操作时已经隐含依赖了这项运行时配置。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>注释</strong> <a href="https://learn.microsoft.com/powershell/">PowerShell</a> 、<a href="https://github.com/PowerShell/PowerShell">PowerShell Core</a> 或 <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pwsh"><code>pwsh</code></a> 默认不被支持。
+<ul>
+<li><strong>原理</strong> PowerShell 和上述命令行解释器支持的语法都不兼容，且不直接提供简便可靠的可移植的方式检查差异。</li>
+<li><strong>注释</strong> 可靠检查 PowerShell 通常依赖<a href="https://stackoverflow.com/questions/55597797">进程间通信</a>。</li>
+</ul>
+</li>
+</ul>
+<p>　　关于 YSLib 版本库内的及安装 YSLib 部署的脚本的运行环境，另见<a href="Development.zh-CN.html">脚本运行</a>的相关说明。</p>
 <h1 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h1>
 <p>　　为最大化可移植性，原则上 YSLib 的程序逻辑<strong>不依赖自身组件具有显式编码的具体文件路径</strong>，因此默认不要求在具体系统约定的周知(well-known) 的文件系统位置（如 <a href="https://docs.microsoft.com/zh-cn/windows/win32/dlls/dynamic-link-library-search-order">Windows DLL 搜索路径</a>中的目录和 <a href="https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86">FHS</a> 定义的目录）部署。但具体平台配置可以自行限定目录布局作为默认运行时环境，如 <a href="Sysroot.zh-CN.html">Sysroot</a> 。其中外部文件可有默认路径，参见以下相关章节。</p>
 <p>　　YSLib 中的库使用的文件系统路径具有以下约束：</p>
@@ -289,7 +442,7 @@
 <p>　　文件 <code>yconf.txt</code> 为 YFramework 程序的公共<a href="Tutorial/Configuration.zh-CN.html">配置</a>文件，在框架初始化时，先于其它配置文件之前处理。若不存在，提供默认内容。其位置是预先指定的，和平台相关。详见下一章对框架初始化的说明。</p>
 <p>　　为避免 YFramework 程序在运行时出错或行为不符合预期，注意确保满足前述访问约定的要求。若无法在程序映像文件所在目录（详见以下关于框架初始化的说明）创建文件，配置不能保存到外部文件。</p>
 <p>　　在 Win32 上一个正确的公共配置文件的内容可能是这样的：</p>
-<pre><code>YFramework
+<pre><code class="language-yconf.txt">YFramework
 (
 	DataDirectory &quot;C:\Data\\&quot;
 )
@@ -306,9 +459,9 @@
 <p>　　通过 <code>yconf.txt</code> 中项 <code>DataDirectory</code> 的值指定数据目录的路径。</p>
 <p>　　自动生成的配置中数据目录的默认路径如下：</p>
 <ul>
-<li>DS ： <code>/Data</code> 目录</li>
+<li>DS ：<code>/Data</code> 目录</li>
 <li>Win32 ：同默认生成配置文件所在的目录</li>
-<li>Android ： SD 卡目录（自动检测同上）下的 <code>Data</code> 目录</li>
+<li>Android ：SD 卡目录（自动检测同上）下的 <code>Data</code> 目录</li>
 <li>其它平台：当前工作目录</li>
 </ul>
 <p>　　当前可用数据文件位于 YSLib 存储库的 <code>Data</code> 目录下，可自行复制到数据目录。</p>
@@ -320,7 +473,7 @@
 <li><strong>注意</strong> 并非所有 Windows 安装带有指定的 NLS 文件。
 <ul>
 <li>具体支持的 NLS 文件名由注册表读取。这些文件在系统目录（<code>%WINDIR%\System32</code> 或 <code>%WINDIR%\SysWOW64</code>）存在。这些目录中是否存在注册表中指定文件的 NLS 文件首先和系统支持的语言相关。</li>
-<li>新近版本的 64 位 Windows 10 可能在 <code>%WINDIR%\System32\C_936.NLS</code> 但不存在 <code>%WINDIR%\SysWOW64\C_936.NLS</code> 。由于 64 位 Windows 默认<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa384187.aspx">对系统目录重定向</a>，导致 32 位系统中直接读取系统目录找不到 NLS 文件。在 build 937 前，YFramework 初始化加载 NLS 文件时不特别处理这种情况，因此 NLS 不可用。</li>
+<li>新近版本的 64 位 Windows 10 可能在 <code>%WINDIR%\System32\C_936.NLS</code> 但不存在 <code>%WINDIR%\SysWOW64\C_936.NLS</code> 。由于 64 位 Windows 默认<a href="https://msdn.microsoft.com/library/windows/desktop/aa384187.aspx">对系统目录重定向</a>，导致 32 位系统中直接读取系统目录找不到 NLS 文件。在 build 937 前，YFramework 初始化加载 NLS 文件时不特别处理这种情况，因此 NLS 不可用。</li>
 </ul>
 </li>
 <li>若 Win32 NLS 初始化仍然失败，则 CHRLib 初始化 GBK 转换例程失败。</li>
@@ -333,15 +486,15 @@
 <p>　　只要其中之一有效即可（若没有成功指定字体文件路径，则默认字体文件路径不确定）。</p>
 <p>　　自动生成的配置中字体文件的默认路径如下：</p>
 <ul>
-<li>DS ： <code>/Font/FZYTK.ttf</code></li>
+<li>DS ：<code>/Font/FZYTK.ttf</code></li>
 <li>Win32 ：系统字体目录下的 <code>SimSun.ttc</code></li>
-<li>Android ： <code>/system/fonts/DroidSansFallback.ttf</code></li>
-<li>Linux ： <code>./SimSun.ttc</code></li>
+<li>Android ：<code>/system/fonts/DroidSansFallback.ttf</code></li>
+<li>Linux ：<code>./SimSun.ttc</code></li>
 </ul>
 <p>　　自动生成的配置中字体目录的默认路径如下：</p>
 <ul>
-<li>DS ： <code>/Font</code> 目录</li>
-<li>Android ： <code>/system/fonts</code> 目录</li>
+<li>DS ：<code>/Font</code> 目录</li>
+<li>Android ：<code>/system/fonts</code> 目录</li>
 <li>其它平台：同数据目录</li>
 </ul>
 <h1 id="特定平台运行环境"><a class="header" href="#特定平台运行环境">特定平台运行环境</a></h1>
@@ -355,19 +508,19 @@
 <h3 id="slot-1-映射"><a class="header" href="#slot-1-映射">Slot 1 映射</a></h3>
 <p>　　Slot 1 （即 NDS ROM 卡槽，硬件介质可以是 NDS 卡带，或烧录卡和存储卡的组合）的模拟从 DeSmuME 0.9.8 版本起支持。</p>
 <p>　　运行命令行示例：</p>
-<pre><code>&quot;$NDSEmulator&quot; &quot;$TargetPath&quot; --preload-rom --slot1-fat-dir=&quot;$FAT_Path&quot;
+<pre><code class="language-shell">&quot;$NDSEmulator&quot; &quot;$TargetPath&quot; --preload-rom --slot1-fat-dir=&quot;$FAT_Path&quot;
 </code></pre>
 <p>　　其中 <code>--preload-rom</code> 对 0.9.10 和 0.9.11 版本是必须的（以支持自动 <a href="https://wiki.gbatemp.net/wiki/DLDI">DLDI(en-US)</a> 补丁），否则加载失败。这个选项可以在模拟器（Windows 版本）的 GUI 菜单中 <code>Config</code> → <code>ROM Loading</code> 中选择。最新版本的源码会对自制 ROM 自动启用 ROM 预先加载的选项而不用另行配置，可以省略这个选项。</p>
 <h3 id="slot-2-映射"><a class="header" href="#slot-2-映射">Slot 2 映射</a></h3>
 <p>　　Slot 1 （即 GBA ROM 卡槽，硬件介质可以是 GBA 卡带或其它扩展）的模拟需要配置为使用 <code>GBA Movie Player (Compact Flash)</code> 。</p>
 <p>　　运行命令行示例：</p>
-<pre><code>&quot;$NDSEmulator&quot; &quot;$TargetPath&quot; --cflash-path=&quot;$FAT_Path&quot;
+<pre><code class="language-shell">&quot;$NDSEmulator&quot; &quot;$TargetPath&quot; --cflash-path=&quot;$FAT_Path&quot;
 </code></pre>
 <p>　　对 0.9.10 和 0.9.11 版本，需同 Slot 1 映射添加 <code>--preload-rom</code> 或使用菜单设置加载选项，否则同样无法加载（尽管源码中表示 <code>--preload-rom</code> 是适用 Slot 1 而不是 Slot 2 的选项）。</p>
 <p>　　这个选项也可以通过 GUI 配置。在 0.9.9 版本前，使用菜单 <code>Emulation</code> → <code>GBA Slot</code> 。自 0.9.9 版本起，使用菜单 <code>Config</code> → <code>Slot 2 (GBA Slot)</code> 。</p>
 <p><strong>注意</strong> DeSmuME svn4030 及之后的一些版本（至少包括 0.9.8 ）会在载入 MPCF 映像时错误地忽略 <code>--cflash-path</code> 选项，以 仿真(Emulation) → GBA 插槽(GBA Slot) 菜单中的设置或对应配置文件 <code>desmume.ini</code> 中指定正确的路径。</p>
 <p>　　在 <code>desmume.ini</code> 中有效的最小配置：</p>
-<pre><code>[GBAslot]
+<pre><code class="language-ini">[GBAslot]
 type=1
 [GBAslot.CFlash]
 fileMode=0
@@ -380,7 +533,7 @@ path=H:\NDS\efsroot\
 <p>　　除 2005 年前生产的硬件外绝大多数环境已经满足这个条件。当前几乎所有兼容 IA-32 的市售 CPU 都包含 SSE2 支持。特别地，支持 x86_64 指令集的 CPU 要求支持 SSE2 ，在使用 x86_64 的 64 位 Windows 上运行 32 位 Win32 程序（通过 <a href="https://zh.wikipedia.org/zh-cn/WoW64">WoW64</a> ）也支持 SSE2 。</p>
 <h2 id="android"><a class="header" href="#android">Android</a></h2>
 <p>　　可使用 <code>adb</code> 命令安装 APK 包，如：</p>
-<pre><code>&quot;$ANDROID_SDK/platform-tools/adb&quot; -e install -r &quot;$1&quot;
+<pre><code class="language-shell">&quot;$ANDROID_SDK/platform-tools/adb&quot; -e install -r &quot;$1&quot;
 </code></pre>
 <p>　　此处 <code>-e</code> 指定 TCP/IP 设备（通常是模拟器），若使用 USB 设备（通常是物理机器）应移除或使用较新的 <code>adb</code> 的 <code>-d</code> 选项代替；<code>&quot;$1&quot;</code> 指定 APK 文件路径。</p>
 <p>　　之后，在 Android 的 GUI 环境下直接运行安装的程序。</p>
@@ -421,13 +574,13 @@ path=H:\NDS\efsroot\
 <li>Linux（除 Android ）：
 <ul>
 <li>首先使用首选的配置路径。</li>
-<li>若环境变量 <code>HOME</code> 非空，则路径 <code>$HOME/.YSLib/</code> 是后备配置路径。</li>
+<li>若环境变量 <code>HOME</code> 的值非空，则路径 <code>$HOME/.YSLib/</code> 是后备配置路径。</li>
 </ul>
 </li>
-<li>Win32 ：在 Linux 的基础上：若 <code>$HOME</code> 非空，则路径 <code>$HOME/.YSLib/</code> 是后备配置路径。
+<li>Win32 ：
 <ul>
-<li>同 Linux 平台的使用顺序（对应使用 Win32 的环境变量和路径语法，即备份路径 <code>%HOME%\.YSLib\</code> ）。</li>
-<li>若环境变量 <code>USERPROFILE</code> 非空，则路径 <code>%USERPROFILE%\.YSLib\</code> 是后备配置路径。</li>
+<li>同 Linux 平台的顺序（对应使用 Win32 的环境变量和路径语法，即后备配置路径 <code>%HOME%\.YSLib\</code> ）。</li>
+<li>若环境变量 <code>USERPROFILE</code> 的值非空，则路径 <code>%USERPROFILE%\.YSLib\</code> 是后备配置路径。</li>
 </ul>
 </li>
 </ul>
@@ -462,7 +615,7 @@ path=H:\NDS\efsroot\
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="Features.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="DeSmuME.en-US.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -476,7 +629,7 @@ path=H:\NDS\efsroot\
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="Features.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="DeSmuME.en-US.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

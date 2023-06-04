@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -31,7 +31,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -61,42 +61,69 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html" class="active"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html" class="active"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -159,7 +186,7 @@
 <li>Issue delegated in <a href="https://github.com/cplusplus/draft/issues/61">GitHub issue 61</a>.</li>
 </ul>
 </li>
-<li><a href="http://wg21.cmeerw.net/lwg/issue2240">LWG 2240</a>: Probable misuse of term &quot;function scope&quot; in [thread.condition] (resolved)
+<li><a href="http://wg21.cmeerw.net/lwg/issue2240">LWG 2240</a>: Probable misuse of term &quot;function scope&quot; in <a href="https://eel.is/c++draft/thread.condition">[thread.condition]</a> (resolved)
 <ul>
 <li>Original thread posted in <a href="https://groups.google.com/a/isocpp.org/forum/#!topic/std-discussion/JpQVT-pwP9E">std-discussion</a>.</li>
 <li>Issue delegated in <a href="https://github.com/cplusplus/draft/issues/57">GitHub issue 57</a>.</li>
@@ -173,7 +200,7 @@
 <li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53872">PR 53872</a>: [C++11] ADL bug in <code>std::thread</code> (RESOLVED FIXED 4.7.2)</li>
 <li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53873">PR 53873</a>: [C++11] strange error message for template overloading (RESOLVED DUPLICATE of <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53862">bug 53862</a>)
 <ul>
-<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53862">PR 53862</a>[4.6/4.7 regression] [C++11] sorry, unimplemented: use of 'type_pack_expansion' in template (RESOLVED FIXED 4.7.1)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53862">PR 53862</a>: [4.6/4.7 regression] [C++11] sorry, unimplemented: use of 'type_pack_expansion' in template (RESOLVED FIXED 4.7.1)</li>
 </ul>
 </li>
 <li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=54216">PR 54216</a>: Missing diagnostic for ill-formed anonymous enum declarations (RESOLVED FIXED 4.9.0)</li>
@@ -212,38 +239,48 @@
 <li>This was worked arounded in YSLib source, before 6.0 is actually depended on.</li>
 </ul>
 </li>
-<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67795">PR 67795</a>: Wrong code generated for conditional expression with cast (NEW)
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67795">PR 67795</a>: Wrong code generated for conditional expression with cast (WAITING)
 <ul>
-<li>This still blocks some code.</li>
+<li>Given that it is not confirmed fixed, this may still block some code.</li>
 </ul>
 </li>
 <li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70480">PR 70480</a>: Reduce RTTI code bloat for specified types (NEW)
 <ul>
-<li>For DS platform, YSLib uses <code>ystdex::type_id</code> instead <code>typeid</code> to worked around.</li>
+<li>For the DS platform, YSLib uses <code>ystdex::type_id</code> instead <code>typeid</code> to work around.</li>
 </ul>
 </li>
-<li><a href="https://bitbucket.org/FrankHB/yslib/issues/30/b699-mingw32-some-error-constants">YSLib issue 30</a> 
+<li><a href="https://bitbucket.org/FrankHB/yslib/issues/30/b699-mingw32-some-error-constants">YSLib issue 30</a>
 <ul>
-<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=71444">PR 71444</a>: Error constants for MinGW-w64 (RESOLVED FIXED 5.5, 6.4 and 7.1)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=71444">PR 71444</a>: Error constants for MinGW-w64 (RESOLVED FIXED 5.5 6.4 7.1)</li>
 <li>This was worked around in YSLib source and fixed since G++ 7.1.</li>
 </ul>
 </li>
-<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86734">PR 86734</a>: [DR 2188] <code>reverse_iterator::operator-&gt;</code> does not support overloaded <code>operator&amp;</code> (RESOLVED FIXED 7.4 8.3)
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86734">PR 86734</a>: [<a href="https://wg21.cmeerw.net/lwg/issue2188">DR 2188</a>] <code>reverse_iterator::operator-&gt;</code> does not support overloaded <code>operator&amp;</code> (RESOLVED FIXED 7.4 8.3)
 <ul>
 <li>See upstream <a href="https://wg21.cmeerw.net/lwg/issue2188">LWG 2188</a>.</li>
-<li>This is conditionally avoided by replacement <code>ystdex::reverse_iterator</code>.</li>
+<li>This is conditionally avoided by <a href="StandardUsing.en-US.html">the YBase replacement</a> <code>ystdex::reverse_iterator</code>.</li>
 </ul>
 </li>
-<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90966">PR 90966</a>: [9/10 Regression] ICE in tsubst_copy, at cp/pt.c:16155 (RESOLVED FIXED 9.3 and 10)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90966">PR 90966</a>: [9/10 Regression] ICE in <code>tsubst_copy</code>, at <code>cp/pt.c</code>:16155 (RESOLVED FIXED 9.3 and 10)</li>
 <li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91127">PR 91127</a>: Incorrect checking of nonnull attribute with argument to a constructor of class with a virtual base (NEW)</li>
 <li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91480">PR 91480</a>: Nonconforming definitions of standard library feature-test macros (NEW)</li>
 <li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91531">PR 91531</a>: <code>_Rb_tree</code>'s copy assignment should respect to POCCA regardless of <code>is_always_equal</code> (NEW)</li>
-<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91541">PR 91541</a>: [C++17] Exception specification of <code>operator=</code> of node-based containers may be broken (RESOLVED WONTFIX)</li>
-<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91620">PR 91620</a>: <code>std::[forward_]list::remove_if/unique</code> should respect to <a href="https://wg21.cmeerw.net/lwg/issue526">DR 526</a> (ASSIGNED)</li>
-<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=93470">PR 93470</a>: [C++2a] [9 Regression] [C++2a] <code>std::reference_wrapper</code> to function type is broken with Clang (RESOLVED FIXED 9.3)</li>
-<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=94602">PR 94602</a>: wrong semantic check to prvalue as decltype operand (UNCONFIRMED)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91541">PR 91541</a>: [C++17] Exception specification of <code>operator=</code> of node-based containers may be broken (RESOLVED WONTFIX)
+<ul>
+<li>Actually it is then fixed.</li>
 </ul>
-<h3 id="llvmclang-bugzilla"><a class="header" href="#llvmclang-bugzilla">LLVM/Clang (<a href="https://llvm.org/bugs/">Bugzilla</a>)</a></h3>
+</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91620">PR 91620</a>: <code>std::[forward_]list::remove_if/unique</code> should respect to <a href="https://wg21.cmeerw.net/lwg/issue526">DR 526</a> (RESOLVED FIXED 11.0)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=93470">PR 93470</a>: [C++2a] [9 Regression] [C++2a] <code>std::reference_wrapper</code> to function type is broken with Clang (RESOLVED FIXED 9.3)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=94602">PR 94602</a>: wrong semantic check to prvalue as <code>decltype</code> operand (UNCONFIRMED)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=97362">PR 97362</a>: <code>__deref</code> in <code>&lt;functional&gt;</code> in debug mode clashes with internal macro in Windows system header (RESOLVED FIXED 8.5 9.4 10.3 11.0)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100472">PR 100472</a>: [C++17] Wrong template non-type argument handling on function reference to <code>noexcept</code> functions (RESOLVED DUPLICATE of <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=97420">bug 97420</a>)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100682">PR 100682</a>: Outdated manual about the debug mode using (RESOLVED FIXED 11.3 12.0)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=104191">PR 104191</a>: Incorrect <code>max_size()</code> for node-based containers (NEW)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=107189">PR 107189</a>: Inconsistent range insertion implementations in <code>std::_Rb_tree</code> in <code>&lt;bits/stl_tree.h&gt;</code> (RESOLVED FIXED 13.0)</li>
+<li><a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=108771">PR 108771</a>: Incorrect <code>noexcept</code> for merging in <code>&lt;bits/stl_tree.h&gt;</code> (UNCONFIRMED)</li>
+</ul>
+<h3 id="llvmclang-bugzilla-and-github-issues"><a class="header" href="#llvmclang-bugzilla-and-github-issues">LLVM/Clang (<a href="https://llvm.org/bugs/">Bugzilla</a> and <a href="https://github.com/llvm/llvm-project/issues">GitHub issues</a>)</a></h3>
 <ul>
 <li><a href="https://llvm.org/bugs/show_bug.cgi?id=25306">PR 25306</a>: <code>__attribute__((returns_nonnull))</code> does not work for <code>std::add_pointer_t&lt;T&gt;</code> (NEW)</li>
 <li><a href="https://llvm.org/bugs/show_bug.cgi?id=27504">PR 27504</a>: Inherited constructor with dependent base class introduced by a <em>typedef-name</em> may not work (NEW)</li>
@@ -254,11 +291,12 @@
 </ul>
 </li>
 <li><a href="https://bugs.llvm.org/show_bug.cgi?id=43275">PR 43275</a>: Pure attribute and C++ exceptions (NEW)</li>
-<li><a href="https://bugs.llvm.org/show_bug.cgi?id=45542">PR 45542</a>: wrong semantic check to prvalue as decltype operand (NEW)</li>
+<li><a href="https://bugs.llvm.org/show_bug.cgi?id=45542">PR 45542</a>: wrong semantic check to prvalue as <code>decltype</code> operand (NEW)</li>
+<li><a href="https://github.com/llvm/llvm-project/issues/60622">issue 60622</a> (NEW)</li>
 </ul>
 <h3 id="microsoft-visual-c"><a class="header" href="#microsoft-visual-c">Microsoft Visual C++</a></h3>
 <p>New issues are now reported to <a href="https://developercommunity.visualstudio.com/">Microsoft Visual Studio Developer Community</a>.</p>
-<p>As [Microsoft Connect](<a href="https://connect.microsoft.com/">Microsoft Connect</a>) is down now, any status would not be updated. Note some posts have been inaccessible even before the service stopped.</p>
+<p>As <a href="https://connect.microsoft.com/">Microsoft Connect</a> is down now, any status would not be updated. Note some posts have been inaccessible even before the service stopped.</p>
 <ul>
 <li><a href="https://connect.microsoft.com/VisualStudio/feedback/details/1641428">Microsoft Connect issue 1641428</a>: Wrong Win32 error to <code>errno</code> mapping (ACTIVE)
 <ul>
@@ -298,11 +336,17 @@
 <li><a href="https://developercommunity.visualstudio.com/content/problem/431904/vc-2017-stdswap-is-not-conforming.html">problem 431904</a> (Closed - Fixed)(Fixed In: Visual Studio 2019 version 16.1)(Fixed In: Visual Studio 2019 version 16.1 Preview 2)(Fixed In: Visual Studio 2019 version 16.1 Preview 1)</li>
 </ul>
 </li>
-<li><a href="https://bitbucket.org/FrankHB/yslib/issues/39">YSLib issue 39</a>: [Win32] Microsoft VC++ 2017 rejects dependent noexcept-specifier in template partial specializations 
+<li><a href="https://bitbucket.org/FrankHB/yslib/issues/39">YSLib issue 39</a>: [Win32] Microsoft VC++ 2017 rejects dependent noexcept-specifier in template partial specializations
 <ul>
-<li><a href="https://developercommunity.visualstudio.com/content/problem/441268/vc-2017-rejects-dependent-noexcept-specifier-in-te.html">problem 441268</a> (Under Consideration)</li>
+<li><a href="https://developercommunity.visualstudio.com/t/vc-2017-rejects-dependent-noexcept-specifier-in-te/441268">problem 441268</a> (Closed - Not a bug)
+<ul>
+<li>According to <a href="https://developercommunity.visualstudio.com/t/vc-2017-rejects-dependent-noexcept-specifier-in-te/441268#T-N873330">this reply</a>, it is a defect of ISO C++, see <a href="https://wg21.cmeerw.net/cwg/issue2355">CWG 2355</a>. However, the wrong compilation error C2057 has been fixed.</li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="https://github.com/microsoft/STL/issues/2093">microsoft/STL issue 2093</a>: <code>fiopen</code> handling of non-standard flags (Open)</li>
+<li><a href="https://github.com/microsoft/STL/issues/2093">microsoft/STL issue 2609</a>: <code>&lt;memory_resource&gt;</code>: Conformance issues on <code>monotonic_buffer_resource::do_allocate</code> (Open)</li>
 </ul>
 <h2 id="other-projects"><a class="header" href="#other-projects">Other projects</a></h2>
 <p>As complement, some issues are related to other tools used by the project or referenced in documentation of this project, which may loosely concern with issues listed above.</p>
@@ -313,7 +357,7 @@
 <h3 id="devkitpro"><a class="header" href="#devkitpro">devkitPro</a></h3>
 <h4 id="libfat"><a class="header" href="#libfat">libfat</a></h4>
 <ul>
-<li><a href="https://github.com/devkitPro/libfat/pull/1">pull request 1</a>: Removed redundant check (Merged)</li>
+<li><a href="https://github.com/devkitPro/libfat/pull/1">pull request 1</a>: Removed redundant check (<a href="https://github.com/devkitPro/libfat/commit/1e1e9a23ddc4fce1cf5f956fc94cffc9d3569c20">Merged</a>)</li>
 <li><a href="https://github.com/devkitPro/libfat/issues/2">issue 2</a>: Wrong root sectors count determined for FAT12 and FAT16? (Open)</li>
 <li><a href="https://github.com/devkitPro/libfat/issues/3">issue 3</a>: Redundant function calls (Open)</li>
 <li><a href="https://github.com/devkitPro/libfat/issues/4">issue 4</a>: <code>_FAT_directory_entryFromPosition</code> issues (Open)</li>
@@ -321,21 +365,28 @@
 <li><a href="https://github.com/devkitPro/libfat/issues/6">issue 6</a>: <code>ENOTDIR</code> vs <code>ENOENT</code> for invalid path prefix (Open)</li>
 <li><a href="https://github.com/devkitPro/libfat/issues/7">issue 7</a>: Pathname with or without trailing slashes for directories (Open)</li>
 <li><a href="https://github.com/devkitPro/libfat/issues/10">issue 10</a>: Setting <code>errno</code> when removing a non-empty directory (Open)</li>
+<li><a href="https://github.com/devkitPro/libfat/issues/19">issue 19</a>: Uninitialized <code>timespec</code> fields in <code>stat</code> (Open)</li>
 </ul>
 <h4 id="libnds"><a class="header" href="#libnds">libnds</a></h4>
 <ul>
 <li><a href="https://github.com/devkitPro/libnds/issues/3">issue 3</a>: Compiler warnings (Closed)</li>
 <li><a href="https://github.com/devkitPro/libnds/issues/4">issue 4</a>: About <code>std::chrono</code> clocks (Closed)</li>
-<li><a href="https://github.com/devkitPro/libnds/pull/30">pull request 30</a>: Removed redundant code. (Merged)</li>
-<li><a href="https://github.com/devkitPro/libnds/pull/33">pull request 33</a>: Fixed redundant qualifier (Merged)</li>
+<li><a href="https://github.com/devkitPro/libnds/pull/30">pull request 30</a>: Removed redundant code. (<a href="https://github.com/devkitPro/libnds/commit/aaf79c49fa8a8dfb18b8fb53da72dd0fc7f622a5">Merged</a>)</li>
+<li><a href="https://github.com/devkitPro/libnds/pull/33">pull request 33</a>: Fixed redundant qualifier (<a href="https://github.com/devkitPro/libnds/commit/a76bff0e943ee2f516bda5f1c7bc6d81d2af44a7">Merged</a>)</li>
 </ul>
 <h4 id="newlib"><a class="header" href="#newlib">newlib</a></h4>
 <ul>
 <li><a href="https://github.com/devkitPro/newlib/issues/5">issue 5</a>: Nonconforming return type of <code>ftell</code> (Closed FIXED)</li>
 </ul>
-<h3 id="klisp"><a class="header" href="#klisp">Klisp</a></h3>
+<h3 id="other-language-implementations"><a class="header" href="#other-language-implementations">Other language implementations</a></h3>
+<p>As <a href="https://bitbucket.org/blog/sunsetting-mercurial-support-in-bitbucket">Mercurial support of BitBucket has ended</a> now, any status of issues of Mercurial repositories would not be updated, and the links are not accessible.</p>
 <ul>
-<li><a href="https://bitbucket.org/AndresNavarro/klisp/issues/12/a-problem-of-proper-tail-call">issue 12</a>: A problem of proper tail call (NEW)</li>
+<li><a href="https://bitbucket.org/AndresNavarro/klisp/issues/12">klisp issue 12</a>: A problem of proper tail call (NEW)</li>
+<li><a href="https://github.com/shirok/Gauche/issues/805">Gauche issue 805</a>: <code>=</code> can be not transitive (Closed <a href="https://github.com/shirok/Gauche/commit/1701481673cba786d30e0b322411c0034fdcbec5">FIXED</a>)</li>
+<li><a href="https://github.com/cisco/ChezScheme/issues/606">Chez Scheme issue 606</a>: <code>=</code> can be not transitive (Closed <a href="https://github.com/ashinn/chibi-scheme/commit/82d61b3d8e50bacc266b450e21127663f3c39de5">FIXED</a>)</li>
+<li><a href="https://github.com/ashinn/chibi-scheme/issues/812">Chibi Scheme issue 812</a>: <code>=</code> can be not transitive (Closed)</li>
+<li><a href="https://github.com/makotom/glibc-wsl/issues/2">makotom/glibc-wsl issue 2</a>:  Please update (Closed <a href="https://github.com/makotom/glibc-wsl/releases/tag/2.35-2%4028-14f31b0">FIXED</a>)</li>
+<li><a href="https://github.com/archlinuxcn/repo/issues/2678">archlinuxcn/repo issue 2678</a>: glibc-linux4 is outdated (Closed <a href="https://github.com/archlinuxcn/repo/commit/abc940cde81372a433040da704c2ede5e3b90da8">FIXED</a>)</li>
 </ul>
 <h1 id="resolved-implementation-issues"><a class="header" href="#resolved-implementation-issues">Resolved implementation issues</a></h1>
 <p>Some issues were tagged BLOCKED status previously. Issues known resolved and confirmed to work would be put in this chapter.</p>
@@ -348,7 +399,7 @@
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="WikiRules.en-US.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="WikiRules.en-US.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -362,7 +413,7 @@
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="WikiRules.en-US.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="WikiRules.en-US.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

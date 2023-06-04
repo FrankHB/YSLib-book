@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -31,7 +31,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -61,42 +61,69 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html" class="active"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html" class="active"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -153,7 +180,7 @@
 <h2 id="经验语义"><a class="header" href="#经验语义">经验语义</a></h2>
 <p>　　经验语义解释的术语的含义总是假定可被实证，不需要进一步解释。</p>
 <p>　　元语言中的标记使用经验语义。标记可被本文档中已归类的章节提供。</p>
-<p>　　本文档中非形式地使用在特定理论中严格定义的、和<a href="#%E9%80%9A%E7%94%A8%E7%BA%A6%E5%AE%9A">本章</a>的条目具有逻辑上相容的含义的概念时，不进一步解释。</p>
+<p>　　本文档中非形式地使用在特定理论中严格定义的、和<a href="#%E9%80%9A%E7%94%A8%E9%A2%86%E5%9F%9F">本章</a>的条目具有逻辑上相容的含义的概念时，不进一步解释。</p>
 <h2 id="自指"><a class="header" href="#自指">自指</a></h2>
 <p>　　<a href="https://zh.wikipedia.org/wiki/%E8%87%AA%E6%8C%87"><strong>自指</strong></a>是概念定义形式上的自我指涉。</p>
 <p><strong>举例</strong> “<a href="#%E9%80%9A%E7%94%A8%E9%A2%86%E5%9F%9F">本章</a>”是关于位置的自指。</p>
@@ -191,7 +218,12 @@
 <li>不变量(invariant) ：具有不变性的实体。参见数学和契约式程序设计。</li>
 <li>状态(state) ：可以和其它实体关联的、可在某个上下文中保持变化或不变的实体。同一状态总是保持变化或保持不变。状态变化的含义参见经验语义、数学或另行指定。
 <ul>
-<li>可变状态(mutable state) ：在某个上下文中可能映射到若干其它状态的状态。</li>
+<li>可变状态(mutable state) ：在某个上下文中满足以下条件的状态：
+<ul>
+<li>可能映射到超过一个其它状态。</li>
+<li>存在对应的重新配置可变状态映射到不同的其它状态的<em>改变(mutate)</em> 操作。</li>
+</ul>
+</li>
 <li>不可变状态(immutable state) ：不是可变状态的状态。</li>
 </ul>
 </li>
@@ -275,7 +307,7 @@
 <li>语言规范(language specialization) ：包含正式的(normative) 的语言规则的集合的<a href="#%E8%87%AA%E6%8C%87">规范</a>；或称语言规格说明。</li>
 <li>语言实现(language implementation) ：语言提供的接口的实现，是语言的表现形式，可以是具体语言实现或抽象语言实现之一。
 <ul>
-<li>具体语言实现(concreate language implementation) ：能最终完全表达为可预测的物理现象一一对应的表达<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">可计算性</a>的实现（如机器指令），一般应为程序。</li>
+<li>具体语言实现(concreate language implementation) ：能最终完全表达为可预测的物理现象一一对应的表达<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">可计算性</a>的实现，一般应为程序。</li>
 <li>抽象语言实现(abstract language implementation) ：非具体语言实现的语言实现。形式意义的标准定义的语言属于此类。</li>
 </ul>
 </li>
@@ -302,10 +334,12 @@
 </ul>
 <h1 id="程序设计语言"><a class="header" href="#程序设计语言">程序设计语言</a></h1>
 <p>　　提供上下文 <em>&lt;程序设计语言&gt;</em> ，特别是语言规范的定义。</p>
-<p>　　主要用例参见存储库中的项目文档 <code>doc/NPL.txt</code> 。</p>
+<p>　　主要用例参见 <a href="Features/NPL.zh-CN.html">NPL</a> 。</p>
 <ul>
 <li>广义实体：<em>&lt;通用领域&gt;</em> 实体。语言抽象的目标，不另行定义（意义最终取决于自然语言）。</li>
-<li>名称(name) ：一种特殊的广义实体，专用于指称另一个广义实体。</li>
+<li>名称(name) ：一种特殊的可比较相等的广义实体，专用于和另一个的广义实体关联。</li>
+<li><em>&lt;动词&gt;</em> 指称(denote) ：名称对广义实体的关联动作。</li>
+<li><em>&lt;名词&gt;</em> 指称(denotation) ：被名称指称而关联的实体。</li>
 <li>实体(entity) ：非名称的广义实体。</li>
 <li>表示(representation) ：以一个符合某种形式的约束的实体指称另一个实体。</li>
 <li>符号(symbol) ：<a href="#%E8%A7%84%E8%8C%83">语言规则</a>允许的不使用其它对象表示的对象。符号可实现名称。</li>
@@ -324,12 +358,17 @@
 <li>程序(program) ：具体语言实现接受的以代码表示的输入，或被变换后对应的输出。</li>
 <li>数据(data) ：程序处理的一般信息。
 <ul>
-<li><strong>注释</strong> 通常不直接作为代码处理。</li>
+<li><strong>注释</strong> 除以下的编码外，通常不直接作为代码处理。</li>
 </ul>
 </li>
 <li>编码(encode) ：变换数据为确切格式的代码。
 <ul>
 <li><strong>注释</strong> 格式通常使用语言定义。</li>
+</ul>
+</li>
+<li><em>&lt;名词&gt;</em> 编码(encoding) ：经编码得到的结果。
+<ul>
+<li><strong>原理</strong> 相对被编码的数据，因可预测格式，这可能更容易处理。因此，同时可能被视为数据。</li>
 </ul>
 </li>
 <li>解码(decode) ：变换确切格式的代码为数据。
@@ -419,9 +458,50 @@
 <li>内部表示(internal representation) ：非外部表示的表示。</li>
 <li>可编程性(programmability) ：允许使用程序提供实现的性质。</li>
 <li>API（application programming interface ，应用程序编程接口）：提供可编程性以实现程序之间交互的接口。</li>
-<li>ABI（application binary interface ，应用程序二进制接口）：提供可编程性以实现二进制编码的程序之间交互的接口。
+<li>ABI（application binary interface ，<a href="https://zh.wikipedia.org/zh-cn/%E5%BA%94%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8E%A5%E5%8F%A3">应用程序二进制接口</a>）：提供可编程性以实现二进制编码的程序之间交互的接口。
 <ul>
 <li><strong>注释</strong> ABI 可以是明确指定了二进制形式的程序之间的 API ，也可以是不依赖二进制编码实现的程序的 API 的实现细节。</li>
+</ul>
+</li>
+</ul>
+<h1 id="计算机体系结构"><a class="header" href="#计算机体系结构">计算机体系结构</a></h1>
+<p>　　提供上下文 <em>&lt;计算机体系结构&gt;</em> ，特别是作为<a href="#%E8%A7%84%E8%8C%83">语言实现</a>补充的定义。</p>
+<ul>
+<li>指令(instruction) ：构成代码的具有有限的表示的基本单元，其表示一般具有<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">二进制</a>编码。
+<ul>
+<li><strong>注释</strong> 指令序列可作为一种<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">目标代码</a>的形式，可实现<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">程序</a>。</li>
+<li><strong>注释</strong> 典型地，指令是通过特定的机器的实现支持，即<em>机器指令(machine instruction)</em> 。这些机器可以是物理的(physical) 或虚拟的(virtual) 。一般物理的机器由特定的机器硬件直接提供指令功能实现的支持，而虚拟的机器指通过软件方式在其它硬件的基础上提供适配支持。</li>
+</ul>
+</li>
+<li>指令集(instruction set) ：通过指令的集合提供<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">可编程</a>功能的<a href="#%E8%A7%84%E8%8C%83">接口</a>。
+<ul>
+<li><strong>注释</strong> 指令集是提供接口为目的设计的具有相近格式的指令构成的统一<a href="#%E8%87%AA%E6%8C%87">规范</a>，而非任意指令的集合。</li>
+</ul>
+</li>
+<li>ISA（instruction-set architecture ，<a href="https://zh.wikipedia.org/zh-cn/%E6%8C%87%E4%BB%A4%E9%9B%86%E6%9E%B6%E6%A7%8B">指令集架构</a>）：依赖和蕴含特定指令集设计的程序之间交互的接口，包括指令集和<a href="#%E8%A7%84%E8%8C%83">实现环境</a>的相关假设。
+<ul>
+<li><strong>注释</strong> 实现环境假设可蕴含明确的 ABI 和指令集以外的配置。</li>
+<li><strong>注释</strong> ISA 可作为<a href="#%E8%A7%84%E8%8C%83">具体语言实现</a>的一部分。</li>
+<li><strong>注释</strong> ISA 可为特定的物理的或虚拟的机器设计，而不需要具有适应不同机器的<em>可移植性(potability)</em> 。</li>
+<li><strong>注释</strong> 典型地，ISA 是软件实现<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">可编程性</a>的最底层次的<a href="#%E8%A7%84%E8%8C%83">机器接口</a>；更低层次的接口通常依赖不能被纯软件方式访问的机器实现细节。但这并非绝对。</li>
+</ul>
+</li>
+<li>地址(address) ：在实现中指定实体位置的<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">编码</a>。</li>
+<li>地址空间(address space) ：映射到地址的操作中，地址的陪域(codomain) 。</li>
+<li>寻址(addressing) ：在地址空间中确定实体关联的地址。</li>
+<li>CPU（central processing unit，<a href="https://zh.wikipedia.org/zh-cn/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8">中央处理单元</a>) ：带有运算部件和控制部件，允许对物理计算资源寻址的物理 ISA 的通用实现。
+<ul>
+<li><strong>注释</strong> CPU 是 ISA 的主要实现。</li>
+<li>物理的实现又称为中央处理器。强调具有<em>缓存(cache)</em> 时，又称为中央处理机。</li>
+<li>除非另行指定，讨论特定的（物理）机器的体系结构时，默认指 CPU 支持的 ISA 。</li>
+</ul>
+</li>
+<li>GPU（graphics processing unit，<a href="https://zh.wikipedia.org/zh-cn/%E5%9C%96%E5%BD%A2%E8%99%95%E7%90%86%E5%99%A8">图形处理单元</a>）：带有图形处理功能的物理 ISA 的专用实现。
+<ul>
+<li><strong>注释</strong> GPU 是非通用 ISA 的常见主要实现。</li>
+<li>物理的实现又称为图形处理器或显示核心，因其主要以处理 2D/3D 图形计算而得名。</li>
+<li>但 GPU 也能适用于比 CPU 更（计算时间和能效意义上）高效的特定计算任务，不一定和图形处理相关，即 <a href="https://zh.wikipedia.org/zh-cn/%E5%9B%BE%E5%BD%A2%E5%A4%84%E7%90%86%E5%99%A8%E9%80%9A%E7%94%A8%E8%AE%A1%E7%AE%97">GPGPU</a> 。</li>
+<li>为通用的计算加速的类似设备仍可能被称为 CPU ，即便其中没有<em>光栅化单元(rasterization unit)</em> 或最后用于输出的 ROP（<a href="https://zh.wikipedia.org/zh-cn/%E6%B8%B2%E6%9F%93%E8%BE%93%E5%87%BA%E5%8D%95%E5%85%83">渲染输出单元</a>，render output unit ），但保留了和<a href="https://zh.wikipedia.org/zh-cn/%E7%B9%AA%E5%9C%96%E7%AE%A1%E7%B7%9A">图形处理流水线</a>共用的物理部件，如支持<a href="https://zh.wikipedia.org/zh-cn/%E7%9D%80%E8%89%B2%E5%99%A8"><em>着色器(shader)</em></a> 的硬件实现。</li>
 </ul>
 </li>
 </ul>
@@ -476,8 +556,8 @@
 <h2 id="平台"><a class="header" href="#平台">平台</a></h2>
 <p>　　环境中决定程序适用环境的被依赖的特定资源集合称为<strong>平台环境(platform environment)</strong>，简称<strong>平台(platform)</strong>。平台的典型例子有：</p>
 <ul>
-<li>运行时支持的<a href="https://zh.wikipedia.org/zh-cn/%E6%8C%87%E4%BB%A4%E9%9B%86%E6%9E%B6%E6%A7%8B">硬件的体系结构</a> ；</li>
-<li>操作系统和 <a href="https://zh.wikipedia.org/zh-cn/%E5%BA%94%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8E%A5%E5%8F%A3">ABI</a> 。</li>
+<li>运行时支持的 <a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">ISA</a> 。</li>
+<li>操作系统和 <a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">ABI</a> 。</li>
 </ul>
 <p>　　平台的内涵是资源的集合，其构成并非任意。构成平台的特定准则应使之保持相对的稳定和可预期，即可配置；即平台是名义的(nominal) 可配置的资源集合。</p>
 <p>　　若平台包含的资源是已知的，则不需要平台的观念，分析其资源子集（即便不构成平台）即可解决几乎平台抽象涉及的所有技术问题（同时这也是定义一个具体平台的基础）。但在简化资源集合的全局性质分析（如比较资源配置方案）和名义抽象以隐藏实现（如为开发者提供预设环境集合）的应用角度上，平台仍有被单独讨论的意义。</p>
@@ -514,7 +594,7 @@
 <p>　　环境模拟和程序模拟的主要差异为是否独立的、专用的宿主平台程序作为中介以维护目标平台和宿主平台的隔离。</p>
 <p>　　在一般意义上，<strong>仿真(simulation)</strong> 指对需要分析的问题建立的<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">模型</a>的过程、方法和机制，在软件工程以外也被称为模拟，如计算机模拟(computer simulation) 。对于以计算机系统为目标的仿真，建立的模型可以是具体的实物（包括硬件和软件），称为仿真器(simulator) 。以软件接口为主要操作方式实现的仿真器同时实现了环境模拟，但侧重不同：精确重现需要分析行为，而非实用的功能等价性和体系中的可替换性。</p>
 <h3 id="平台配置"><a class="header" href="#平台配置">平台配置</a></h3>
-<p>　　实际的平台实现可能复用部分实现，配置之间可存在某种构成依赖关系的<a href="https://zh.wikipedia.org/zh-cn/%E5%81%8F%E5%BA%8F%E5%85%B3%E7%B3%BB">偏序关系</a>（如继承关系）。这些在项目中所有被配置的平台称为<em>公共平台(common platform)</em> ，其中能对应生成输出的称为<em>具体平台(concrete platform)</em> ，否则为<em>抽象平台(abstract platform)</em> 。</p>
+<p>　　实际的平台实现可能复用部分实现，配置之间可存在某种构成依赖关系的<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">偏序关系</a>（如继承关系）。这些在项目中所有被配置的平台称为<em>公共平台(common platform)</em> ，其中能对应生成输出的称为<em>具体平台(concrete platform)</em> ，否则为<em>抽象平台(abstract platform)</em> 。</p>
 <p>　　对一个平台配置，程序可提供更多的子配置共用现有的相同的配置。子配置可继续对平台特性具体特化，而对原始配置的用户程序隐藏细节。</p>
 <p>　　普遍适用于一般功能配置也可被作为平台配置的一部分而作为子配置。</p>
 <p><strong>注释</strong> 例如，多线程和非多线程版本、调试和非调试版本可作为平台配置的功能子配置。</p>
@@ -537,19 +617,19 @@
 </ul>
 </li>
 </ul>
-<h3 id="标识"><a class="header" href="#标识">标识</a></h3>
+<h3 id="平台标识"><a class="header" href="#平台标识">平台标识</a></h3>
 <p>　　不同平台可以标识符加以区分。由于平台受到不同环境因素决定的正交性，通常此类标识符可以分解为表示这些正交环境的标识符的元组形式，用 <code>-</code> 等字符分隔。</p>
-<p>　　一种常用的方式是 GNU 构建系统的<a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/System-Type.html#System-Type">系统类型(en-US)</a>，经典表示方式为三元组(triplet) ，或其省略形式：</p>
+<p>　　一种常用的方式是 GNU 构建系统的<a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/System-Type.html#System-Type">系统类型</a>，经典表示方式为三元组(triplet) ，或其省略形式：</p>
 <ul>
-<li>一般包括体系结构、系统厂商和系统软件环境。</li>
+<li>一般包括体系结构(architecture) 、系统厂商(system vendor) 和系统软件环境。</li>
 <li>第一项不可省略，之后的项可省略。</li>
-<li>体系结构一般指定 CPU 要求的最小指令集架构。</li>
+<li>体系结构一般指定 <a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">CPU</a> 要求的最小 <a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">ISA</a> 。</li>
 <li>系统厂商指集成平台的环境厂商。</li>
-<li>系统软件环境保证满足 ABI 要求，可以包含操作系统及本机语言运行时实现的名称。</li>
+<li>系统软件环境保证满足 <a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">ABI</a> 要求，可以包含操作系统及本机语言运行时实现的名称。</li>
 </ul>
-<p>　　确定为宿主环境时，系统软件同时指定操作系统和运行时环境而拆分为两项，三元组扩充为四元组，如 <a href="https://wiki.gentoo.org/wiki/CHOST">Gentoo 使用的 CHOST (en-US)</a>。</p>
-<p>　　在不够充分体现平台的必要差异（尤其是体系结构相关的配置）时也可通过自行定义标识符并指定与三元组的对应关系，如 <a href="https://wiki.debian.org/Multiarch/Tuples">Debian multiarch (en-US)</a> 。</p>
-<p>　　系统类型用来提供一定程度的兼容（替换和互操作）：</p>
+<p>　　确定为<a href="#%E7%8E%AF%E5%A2%83">宿主环境</a>时，系统软件同时指定操作系统和运行时环境而拆分为两项，三元组扩充为四元组，如 <a href="https://wiki.gentoo.org/wiki/CHOST">Gentoo 使用的 CHOST</a> 。</p>
+<p>　　在不够充分体现平台的必要差异（尤其是体系结构相关的配置）时也可通过自行定义标识符并指定与三元组的对应关系，如 <a href="https://wiki.debian.org/Multiarch/Tuples">Debian multiarch</a> 。</p>
+<p>　　系统类型用来提供一定程度的兼容（替换和<a href="#%E8%A7%84%E8%8C%83">互操作</a>）：</p>
 <ul>
 <li>系统类型代表了系统厂商的预设的配置集合，因此可提供符合相对上的（事实）标准的构建和运行环境。</li>
 <li>这种兼容性有时会被过度依赖，乃至被误认为完全的 ABI 兼容：
@@ -698,9 +778,9 @@
 </ul>
 <h3 id="多平台构建"><a class="header" href="#多平台构建">多平台构建</a></h3>
 <p>　　构建系统中可能涉及多个平台。</p>
-<p>　　运行构建系统的环境和被构建的程序的环境不需要相同，对应的平台分别称为宿主平台(host platform) 和目标平台(target platform) 。宿主平台和目标平台相同时称为本机(native) 构建；不同时称为交叉(cross) 构建。</p>
+<p>　　运行构建系统的环境和被构建的程序的环境不需要相同，对应的平台分别是<a href="#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">宿主平台</a>和<a href="#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">目标平台</a> 。宿主平台和目标平台相同时称为<em>本机(native)</em> 构建；不同时称为<em>交叉(cross)</em> 构建。</p>
 <p>　　多个构建过程可能串联组成更大的构建过程。不同构建过程存在输出和输入之间的依赖。此时，前一过程输出的目标平台需要兼容于后一过程作为输入的宿主平台，否则无法直接运行。典型情况下这些平台是相同的，但也可以存在平台之间自身保证二进制<a href="#%E8%A7%84%E8%8C%83">互操作</a>兼容性（如支持 x86_64 的体系结构上混用 i686 和 x86_64 ）的情况。</p>
-<p>　　一些构建系统如 <a href="https://gcc.gnu.org/onlinedocs/gccint/Configure-Terms.html">GNU 工具链(en-US) 使用更复杂的术语</a>，单独引入构建(build) 平台。为确保一般性并简化模型，本文档不要求单独使用这个概念，而默认构建平台是第一级构建过程（即 GNU autoconf 的“配置”）的宿主平台。</p>
+<p>　　一些构建系统如 <a href="https://gcc.gnu.org/onlinedocs/gccint/Configure-Terms.html">GNU 工具链使用更复杂的术语</a>，单独引入构建(build) 平台。为确保一般性并简化模型，本文档不要求单独使用这个概念，而默认构建平台是第一级构建过程（即 GNU autoconf 的“配置”）的宿主平台。</p>
 
                     </main>
 
@@ -710,7 +790,7 @@
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="StandardUsing.en-US.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="StandardUsing.en-US.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -724,7 +804,7 @@
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="StandardUsing.en-US.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="StandardUsing.en-US.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
