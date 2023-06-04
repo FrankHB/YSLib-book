@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
@@ -31,7 +31,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -61,42 +61,69 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="../Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="../Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="../GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="../Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="../GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="../Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="../Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="../Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li></ol></li><li class="chapter-item expanded "><a href="../Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="../Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="../YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="../Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="../Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="../Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="../Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="../Tools/Scripts.zh-CN.html" class="active"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="../Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="../Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="../Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="../StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="../ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="../WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="../Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="../Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="../GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="../Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="../GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="../Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="../Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="../Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="../Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="../YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="../Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="../Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="../Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="../Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="../Tools/Scripts.zh-CN.html" class="active"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="../Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="../Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="../Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="../StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="../ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="../WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -146,17 +173,95 @@
                     <main>
                         <h1 id="概述"><a class="header" href="#概述">概述</a></h1>
 <p>　　YSLib 项目提供一系列工具脚本。这些脚本主要集中位于 <code>Tools</code> 和 <code>Tools/Scripts</code> 。其余特定局部用途的脚本可能位于其它目录，这些脚本可能依赖版本库内的工具脚本或 YSLib 安装时部署的工具脚本。</p>
-<p>　　关于脚本的解释环境和其它一般规则，参见<a href="../Development.zh-CN.html#%E8%84%9A%E6%9C%AC">关于脚本的开发说明</a>。</p>
+<p>　　关于脚本的解释环境和其它一般规则，参见<a href="../Development.zh-CN.html#%E8%84%9A%E6%9C%AC">关于脚本的开发说明</a>。关于 shell 脚本，同时参见 <a href="../Development.zh-CN.html#shell-%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8%E8%A7%84%E7%BA%A6">shell 语言使用规约</a>。</p>
+<p>　　本文档附加约定，除非另行指定：</p>
+<ul>
+<li>公开的 shell 脚本和 NPLA1 脚本被 <a href="#toolsinstall-sysrootsh"><code>Tools/install-sysroot.sh</code></a> 分别部署到安装路径下的 <code>bin</code> 和 <code>share/NPLA1</code> 目录下。</li>
+<li>除<a href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">用于构建选项的环境配置</a>外，提供的 shell 变量可能设置为只读。</li>
+<li>脚本引入不具有后缀 <code>_</code> 的名称若不是被导出的变量，可在脚本之间使用，满足关于名称的约束，但不保证接口稳定性。</li>
+</ul>
 <p><strong>注释</strong> 维护者和开发者需要阅读开发说明，以保持脚本程序符合文档的描述。其中的一些信息（如关于环境变量等运行时环境的描述）也可能提供对脚本的非开发者用户有帮助的说明，作为<a href="../Run.zh-CN.html">运行环境</a>中说明的补充。</p>
 <h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
 <p>　　未归类的工具目录。这个目录的脚本是可用于整个项目或非特定子项目的工具脚本，如公用的构建脚本。</p>
 <p>　　工具脚本位于版本库目录 <code>Tools</code> 及其子目录 <code>Scripts</code> 下。</p>
 <p>　　工具主要用于开发，包括构建和版本库维护。</p>
-<p>　　一部分工具脚本也可被部署到 <a href="../Sysroot.zh-CN.html">Sysroot</a> 。在 <a href="SHBuild.zh-CN.html">stage 2 SHBuild</a> 安装后运行的脚本可依赖安装的 Sysroot 实例的文件系统布局。支持维护版本库的开发脚本应保证在此之前（不依赖 Sysroot 的实例或仅依赖构建 stage 1 后可用的有限环境）可用。</p>
+<p>　　一部分工具脚本也可被部署到 <a href="../Sysroot.zh-CN.html">Sysroot</a> 。在 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 2 SHBuild</a> 安装后运行的脚本可依赖安装的 Sysroot 实例的文件系统布局。支持维护版本库的开发脚本应保证在此之前（不依赖 Sysroot 的实例或仅依赖构建 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1</a> 后可用的有限环境）可用。</p>
+<h2 id="环境配置"><a class="header" href="#环境配置">环境配置</a></h2>
+<p>　　一些环境变量可能被可选地在外部环境或在调用脚本的其它脚本中指定。若没有被指定为非空值，则可被特定上下文按需初始化。初始化后的值可能被断言非空，断言失败则非正常地退出脚本。</p>
+<p>　　这些变量可能指定外部环境的配置。</p>
+<p>　　在<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">开发文档中的环境变量</a>的基础上，以下各节补充指定适用于多个脚本的变量。在对应的脚本的文档中可能补充描述。</p>
+<p>　　一些环境变量具有特定的命名模式：</p>
+<ul>
+<li><a href="../Development.zh-CN.html">开发文档</a>中的环境变量具有相同前缀的外部扩展环境变量：
+<ul>
+<li>具有前缀 <code>SHBuild_</code> ：可能适用于所有构建脚本流程。
+<ul>
+<li><strong>注释</strong> 具有前缀 <code>SHBuild_S1_</code> 和 <code>SHBuild_S2_</code> 的名称不指定环境变量，而是函数名称。</li>
+</ul>
+</li>
+<li>具有前缀 <code>YSLib_</code> ：指定和 YSLib 库相关的环境和配置。</li>
+<li><strong>注释</strong> 这些前缀的变量通常在开发文档中指定。仅在个别脚本中适用或不在 shell 脚本（而仅在 NPLA1 脚本）适用时，在本文档指定扩展。</li>
+</ul>
+</li>
+<li>具有前缀 <code>SS_</code> ：<a href="#%E5%85%AC%E5%85%B1%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE%E5%8F%98%E9%87%8F">公共构建配置变量</a>。
+<ul>
+<li><strong>注释</strong> 环境变量名称中的 <code>SS</code> 前缀表示 SHBuild Settings 。</li>
+</ul>
+</li>
+<li>具有前缀 <code>S1_</code> ：在 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1 SHBuild</a> 构建流程中作用的变量。
+<ul>
+<li><strong>注释</strong> 环境变量名称中的 <code>S1</code> 前缀表示 Stage 1 。</li>
+</ul>
+</li>
+<li>具有前缀 <code>CFLAGS</code> 、<code>CXXFLAGS</code> 和 <code>LDFLAGS</code> 等：指定构建工具使用的选项。
+<ul>
+<li><strong>注释</strong> 在 shell 环境中这主要通过 <a href="#toolsscriptsshbuild-common-optionssh"><code>Tools/Scripts/SHBuild-common-options.sh</code></a> 配置。</li>
+</ul>
+</li>
+</ul>
+<h3 id="公共构建配置变量"><a class="header" href="#公共构建配置变量">公共构建配置变量</a></h3>
+<p>　　以下配置行为的环境变量可在多个构建脚本中被支持且具有一致的含义：</p>
+<ul>
+<li><code>SS_DebugEnv</code> 启用脚本执行时系统环境相关的调试输出。</li>
+<li><code>SS_DirectExtract</code> 启用直接解压缩。</li>
+<li><code>SS_NoParallel</code> 不使用并行命令调用。</li>
+<li><code>SS_Offline</code> 离线模式：不使用互联网。</li>
+<li><code>SS_Verbose</code> 启用详细消息输出。</li>
+</ul>
+<p>　　除非另行指定，这些变量的值当且仅当非空表示启用特性。</p>
+<p>　　具体作用在具体脚本的说明中详细描述。</p>
+<h3 id="stage-1-共享变量"><a class="header" href="#stage-1-共享变量">Stage 1 共享变量</a></h3>
+<p>　　以下变量影响 stage 1 的多个构建脚本的行为。</p>
+<ul>
+<li><code>S1_BuildConf</code> 内部配置名称。
+<ul>
+<li>通常指定不同的值对应不共享的构建配置组合。</li>
+<li><strong>注释</strong> 可影响默认构建目录。</li>
+</ul>
+</li>
+<li><code>S1_BuildDir</code> Stage 1 SHBuild 构建和输出文件目录路径。</li>
+<li><code>S1_CacheFile</code> 缓存文件名。</li>
+<li><code>S1_DistDir</code> Stage 1 SHBuild 可执行程序目录路径。</li>
+<li><code>S1_SHBuild</code> Stage 1 SHBuild 可执行文件路径。
+<ul>
+<li><strong>注释</strong> Win32 平台实际的可执行文件可隐含后缀 <code>.exe</code> 。</li>
+</ul>
+</li>
+</ul>
+<p>　　具体作用可在具体脚本的说明中详细描述。</p>
 <h2 id="toolsinstall-sysrootsh"><a class="header" href="#toolsinstall-sysrootsh">Tools/install-sysroot.sh</a></h2>
 <p>　　Sysroot 安装脚本。用于直接构建和部署基础环境。</p>
-<p>　　构建时会调用 <code>Tools/Scripts</code> 目录下的脚本，按需构建 <a href="SHBuild.zh-CN.html">stage 1 SHBuild</a> 后间接调用 <code>SHBuild</code> 构建 <code>YBase</code> 和 <code>YFramework</code> 的静态库和动态库，再构建依赖于动态库的 <code>SHBuild</code> 。</p>
-<p>　　构建使用变量 <code>SHBuild_BuildDir</code> 指定的路径作为中间输出目录，默认为 YSLib 版本库根目录下的 <code>build/$(SHBuild_GetBuildName)</code> 目录。</p>
+<p>　　构建时会调用 <code>Tools/Scripts</code> 目录下的脚本，按需构建 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1 SHBuild</a> 后间接调用 <code>SHBuild</code> 构建 <code>YBase</code> 和 <code>YFramework</code> 的静态库和动态库，再构建依赖于动态库的 <code>SHBuild</code> ：</p>
+<ul>
+<li>按需初始化<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>SHBuild_ToolDir</code></a> 。</li>
+<li>包含脚本 <a href="#toolsscriptsshbuild-commonsh"><code>Tools/Scripts/SHBuild-common.sh</code></a> 以按需初始化确定默认构建位置依赖的环境变量。</li>
+<li>设置<a href="#stage-1-%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F">变量 <code>S1_BuildConf</code></a> 的值，并调用<a href="#%E5%87%BD%E6%95%B0-shbuild_s1_initconf">函数 <code>SHBuild_S1_InitConf</code></a> 初始化必要的变量，以允许判断是否在预期位置存在 stage 1 SHBuild 。</li>
+<li>按需构建 stage 1 SHBuild 。</li>
+<li>间接调用 stage 1 SHBuild 构建 <code>YBase</code> 和 <code>YFramework</code> 的静态库和动态库。</li>
+<li>再构建依赖于动态库的 <code>SHBuild</code> 。</li>
+</ul>
+<p>　　构建使用<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>SHBuild_BuildDir</code></a> 指定的路径作为中间输出目录。</p>
+<p><strong>注释</strong> 另见 <a href="#toolsscriptsshbuild-bootstrapsh"><code>Tools/Scripts/SHBuild-bootstrap.sh</code></a> 。</p>
 <p>　　构建脚本同时可安装文件，完成 Sysroot 所需文件的部署。安装的起始目标位置由称为<strong>安装路径</strong>的目录路径指定，其字符串形式去除结尾分隔符的目录文件名为<strong>安装路径前缀</strong>。安装过程在必要时可创建 Sysroot 根目录、安装路径指定的目录及其子目录。安装路径的确定方式详见以下的使用方式。</p>
 <p>　　部署时使用 stage 1 SHBuild 更新文件和目录，在必要时创建符号链接或硬链接，若失败则改为普通复制。仅当被部署的文件为中间目标启用硬链接，以免后续操作意外覆盖源文件。注意在 Windows 上创建符号链接可能因为权限不足失败，取决于用户和组策略。建议使用系统管理权限运行以避免可能的权限问题。</p>
 <h3 id="基本使用"><a class="header" href="#基本使用">基本使用</a></h3>
@@ -166,7 +271,6 @@
 <p>　　使用 2 个并行线程构建。</p>
 <p>　　脚本也支持变量配置构建使用的路径，默认相当于使用如下 bash 命令配置变量：</p>
 <pre><code class="language-bash">: ${SHBuild_SysRoot:=&quot;$YSLib_BaseDir/sysroot&quot;}
-SHBuild_PrepareBuild
 : ${SHBuild_BuildDir:=&quot;$YSLib_BaseDir/build/$(SHBuild_GetBuildName)&quot;}
 </code></pre>
 <p>　　其中：</p>
@@ -195,7 +299,7 @@ SHBuild_PrepareBuild
 <p>　　当前支持生成所有 <code>.cbp</code> 文件。</p>
 <p>　　要求可使用 <code>hg</code> 或 <code>git</code> 命令取版本库根目录，否则不保证输出到正确的路径。</p>
 <h3 id="变量-projectgenerator"><a class="header" href="#变量-projectgenerator">变量 ProjectGenerator</a></h3>
-<p>　　调用 RevisionPatcher 的命令。默认直接使用 <code>which ProjectGenerator</code> 的结果，一般要求可执行文件在环境变量 <code>PATH</code> 中。</p>
+<p>　　调用 RevisionPatcher 的命令。默认直接使用 <code>type -P ProjectGenerator</code> 的结果，一般要求可执行文件在环境变量 <code>PATH</code> 中。</p>
 <h2 id="toolsscriptspatchrevisionsh"><a class="header" href="#toolsscriptspatchrevisionsh">Tools/Scripts/PatchRevision.sh</a></h2>
 <p>　　开发过程中使用 <a href="RevisionPatcher.zh-CN.html">RevisionPatcher</a> 维护源文件中版本号的脚本。</p>
 <p>　　当前只支持 Mercurial 或 Git 版本库的已添加或修改的未提交文件。</p>
@@ -212,17 +316,35 @@ SHBuild_PrepareBuild
 <h3 id="变量-patchend"><a class="header" href="#变量-patchend">变量 PatchEnd</a></h3>
 <p>　　匹配版本号的结束行，应为一个表示行数的正整数。默认值为 <code>&quot;20&quot;</code> 。</p>
 <h3 id="变量-revisionpatcher"><a class="header" href="#变量-revisionpatcher">变量 RevisionPatcher</a></h3>
-<p>　　调用 RevisionPatcher 的命令。默认值为 <code>which RevisionPatcher</code> 的结果。</p>
+<p>　　调用 RevisionPatcher 的命令。默认值为 <code>type -P RevisionPatcher</code> 的结果。</p>
 <p><strong>注释</strong> 可执行文件可以在环境变量 <code>PATH</code> 中。</p>
 <h3 id="变量-patchhg"><a class="header" href="#变量-patchhg">变量 PatchHg</a></h3>
 <p>　　指定使用 Mercurial 。参见以上确定使用 Mercurial 或 Git 的说明。</p>
 <h3 id="变量-patchgit"><a class="header" href="#变量-patchgit">变量 PatchGit</a></h3>
 <p>　　指定使用 Git 。参见以上确定使用 Mercurial 或 Git 的说明。</p>
 <h2 id="toolsscriptsshbuild-bootstrapsh"><a class="header" href="#toolsscriptsshbuild-bootstrapsh">Tools/Scripts/SHBuild-bootstrap.sh</a></h2>
-<p>　　编译 <a href="SHBuild.zh-CN.html">stage 1 SHBuild</a> 时被包含的脚本。</p>
-<p>　　其中指定了静态链接需要依赖的 YSLib 源文件以及头文件路径等。</p>
+<p>　　编译 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1 SHBuild</a> 时被包含的脚本。</p>
+<p>　　脚本执行构建配置的环境初始化。其中指定静态链接需要依赖的 YSLib 源文件以及头文件路径等的必要变量。</p>
+<p>　　脚本按需设置<a href="#stage-1-%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F">变量 <code>S1_BuildConf</code></a> 的值，以确保部分变量之后在包含 <a href="#toolsscriptsshbuild-yslibsh"><code>Tools/Scripts/SHBuild-YSLib.sh</code></a> 时能被按需初始化。默认值为 <code>stage1</code> 。</p>
+<ul>
+<li><strong>注释</strong> 有的脚本如 <a href="#toolsinstall-sysrootsh"><code>Tools/install-sysroot.sh</code></a> 在此之前应已初始化部分变量。其它脚本可能依赖这里的初始化。</li>
+</ul>
 <h2 id="toolsscriptsshbuild-buildsh"><a class="header" href="#toolsscriptsshbuild-buildsh">Tools/Scripts/SHBuild-build.sh</a></h2>
-<p>　　编译 <a href="SHBuild.zh-CN.html">stage 1 SHBuild</a> 的脚本。</p>
+<p>　　编译 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1 SHBuild</a> 的脚本。</p>
+<p>　　以下<a href="#%E5%85%AC%E5%85%B1%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE%E5%8F%98%E9%87%8F">公共构建配置变量</a>影响脚本的特定行为：</p>
+<ul>
+<li><code>SS_NoParallel</code> 的作用当前包括：
+<ul>
+<li>不检查并行命令的可用性。</li>
+<li>不使用并行命令构建。</li>
+</ul>
+</li>
+<li><code>SS_Verbose</code> 的作用当前包括：
+<ul>
+<li>调用命令前回显。</li>
+</ul>
+</li>
+</ul>
 <p>　　使用变量 <code>SHBuild_Output</code> 指定输出路径。默认值为 <code>SHBuild</code> ，即在当前工作目录下生成名为 <code>SHBuild</code> 的可执行文件（视宿主平台不同可能带后缀如 Win32 带 <code>.exe</code> ）。</p>
 <p>　　调用函数 <code>SHBuild_CheckPCH</code> 检查预编译头：若变量 <code>SHBuild_NoPCH</code> 非空则跳过预编译头，否则使用预编译头包含标准库头。预编译的头文件目标由 YBase 下的 <code>stdinc.h</code> ，之后构建时包含预编译头路径为 <code>$SHBuild_PCH_stdinc_h</code> 。后者的默认路径为当前工作目录下的 <code>stdinc.h</code> 。</p>
 <p>　　因为升级或更换编译器和/或选项，可导致预编译头文件（ <code>.gch</code> 文件）不和生成的环境匹配而不被识别。</p>
@@ -246,15 +368,25 @@ SHBuild_PrepareBuild
 </li>
 </ul>
 <p><strong>已知缺陷</strong> 构建时不自动更新预编译头。</p>
+<p>　　除非环境变量 <code>SS_NoParallel</code> 的值非空，构建前可选地检查可用的并行命令。支持如下：</p>
+<ul>
+<li>支持 <a href="https://www.gnu.org/software/parallel/">GNU parallel</a> 命令 <code>parallel</code> 。</li>
+<li>不支持 <a href="https://manpages.debian.org/testing/moreutils/parallel.1.en.html">moreutils <code>parallel</code></a> 且 <code>parallel</code> 命令的可用性会忽略。</li>
+<li>不对并行数指定选项。
+<ul>
+<li><strong>原理</strong> 默认应已能充分使用宿主环境的计算资源。</li>
+</ul>
+</li>
+</ul>
 <h2 id="toolsscriptsshbuild-buildappsh"><a class="header" href="#toolsscriptsshbuild-buildappsh">Tools/Scripts/SHBuild-BuildApp.sh</a></h2>
 <p>　　应用程序构建脚本。这个脚本被保留，不再具有实际功能。</p>
-<p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>bin</code> 目录下。</p>
+<p>　　<strong>这个脚本是公开的工具</strong>，被安装脚本部署。</p>
 <h2 id="toolsscriptsshbuild-buildpkgsh"><a class="header" href="#toolsscriptsshbuild-buildpkgsh">Tools/Scripts/SHBuild-BuildPkg.sh</a></h2>
-<p>　　包构建脚本。当前只支持构建应用程序，具体步骤和使用的参数参见 <code>Tools/Script/SHBuild-BuildApp.txt</code> 。</p>
-<p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>bin</code> 目录下。</p>
+<p>　　包构建脚本。当前只支持构建应用程序，具体步骤和使用的参数参见 <a href="#toolsscriptsshbuild-buildapptxt"><code>Tools/Script/SHBuild-BuildApp.txt</code></a> 。</p>
+<p>　　<strong>这个脚本是公开的工具</strong>，被安装脚本部署。</p>
 <h2 id="toolsscriptsshbuild-commonsh"><a class="header" href="#toolsscriptsshbuild-commonsh">Tools/Scripts/SHBuild-common.sh</a></h2>
 <p>　　被应用程序构建脚本包含的脚本，提供公共基础功能。</p>
-<p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>bin</code> 目录下。</p>
+<p>　　<strong>这个脚本是公开的工具</strong>，被安装脚本部署。</p>
 <p><strong>注意</strong> 这个脚本包含 <code>INC_SHBuild_common</code> 守卫变量检查，默认重复包含只被执行一次。</p>
 <h3 id="函数-shbuild_popd"><a class="header" href="#函数-shbuild_popd">函数 SHBuild_Popd</a></h3>
 <p>　　同 <code>bash</code> 内建 <code>popd</code> 但不回显标准输出。</p>
@@ -262,11 +394,19 @@ SHBuild_PrepareBuild
 <p>　　同 <code>bash</code> 内建 <code>pushd</code> 但不回显标准输出。</p>
 <h3 id="函数-shbuild_put"><a class="header" href="#函数-shbuild_put">函数 SHBuild_Put</a></h3>
 <p>　　使用 <code>printf</code> 输出非格式字符串。</p>
+<p>　　使用 <code>$*</code> 形式传递字符串，此时 <code>IFS</code> 是默认值。</p>
 <h3 id="函数-shbuild_puts"><a class="header" href="#函数-shbuild_puts">函数 SHBuild_Puts</a></h3>
 <p>　　使用 <code>printf</code> 输出非格式的换行的字符串。</p>
-<p>　　换行符由变量 <code>SHBuild_EOL</code> 指定。当前默认值通过检查 <code>$COMSPEC</code> 是否定义，以确保 Windows 环境（包括 MSYS ）使用 CR+LF ，其它情况使用 LF 。</p>
+<p>　　使用 <code>$*</code> 形式传递字符串，此时 <code>IFS</code> 是默认值。</p>
+<p>　　换行符由变量 <code>SHBuild_EOL</code> 指定。若值为空，则首先初始化为全局只读变量。当前默认值通过检查 <code>$COMSPEC</code> 是否定义，以确保 Windows 环境（包括 MSYS ）使用 CR+LF ，其它情况使用 LF 。</p>
 <p>　　这个函数在可用时可用于代替 <code>echo</code> ，以取得对环境更好的适应性。</p>
 <p><strong>注意</strong> 具体的检查逻辑实现可能在以后改变。</p>
+<h3 id="函数-shbuild_puts_err"><a class="header" href="#函数-shbuild_puts_err">函数 SHBuild_Puts_Err</a></h3>
+<p>　　同<a href="#%E5%87%BD%E6%95%B0-shbuild_puts">函数 <code>SHBuild_Puts</code></a>，但重定向标准输出到标准错误。</p>
+<h3 id="函数-shbuild_puts_exit"><a class="header" href="#函数-shbuild_puts_exit">函数 SHBuild_Puts_Exit</a></h3>
+<p>　　第一参数指定错误码，以之后的参数调用<a href="#%E5%87%BD%E6%95%B0-shbuild_puts_exit">函数 <code>SHBuild_Puts_Exit</code></a>，然后以错误码退出。</p>
+<h3 id="函数-shbuild_puts_verbose"><a class="header" href="#函数-shbuild_puts_verbose">函数 SHBuild_Puts_Verbose</a></h3>
+<p>　　当<a href="#%E5%85%AC%E5%85%B1%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE%E5%8F%98%E9%87%8F">变量 <code>SS_Verbose</code></a> 的值非空时，调用<a href="#%E5%87%BD%E6%95%B0-shbuild_puts">函数 <code>SHBuild_Puts</code></a>。</p>
 <h3 id="函数-shbuild_assertnonempty"><a class="header" href="#函数-shbuild_assertnonempty">函数 SHBuild_AssertNonempty</a></h3>
 <p>　　断言第一参数为名称的变量非空，否则显示出错并退出。</p>
 <p>　　使用 <code>eval</code> 实现。</p>
@@ -276,7 +416,12 @@ SHBuild_PrepareBuild
 <h3 id="函数-shbuild_checkedcallsilent"><a class="header" href="#函数-shbuild_checkedcallsilent">函数 SHBuild_CheckedCallSilent</a></h3>
 <p>　　同 SHBuild_CheckedCall ，但不显示错误外的标准输出。</p>
 <h3 id="函数-shbuild_initreadonly"><a class="header" href="#函数-shbuild_initreadonly">函数 SHBuild_InitReadonly</a></h3>
-<p>　　断言第一参数为名称的变量非空，若空则使用 <code>eval</code> 对后续求值并初始化第一参数指定的只读变量。若发生初始化则在标准输出中显示。</p>
+<p>　　断言第一参数为名称的变量非空，若空则使用 <code>eval</code> 对后续求值并初始化第一参数指定的只读变量。</p>
+<p>　　初始化时在当前 shell 中求值初值。</p>
+<p>　　若发生初始化且<a href="#%E5%85%AC%E5%85%B1%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE%E5%8F%98%E9%87%8F">变量 <code>SS_Verbose</code></a> 的值非空，则在标准输出中显示。</p>
+<p><strong>已知限制</strong> 当前实现使用临时文件 <code>/tmp/InitReadonly</code> 暂存作为初值的调用结果。需确保这个临时文件所在的目录和这个文件可写。</p>
+<p><strong>原理</strong></p>
+<p>　　保证当前 shell 中求值允许初值中调用可能修改当前 shell 环境的 shell 函数。这使一个 <code>SHBuild_InitReadonly</code> 调用中，间接的嵌套调用可使用先前已通过同一个调用者初始化的变量。</p>
 <h3 id="函数-shbuild_2m"><a class="header" href="#函数-shbuild_2m">函数 SHBuild_2m</a></h3>
 <p>　　接受 1 个表示路径的参数，调用 <code>cygpath</code> 转换路径到 Windows 混合风格路径。</p>
 <p>　　当 <code>cygpath</code> 不存在时返回原路径。</p>
@@ -287,25 +432,41 @@ SHBuild_PrepareBuild
 <h3 id="函数-shbuild_echoescape"><a class="header" href="#函数-shbuild_echoescape">函数 SHBuild_EchoEscape</a></h3>
 <p>　　当标准输出使用终端时调用 <code>echo -ne</code> 输出参数指定的 ANSI 转义序列。</p>
 <p><strong>已知缺陷</strong> 不检查 <code>$TERM</code> 支持。</p>
+<h3 id="函数-shbuild_echostring"><a class="header" href="#函数-shbuild_echostring">函数 SHBuild_EchoString</a></h3>
+<p>　　接受 2 个参数，输出转义序列指定格式的内容，包含以下步骤：</p>
+<ul>
+<li>使用 <code>SHBuild_EchoEscape</code> 输出第二参数指定的转义序列。</li>
+<li>使用 <code>SHBuild_Put</code> 输出第一参数的内容。</li>
+<li>使用 <code>SHBuild_EchoEscape</code> 输出复位格式的转义序列。</li>
+</ul>
 <h3 id="函数-shbuild_echovar"><a class="header" href="#函数-shbuild_echovar">函数 SHBuild_EchoVar</a></h3>
-<p>　　接受 2 个参数 x 和 y ，以特定颜色显示为 x = y 的形式。</p>
+<p>　　接受 2 个参数 <code>x</code> 和 <code>y</code> ，以特定颜色显示为 <code>x = &quot;$y&quot;</code> 的形式，其中 <code>$y</code> 是 <code>y</code> 的值。</p>
+<p>　　第二参数一般是字符串。</p>
 <h3 id="函数-shbuild_echovar_n"><a class="header" href="#函数-shbuild_echovar_n">函数 SHBuild_EchoVar_N</a></h3>
-<p>　　接受 1 个参数 x ，调用 <code>SHBuild_EchoVar</code> 显示为 x = $x 的形式。</p>
+<p>　　接受 1 个参数 <code>x</code> ，调用 <code>SHBuild_EchoVar</code> 显示为 <code>x = $x</code> 的形式。</p>
 <p>　　右侧求值时会替换参数中的 <code>.</code> 为 <code>_</code> 。</p>
+<p>　　参数一般是字符串。</p>
+<h3 id="函数-shbuild_echovara"><a class="header" href="#函数-shbuild_echovara">函数 SHBuild_EchoVarA</a></h3>
+<p>　　接受 2 个参数 <code>x</code> 和 <code>y</code> ，以特定颜色显示为 <code>x = ($y)</code> 的形式，其中 <code>$y</code> 是 <code>y</code> 的值。</p>
+<p>　　第二参数一般是数组。</p>
+<h3 id="函数-shbuild_echovara_n"><a class="header" href="#函数-shbuild_echovara_n">函数 SHBuild_EchoVarA_N</a></h3>
+<p>　　接受 1 个参数 <code>x</code> ，调用 <code>SHBuild_EchoVarA</code> 显示为 <code>x = $x</code> 的形式。</p>
+<p>　　右侧求值时会替换参数中的 <code>.</code> 为 <code>_</code> 。</p>
+<p>　　参数一般是数组。</p>
 <h3 id="函数-shbuild_checkuname"><a class="header" href="#函数-shbuild_checkuname">函数 SHBuild_CheckUName</a></h3>
-<p>　　调用 <code>SHBuild_CheckedCall</code> 初始化只读变量 <code>SHBuild_Env_OS</code> 和 <code>SHBuild_Env_Arch</code> 的值。</p>
+<p>　　调用 <code>SHBuild_CheckedCall</code> 按需初始化只读变量 <code>SHBuild_Env_OS</code> 和 <code>SHBuild_Env_Arch</code> 的值。</p>
 <p>　　变量 <code>SHBuild_Env_OS</code> 的值通过分类系统的值（一般即 <code>SHBuild_Env_uname</code> 的值）标识操作系统：</p>
 <ul>
-<li><code>OS_X</code> ：输入匹配 *Darwin* ，用于标识 OS X 系统</li>
-<li><code>Win32</code> ：输入匹配 *MIGW* 或 *MSYS* ，用于标识 Windows （桌面）系统</li>
-<li><code>Linux</code> ：输入匹配 *Linux* ，用于标识 Linux 系统。</li>
-<li><code>unknown</code> ： 不支持的系统。</li>
+<li><code>OS_X</code> ：输入匹配 <code>*Darwin*</code> ，用于标识 OS X 系统。</li>
+<li><code>Win32</code> ：输入匹配 <code>*MINGW*</code> 或 <code>*MSYS*</code> ，用于标识 Windows 系统。</li>
+<li><code>Linux</code> ：输入匹配 <code>*Linux*</code> ，用于标识 Linux 系统。</li>
+<li><code>unknown</code> ：不支持的系统。</li>
 </ul>
 <p>　　变量 <code>SHBuild_Env_Arch</code> 的值通过分类输入的处理器体系结构的值（一般即 <code>SHBuild_Env_uname_m</code> 的值）标识体系结构：</p>
 <ul>
-<li><code>x86_64</code> ：输入匹配 x86_64 或 i*86-64 。</li>
-<li><code>i*86</code> ：输入匹配 i*86 ，使用原值。</li>
-<li><code>aarch64</code> ：输入是 aarch64 。</li>
+<li><code>x86_64</code> ：输入匹配 <code>x86_64</code> 或 <code>i*86-64</code> 。</li>
+<li><code>i*86</code> ：输入匹配 <code>i*86</code> ，使用原值。</li>
+<li><code>aarch64</code> ：输入是 <code>aarch64</code> 。</li>
 <li><code>unknown</code> ：不支持的体系结构。</li>
 </ul>
 <p>　　若同时指定环境变量 <code>SHBuild_Env_Arch</code> 和 <code>SHBuild_Env_OS</code> ，不进行<a href="../Prerequisitions.zh-CN.html">自动环境检测</a>，不依赖 <code>uname</code> 。</p>
@@ -330,45 +491,69 @@ SHBuild_PrepareBuild
 <p>　　当前脚本实现假定临时目录可写，不满足条件时，文件操作可能失败。脚本使用的临时文件前也不保证检查文件可写。若此文件不可写（例如，在之前被 <code>root</code> 等高权限用户创建），则依赖文件可写的操作可能失败。对构建脚本，这可能导致依赖临时文件进行检查判断失效，而使错误的选项被使用。</p>
 <p>　　一般地，脚本可使用特定的例程（如 Shell 脚本可选地使用<a href="https://stackoverflow.com/questions/2792675">在许多环境中可用的 <code>mktemp</code> 命令</a>）随机化文件名减少冲突。若需要更可靠地避免上述问题，可在运行脚本前清理临时目录，或预先设置 <code>SHBuild_GetTempDir</code> 访问的环境变量指定确保可写的空目录，同时避免并发调用脚本导致不安全并发访问此目录中的临时文件。脚本不使用其它方法确定直接使用的临时目录，但脚本间接调用的外部工具仍可能导致不安全的访问，而无法保证可靠。</p>
 <h3 id="函数-shbuild_platform_detect"><a class="header" href="#函数-shbuild_platform_detect">函数 SHBuild_Platform_Detect</a></h3>
-<p>　　通过参数指定的操作系统和体系结构名，并结合环境变量，确定平台名称，检查非空并返回。</p>
-<p>　　当前支持的结果包括：</p>
+<p>　　通过参数指定的操作系统和体系结构名，结合环境变量，确定平台名称，检查非空并返回。</p>
+<p>　　第一和第二参数分别指定操作系统名和体系结构名，接受的取值参见<a href="#%E5%87%BD%E6%95%B0-shbuild_checkuname">函数 <code>SHBuild_CheckUName</code></a> 。</p>
+<p>　　当前 <code>Win32</code> 系统外的结果和 <code>SHBuild_CheckUName</code> 初始化 <code>SHBuild_Env_OS</code> 的结果一致。处理如下：</p>
 <ul>
-<li>MinGW64</li>
-<li>MinGW32</li>
-<li>MinGW_Clang64</li>
-<li>MinGW_Clang32</li>
-<li>MinGW_UCRT64</li>
-<li>MinGW_ClangARM64</li>
-<li>第一个参数指定的操作系统名</li>
+<li>若操作系统名为 <code>Win32</code> ：
+<ul>
+<li>若环境变量 <code>MSYSTEM</code> 设置为 <a href="https://www.msys2.org/docs/environments/">MSYS2 支持的环境</a>，结果对应如下：
+<ul>
+<li><code>MINGW64</code>：<code>MinGW64</code> 。</li>
+<li><code>MINGW32</code>：<code>MinGW32</code> 。</li>
+<li><code>CLANG64</code>：<code>MinGW_Clang64</code> 。</li>
+<li><code>CLANG32</code>：<code>MinGW_UCRT64</code> 。</li>
+<li><code>CLANGARM64</code>：<code>MinGW_ClangARM64</code> 。</li>
+<li><code>UCRT64</code>：<code>MinGW_UCRT64</code> 。</li>
 </ul>
-<p>　　当前 <code>Win32</code> 系统外的结果和 <code>SHBuild_CheckUName</code> 初始化 <code>SHBuild_Env_OS</code> 的结果一致。否则，处理如下：</p>
-<ul>
-<li>若环境变量 <code>MSYSTEM</code> 设置为 <code>MINGW64</code> 或 <code>MINGW32</code> ，结果对应为 <code>MinGW64</code> 或 <code>MinGW32</code> 。</li>
-<li>否则，若操作系统名为 <code>Win32</code> ：
-<ul>
-<li>若体系结构为 <code>x86_64</code> ，则结果为 <code>MinGW64</code> 。</li>
+</li>
+<li>否则，若体系结构为 <code>x86_64</code> ，则结果为 <code>MinGW64</code> 。</li>
 <li>否则，结果为 <code>MinGW32</code> 。</li>
 </ul>
 </li>
 <li>否则，结果为操作系统名。</li>
 </ul>
 <h3 id="函数-shbuild_preparebuild"><a class="header" href="#函数-shbuild_preparebuild">函数 SHBuild_PrepareBuild</a></h3>
-<p>　　准备构建环境。初始化以下变量使之具有非空值：</p>
+<p>　　准备构建环境。按以下方式初始化变量使之具有非空值：</p>
 <ul>
-<li><code>SHBuild_Env_TempDir</code></li>
-<li><code>SHBuild_Env_Arch</code></li>
-<li><code>SHBuild_Env_OS</code></li>
-<li><code>SHBuild_Host_Arch</code></li>
-<li><code>SHBuild_Host_OS</code></li>
+<li>调用<a href="#%E5%87%BD%E6%95%B0-shbuild_gettempdir">函数 <code>SHBuild_GetTempDir</code></a> 初始化 <code>SHBuild_Env_TempDir</code> 。</li>
+<li>调用<a href="#%E5%87%BD%E6%95%B0-shbuild_checkuname">函数 <code>SHBuild_CheckUName</code></a> 初始化 <code>SHBuild_Env_OS</code> 和 <code>SHBuild_Env_Arch</code> 。</li>
+<li>初始化 <code>SHBuild_Host_OS</code> 为 <code>SHBuild_Env_OS</code> 的值。</li>
+<li>当变量 <code>SHBuild_Host_OS</code> 的值是 <code>Win32</code> 时，且环境变量 <code>MSYSTEM</code> 的值是 <a href="https://www.msys2.org/docs/environments/">MSYS2 支持的环境</a>支持的值，初始化 <code>SHBuild_Host_Arch</code> 对应的目标体系结构；否则，初始化 <code>SHBuild_Host_Arch</code> 为 <code>SHBuild_Env_Arch</code> 的值。</li>
 </ul>
 <h3 id="函数-shbuild_getbuildname"><a class="header" href="#函数-shbuild_getbuildname">函数 SHBuild_GetBuildName</a></h3>
 <p>　　取用于进一步初始化构建路径的构建名称。</p>
-<p>　　首先断言变量 <code>SHBuild_Env_Arch</code> 和 <code>SHBuild_Env_OS</code> 非空。结果为以变量 <code>SHBuild_Env_OS</code> 和 <code>SHBuild_Env_Arch</code> 的值作为参数调用函数 <code>SHBuild_Platform_Detect</code> 的结果。</p>
+<p>　　首先调用<a href="#%E5%87%BD%E6%95%B0-shbuild_preparebuild">函数 <code>SHBuild_PrepareBuild</code></a> 按需初始化变量 <code>SHBuild_Env_Arch</code> 和 <code>SHBuild_Env_OS</code> 为非空值。</p>
+<p>　　结果为以变量 <code>SHBuild_Env_OS</code> 和 <code>SHBuild_Env_Arch</code> 的值作为参数调用<a href="#%E5%87%BD%E6%95%B0-shbuild_platform_detect">函数 <code>SHBuild_Platform_Detect</code></a> 的结果。</p>
 <h3 id="函数-shbuild_buildgch"><a class="header" href="#函数-shbuild_buildgch">函数 SHBuild_BuildGCH</a></h3>
-<p>　　接受第一个参数指定的路径的头文件安装到第二个参数指定的路径下并使用第三个参数指定的命令行构建 GNU 预编译头。</p>
+<p>　　构建 GNU 预编译头文件，依次执行：</p>
+<ul>
+<li>以第二参数指定的路径附加 <code>.gch</code> 后缀确定输出路径。</li>
+<li>检查输出路径是否已存在文件，若存在则视为目标已被构建，输出消息并跳过以下步骤。</li>
+<li>确保输出路径所在的目录被创建。</li>
+<li>输出开始构建的消息。</li>
+<li>硬链接第一参数指定输入的头文件路径到第二参数指定的安装路径。</li>
+<li>按第一参数指定的输入路径和输出路径调用第三个参数指定构建命令。</li>
+<li>输出构建完成的消息。</li>
+</ul>
+<p><strong>已知限制</strong> 构建命令仅支持 GNU 兼容工具链。</p>
 <h3 id="函数-shbuild_checkpch"><a class="header" href="#函数-shbuild_checkpch">函数 SHBuild_CheckPCH</a></h3>
-<p>　　检查是否设置了非空的变量 <code>SHBuild_NoPCH</code> ，否则调用 <code>SHBuild_BuildGCH</code> 并生成 GNU 风格预编译头文件并设置内部变量 <code>SHBuild_IncPCH</code> 为合适的命令行选项用于包含生成的预编译头文件。</p>
-<p>　　支持两个参数，同 <code>SHBuild_BuildGCH</code> 的前两个参数。</p>
+<p>　　检查和按需构建 GNU 预编译头文件并设置变量，依次执行：</p>
+<ul>
+<li>检查变量 <code>SHBuild_NoPCH</code> 的值，若为空值，则：
+<ul>
+<li>以第一参数、第二参数和 <code>$CXX -xc++-header $CXXFLAGS</code> 调用 <code>SHBuild_BuildGCH</code> 生成 GNU 风格预编译头文件。</li>
+<li>设置内部变量 <code>SHBuild_IncPCH</code> 为合适的命令行选项的数组（以 <code>&quot;-include&quot;</code> 和头文件名作为其元素）用于包含生成的预编译头文件。</li>
+</ul>
+</li>
+<li>否则：
+<ul>
+<li>输出跳过消息。</li>
+<li>设置 <code>SHBuild_IncPCH</code> 的值为空数组。</li>
+</ul>
+</li>
+</ul>
+<p><strong>已知限制</strong> 构建命令仅支持 GNU 兼容工具链。</p>
 <h3 id="函数-shbuild_2w"><a class="header" href="#函数-shbuild_2w">函数 SHBuild_2w</a></h3>
 <p>　　接受 1 个表示路径的参数，调用 <code>cygpath</code> 转换 UNIX 路径到 Windows 路径。</p>
 <p>　　当 <code>cygpath</code> 不存在时返回原路径。</p>
@@ -391,11 +576,44 @@ SHBuild_PrepareBuild
 <p>　　首先调用 <code>SHBuild_Install_HardLink</code> ，然后在目标上设置可执行权限。</p>
 <p><strong>注意</strong> <code>mklink</code> 需要 Windows Vista 后的命令解释器(<code>cmd</code>) 的支持。硬链接需要文件系统（如 NTFS ）支持。</p>
 <h3 id="函数-shbuild_install_link"><a class="header" href="#函数-shbuild_install_link">函数 SHBuild_Install_Link</a></h3>
-<p>　　接受 2 个表示路径的参数，安装前者指定的可执行文件到后者为符号链接。</p>
+<p>　　接受 2 个表示路径的参数，安装前者指定的文件到后者为符号链接。</p>
 <p>　　首先删除目标，其次调用 Windows 命令解释器的 <code>mklink</code> ，若失败调用 <code>ln</code> 。</p>
 <p><strong>注意</strong> <code>mklink</code> 需要 Windows Vista 后的命令解释器(<code>cmd</code>) 的支持。符号链接需要文件系统（如 NTFS ）支持。权限不足可能导致 <code>mklink</code> 创建符号链接失败，可在组策略改变相关默认行为。在一些版本的系统上，可能需要<a href="https://support.microsoft.com/en-us/kb/2856739/en-us">进一步的配置</a>以通过链接执行文件。</p>
+<h3 id="函数-shbuild_loadcache"><a class="header" href="#函数-shbuild_loadcache">函数 SHBuild_LoadCache</a></h3>
+<p>　　加载环境缓存。</p>
+<p>　　函数接收 2 个参数，分别是缓存文件路径和被缓存的变量名的正则表达式模式的数组。</p>
+<p>　　加载缓存通过解析文件内容验证后包含实现。</p>
+<p>　　文件的内容应为可执行的 shell 赋值代码。当前检查支持的格式如下：</p>
+<ul>
+<li>每行一个条目，忽略首尾空白符。</li>
+<li>若条目的形式是 <code>if ... then; ASSIGNMENT; fi</code> ，简化为 <code>ASSIGNMENT</code> 进行下一步检查，忽略其余部分。</li>
+<li>进一步地，若条目的形式是 <code>declare -X VAR=...</code> ，其中 <code>X</code> 是匹配正则表达式模式 <code>(-|[Aagirx]+)</code> 的属性之一，简化为 <code>VAR</code> 进行下一步检查，忽略其余部分。
+<ul>
+<li><strong>注释</strong> 作为全局变量，<code>declare</code> 条目一般应具有 <code>-g</code> 属性，否则声明为局部变量，实际没有加载配置。</li>
+</ul>
+</li>
+<li>进一步地，<code>VAR</code> 应为合法的标识符，匹配正则表达式模式 <code>[A-Za-z_][A-Za-z_0-9]*</code> 。</li>
+</ul>
+<p>　　若任意检查失败，则缓存格式无效，内容不会被加载；否则，包含缓存文件，以执行其中的赋值代码。</p>
+<p>　　函数的返回值如下：</p>
+<ul>
+<li><code>0</code> ：成功。</li>
+<li><code>1</code> ：内容无效。</li>
+<li><code>2</code> ：指定的缓存文件无法读取。</li>
+</ul>
+<h3 id="函数-shbuild_savecache"><a class="header" href="#函数-shbuild_savecache">函数 SHBuild_SaveCache</a></h3>
+<p>　　保存环境缓存。</p>
+<p>　　函数接受的参数及其含义和<a href="#%E5%87%BD%E6%95%B0-shbuild_loadcache">函数 <code>SHBuild_LoadCache</code></a> 一致。</p>
+<p>　　首先打开文件，然后解析 <code>declare -p</code> 结果，把其中变量名匹配第二参数中任意的正则表达式且内容满足函数 <code>SHBuild_LoadCache</code> 格式要求的行写入指定的缓存文件。</p>
+<p>　　写入前，替换内容中的 <code>declare --</code> 或 <code>declare -</code> 为 <code>declare -g</code> 以确保声明全局变量。</p>
+<p><strong>注释</strong> 不要求支持 <code>declare -p</code> 结果中的所有变量属性。不支持的属性被忽略。</p>
+<p>　　函数的返回值如下：</p>
+<ul>
+<li><code>0</code> ：成功。</li>
+<li><code>2</code> ：指定的缓存文件无法写入。</li>
+</ul>
 <h3 id="函数-shbuild_getsystemprefix"><a class="header" href="#函数-shbuild_getsystemprefix">函数 SHBuild_GetSystemPrefix</a></h3>
-<p>　　按参数指定的平台名称字符串返回系统前缀字符串。</p>
+<p>　　转换参数指定的平台名称字符串为系统前缀字符串。</p>
 <p>　　系统前缀用于在文件系统中安装部署。</p>
 <p>　　通常系统前缀因为之前仍有非空的其它前缀（如 <code>SHBuild_SysRoot</code> 指定的值）而不是绝对路径的前缀。因此，系统前缀以 <code>/</code> 起始而不需要考虑所在的环境是否符合 FHS 的问题。</p>
 <p>　　当前支持的结果包括：</p>
@@ -405,17 +623,57 @@ SHBuild_PrepareBuild
 <li>否则，结果为 <code>/usr</code> 。</li>
 </ul>
 <p>　　本函数的结果符合 <a href="../Sysroot.zh-CN.html">Sysroot</a> 中关于 Sysroot 的目录布局的约定。</p>
+<p><strong>注释</strong> 参数典型地来自调用<a href="#%E5%87%BD%E6%95%B0-shbuild_platform_detect">函数 <code>SHBuild_Platform_Detect</code></a> 的结果。</p>
+<h3 id="函数-shbuild_s1_initconf"><a class="header" href="#函数-shbuild_s1_initconf">函数 SHBuild_S1_InitConf</a></h3>
+<p>　　初始化 <a href="../Sysroot.zh-CN.html">stage 1 Sysroot</a> 构建配置，依次执行：</p>
+<ul>
+<li>断言<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>SHBuild_ToolDir</code></a> 非空。</li>
+<li>按需初始化<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>YSLib_BaseDir</code></a> ，默认值为 <code>&quot;$SHBuild_ToolDir/../..&quot;</code> 。
+<ul>
+<li><strong>注释</strong> Stage 1 环境下总是可通过脚本所在目录推断 YSLib 源代码和存储库中的其它源文件的位置。</li>
+</ul>
+</li>
+<li>尝试以切换当前目录的方式访问 <code>$YSLib_BaseDir</code> 。</li>
+<li>按需初始化<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>SHBuild_BuildDir</code></a> ，默认值为 YSLib 版本库根目录下的 <code>build/$(SHBuild_GetBuildName)</code> 。</li>
+<li>确保变量 <code>SHBuild_BuildDir</code> 指定的目录被创建，并尝试以切换当前目录的方式访问。</li>
+<li>若<a href="#stage-1-%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F">变量 <code>S1_BuildDir</code></a> 的值为空，断言<a href="#stage-1-%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F">变量 <code>S1_BuildConf</code></a> 的值非空。
+<ul>
+<li><strong>注释</strong> 这排除以下的初始化默认值使用非预期路径。</li>
+</ul>
+</li>
+<li>按需初始化变量 <code>S1_BuildDir</code> ，默认值为 <code>&quot;$SHBuild_BuildDir/.$S1_BuildConf&quot;</code> 。</li>
+<li>按需初始化<a href="#stage-1-%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F">变量 <code>S1_DistDir</code></a> ，默认值为 <code>&quot;$S1_BuildDir/.stage1&quot;</code> 。</li>
+<li>按需初始化<a href="#stage-1-%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F">变量 <code>S1_SHBuild</code></a> ，默认值为 <code>&quot;$S1_DistDir/SHBuild&quot;</code> 。</li>
+<li>确保变量 <code>S1_BuildDir</code> 指定的目录被创建，并尝试以切换当前目录的方式访问。</li>
+<li>确保变量 <code>S1_DistDir</code> 指定的目录被创建，并尝试以切换当前目录的方式访问。</li>
+</ul>
+<p>　　以上变量初始化后只读。</p>
 <h3 id="函数-shbuild_s2_prepare"><a class="header" href="#函数-shbuild_s2_prepare">函数 SHBuild_S2_Prepare</a></h3>
-<p>　　初始化 <a href="../Sysroot.zh-CN.html">stage 2 Sysroot</a> 环境。</p>
-<p>　　函数可使用一个参数作为变量 <code>SHBuild_SysRoot</code> 的默认值。</p>
-<p>　　初始化这个变量后，断言其值非空，以其值作为创建目录，若指定的目录已存在则忽略。然后，初始化变量 <code>SHBuild_SystemPrefix</code>（参见 <code>Tools/Scripts/SHBuild-YSLib-build.txt</code> 的说明）。之后，初始化变量 <code>SR_Prefix</code> 的值为 <code>&quot;$SHBuild_SysRoot$SHBuild_SystemPrefix&quot;</code> 。</p>
+<p>　　准备 <a href="../Sysroot.zh-CN.html">stage 2 Sysroot</a> 环境，依次执行：</p>
+<ul>
+<li>确保变量 <code>SHBuild_SysRoot</code> 的初始化。
+<ul>
+<li>使用第一参数作为这个变量的默认值。若这个变量未被设置，则以默认值赋值。</li>
+</ul>
+</li>
+<li>断言这个变量的值非空，以其值作为创建目录，若指定的目录已存在则忽略。</li>
+<li>初始化变量 <code>SHBuild_SystemPrefix</code> 。
+<ul>
+<li><strong>注释</strong> 参见 <a href="#toolsscriptsshbuild-yslib-buildtxt"><code>Tools/Scripts/SHBuild-YSLib-build.txt</code></a> 的说明。</li>
+</ul>
+</li>
+<li>初始化变量 <code>SR_Prefix</code> 的值为 <code>&quot;$SHBuild_SysRoot$SHBuild_SystemPrefix&quot;</code> 。</li>
+</ul>
 <h3 id="函数-shbuild_s2_prepare_build"><a class="header" href="#函数-shbuild_s2_prepare_build">函数 SHBuild_S2_Prepare_Build</a></h3>
-<p>　　初始化 stage 2 Sysroot 构建环境。</p>
-<p>　　函数可使用一个参数。以这个参数调用 <code>SHBuild_S2_Prepare</code> ，然后导出变量 <code>SHBuild</code> 的值为 <code>&quot;$SR_Prefix/bin/SHBuild&quot;</code> 。</p>
+<p>　　准备 stage 2 Sysroot 构建环境，依次执行</p>
+<ul>
+<li>以第一参数调用 <code>SHBuild_S2_Prepare</code> 。</li>
+<li>导出变量 <code>SHBuild</code> 的值为 <code>&quot;$SR_Prefix/bin/SHBuild&quot;</code> 。</li>
+</ul>
 <h2 id="toolsscriptsshbuild-common-optionssh"><a class="header" href="#toolsscriptsshbuild-common-optionssh">Tools/Scripts/SHBuild-common-options.sh</a></h2>
 <p>　　被应用程序构建脚本包含的基础功能，提供默认的编译器和链接器命令行选项。</p>
 <p>　　若某个变量提供默认值且执行脚本时没有非空值，则设置为脚本提供的默认值。</p>
-<p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>bin</code> 目录下。</p>
+<p>　　<strong>这个脚本是公开的工具</strong>，被安装脚本部署。</p>
 <p>　　包含 <code>Tools/Scripts/SHBuild-common-toolchain.sh</code> 确定工具链。</p>
 <p><strong>注意</strong> G++ 和 Clang++ 不完全兼容。以下部分变量通过 <code>Tools/Scripts/SHBuild-common-toolchain.sh</code> 中的例程判断 G++ 和 Clang ，并自动使用不同的选项默认值。因此直接通过名称和符号链接等方式伪装会失效而可能导致错误。</p>
 <p>　　以下所有变量仅在外部环境设置为空或未设置时提供默认值，按顺序被指定。可在外部设置为非空值以避免被本脚本中的值覆盖。以下仅列出部分相对不容易变动的默认值，其它默认值参见脚本源代码。若不需要默认值，可以提前设置非空值或在 <code>.</code> 指令后直接设置其它（可能为空的）值。</p>
@@ -455,18 +713,20 @@ LDFLAGS_OPT_DBG=' '
 <h3 id="变量-c_cxxflags_opt_lv"><a class="header" href="#变量-c_cxxflags_opt_lv">变量 C_CXXFLAGS_OPT_LV</a></h3>
 <p>　　C 和 C++ 编译器优化等级选项。</p>
 <p>　　默认值为 <code>-O3</code> 。</p>
-<h3 id="变量-c_cxxflags_warning"><a class="header" href="#变量-c_cxxflags_warning">变量 C_CXXFLAGS_WARNING</a></h3>
-<p>　　C 和 C++ 编译器共用的警告命令行选项。</p>
-<p>　　默认值包括以下列表中的内容：</p>
+<h3 id="函数-shbuild_get_c_cxxflags_warning"><a class="header" href="#函数-shbuild_get_c_cxxflags_warning">函数 SHBuild_Get_C_CXXFLAGS_WARNING</a></h3>
+<p>　　取 C 和 C++ 编译器共用的警告命令行选项的默认值。</p>
+<p>　　结果包括以下列表中的内容：</p>
 <ul>
 <li><code>-Wall</code></li>
 <li><code>-Wcast-align</code></li>
 <li><code>-Wdeprecated</code></li>
 <li><code>-Wdeprecated-declarations</code></li>
+<li><code>-Wdouble-promotion</code></li>
 <li><code>-Wextra</code></li>
 <li><code>-Wfloat-equal</code></li>
 <li><code>-Wformat=2</code></li>
 <li><code>-Winvalid-pch</code></li>
+<li><code>-Wlogical-op</code></li>
 <li><code>-Wmissing-declarations</code></li>
 <li><code>-Wmissing-include-dirs</code></li>
 <li><code>-Wmultichar</code></li>
@@ -474,21 +734,32 @@ LDFLAGS_OPT_DBG=' '
 <li><code>-Wredundant-decls</code></li>
 <li><code>-Wshadow</code></li>
 <li><code>-Wsign-conversion</code></li>
+<li><code>-Wstringop-overflow=0</code></li>
+<li><code>-Wsuggest-attribute=const</code></li>
+<li><code>-Wsuggest-attribute=noreturn</code></li>
+<li><code>-Wsuggest-attribute=pure</code></li>
+<li><code>-Wtrampolines</code></li>
 </ul>
-<p>　　使用符合项目要求支持的 Clang++ 和 G++ 应支持这些选项。</p>
+<p>　　通过检查 C++ 编译器和版本已知不支持的选项会被替换为其它功能近似的选项或被排除。</p>
+<p><strong>注释</strong> 当前仅检查 C++ 编译器，假定 C 编译器和 C++ 编译器版本对应一致（即 G++ 蕴含 GCC ，Clang++ 蕴含 Clang ）。</p>
+<h3 id="变量-c_cxxflags_warning"><a class="header" href="#变量-c_cxxflags_warning">变量 C_CXXFLAGS_WARNING</a></h3>
+<p>　　C 和 C++ 编译器共用的警告命令行选项。</p>
+<p>　　默认值是调用<a href="#%E5%87%BD%E6%95%B0-shbuild_get_c_cxxflags_warning">函数 <code>SHBuild_Get_C_CXXFLAGS_WARNING</code></a> 得到的值。</p>
 <h3 id="变量-c_cxxflags_impl_warning"><a class="header" href="#变量-c_cxxflags_impl_warning">变量 C_CXXFLAGS_IMPL_WARNING</a></h3>
 <p>　　和特定实现相关的 C 和 C++ 编译器共用的警告命令行选项。</p>
-<p>　　默认值包括若干特定实现的选项。</p>
+<p>　　默认值为空值。</p>
 <h3 id="变量-cxxflags_impl_warning"><a class="header" href="#变量-cxxflags_impl_warning">变量 CXXFLAGS_IMPL_WARNING</a></h3>
 <p>　　和特定实现相关的 C++ 编译器警告命令行选项。</p>
-<p>　　默认值包括若干特定实现的选项。</p>
+<p>　　默认值为空值。</p>
 <h3 id="变量-cxxflags_impl_common"><a class="header" href="#变量-cxxflags_impl_common">变量 CXXFLAGS_IMPL_COMMON</a></h3>
 <p>　　和特定实现相关的 C++ 编译器一般命令行选项。</p>
 <p>　　默认值包括若干特定实现的选项。</p>
+<h3 id="线程命令行选项"><a class="header" href="#线程命令行选项">线程命令行选项</a></h3>
+<p>　　线程命令行选项是一组未指定名称的内部命令行选项，包含编译器选项和链接器选项的默认值。其中，编译器选项被<a href="#%E5%8F%98%E9%87%8F-cflags">变量 <code>CFLAGS</code></a> 和<a href="#%E5%8F%98%E9%87%8F-cxxflags">变量 <code>CXXFLAGS</code></a> 的默认值使用，链接器选项被<a href="#%E5%8F%98%E9%87%8F-ldflags">变量 <code>LDFLAGS</code></a> 的默认值使用。</p>
 <p>　　默认值按以下方式检查和指定线程参数：</p>
 <ul>
 <li>通过 <code>-dumpspecs</code> 的内容检查是否匹配 <code>mthreads:</code> 。若成功，编译器和链接器选项添加 <code>-mthreads</code> 。</li>
-<li>否则，检查带有 <code>-mthread</code> 选项的构建。若（直接调用编译器驱动）构建通过，则链接器选项添加 <code>-mthreads</code> ，并检查编译。
+<li>否则，测试带有 <code>-mthread</code> 选项的构建。若（直接调用编译器驱动）构建通过，则链接器选项添加 <code>-mthreads</code> ，并检查编译。
 <ul>
 <li>若编译不通过，则编译器选项添加 <code>-D_MT</code> ，否则添加 <code>-mthreads</code> 。</li>
 </ul>
@@ -496,8 +767,7 @@ LDFLAGS_OPT_DBG=' '
 <li>否则，若通过 <code>-dumpspecs</code> 的内容检查匹配 <code>no-pthread:</code> 且带有 <code>-pthread</code> 时无法构建，则保持编译器和链接器选项不变。</li>
 <li>否则，编译器和链接器选项添加 <code>-pthread</code> 。</li>
 </ul>
-<p><strong>注意</strong> 当前不检查失败原因。参见函数 <code>SHBuild_GetTempDir</code> 的已知限制。</p>
-<p>　　当前暂不支持判断其它环境。</p>
+<p><strong>注意</strong> 不论 C 或 C++ ，当前实现在调用编译器测试构建时总是使用<a href="#%E5%87%BD%E6%95%B0-shbuild_cxx_testsimple">函数 SHBuild_CXX_TestSimple</a> 。</p>
 <h3 id="变量-cxxflags_impl_opt"><a class="header" href="#变量-cxxflags_impl_opt">变量 CXXFLAGS_IMPL_OPT</a></h3>
 <p>　　和特定工具相关的 C++ 编译器优化命令行选项。</p>
 <p>　　默认值包括若干特定实现的选项。</p>
@@ -506,21 +776,41 @@ LDFLAGS_OPT_DBG=' '
 <p>　　默认值为 <code>-std=c11</code> 。</p>
 <h3 id="变量-cflags_warning"><a class="header" href="#变量-cflags_warning">变量 CFLAGS_WARNING</a></h3>
 <p>　　C 编译器警告命令行选项。</p>
-<p>　　默认值为 <code>$C_CXXFLAGS_WARNING $C_CXXFLAGS_IMPL_WARNING</code> 。</p>
+<p>　　默认值包含以下列表中的内容：</p>
+<ul>
+<li>变量 <code>C_CXXFLAGS_WARNING</code> 的内容</li>
+<li>变量 <code>C_CXXFLAGS_IMPL_WARNING</code> 的内容</li>
+</ul>
 <h3 id="变量-cxxflags_std"><a class="header" href="#变量-cxxflags_std">变量 CXXFLAGS_STD</a></h3>
 <p>　　指定 C++ 标准的编译器命令行选项。</p>
 <p>　　默认值为 <code>-std=c++11</code> 。</p>
-<h3 id="变量-cflags_warning-1"><a class="header" href="#变量-cflags_warning-1">变量 CFLAGS_WARNING</a></h3>
-<p>　　C 编译器警告命令行选项。</p>
-<p>　　默认值包含以下列表中的内容：</p>
+<h3 id="函数-shbuild_get_cxxflags_warning"><a class="header" href="#函数-shbuild_get_cxxflags_warning">函数 SHBuild_Get_CXXFLAGS_WARNING</a></h3>
+<p>　　取 C++ 编译器的警告命令行选项的默认值。</p>
+<p>　　结果包括以下列表中的内容：</p>
 <ul>
-<li>变量 <code>CFLAGS_WARNING</code> 的内容</li>
+<li>变量 <code>C_CXXFLAGS_WARNING</code> 的内容</li>
+<li>变量 <code>C_CXXFLAGS_IMPL_WARNING</code> 的内容</li>
+<li><code>-Wconditionally-supported</code></li>
 <li><code>-Wctor-dtor-privacy</code></li>
+<li><code>-Wdeprecated</code>（仅当旧版本 GCC 中这个选项支持 C++ 但不支持 C 时）</li>
+<li><code>-Wno-deprecated-register</code></li>
+<li><code>-Wno-mismatched-tags</code></li>
+<li><code>-Wno-missing-braces</code>（仅当 Clang++ &lt; 6.0 ，作为<a href="https://bugs.llvm.org/show_bug.cgi?id=21629">这个问题</a>的变通）</li>
 <li><code>-Wnon-virtual-dtor</code></li>
 <li><code>-Woverloaded-virtual</code></li>
 <li><code>-Wsign-promo</code></li>
+<li><code>-Wshorten-64-to-32</code></li>
+<li><code>-Wstrict_null_sentinal</code></li>
+<li><code>-Wsuggest-final-methods</code></li>
+<li><code>-Wsuggest-final-types</code></li>
+<li><code>-Wweak-vtables</code></li>
+<li><code>-Wzero-as-null-pointer-constant</code></li>
 <li>变量 <code>CXXFLAGS_IMPL_WARNING</code> 的内容</li>
 </ul>
+<p>　　除以上变量中的内容外，通过检查 C++ 编译器和版本已知不支持的选项会被替换为其它功能近似的选项或被排除。</p>
+<h3 id="变量-cxxflags_warning"><a class="header" href="#变量-cxxflags_warning">变量 CXXFLAGS_WARNING</a></h3>
+<p>　　C++ 编译器警告命令行选项。</p>
+<p>　　默认值是调用<a href="#%E5%87%BD%E6%95%B0-shbuild_get_cxxflags_warning">函数 <code>SHBuild_Get_CXXFLAGS_WARNING</code></a> 得到的值。</p>
 <h3 id="变量-cxxflags_opt_dbg"><a class="header" href="#变量-cxxflags_opt_dbg">变量 CXXFLAGS_OPT_DBG</a></h3>
 <p>　　C++ 编译器优化和调试相关的命令行选项。在未设置非空的 <code>SHbuild_Debug</code> 时。</p>
 <p>　　默认值包含以下列表中的内容：</p>
@@ -532,11 +822,11 @@ LDFLAGS_OPT_DBG=' '
 </ul>
 <h3 id="变量-cflags"><a class="header" href="#变量-cflags">变量 CFLAGS</a></h3>
 <p>　　C 编译器使用的命令行选项。</p>
-<p>　　默认值为 <code>$CFLAGS_STD $C_CXXFLAGS_PIC $C_CXXFLAGS_COMMON $CFLAGS_WARNING $C_CXXFLAGS_COMMON_IMPL_ $CXXFLAGS_OPT_DBG</code> 。其中，<code>C_CXXFLAGS_COMMON_IMPL_</code> 是根据支持的编译器在内部定义的非公开变量。</p>
+<p>　　默认值为 <code>$CFLAGS_STD $C_CXXFLAGS_PIC $C_CXXFLAGS_COMMON $CFLAGS_WARNING $C_CXXFLAGS_IMPL_THRD_ $C_CXXFLAGS_COMMON_IMPL_ $CXXFLAGS_OPT_DBG</code> 。其中，<code>C_CXXFLAGS_COMMON_IMPL_</code> 是<a href="#%E7%BA%BF%E7%A8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9">编译器线程命令行选项</a>，而 <code>C_CXXFLAGS_COMMON_IMPL_</code> 是根据支持的编译器在内部定义的非公开变量。</p>
 <p><strong>注意</strong> 当前和 C++ 编译器选项共用 <code>CXXFLAGS_OPT_DBG</code> 。</p>
 <h3 id="变量-cxxflags"><a class="header" href="#变量-cxxflags">变量 CXXFLAGS</a></h3>
 <p>　　C++ 编译器使用的命令行选项。</p>
-<p>　　默认值为 <code>$CXXFLAGS_STD $C_CXXFLAGS_PIC $C_CXXFLAGS_COMMON $CXXFLAGS_WARNING $CXXFLAGS_IMPL_COMMON $C_CXXFLAGS_COMMON_IMPL_ $CXXFLAGS_OPT_DBG</code> 。其中，<code>C_CXXFLAGS_COMMON_IMPL_</code> 是根据支持的编译器在内部定义的非公开变量。</p>
+<p>　　默认值为 <code>$CXXFLAGS_STD $C_CXXFLAGS_PIC $C_CXXFLAGS_COMMON $CXXFLAGS_WARNING $C_CXXFLAGS_IMPL_THRD_ $CXXFLAGS_IMPL_COMMON $CXXFLAGS_OPT_DBG</code> 。其中，<code>C_CXXFLAGS_COMMON_IMPL_</code> 是<a href="#%E7%BA%BF%E7%A8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9">编译器线程命令行选项</a>，而 <code>CXXFLAGS_IMPL_COMMON</code> 的默认值包含<a href="#%E5%8F%98%E9%87%8F-cflags">变量 <code>C_CXXFLAGS_COMMON_IMPL_</code></a> 的内容。</p>
 <h3 id="变量-ldflags_opt_dbg"><a class="header" href="#变量-ldflags_opt_dbg">变量 LDFLAGS_OPT_DBG</a></h3>
 <p>　　链接器优化和调试相关的命令行选项。在未设置非空的 <code>SHbuild_Debug</code> 时。</p>
 <p>　　默认值为 <code>$LDFLAGS_STRIP $LDFLAGS_IMPL_OPT $LDFLAGS_GC</code> 。</p>
@@ -545,9 +835,10 @@ LDFLAGS_OPT_DBG=' '
 <p>　　默认值依次包含以下内容：</p>
 <ul>
 <li>变量 <code>C_CXXFLAGS_PIC</code> 的内容。</li>
-<li>和变量 <code>CXXFLAGS_IMPL_COMMON</code> 中等价的线程命令行选项。</li>
+<li>变量 <code>CXXFLAGS_WARNING</code> 的内容。</li>
+<li>默认的<a href="#%E7%BA%BF%E7%A8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%89%E9%A1%B9">线程命令行选项</a>。</li>
 <li>变量 <code>LDFLAGS_OPT_DBG</code> 的内容。</li>
-<li>可选的其它选项（参见以下 <code>Tools/Scripts/SHBuild-YSLib-common.txt</code> ）。</li>
+<li>可选的其它选项（参见以下 <a href="#toolsscriptsshbuild-yslib-commontxt"><code>Tools/Scripts/SHBuild-YSLib-common.txt</code></a> ）。</li>
 </ul>
 <p>　　默认使用 <code>-Wl,</code> 传递链接器特定的命令行。</p>
 <h2 id="toolsscriptsshbuild-common-toolchainsh"><a class="header" href="#toolsscriptsshbuild-common-toolchainsh">Tools/Scripts/SHBuild-common-toolchain.sh</a></h2>
@@ -558,12 +849,12 @@ LDFLAGS_OPT_DBG=' '
 <ul>
 <li><code>CC</code>
 <ul>
-<li>默认值为 <code>gcc</code> 。</li>
+<li>若操作系统为 <code>Win32</code> 且 <code>MSYSTEM</code> 指定为默认使用 llvm 工具链（即 Clang ）的环境，默认值为 <code>clang</code> ，否则为 <code>gcc</code> 。</li>
 </ul>
 </li>
 <li><code>CXX</code>
 <ul>
-<li>默认值为 <code>g++</code> 。</li>
+<li>若操作系统为 <code>Win32</code> 且 <code>MSYSTEM</code> 指定为默认使用 llvm 工具链（即 Clang++ ）的环境，默认值为 <code>clang++</code> ，否则为 <code>g++</code> 。</li>
 </ul>
 </li>
 <li><code>AR</code>
@@ -582,64 +873,152 @@ LDFLAGS_OPT_DBG=' '
 </ul>
 </li>
 </ul>
-<p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>bin</code> 目录下。</p>
+<p>　　关于 <code>MSYSTEM</code> 指定的环境和使用的工具链的对应关系，参见 <a href="https://www.msys2.org/docs/environments/">MSYS2 支持的环境</a>；关于支持的 <code>MSYSTEM</code> 的值和 MSYS2 环境，另见<a href="#%E5%87%BD%E6%95%B0-shbuild_platform_detect">函数 <code>SHBuild_Platform_Detect</code></a> 。</p>
+<p>　　以下只读变量在初始化配置时被按需初始化并断言非空：</p>
+<ul>
+<li><code>SHBuild_CC_Name</code> ：C 编译器名称。
+<ul>
+<li>在调用函数 <code>SHBuild_CC_GetVersion</code> 时被首先初始化。</li>
+<li>初值是 <code>$CC</code> 作为参数调用函数 <code>SHBuild_CheckCC</code> 的结果。</li>
+</ul>
+</li>
+<li><code>SHBuild_CC_Version</code> ：C 编译器版本号。
+<ul>
+<li>当前未使用。</li>
+<li>初值是调用函数 <code>SHBuild_CC_GetVersion</code> 的结果。</li>
+</ul>
+</li>
+<li><code>SHBuild_CXX_Name</code> ：C++ 编译器名称。
+<ul>
+<li>在调用<a href="#%E5%87%BD%E6%95%B0-shbuild_cxx_getversion">函数 <code>SHBuild_CXX_GetVersion</code></a> 时被首先初始化。</li>
+<li>在脚本 <a href="#toolsscriptsshbuild-common-toolchainsh"><code>Tools/Scripts/SHBuild-common-toolchain.sh</code></a> 确定 <code>AR</code> 的默认值值前初始化。</li>
+<li>在脚本 <a href="#toolsscriptsshbuild-common-optionssh"><code>Tools/Scripts/SHBuild-common-options.sh</code></a> 确定 <code>CXXFLAGS</code> 等其它配置变量的默认值值前初始化。</li>
+<li>初值是 <code>$CXX</code> 作为参数调用函数 <code>SHBuild_CheckCXX</code> 的结果。</li>
+</ul>
+</li>
+<li><code>SHBuild_CXX_Version</code> ：C++ 编译器版本号。
+<ul>
+<li>在脚本 <code>Tools/Scripts/SHBuild-common-toolchain.sh</code> 确定 C++ 版本号前初始化。</li>
+<li>初值是调用函数 <code>SHBuild_CXX_GetVersion</code> 的结果。</li>
+</ul>
+</li>
+</ul>
+<p>　　上述按需初始化使用<a href="#%E5%87%BD%E6%95%B0-shbuild_initreadonly">函数 <code>SHBuild_InitReadonly</code></a>。</p>
+<p><strong>注释</strong> 可通过外部执行环境指定这些变量具有非空值而跳过初始化。</p>
+<p>　　<strong>这个脚本是公开的工具</strong>，被安装脚本部署。</p>
 <h3 id="函数-shbuild_checkcompiler"><a class="header" href="#函数-shbuild_checkcompiler">函数 SHBuild_CheckCompiler</a></h3>
-<p>　　尝试调用以参数指定的编译器，并按检查结果选择和输出参数的值。</p>
-<p>　　检查编译器时，首先排除参数指定的编译器不可执行的情形，然后通过尝试编译以参数指定的源程序进行。前四参数分别指定编译器的路径、尝试编译的源程序、检查成功时输出的结果和检查失败时输出的结果，之后的参数指定编译选项。</p>
+<p>　　尝试以参数指定的编译参数和输入调用参数指定的编译器，并按检查结果选择和输出参数的值。</p>
+<p>　　检查编译器时，首先排除参数指定的编译器不可执行的情形，然后通过尝试编译以参数指定的源程序进行。</p>
+<p>　　前四参数分别指定编译器的路径、尝试编译的源程序、检查成功时输出的结果和检查失败时输出的结果，之后的参数指定编译选项和源文件。选项和源文件参数中，应在语言选项（如 <code>-xc++</code> ）后出现一次表示输入源程序的 <code>-</code> 。</p>
+<p><strong>注释</strong> 这允许自由安排参数中 <code>-</code> 的顺序。一般地，<code>-</code> 应出现在 <code>-xc++</code> 等参数之后，而出现在链接的库选项之前（如有）。若指定链接的其它库选项在 <code>-</code> 之前，其中的符号在使用 GNU ld 等对出现顺序敏感的链接器时，无法在源程序中引用而链接失败。</p>
 <p>　　检查前断言前两个参数非空。指定编译选项的参数为空时，第三和第四参数可能不提供或为空。</p>
+<p>　　源程序和换行符通过管道输入编译器。</p>
+<p><strong>注释</strong> 对 ISO C 以及 ISO C++11 前的版本，翻译单元不以空行结尾引起未定义行为。此处指定源程序的参数可以不以换行结尾也可安全处理。</p>
 <p>　　结果是以下之一：</p>
 <ul>
-<li>空值（第一参数指定不可执行的路径）</li>
-<li>第三参数（检查成功时的结果）</li>
-<li>第四参数（检查失败时的结果）</li>
+<li>空值（第一参数指定不可执行的路径）。</li>
+<li>第三参数（检查成功时的结果）。</li>
+<li>第四参数（检查失败时的结果）。</li>
 </ul>
+<p><strong>注意</strong> 当前不检查失败原因。编译命令调用依赖可写的临时目录。参见函数 <code>SHBuild_GetTempDir</code> 的已知限制。</p>
 <h3 id="函数-shbuild_checkcc"><a class="header" href="#函数-shbuild_checkcc">函数 SHBuild_CheckCC</a></h3>
-<p>　　尝试调用参数指定的编译器以检查 C 编译器风格。结果是以下之一：</p>
+<p>　　尝试调用参数指定的编译器以检查 C 编译器风格。</p>
+<p>　　第一参数指定编译器可执行文件路径。</p>
+<p>　　结果是以下之一：</p>
 <ul>
-<li>空值（不支持的编译器）</li>
-<li><code>Clang</code></li>
-<li><code>GCC</code></li>
+<li>空值（不支持的编译器）。</li>
+<li><code>Clang</code> 。</li>
+<li><code>GCC</code> 。</li>
 </ul>
 <h3 id="函数-shbuild_checkcxx"><a class="header" href="#函数-shbuild_checkcxx">函数 SHBuild_CheckCXX</a></h3>
-<p>　　尝试调用参数指定的编译器以检查 C++ 编译器风格。结果是以下之一：</p>
+<p>　　尝试调用参数指定的编译器以检查 C++ 编译器名称。</p>
+<p>　　第一参数指定编译器可执行文件路径。</p>
+<p>　　结果是以下之一：</p>
 <ul>
-<li>空值（不支持的编译器）</li>
-<li><code>Clang++</code></li>
-<li><code>G++</code></li>
+<li>空值（不支持的编译器）。</li>
+<li><code>Clang++</code> 。</li>
+<li><code>G++</code> 。</li>
 </ul>
+<h3 id="函数-shbuild_cc_test"><a class="header" href="#函数-shbuild_cc_test">函数 SHBuild_CC_Test</a></h3>
+<p>　　测试 <code>&quot;$CC&quot;</code> 指定的编译器 C 编译器命令行是否可成功调用。</p>
+<p>　　第一参数指定源程序，之后的参数指定编译选项。编译选项前隐含 <code>-pipe -xc</code> 。</p>
+<p>　　以 <code>SHBuild_CheckCompiler</code> 实现编译器调用。</p>
+<h3 id="函数-shbuild_cc_testsimple"><a class="header" href="#函数-shbuild_cc_testsimple">函数 SHBuild_CC_TestSimple</a></h3>
+<p>　　测试 <code>&quot;$CC&quot;</code> 指定的编译器 C 编译器命令行编译最小程序是否可成功调用。</p>
+<p>　　参数指定编译选项。</p>
+<p>　　以 <code>SHBuild_CC_Test</code> 实现编译器调用。</p>
+<p>　　使用的最小程序是 <code>int main(void){return 0;}</code> 。</p>
+<h3 id="函数-shbuild_cxx_test"><a class="header" href="#函数-shbuild_cxx_test">函数 SHBuild_CXX_Test</a></h3>
+<p>　　测试 <code>&quot;$CXX&quot;</code> 指定的编译器 C++ 编译器命令行是否可成功调用。</p>
+<p>　　第一参数指定源程序，之后的参数指定编译选项。编译选项前隐含 <code>-pipe -xc++</code> 。</p>
+<p>　　以 <code>SHBuild_CheckCompiler</code> 实现编译器调用。</p>
+<h3 id="函数-shbuild_cxx_testsimple"><a class="header" href="#函数-shbuild_cxx_testsimple">函数 SHBuild_CXX_TestSimple</a></h3>
+<p>　　测试 <code>&quot;$CXX&quot;</code> 指定的编译器 C++ 编译器命令行编译最小程序是否可成功调用。</p>
+<p>　　参数指定编译选项。</p>
+<p>　　以 <code>SHBuild_CXX_Test</code> 实现编译器调用。</p>
+<p>　　使用的最小程序是 <code>int main(){}</code> 。</p>
+<h3 id="函数-shbuild_cc_getversion"><a class="header" href="#函数-shbuild_cc_getversion">函数 SHBuild_CC_GetVersion</a></h3>
+<p>　　尝试调用 <code>&quot;$CC&quot;</code> 指定的编译器以管道输入的程序取 C 编译器版本号。</p>
+<p>　　结果是以下之一：</p>
+<ul>
+<li>成功时：GCC 或 Clang 版本号的 <code>X.Y.Z</code> 转换为 <code>X * 10000 + Y * 100 + Z</code> 的数值的字符串。</li>
+<li>失败时：空。</li>
+</ul>
+<p><strong>已知缺陷</strong> 不支持无法取得 <code>__GNUC_PATCHLEVEL__</code> 的旧版本 GCC 。
+<strong>已知缺陷</strong> 不支持 Apple Clang 。</p>
+<h3 id="函数-shbuild_cxx_getversion"><a class="header" href="#函数-shbuild_cxx_getversion">函数 SHBuild_CXX_GetVersion</a></h3>
+<p>　　尝试调用 <code>&quot;$CXX&quot;</code> 指定的编译器以管道输入的程序取 C++ 编译器版本号。</p>
+<p>　　结果是以下之一：</p>
+<ul>
+<li>成功时：G++ 或 Clang++ 版本号的 <code>X.Y.Z</code> 转换为 <code>X * 10000 + Y * 100 + Z</code> 的数值的字符串。</li>
+<li>失败时：空。</li>
+</ul>
+<p><strong>已知缺陷</strong> 不支持无法取得 <code>__GNUC_PATCHLEVEL__</code> 的旧版本 GCC 。
+<strong>已知缺陷</strong> 不支持 Apple Clang 。</p>
 <h2 id="toolsscriptsshbuild-self-hostsh"><a class="header" href="#toolsscriptsshbuild-self-hostsh">Tools/Scripts/SHBuild-self-host.sh</a></h2>
 <p>　　<a href="SHBuild.zh-CN.html">SHBuild</a> 自举测试用脚本。</p>
-<p>　　使用 SHBuild 编译并静态链接构建 SHBuild 。和 stage 1 SHBuild 类似，直接使用 YSLib 源文件。</p>
+<p>　　使用 SHBuild 编译并静态链接构建 SHBuild 。和 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1 SHBuild</a> 类似，直接使用 YSLib 源文件。</p>
 <h2 id="toolsscriptsshbuild-self-host-dllsh"><a class="header" href="#toolsscriptsshbuild-self-host-dllsh">Tools/Scripts/SHBuild-self-host-DLL.sh</a></h2>
 <p>　　<a href="SHBuild.zh-CN.html">SHBuild</a> 自举测试用脚本。</p>
 <p>　　使用 SHBuild 编译并动态链接构建 SHBuild 。依赖 <code>/usr/lib</code> 中存在的 YFramework 和 YBase 动态库文件。</p>
 <h2 id="toolsscriptsshbuild-yslibsh"><a class="header" href="#toolsscriptsshbuild-yslibsh">Tools/Scripts/SHBuild-YSLib.sh</a></h2>
-<p>　　作为 stage 1 SHBuild 公共配置脚本被不同的 stage 1 构建脚本包含。</p>
+<p>　　作为 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1 SHBuild</a> 公共配置脚本被不同的 stage 1 构建脚本包含。</p>
 <p>　　包含脚本依次执行：</p>
 <ul>
-<li>初始化变量 <a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><code>SHBuild_ToolDir</code></a> 。</li>
-<li>初始化变量 <a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><code>YSLib_BaseDir</code></a> 。</li>
-<li>初始化变量 <code>SHBuild_PCH_stdinc_h</code> 。</li>
-<li>包含脚本 Tools/Scripts/SHBuild-common-options.sh 。</li>
-<li>赋值变量 <code>INCLUDE_PCH</code> 为版本库的 YBase/include/stdinc.h 。</li>
-<li>赋值变量 <code>INCLUDES</code> 为版本库目录下的适合作为编译器选项使用的头文件目录列表。</li>
-<li>定义函数。</li>
+<li>按需初始化<a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>SHBuild_ToolDir</code></a> 。</li>
+<li>包含脚本 <a href="#toolsscriptsshbuild-commonsh"><code>Tools/Scripts/SHBuild-common.sh</code></a> 以按需初始化确定默认构建位置依赖的环境变量。</li>
+<li>调用<a href="#%E5%87%BD%E6%95%B0-shbuild_s1_initconf">函数 <code>SHBuild_S1_InitConf</code></a> 初始化 stage 1 SHBuild 配置。</li>
+<li>初始化缓存：
+<ul>
+<li>按需初始化<a href="#stage-1-%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F">变量 <code>S1_CacheFile</code></a> ，默认值为 <code>&quot;$S1_BuildDir/config.cache&quot;</code> 。</li>
+<li>初始化缓存配置并调用<a href="#%E5%87%BD%E6%95%B0-shbuild_loadcache">函数 <code>SHBuild_LoadCache</code></a> 加载缓存。</li>
+</ul>
+</li>
+<li>初始化 stage 1 公共构建资源和配置：
+<ul>
+<li>按需初始化<a href="#%E5%8F%98%E9%87%8F-shbuild_pch_stdinc_h">变量 <code>SHBuild_PCH_stdinc_h</code></a> 。</li>
+<li>包含脚本 <a href="#toolsscriptsshbuild-common-optionssh"><code>Tools/Scripts/SHBuild-common-options.sh</code></a> 以按需初始化构建工具使用的选项。</li>
+<li>初始化变量 <code>INCLUDE_PCH</code> 为指定版本库下 <code>YBase/include/stdinc.h</code> 的路径字符串。</li>
+<li>初始化变量 <code>INCLUDES</code> 为版本库目录下的适合作为编译器选项使用的头文件目录列表。</li>
+</ul>
+</li>
+<li>定义函数（参见以下各节）。</li>
 </ul>
 <p><strong>注意</strong> 这个脚本包含 <code>INC_SHBuild_YSLib</code> 守卫变量检查，默认重复包含只被执行一次。</p>
 <h3 id="变量-shbuild_pch_stdinc_h"><a class="header" href="#变量-shbuild_pch_stdinc_h">变量 SHBuild_PCH_stdinc_h</a></h3>
-<p>　　预编译头文件名称，默认为 &quot;<code>stdinc.h</code>&quot; 。</p>
+<p>　　预编译头文件名称，默认值为 <code>&quot;$S1_BuildDir/stdinc.h&quot;</code> 。</p>
 <h3 id="函数-shbuild_s1_initializepch"><a class="header" href="#函数-shbuild_s1_initializepch">函数 SHBuild_S1_InitializePCH</a></h3>
-<p>　　初始化 stage 1 使用的预编译头文件。</p>
+<p>　　初始化 stage 1 使用的预编译头文件：即调用：</p>
 <pre><code>SHBuild_CheckPCH &quot;$INCLUDE_PCH&quot; &quot;$SHBuild_PCH_stdinc_h&quot;
 </code></pre>
 <h2 id="toolsscriptsshbuild-yslibtxt"><a class="header" href="#toolsscriptsshbuild-yslibtxt">Tools/Scripts/SHBuild-YSLib*.txt</a></h2>
 <p>　　构建 YSLib 用的 NPLA1 脚本，包含以下文件：</p>
 <ul>
-<li>Tools/Scripts/SHBuild-YSLib-common.txt ：被 <code>Tools/Scripts/SHBuild-YSLib-build.txt</code> 加载的 NPLA1 脚本。</li>
-<li>Tools/Scripts/SHBuild-YSLib-build.txt ：使用 SHBuild 构建 debug 或 release 配置的 YBase 和 YFramework 库的 NPLA1 脚本，被 <code>Tools/install-sysroot.sh</code> 调用，其中 SHBuild 默认为 stage 1 SHBuild 。</li>
+<li><a href="#toolsscriptsshbuild-yslib-commontxt"><code>Tools/Scripts/SHBuild-YSLib-common.txt</code></a> ：被 <code>Tools/Scripts/SHBuild-YSLib-build.txt</code> 加载的 NPLA1 脚本。</li>
+<li><a href="#toolsscriptsshbuild-yslib-buildtxt"><code>Tools/Scripts/SHBuild-YSLib-build.txt</code></a> ：使用 SHBuild 构建 debug 或 release 配置的 YBase 和 YFramework 库的 NPLA1 脚本，被 <code>Tools/install-sysroot.sh</code> 调用，其中 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">SHBuild 默认为 stage 1 SHBuild</a> 。</li>
 </ul>
 <p>　　调用方式详见 <a href="SHBuild.zh-CN.html">stage 1 SHBuild 中关于 NPL 支持的说明</a>。</p>
-<p>　　可通过外部环境变量配置脚本行为。</p>
+<p>　　可通过<a href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">外部环境变量</a>配置脚本行为。</p>
 <h3 id="版本控制系统支持"><a class="header" href="#版本控制系统支持">版本控制系统支持</a></h3>
 <p>　　脚本以相同的方式检查和识别版本控制系统。</p>
 <p>　　以下环境变量提示使用 Mercurial 或 Git ：</p>
@@ -652,9 +1031,9 @@ LDFLAGS_OPT_DBG=' '
 <ul>
 <li>被检查的命令应在 <code>$PATH</code> 中。
 <ul>
-<li>若在 Windows 中使用 shell ，可能需要提前设置环境以确保继承环境变量。
-　　* <strong>注意</strong> MSYS2 提供的 <code>mercurial</code> 包的可执行文件是脚本而不是可执行文件，不被 NPLA1 脚本调用的 Windows 命令行支持。
-　　* <strong>注释</strong> 不使用 <code>HG</code> 环境变量，因为可能设置为不被支持的 <code>hg</code> 程序路径。事实上，MSYS2 的包 <code>mercurial</code> 安装到 <code>/etc/profile.d/mercurial.sh</code> 设置 <code>HG</code> 为脚本，覆盖从其它位置继承的 <code>hg.exe</code> 。</li>
+<li>若在 Windows 中使用 shell ，可能需要提前设置环境以确保继承环境变量。</li>
+<li><strong>注意</strong> MSYS2 提供的 <code>mercurial</code> 包的可执行文件是脚本而不是可执行文件，不被 NPLA1 脚本调用的 Windows 命令行支持。</li>
+<li><strong>注释</strong> 不使用 <code>HG</code> 环境变量，因为可能设置为不被支持的 <code>hg</code> 程序路径。事实上，MSYS2 的包 <code>mercurial</code> 安装到 <code>/etc/profile.d/mercurial.sh</code> 设置 <code>HG</code> 为脚本，覆盖从其它位置继承的 <code>hg.exe</code> 。</li>
 </ul>
 </li>
 <li>且当前工作目录求在对应的版本库中，同时确定仓库的顶层目录路径。
@@ -676,15 +1055,39 @@ LDFLAGS_OPT_DBG=' '
 <li>附加检查 <a href="https://github.com/google/sanitizers/wiki">sanitizer</a> 。参见以下相关章节的说明。</li>
 </ul>
 </li>
-<li>支持更多变量和默认值。除非另行指定，这些变量在构建环境变量检测中使用。参见以下各节。</li>
+<li>支持更多变量和默认值。
+<ul>
+<li>除非另行指定，这些变量在构建环境变量检测中使用。参见以下各节。</li>
+<li>在构建动态库或应用程序时，使用空 <code>C_CXXFLAGS_GC</code> 值。
+<ul>
+<li><strong>原理</strong> 这些选项<a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html">影响编译时代码生成，不总是优化的</a>。对静态库，因为始终无法预测可能需要排除的定义，启用这些选项是合理的。否则，通常从源代码直接确保排除冗余定义更有效。</li>
+<li><strong>注释</strong> <code>LDFLAGS_GC</code> 的值仍被保持。对使用空的 <code>C_CXXFLAGS_GC</code> 值构建的目标文件这没有预期的作用，但对其它情形（典型地，静态库）仍然有效。</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>提供部分和 shell 脚本不同的函数，详见版本库中的 <code>doc/NPL.txt</code> 。</li>
 </ul>
-<p>　　这个脚本被 <code>Tools/Scripts/SHBuild-YSLib-build.txt</code> 加载，并被 <code>Tools/install-sysroot.sh</code> 间接调用。</p>
+<p>　　这个脚本被 <a href="#toolsscriptsshbuild-yslib-buildtxt"><code>Tools/Scripts/SHBuild-YSLib-build.txt</code></a> 加载，并被 <a href="#toolsinstall-sysrootsh"><code>Tools/install-sysroot.sh</code></a> 间接调用。</p>
+<p>　　以下<a href="#%E5%85%AC%E5%85%B1%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE%E5%8F%98%E9%87%8F">公共构建配置变量</a>影响脚本的特定行为：</p>
+<ul>
+<li><code>SS_DebugEnv</code> 的作用当前包括：
+<ul>
+<li>对环境变量修改时输出修改的变量名和对应的值。</li>
+</ul>
+</li>
+<li><code>SS_Verbose</code> 的作用当前包括：
+<ul>
+<li>在 <code>LDFLAGS</code> 变量中附加 <code>-mwindows</code> 时提示。</li>
+<li>在安装文件时输出安装类型、目标和源。</li>
+</ul>
+</li>
+</ul>
 <p>　　脚本支持外部调用这个脚本的命令行设置变量的默认值，以覆盖直接指定构建环境变量检测确定的选项，如：</p>
 <pre><code>CXX=clang++ CXXFLAGS='-std=c++11 -O2' Tools/install-sysroot.sh
 </code></pre>
 <p><strong>警告</strong> 使用预编译头选项和缺陷同 <a href="#toolsscriptsshbuild-buildsh"><code>Tools/Scripts/SHBuild-build.sh</code></a> 。其中的特性未指定使用 shell 实现，和后者可能存在 shell 环境中可见的差异。</p>
-<p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>var/NPLA1</code> 目录下。</p>
+<p>　　<strong>这个脚本是公开的工具</strong>，被安装脚本部署。</p>
 <h3 id="变量-ldflags_dyn_base"><a class="header" href="#变量-ldflags_dyn_base">变量 LDFLAGS_DYN_BASE</a></h3>
 <p>　　指定动态库基础链接选项。</p>
 <p>　　默认值和平台相关：若为 Win32 环境则使用 <code>-shared -Wl,--dll</code> ，否则为 <code>-shared</code> 。</p>
@@ -737,9 +1140,37 @@ LDFLAGS_OPT_DBG=' '
 <p>　　详见版本库中的 <code>doc/NPL.txt</code> 。</p>
 <p>　　其它变量不被构建环境变量检测访问，而通过函数调用生效，如 <code>SHBuild_Extend_CallVariables</code> 。</p>
 <h2 id="toolsscriptsshbuild-yslib-buildtxt"><a class="header" href="#toolsscriptsshbuild-yslib-buildtxt">Tools/Scripts/SHBuild-YSLib-build.txt</a></h2>
-<p>　　这个脚本当前包括和安装相关的流程，实现 <code>Tools/install-sysroot.sh</code> 在 stage 1 SHBuild 构建后的主要逻辑。</p>
-<p>　　脚本使用 <code>Tools/Scripts/SHBuild-YSLib-common.txt</code> 中提供的一些函数。</p>
-<p>　　脚本支持 <code>SHBuild_</code> 为前缀的环境变量指定构建和部署目标：</p>
+<p>　　这个脚本当前包括和安装相关的流程，实现 <code>Tools/install-sysroot.sh</code> 在 <a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1 SHBuild 构建后的主要逻辑</a>。</p>
+<p>　　脚本支持在构建前自动从网络安装<a href="../Archives.zh-CN.html#External">外部依赖项二进制归档文件</a>以准备从源代码构建安装 YFramework 库。这仅在环境变量 <code>YSLib_DistDir</code> 被设置非空值时启用。这需要一些外部工具命令的支持：</p>
+<ul>
+<li>下载归档依次检查以下工具命令：
+<ul>
+<li><code>wget</code></li>
+<li><code>curl</code></li>
+<li><strong>注释</strong> 因为 <a href="../Run.zh-CN.html#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E7%8E%AF%E5%A2%83">PowerShell 不被支持</a>，实现不检查<a href="https://daniel.haxx.se/blog/2016/08/19/removing-the-powershell-curl-alias/">对 <code>wget</code> 和 <code>curl</code> 的不兼容别名</a>。</li>
+<li><strong>注释</strong> 另见以下环境变量 <code>SS_Offline</code> 的说明。</li>
+</ul>
+</li>
+<li>解压缩归档依次检查以下工具命令：
+<ul>
+<li><code>bsdtar</code></li>
+<li><code>7za</code></li>
+</ul>
+</li>
+<li><strong>注释</strong> 当前不提供这些工具的自动安装。
+<ul>
+<li><strong>原理</strong> 这些工具广泛可用，在不同环境中具有不同情形。
+<ul>
+<li><a href="https://techcommunity.microsoft.com/t5/containers/tar-and-curl-come-to-windows/bc-p/3272679">自 Microsoft Windows 10 Insider Build 17063/1809</a> 起，<a href="https://curl.se/windows/microsoft.html">随系统提供 <code>curl</code> 的可执行文件</a> 。</li>
+<li>MSYS2 和一些 Linux 发行版等环境通过包管理器提供这些命令行工具。</li>
+</ul>
+</li>
+<li><strong>原理</strong> 这些工具通常被全局安装，可能需要系统管理员权限才能执行安装命令。考虑潜在的<a href="../Run.zh-CN.html#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E7%8E%AF%E5%A2%83">安全性</a>和复杂性问题，本脚本不支持确保提供这个前提。</li>
+</ul>
+</li>
+</ul>
+<p>　　脚本使用 <a href="#toolsscriptsshbuild-yslib-commontxt"><code>Tools/Scripts/SHBuild-YSLib-common.txt</code></a> 中提供的一些函数。</p>
+<p>　　脚本支持以下<a href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">外部扩展环境变量</a>指定构建和部署目标：</p>
 <ul>
 <li><code>SHBuild_UseDebug</code> 非空时启用构建和安装 debug 配置的库。</li>
 <li><code>SHBuild_UseRelease</code> 非空时启用构建和安装 release 配置的库。</li>
@@ -753,17 +1184,20 @@ LDFLAGS_OPT_DBG=' '
 <li><code>SHBuild_NoDev</code> 非空时跳过可选的开发工具构建和安装。</li>
 <li><code>SHBuild_Rebuild_S1</code> 非空时跳过文件存在性检查，总是重新构建 stage 1 SHBuild 。</li>
 <li><code>SHBuild_NoDev</code> 非空时跳过 stage 2 SHBuild 后的开发工具构建和安装。</li>
+<li><code>YSLib_DistDir</code> 非空时应指定包含一个绝对路径作为储存 YSLib 归档的目录。</li>
 </ul>
-<p>　　以下配置行为的环境变量（其中 <code>SS</code> 表示 SHBuild Settings ）被支持：</p>
+<p>　　以下<a href="#%E5%85%AC%E5%85%B1%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE%E5%8F%98%E9%87%8F">公共构建配置变量</a>影响脚本的特定行为：</p>
 <ul>
-<li><code>SS_DebugEnv</code> 值非空时启用脚本执行时系统环境相关的调试输出，当前包括：
+<li>所有调用 <code>Tools/Scripts/SHBuild-YSLib-common.txt</code> 而生效的公共构建配置变量在此作用相同。</li>
+<li><code>SS_DirectExtract</code> 的作用包括：
 <ul>
-<li>对环境变量修改时输出修改的变量名和对应的值。</li>
+<li>安装下载的归档时，直接用工具命令行覆盖对应位置的文件，而不先解压缩释放到临时目录后再更新。</li>
 </ul>
 </li>
-<li><code>SS_Verbose</code> 值非空时启用详细消息输出，当前包括：
+<li><code>SS_Offline</code> 的作用包括：
 <ul>
-<li>在 <code>LDFLAGS</code> 变量中附加 <code>-mwindows</code> 时提示。</li>
+<li>不检查下载工具命令的可用性。</li>
+<li>不使用网络下载资源。</li>
 </ul>
 </li>
 </ul>
@@ -790,8 +1224,8 @@ LDFLAGS_OPT_DBG=' '
 </ul>
 </li>
 </ul>
-<p>　　<code>Tools/Scripts/SHBuild-YSLib-build.txt</code> 也可能使用其它变量用于传递参数给被调用的命令，包括一些 <code>SHBuild</code> 预期的变量；后者作为公开接口，但<strong>其具体含义和使用不保证在不同版本间稳定</strong>。</p>
-<p>　　在 stage 1 构建时，接受以下环境变量：</p>
+<p>　　这个脚本也可能使用其它变量用于传递参数给被调用的命令，包括一些 <code>SHBuild</code> 预期的变量；后者作为公开接口，但<strong>其具体含义和使用不保证在不同版本间稳定</strong>。</p>
+<p>　　在<a href="SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">自举构建 stage 2 SHBuild</a> 前构建安装 YFramework 库时，接受以下环境变量：</p>
 <ul>
 <li><code>INCLUDES_freetype</code> 指定覆盖包含路径的编译器命令行选项。
 <ul>
@@ -800,17 +1234,17 @@ LDFLAGS_OPT_DBG=' '
 </li>
 <li><a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量 <code>SHBuild_VCS_hg</code> 或 <code>SHBuild_VCS_git</code></a> 指定构建时的版本控制系统，作用参见以下说明。</li>
 </ul>
-<p>　　在 stage 2 构建时接受以下外部环境变量（部分被 SHBuild 直接以环境变量的方式接受）：</p>
+<p>　　在 stage 2 环境中构建其它目标时接受以下<a href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">外部环境变量</a>（部分被 SHBuild 直接以环境变量的方式接受）：</p>
 <ul>
 <li><code>INCLUDES</code> ：包含路径，和非 SHBuild 中的 <code>Makefile</code> 惯用法含义类似。</li>
 <li><code>LDFLAGS</code> ：链接命令行选项。</li>
 <li><code>LIBS</code> ：作为命令行选项的链接时使用的库路径。</li>
 <li><code>LIBS_RPATH</code> ：非 Windows 平台使用的 <code>rpath</code> 路径。</li>
-<li>SHBuild 附加构建选项环境变量：参见 Tools/Scripts/SHBuild-YSLib-common.txt 。其中变量 <code>SHBuild_CXXFLAGS</code> 同时作用在预编译头构建。</li>
+<li>SHBuild 附加构建选项环境变量：参见 <code>Tools/Scripts/SHBuild-YSLib-common.txt</code> 。其中变量 <code>SHBuild_CXXFLAGS</code> 同时作用在预编译头构建。</li>
 </ul>
 <h3 id="版本字符串"><a class="header" href="#版本字符串">版本字符串</a></h3>
 <p>　　在 stage 1 构建 YFramework 前，通过选择的版本控制系统指定确定版本字符串，可在被构建的 YFramework 库中引用。</p>
-<p>　　确定版本字符串时，检查对应的命令，具体方式详见以上关于版本控制系统支持的描述。若检查都失败，则版本字符串为空串。否则，使用第一个检查成功的命令生成对应的版本字符串。</p>
+<p>　　确定版本字符串时，检查对应的命令，具体方式详见关于<a href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E6%94%AF%E6%8C%81">版本控制系统支持</a>的描述。若检查都失败，则版本字符串为空串。否则，使用第一个检查成功的命令生成对应的版本字符串。</p>
 <p><strong>已知限制</strong> 若使用 <code>git</code> 生成版本字符串，当前同时依赖 <code>sed</code> 命令。</p>
 <p>　　若版本字符串非空，则通过宏定义的方式参与之后的构建。当前影响以下源文件所在的翻译单元：</p>
 <ul>
@@ -820,7 +1254,7 @@ LDFLAGS_OPT_DBG=' '
 <p><strong>已知限制</strong> 当前自动更新依赖的实现同时依赖 <code>sed -i</code> 命令。</p>
 <h2 id="toolsscriptsshbuild-buildapptxt"><a class="header" href="#toolsscriptsshbuild-buildapptxt">Tools/Scripts/SHBuild-BuildApp.txt</a></h2>
 <p>　　NPLA1 应用程序构建脚本。可利用此工具脚本调用 SHBuild 构建特定<em>配置(configuration)</em> 下使用 YSLib 库和基础环境开发的应用程序。</p>
-<p>　　<strong>这个脚本是公开的工具</strong>，被 <code>Tools/install-sysroot.sh</code> 部署到安装路径下的 <code>var/NPLA1</code> 目录下。</p>
+<p>　　<strong>这个脚本是公开的工具</strong>，被安装脚本部署。</p>
 <h3 id="基本原理"><a class="header" href="#基本原理">基本原理</a></h3>
 <p>　　<strong>配置</strong>是特定用途的一组程序输出的集合。常见软件配置可以区分目标平台，是否为调试配置等。</p>
 <p>　　脚本通过设置特定的环境变量并调用 SHBuild 递归扫描指定目录完成构建。其中调用命令由环境变量 <code>SHBuild</code> 指定。若变量 <code>SHBuild</code> 为空，则假定使用脚本程序在 Sysroot 中，由 Sysroot 的布局确定的 SHBuild 的位置作为变量 <code>SHBuild</code> 的默认值。</p>
@@ -875,7 +1309,7 @@ LDFLAGS_OPT_DBG=' '
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../Tutorial.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../Tutorial.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -889,7 +1323,7 @@ LDFLAGS_OPT_DBG=' '
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../Tutorial.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../Tutorial.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

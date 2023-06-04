@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -31,7 +31,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -61,42 +61,69 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html" class="active"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html" class="active"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -153,7 +180,7 @@
 <p>　　关于运行环境，另见<a href="Run.zh-CN.html">运行时平台环境的说明</a>。</p>
 <p>　　详细提交测试的环境参见开发文档 <code>doc/Test.txt</code> 。</p>
 <p>　　若不使用特定的特性或构建平台，构建环境的部分要求是可选的。</p>
-<p>　　以下各节的环境配置以“宿主平台/目标平台(目标平台名)”为标题指定，其中目标平台名是正式的配置名称（也在其它项目文档中作为配置名称使用），若和平台一致则被省略；其它平台的标识当前仅为明确开发流程，在用户文档中使用。对宿主平台和目标平台两者一致的情形，只标识一个平台。关于“平台”的一般含义，参见<a href="Terminology.zh-CN.html">术语</a>。</p>
+<p>　　以下各节的环境配置以“<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主平台</a>/<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">目标平台</a>(目标平台名)”为标题指定，其中目标平台名是正式的配置名称（也在其它项目文档中作为配置名称使用），若和平台一致则被省略；其它平台的标识当前仅为明确开发流程，在用户文档中使用。对宿主平台和目标平台两者一致的情形，只标识一个平台。关于“平台”的一般含义，参见<a href="Terminology.zh-CN.html">术语</a>。</p>
 <h2 id="公共构建环境"><a class="header" href="#公共构建环境">公共构建环境</a></h2>
 <p>　　构建环境提供工具链（语言实现）和构建需要的工具。某些工具被不同的构建环境共享（但可能仍需针对不同构建平台使用不同二进制程序）。</p>
 <p>　　Windows 平台上的 MSYS2 基础环境符合以下公共构建环境的所有要求。当前发布和一般提交（包括本机平台和交叉构建）时仅测试 MSYS2 。</p>
@@ -226,23 +253,23 @@
 <li>DeSmuME 0.9.9 <strong>（注意新版本因为<a href="http://wiki.desmume.org/index.php?title=Faq#How_can_I_run_homebrew_games_that_require_DLDI_patching_.3F">自动 DLDI</a> 存在缺陷，暂时不支持运行自制程序。）</strong></li>
 </ul>
 <p>　　环境变量 <code>DEVKITARM</code> 指定一个 POSIX 路径，其中的 <code>bin</code> 子目录下包括工具。示例（ POSIX shell 使用 Windows 路径）：</p>
-<pre><code>export DEVKITARM=/C/devkitPro/devkitARM
+<pre><code class="language-shell">export DEVKITARM=/C/devkitPro/devkitARM
 </code></pre>
 <p>　　建议使用发布时最新版本的 <a href="http://devkitpro.org/">devkitPro</a> 。</p>
 <p>　　devkitPro 在 Windows 下提供 MSYS ，在 devkitPro 安装目录下 <code>msys/bin</code> 包含 <code>bash</code> 等程序。可把此路径添加到环境变量 <code>PATH</code> 。也可使用 MSYS2 替代。</p>
-<p>　　发布和一般提交时仅测试 devkitPro 最新版本，目标平台三元组 arm-none-eabi。</p>
+<p>　　发布和一般提交时仅测试 devkitPro 最新版本，目标平台<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0%E6%A0%87%E8%AF%86">三元组</a> arm-none-eabi。</p>
 <h2 id="pcwin32"><a class="header" href="#pcwin32">PC(Win32)</a></h2>
 <p>　　Windows 平台使用 Microsoft VC++ 构建。因为一些已知的问题，暂不正式支持。参见以下 MinGW32 平台的构建条件以获取 Windows 可执行文件。</p>
 <p>　　但以下的部分信息和 MinGW 通用。</p>
-<h3 id="windows-子系统subsystem"><a class="header" href="#windows-子系统subsystem">Windows 子系统(subsystem)</a></h3>
-<p>　　<a href="http://zh.wikipedia.org/zh-cn/Windows_NT%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">Windows NT 内核以上支持不同的称为<em>子系统</em> 的用户模式运行时环境</a> ，主要包括 Win32 子系统、OS/2 子系统和 POSIX 子系统。</p>
+<h3 id="windows-子系统"><a class="header" href="#windows-子系统">Windows 子系统</a></h3>
+<p>　　<a href="http://zh.wikipedia.org/zh-cn/Windows_NT%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">Windows NT 内核以上支持不同的称为<em>子系统(subsystem)</em> 的用户模式运行时环境</a> ，主要包括 Win32 子系统、OS/2 子系统和 POSIX 子系统。</p>
 <p>　　因为标准库实现以及 YFramework 的部分组件依赖 Win32 API ，YSLib 在 Windows 上的实现依赖 Win32 子系统。</p>
 <p>　　Microsoft Visual C++ 提供 <a href="http://msdn.microsoft.com/zh-cn/library/fcc1zstk.aspx"><code>/SUBSYSTEM</code> 链接器选项</a>来指定不同的子系统。在此 <code>CONSOLE</code> 指定控制台程序，而 <code>WINDOWS</code> 指定非控制台的通常使用 GUI 的程序，它们都使用 Win32 子系统实现。</p>
 <p>　　控制台程序和 GUI 程序的入口不同，也有一些行为上的不同。例如，启动控制台程序默认会显示命令行窗口；GUI 程序忽略命令行的交互式输入。</p>
 <h3 id="操作系统版本"><a class="header" href="#操作系统版本">操作系统版本</a></h3>
 <p>　　Windows 操作系统版本一般对（非交叉编译的）构建没有直接影响，但有以下例外：</p>
 <p>　　GCC 的<strong>预编译头文件不保证对系统兼容</strong>：升级系统后可能出现错误，例如升级 Windows 10 1803 以后的系统，使用旧的预编译头文件（而不更改编译器二进制文件），可能出现以下内部错误：</p>
-<pre><code>internal error in mingw32_gt_pch_use_address, at config/i386/host-mingw32.c:184: MapViewOfFileEx: 试图访问无效的地址。
+<pre><code class="language-text">internal error in mingw32_gt_pch_use_address, at config/i386/host-mingw32.c:184: MapViewOfFileEx: 试图访问无效的地址。
 </code></pre>
 <p>　　此时删除所有预编译头文件，或不使用预编译头文件重新构建即可。类似的问题在其它的项目中<a href="https://jira.reactos.org/browse/CORE-8053">也是已知的问题</a>，使用类似的方式解决。</p>
 <p>　　另外，<a href="https://github.com/msys2/MINGW-packages/issues/5067">部分 Windows 版本可能存在不明原因的内核缺陷导致类似的问题</a>。不仅限于构建，这些问题可能对运行也有影响。</p>
@@ -250,14 +277,14 @@
 <h3 id="预编译头文件"><a class="header" href="#预编译头文件">预编译头文件</a></h3>
 <p>　　部分构建使用可选的预编译头文件。</p>
 <h2 id="pcmingw32"><a class="header" href="#pcmingw32">PC(MinGW32)</a></h2>
-<p>　　MinGW32 包含 32 位和 64 位宿主和目标平台。关于 MinGW 或 MinGW32 的称谓，参见<a href="https://github.com/FrankHB/pl-docs/blob/master/zh-CN/mingw-vs-mingw-v64.md">这里</a>的说明。</p>
+<p>　　MinGW32 包含 32 位和 64 位<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主和目标平台</a>。关于 MinGW 或 MinGW32 的称谓，参见<a href="https://github.com/FrankHB/pl-docs/blob/master/zh-CN/mingw-vs-mingw-v64.md">这里</a>的说明。</p>
 <p>　　支持的构建环境：</p>
 <ul>
 <li>目标 32 位(i686) MinGW GCC 工具链。
 <ul>
 <li>支持不同的 MinGW 运行时
 <ul>
-<li><a href="https://sourceforge.net/projects/mingw-w64/">MinGW-W64</a> （目标三元组 i686-w64-mingw32 ）。</li>
+<li><a href="https://sourceforge.net/projects/mingw-w64/">MinGW-W64</a> （目标平台<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0%E6%A0%87%E8%AF%86">三元组</a> i686-w64-mingw32 ）。</li>
 <li><a href="http://mingw.org/">MinGW.org</a> （目标平台三元组 i686-pc-mingw32 ）</li>
 </ul>
 </li>
@@ -367,9 +394,9 @@
 </li>
 <li>确保能搜索到正确的 MinGW 编译器。
 <ul>
-<li>可以进入 Shell 执行命令 <code>/usr/bin/which gcc</code> ，确定输出的结果为 MinGW 编译器（默认为 <code>/mingw32/bin/gcc.exe</code> 和 <code>/mingw64/bin/gcc.exe</code> 之一）而不是 MSYS 编译器（默认为 <code>/usr/bin/gcc.exe</code> ）</li>
+<li>可以进入 Shell 执行命令 <code>type -P gcc</code> ，确定输出的结果为 MinGW 编译器（默认为 <code>/mingw32/bin/gcc.exe</code> 和 <code>/mingw64/bin/gcc.exe</code> 之一）而不是 MSYS 编译器（默认为 <code>/usr/bin/gcc.exe</code> ）</li>
 <li>若已确保 MSYS 根目录下 <code>/usr/bin</code> 目录在环境变量 <code>PATH</code> 中，直接进入 <code>cmd</code> 或 Shell 直接执行 <code>which gcc</code> ，方法和效果与上述方法相同</li>
-<li>可以直接在命令行执行 <code>gcc -v</code> 查看输出，确认 <code>Target: </code> 带有后缀 <code>-w64-mingw32</code></li>
+<li>可以直接在命令行执行 <code>gcc -v</code> 查看输出，确认 <code>Target:</code> 带有后缀 <code>-w64-mingw32</code></li>
 </ul>
 </li>
 <li>建议手动执行 <code>pacman -Syu</code> 自行升级，或 <code>pacman -S</code> 安装所需的包的最新版本</li>
@@ -383,7 +410,7 @@
 <h4 id="配置安装源"><a class="header" href="#配置安装源">配置安装源</a></h4>
 <p>　　官方镜像配置参见 <a href="https://github.com/Alexpux/MSYS2-packages/tree/master/pacman-mirrors">pacman-mirrors</a> 。</p>
 <p>　　若 <code>pacman</code> 下载过慢，可用文本编辑器打开 MSYS 根目录下的 <code>/etc/pacman.d</code> 中的配置文件，编辑对应的镜像地址。如对于 32 位的 MinGW 包，在 <code>mirrorlist.mingw32</code> 的其它非注释行之前插入：</p>
-<pre><code>## 清华大学 TUNA 镜像（ 2016-09-23 已变更，注意大小写）
+<pre><code class="language-mirrorlist">## 清华大学 TUNA 镜像（ 2016-09-23 已变更，注意大小写）
 Server = http://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/i686
 ## 中国科学技术大学开源软件镜像（之前曾停止更新，最后更新 2015-06-18 ；2015-11-01 已恢复）
 Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686
@@ -401,10 +428,10 @@ Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
 <p>　　也可以参考 <a href="https://www.cygwin.com/faq.html#faq.using.fixing-fork-failures">Cygwin 的解决方法</a>。</p>
 <p>　　混用 x86/x64 程序（不管是 Win32 还是 MSYS 程序）导致的类似问题可能经以上步骤仍然无法修复，这可由 MSYS2 <a href="http://sourceforge.net/p/msys2/tickets/208/">在特定操作系统上的一个缺陷</a>引起。变通做法是只使用固定目标的程序，例如只使用 i686 MSYS 基础系统执行 i686 MinGW32 GCC 。注意 i686 MinGW32 GCC 是 x86 的 Win32 程序。尽管它不是 MSYS2 程序，但可在 LTO 时调用 MSYS2 程序 <code>make</code> ，这时候可能出错。</p>
 <p>　　如果确定只使用少数程序，在命令行指定替换。例如 x86_64 的 MSYS2 bash 环境中使用 i686 MinGW32 GCC ，指定 LTO 调用的 <code>make</code> ：</p>
-<pre><code>export MAKE=/path-to-another-msys2-root/mingw32/make
+<pre><code class="language-shell">export MAKE=/path-to-another-msys2-root/mingw32/make
 </code></pre>
 <p>　　或直接替换所有 <code>make</code> ：</p>
-<pre><code>export make=/path-to-another-msys2-root/mingw32/make
+<pre><code class="language-shell">export make=/path-to-another-msys2-root/mingw32/make
 </code></pre>
 <p><strong>注意</strong> <code>%SystemRoot%\System32\cmd.exe</code> 在 x64 Windows 下是 x64 程序，对应的 x86 版本是 <code>%SystemRoot%\SysWOW64\cmd.exe</code> 。</p>
 <h3 id="gcc-with-the-mcf-thread-model"><a class="header" href="#gcc-with-the-mcf-thread-model">GCC with the MCF thread model</a></h3>
@@ -422,14 +449,14 @@ Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
 <p>　　仍需自行编译依赖项以支持 YFramework （当前不支持）。</p>
 <p>　　因为 15.2 之前的版本仅支持 Win32 线程模型，不支持 <code>std::thread</code> 等标准库线程 API ，不支持生成 YFramework ，只支持生成 YBase 。</p>
 <p>　　当前未测试。</p>
-<h3 id="windows-子系统subsystem-1"><a class="header" href="#windows-子系统subsystem-1">Windows 子系统(subsystem)</a></h3>
-<p>　　基本内容参见以上 PC(Win32) 平台关于 Windows 子系统(subsystem) 的介绍。</p>
+<h3 id="windows-子系统-1"><a class="header" href="#windows-子系统-1">Windows 子系统</a></h3>
+<p>　　基本内容参见以上 <a href="#pcwin32">PC(Win32) 平台</a>关于 <a href="#windows-%E5%AD%90%E7%B3%BB%E7%BB%9F">Windows 子系统</a>的介绍。</p>
 <p>　　在 MinGW 工具链的命令行中，选项 <code>-mconsole</code> 和 <code>-mwindows</code> 对应 Microsoft VC++ 工具链的子系统选项。若没有指定，一般默认为前者。通常 <code>-mwindows</code> 隐式使用一些附加的库，如 <code>-lgdi32 -lcomdlg32</code> 。和 VC++ 不同，当前使用的 MinGW 实现一般可以支持统一使用 <code>main</code> 作为入口，不需要特别修改。</p>
 <p>　　对 <code>gcc</code> 或 <code>g++</code> ，使用 <code>-dumpspecs</code> 查看内建支持的 specs 。Clang/Clang++ 不适用 specs ，需要查看文档和源代码。</p>
 <h2 id="pcandroid"><a class="header" href="#pcandroid">PC/Android</a></h2>
 <p>　　支持的构建环境：</p>
 <ul>
-<li>Android 开发环境（仅测试 Windows x64 宿主环境），包括：
+<li>Android 开发环境（仅测试 Windows x64 <a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主环境</a>），包括：
 <ul>
 <li>使用 <code>make</code> 的公共构建环境。</li>
 <li>JDK（仅测试 Oracle JDK 1.8 ；注意 Android 仅支持部分 Java 8 特性）。</li>
@@ -445,7 +472,7 @@ Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
 <li>Android 模拟器，运行操作系统 Android 5 （对应 API level 21 ），或更高版本（未测试，可能有兼容性问题）。</li>
 <li>物理设备，操作系统要求同上（未正式测试，可能有兼容性问题）。</li>
 </ul>
-<h1 id="pclinux"><a class="header" href="#pclinux">PC/Linux</a></h1>
+<h2 id="pclinux"><a class="header" href="#pclinux">PC/Linux</a></h2>
 <p>　　当前仅用于可移植性测试。要点：</p>
 <ul>
 <li>当前仅测试 x86-64 （提供 FreeImage 二进制文件）</li>
@@ -468,7 +495,7 @@ Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="GettingSources.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="GettingSources.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -482,7 +509,7 @@ Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="GettingSources.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="GettingSources.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

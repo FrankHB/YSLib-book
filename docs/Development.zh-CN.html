@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -31,7 +31,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -61,42 +61,69 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html" class="active"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html" class="active"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -293,7 +320,7 @@
 </li>
 <li>其它实现暂不使用选项支持，以避免和上述二进制约定冲突。
 <ul>
-<li>libc++ 不支持另行调整，由实现根据平台环境指定 <code>_LIBCPP_HAS_NONUNIQUE_TYPEINFO</code> 。</li>
+<li>libc++ 不支持另行调整，由实现根据<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0">平台环境</a>指定 <code>_LIBCPP_HAS_NONUNIQUE_TYPEINFO</code> 。</li>
 <li>另见以下关于 <code>std::type_info</code> 比较的限制。</li>
 </ul>
 </li>
@@ -390,23 +417,39 @@
 <p>　　YFramework 默认依赖经过修改的 FreeType2 和 FreeImage 。其中前者当前仅修改头文件，经过特别处理和官方发布的直接构建的版本二进制兼容，可以被系统库替换。</p>
 <p>　　当前版本中，存储库中不同宿主平台对应的静态库文件（后缀名为 <code>.a</code> ）的目录如下：</p>
 <ul>
-<li>YFramework/DS/lib</li>
-<li>YFramework/MinGW32/lib</li>
-<li>YFramework/MinGW64/lib</li>
-<li>YFramework/Android/lib</li>
-<li>YFramework/Linux/lib</li>
+<li><code>YFramework/DS/lib</code></li>
+<li><code>YFramework/MinGW32/lib</code></li>
+<li><code>YFramework/MinGW64/lib</code></li>
+<li><code>YFramework/Android/lib</code></li>
+<li><code>YFramework/Linux/lib</code></li>
 </ul>
 <p>　　其中，使用的 FreeImage 静态库对应 YFramework 的 <code>debug</code> 和非 <code>debug</code> 配置，文件名分别为 <code>libFreeImaged.a</code> 和 <code>libFreeImage.a</code> 。这可在同一个目录树中共存。</p>
 <p>　　（当前 Android 和 Linux 仅支持单一本机体系结构，实际仅测试 Android ARMv7 和 Linux x86_64 。）</p>
 <p>　　构建 YFramework 时需包含 <code>3rdparty/include</code> 目录的头文件。<a href="Sysroot.zh-CN.html">Sysroot</a> 安装脚本 <a href="Tools/Scripts.zh-CN.html">Tools/install-sysroot.sh</a> 会复制包括上面的头文件在内的文件。</p>
 <p>　　当前已经使用的详细外部依赖项详见 YSLib 项目文档 <code>doc/Dependencies.txt</code> 。</p>
-<p><strong>注意</strong> 版本库历史中包括静态库(<code>.a</code>) 文件，但为减少版本库大小，不再更新且可能移除，使用外部源或自行构建的方式替代。参见<a href="Archives.zh-CN.html">归档</a>获取单独配置或和源代码目录集成的已编译的外部依赖项。</p>
+<p><strong>注意</strong> 版本库历史中包括静态库(<code>.a</code>) 文件，但为减少版本库大小，不再更新且可能移除，使用外部源或自行构建的方式替代。</p>
+<p>　　可使用以下方式安装外部依赖项：</p>
+<ul>
+<li>参见<a href="Archives.zh-CN.html">归档</a>，获取<a href="Archives.zh-CN.html#External">单独</a>或<a href="Archives.zh-CN.html#Sysroot">源代码目录集成的</a>已编译的外部依赖项。
+<ul>
+<li>非正式支持并<a href="Releases.zh-CN.html#%E5%8F%91%E5%B8%83%E9%98%B6%E6%AE%B5">发布</a>的平台当前不都提供归档。</li>
+<li>关于正式支持，另见存储库中的 <code>doc/ProjectRules.txt</code> 的说明。</li>
+</ul>
+</li>
+<li>若在宿主平台使用 <a href="Sysroot.zh-CN.html">Sysroot</a> ，<a href="Tools/Scripts.zh-CN.html#toolsscriptsshbuild-yslib-buildtxt">脚本可自动从网络下载安装归档</a>。
+<ul>
+<li>非宿主平台当前不支持使用 Sysroot 构建。</li>
+<li>对全新安装，设置<a href="Tools/Scripts.zh-CN.html#%E5%85%AC%E5%85%B1%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE%E5%8F%98%E9%87%8F">环境变量 <code>SS_DirectExtract</code></a> 为非空值可能（很小地）提升性能。</li>
+</ul>
+</li>
+<li>参见存储库中的 <code>3rdparty</code> 中的内容，手动构建所需的外部依赖项。</li>
+</ul>
 <p>　　在 build 885 之前，版本库历史的对应的宿主平台中的静态库位于以下位置：</p>
 <ul>
-<li>YFramework/DS/lib</li>
-<li>YFramework/MinGW32/lib-i686</li>
-<li>YFramework/Android/lib</li>
-<li>YFramework/Linux/lib-x86_64</li>
+<li><code>YFramework/DS/lib</code></li>
+<li><code>YFramework/MinGW32/lib-i686</code></li>
+<li><code>YFramework/Android/lib</code></li>
+<li><code>YFramework/Linux/lib-x86_64</code></li>
 </ul>
 <p>　　其中 Android 平台只包括 FreeType2 ，Linux 平台只包括 FreeImage 。其它平台包括 FreeType2 和 FreeImage 库文件。</p>
 <p>　　其它平台中，只有随其它文件的发布版本包含完整更新，否则压缩包中可能只有其中一个库文件。</p>
@@ -517,7 +560,7 @@
 <h2 id="构建选项"><a class="header" href="#构建选项">构建选项</a></h2>
 <p>　　一般地，在脚本中默认指定的工具链的警告选项应能支持代码规范。</p>
 <h1 id="脚本"><a class="header" href="#脚本">脚本</a></h1>
-<p>　　YSLib 版本库中包含若干脚本。这些脚本和 YSLib 安装部署的脚本使用本章中的约定。</p>
+<p>　　YSLib 版本库中包含若干脚本。这些脚本和 YSLib 安装部署的脚本使用<a href="Run.zh-CN.html#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F">命令行程序运行环境</a>和本章中的约定。</p>
 <p>　　脚本一般通过调用解释器运行。脚本的运行要求宿主环境（符合 YSLib 源码 <code>YF_Hosted</code> 定义支持的平台，指具有操作系统的环境）。</p>
 <p>　　除非另行指定，脚本以文件的形式部署。</p>
 <h2 id="外部环境"><a class="header" href="#外部环境">外部环境</a></h2>
@@ -541,9 +584,11 @@
 <p>　　<strong>脚本文件总是使用以下约定的扩展名。</strong></p>
 <p>　　除了 Windows 命令解释器使用的 <code>.cmd</code> 文件以及 <a href="Features/NPL.zh-CN.html#%E5%AE%9E%E7%8E%B0">NPLA1</a> 脚本使用的 <code>.txt</code> 文件，所有脚本使用 <a href="http://zh.wikipedia.org/zh-cn/Shebang">Shebang</a> 明确需要使用的解释环境（详见 <a href="#shell-%E8%84%9A%E6%9C%AC">shell 脚本的说明</a>）。</p>
 <p>　　Windows 命令解释器脚本因为实现限制使用本机 ANSI 代码页的编码，约定为兼容 ASCII 。</p>
-<p>　　NPLA1 脚本约定使用带有 BOM 的 UTF-8 编码（去除 BOM 的脚本可能兼容 ASCII ）。详见 <a href="Tools/SHBuild.zh-CN.html#npl-%E6%94%AF%E6%8C%81">stage 1 SHBuild 中关于 NPL 支持的说明</a>。</p>
+<p>　　<a href="#npla1-%E8%84%9A%E6%9C%AC">NPLA1 脚本</a>约定使用带有 BOM 的 UTF-8 编码（去除 BOM 的脚本可能兼容 ASCII ）。详见 <a href="Tools/SHBuild.zh-CN.html#npl-%E6%94%AF%E6%8C%81">stage 1 SHBuild 中关于 NPL 支持的说明</a>。</p>
 <h2 id="接口约定"><a class="header" href="#接口约定">接口约定</a></h2>
-<p>　　脚本变量可能被读取和加载。除非另行指定，非导出的变量和名称以 <code>_</code> 结尾的变量，都不是公开接口。</p>
+<p>　　脚本变量可能被读取和加载。</p>
+<p>　　除非另行指定，脚本引入的非导出的变量和名称以 <code>_</code> 结尾的变量，都不是公开接口。</p>
+<p><strong>原理</strong> 基于名称约定便于和构成公开接口的名称区分。</p>
 <h3 id="路径"><a class="header" href="#路径">路径</a></h3>
 <p>　　<em>路径(path)</em> 是由有限的路径组件构成的序列。在不引起歧义时，路径即指文件系统路径。文件系统的路径组件能以字符串形式表示。</p>
 <p>　　在支持相对路径的环境中，是否支持相对路径取决于具体脚本。</p>
@@ -553,16 +598,16 @@
 <p><strong>注意</strong> YBase 的 <code>ystdex::path</code> 和 YFramework 的 <code>YSLib::IO::Path</code> 等数据结构表示根路径外无视结尾分隔符的非字符串形式的路径，因为有效的分隔符仅在根路径中出现。这些实现一般不检查分隔符的合法性，如其中具有包含分隔符的路径组件，也可能正常转换为字符串形式的合法路径。当前脚本只使用字符串形式的路径。</p>
 <h2 id="shell-脚本"><a class="header" href="#shell-脚本">Shell 脚本</a></h2>
 <p>　　扩展名 <code>.sh</code> 的脚本文件是 shell 脚本文件。大多数脚本需要使用 <a href="https://www.gnu.org/software/bash/">GNU bash</a> 运行，如：</p>
-<pre><code>#!/usr/bin/bash
+<pre><code class="language-shell">#!/usr/bin/bash
 </code></pre>
 <p>　　需要考虑兼容性时，一般使用以下替代：</p>
-<pre><code>#!/usr/bin/env bash
+<pre><code class="language-bash">#!/usr/bin/env bash
 </code></pre>
 <p>　　其它可以直接兼容 POSIX shell 的 <code>.sh</code> 脚本使用 Shebang 如：</p>
-<pre><code>#!/usr/bin/sh
+<pre><code class="language-shell">#!/usr/bin/sh
 </code></pre>
 <p>　　需要考虑兼容性时，一般使用以下替代：</p>
-<pre><code>#!/usr/bin/env sh
+<pre><code class="language-shell">#!/usr/bin/env sh
 </code></pre>
 <p>　　为简化脚本代码，用户需要保证调用 shell 脚本时，环境应满足以下条件，否则行为未指定：</p>
 <ul>
@@ -570,9 +615,13 @@
 <ul>
 <li>对 bash 脚本：
 <ul>
-<li>满足版本要求：<strong>当前 Bash 最低版本为 4.0 。</strong></li>
+<li>满足版本要求：<strong>当前 Bash 最低版本为 4.4 。</strong>
+<ul>
+<li><strong>注释</strong> 要求 4.0 保证能使用 <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-mapfile"><code>mapfile</code></a> 等 <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html">bash 内建命令</a>。</li>
+<li><strong>注释</strong> 要求 4.4 保证能使用 <code>${@@Q}</code> 等<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">参数替换</a>。</li>
+</ul>
+</li>
 <li>不使用 POSIX 兼容模式。</li>
-<li>保证能使用 <code>mapfile</code> 等 <code>bash</code> 内建命令。</li>
 </ul>
 </li>
 <li>对其它 POSIX shell 脚本：
@@ -580,13 +629,20 @@
 <li>使用符合 POSIX 的 shell ，或使用以上要求相同的 <code>bash</code> 运行 shell 脚本。</li>
 </ul>
 </li>
+<li>可支持使用特定的公共非 POSIX 扩展：
+<ul>
+<li>使用 <a href="https://unix.stackexchange.com/questions/614808"><code>mktemp</code></a> 命令创建临时文件名。</li>
+<li><strong>注释</strong> 这些扩展在应在受支持的<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0">平台环境</a>中可用。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 除非另行指定，不要求对 shell 环境进行检查。</li>
 </ul>
 </li>
 <li>不论是否设置了变量 <code>POSIXLY_CORRECT</code> ，命令解释环境的变量满足：
 <ul>
 <li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_14">特殊内建工具</a>没有被用户定义的同名变量或别名覆盖。</li>
 <li>被脚本调用的 POSIX 定义的工具命令没有被用户定义的同名变量或别名覆盖为调用时可观察行为不等价的实体。</li>
-<li>变量 <code>IFS</code> 未设置或设置为默认值 <code>:</code> 。</li>
+<li>变量 <code>IFS</code> 未设置或设置为默认值。</li>
 </ul>
 </li>
 <li>命令解释器同 <code>bash</code> 的 <code>-p</code> 选项启用时效果相同。
@@ -600,6 +656,24 @@
 <li>部分脚本可能有更进一步的使用限制或不依赖 <code>.</code> 命令及命令解释器调用的差异。此时，可直接使用 <code>&quot;$0&quot;</code> 判断路径。</li>
 </ul>
 </li>
+<li>除非另行指定，调用的外部命令的程序满足以下可用性要求：
+<ul>
+<li>以 POSIX 实用程序名称直接调用的满足 POSIX 对应的要求。</li>
+<li>当前使用的 shell 的名称（如 <code>bash</code> ）总是能被 POSIX <code>env</code> 实用程序搜索到并调用。</li>
+<li><code>/usr/bin/env</code> 总是提供可用的 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/env.html">POSIX <code>env</code> 实用程序</a>。
+<ul>
+<li><strong>注释</strong> 这允许上述 Shebang 可用。同时，<code>/usr/bin/env</code> 作为命令名称一般等同于 <code>env</code> 。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 除非另行指定，不使用 <code>which</code> 。
+<ul>
+<li>在 GNU bash 中，对检查一个操作数的情形，使用 <code>type -P</code> 代替。</li>
+<li>注意 <code>command -v</code> 对别名等非 <code>$PATH</code> 中可搜索的程序处理不同。</li>
+<li>另见 <a href="https://www.shellcheck.net/wiki/SC2230">ShellCheck 警告 SC2230</a> 和<a href="https://github.com/koalaman/shellcheck/issues/1162">相关讨论</a>。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p>　　脚本实现中的调用不受以上限制。</p>
 <p>　　若脚本可以确保兼容 POSIX shell ，使用后者而不是前者。</p>
@@ -610,21 +684,38 @@
 <li>构成路径的路径前缀可能以分隔符结尾，直接表示上层目录。</li>
 </ul>
 <p><strong>注意</strong> 当前版本库中的文件不保证跟踪权限。在一些环境中可能因为可执行权限问题导致无法立即执行脚本，参见<a href="GettingSources.zh-CN.html">这里的说明</a> 。</p>
-<p>　　<a href="../Releases.zh-CN.html">正式支持的发布版本</a>中的公开 Shell 脚本应保证用 <a href="https://www.shellcheck.net/">ShellCheck</a> 0.7 或以上版本（任选）检查没有诊断消息。检查的命令行为 <code>shellcheck -x -P SCRIPTDIR</code> 跟随文件名。除非另行指定，使用明确的方式避免引起检查的问题而不是使用指令消除检查的结果，如使用 <code>${BASH_SOURCE[0]}</code> 代替 <code>$BASH_SOURCE</code> 以避免 ShellCheck 警告 SC2128 。</p>
+<p>　　<a href="Releases.zh-CN.html">正式支持的发布版本</a>中的公开 Shell 脚本应保证用 <a href="https://www.shellcheck.net/">ShellCheck</a> 0.7 或以上版本（任选）检查没有诊断消息。检查的命令行为 <code>shellcheck -x -P SCRIPTDIR</code> 跟随文件名。除非另行指定，使用明确的方式避免引起检查的问题而不是使用指令消除检查的结果，如使用 <code>${BASH_SOURCE[0]}</code> 代替 <code>$BASH_SOURCE</code> 以避免 <a href="https://www.shellcheck.net/wiki/SC2128">ShellCheck 警告 SC2128</a> 。</p>
 <h3 id="shell-语言使用规约"><a class="header" href="#shell-语言使用规约">Shell 语言使用规约</a></h3>
 <p>　　脚本程序不调整影响别名扩展的 shell 选项（如 bash 的 <code>shopt -u expand_aliases</code> ）。</p>
-<p>　　除非另行指定，已定义的 shell 函数假定不被其它变量覆盖。这允许实现省略 <code>readonly -f</code> 或 <code>declare -g -r -f</code> 声明，且允许使用相同的定义覆盖以简化调试。</p>
-<p>　　依照<a href="Run.zh-CN.html">运行时环境的约定</a>，除非另行指定，脚本不区分未设置的环境变量和已设置但具有空值的环境变量，以允许在外部环境配置脚本的执行。这两种情形下，被用于脚本中的变量的环境变量都可能指定一个非空的初始值，称为变量的<em>默认值(default value)</em> 。变量是否使用默认值总在先于第一次使用变量的值的初始化时确定。变量的初始化和默认值满足以下约定：</p>
+<p>　　依照<a href="Run.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">运行时环境的约定</a>，除非另行指定，脚本不区分未设置的环境变量和已设置但具有空值的环境变量，以允许在外部环境配置脚本的执行。这两种情形下，被用于脚本中的变量的环境变量都可能指定一个非空的初始值，称为变量的<em>默认值(default value)</em> 。变量是否使用默认值总在先于第一次使用变量的值的初始化时确定。</p>
+<p>　　变量的初始化和默认值满足以下约定：</p>
 <ul>
 <li>初始化的变量是否只读未指定。</li>
 <li>初始化变量时若需使用默认值，可能发生附加的求值（如命令调用）以其结果确定具体默认值。</li>
 <li>除非变量的初始化被指定为由特定的函数确定，变量在未指定的脚本被执行时无条件初始化，而不需要使用变量的值前调用特定的函数。</li>
-<li>除非另行指定，在特定函数中初始化的变量由此函数指定其默认值。</li>
-<li>除非另行指定，初始化时使用的外部环境变量的值可假定和脚本运行环境直接或间接调用脚本前相同。</li>
+<li>除非另行指定：
+<ul>
+<li>在特定函数中初始化的变量由此函数指定其默认值。</li>
+<li>初始化时使用的外部环境变量的值可假定和脚本运行环境直接或间接调用脚本前相同。</li>
 </ul>
-<p>　　除非另行指定，返回非数值的 shell 函数使用 <code>echo</code> 或功能蕴含 <code>echo</code> 的命令调用输出返回的值。</p>
+</li>
+</ul>
+<p>　　除非另行指定，shell 函数满足以下约定：</p>
+<ul>
+<li>已定义的 shell 函数假定不被其它变量覆盖。
+<ul>
+<li><strong>原理</strong> 这允许实现省略 <code>readonly -f</code> 或 <code>declare -g -r -f</code> 声明，且允许使用相同的定义覆盖以简化调试。</li>
+</ul>
+</li>
+<li>Shell 函数返回值是通过接口语义中蕴含的最后的命令调用的返回值；或当不存在这样的命令时，默认为 <code>0</code> 。</li>
+<li>Shell 函数的结果是标准输出的内容。
+<ul>
+<li><strong>注释</strong> 通常使用 <code>echo</code> 或功能蕴含 <code>echo</code> 的命令调用输出返回的值。</li>
+</ul>
+</li>
+</ul>
 <p>　　非生成的脚本源代码中不使用包含 <code>__</code> 的名称。</p>
-<p>　　公开函数的函数名及公开的变量名不以 <code>_</code> 结尾，否则以一个 <code>_</code> 结尾。</p>
+<p>　　公开函数的函数名及公开的变量名<a href="#%E6%8E%A5%E5%8F%A3%E7%BA%A6%E5%AE%9A">不以 <code>_</code> 结尾</a>，否则以一个 <code>_</code> 结尾。</p>
 <p>　　对 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 相关工具使用的函数，使用前缀 <code>SHBuild</code> 。</p>
 <p>　　函数出错且无法恢复时退出脚本。</p>
 <p>　　版本库中的提供的脚本一般应能通过 ShellCheck 检查。对需要使用 <a href="https://github.com/koalaman/shellcheck/wiki/Directive">ShellCheck 指令</a>指定脚本起始构造的检查时，在之前添加一行空命令（对 bash 脚本使用 <code>:</code> ，非 bash 脚本命令使用 <code>true</code> ）以避免非预期地使指令作用于整个脚本。</p>
@@ -668,7 +759,7 @@
 <li>对不依赖 Sysroot 的以及 <code>YSLib/YSTest</code> 目录下的项目构建脚本，默认值指定在完整的版本库中和 <code>&quot;$YSLib_BaseDir/build/$(SHBuild_GetBuildName)&quot;</code> 相同的目录，且构建 <a href="Sysroot.zh-CN.html">stage 1</a> YSLib 时确保为绝对路径。</li>
 <li>对 <code>YSLib/YDE</code> 目录下的项目构建脚本，默认值是 <code>&quot;.$(SHBuild_GetBuildName)&quot;</code> 。</li>
 <li>否则，默认值是当前工作目录 <code>.</code> 。</li>
-<li>以上调用的函数 <code>SHBuild_GetBuildName</code> 在脚本 Tools/Scripts/SHBuild-common.sh 中，依赖具有非空值的变量 <code>SHBuild_Host_OS</code> 和 <code>SHBuild_Host_Arch</code> 。</li>
+<li>以上调用的函数 <code>SHBuild_GetBuildName</code> 在<a href="Tools/Scripts.zh-CN.html#toolsscriptsshbuild-commonsh">脚本 <code>Tools/Scripts/SHBuild-common.sh</code></a> 中，依赖具有非空值的变量 <code>SHBuild_Host_OS</code> 和 <code>SHBuild_Host_Arch</code> 。</li>
 </ul>
 </li>
 </ul>
@@ -685,13 +776,13 @@
 <li>其它情形不用于指定输出目录，不保证具有默认值。</li>
 <li><code>SHBuild_Env_TempDir</code> ：构建时使用的临时目录路径。
 <ul>
-<li>由脚本 Tools/Scripts/SHBuild-common.sh 的函数 <code>SHBuild_PrepareBuild</code> 初始化。</li>
-<li>默认值由脚本 <code>Tools/Scripts/SHBuild-common.sh</code> 中的函数 <code>SHBuild_GetTempDir</code> 的调用确定。</li>
+<li>由脚本 <code>Tools/Scripts/SHBuild-common.sh</code> 的<a href="Tools/Scripts.zh-CN.html#%E5%87%BD%E6%95%B0-shbuild_preparebuild">函数 <code>SHBuild_PrepareBuild</code></a> 初始化。</li>
+<li>默认值由脚本 <code>Tools/Scripts/SHBuild-common.sh</code> 中的<a href="Tools/Scripts.zh-CN.html#%E5%87%BD%E6%95%B0-shbuild_gettempdir">函数 <code>SHBuild_GetTempDir</code></a> 的调用确定。</li>
 </ul>
 </li>
 <li><code>SHBuild_Env_Arch</code> ：构建系统架构。
 <ul>
-<li>由脚本 Tools/Scripts/SHBuild-common.sh 的函数 <code>SHBuild_CheckUName</code> 初始化。</li>
+<li>由脚本 <code>Tools/Scripts/SHBuild-common.sh</code> 的<a href="Tools/Scripts.zh-CN.html#%E5%87%BD%E6%95%B0-shbuild_checkuname">函数 <code>SHBuild_CheckUName</code></a> 初始化。</li>
 </ul>
 </li>
 <li><code>SHBuild_Env_OS</code> ：构建系统操作系统。
@@ -701,7 +792,7 @@
 </li>
 <li><code>SHBuild_Host_Arch</code> ：宿主架构。
 <ul>
-<li>由脚本 Tools/Scripts/SHBuild-common.sh 的函数 <code>SHBuild_PrepareBuild</code> 初始化。</li>
+<li>由脚本 <code>Tools/Scripts/SHBuild-common.sh</code> 的函数 <code>SHBuild_PrepareBuild</code> 初始化。</li>
 <li>默认值使用以下方式指定：
 <ul>
 <li>当 <code>SHBuild_Env_OS</code> 的值是 <code>Win32</code> 且外部变量 <code>MSYSTEM</code> 的值是 <code>MSYSTEM64</code> 时，默认值为 <code>x86_64</code> 。</li>
@@ -748,6 +839,32 @@
 </li>
 </ul>
 <p>　　除指定入口的环境变量，是否支持外部可覆盖默认值的上述环境变量是可选的，取决于各个脚本的具体支持。</p>
+<p>　　典型地，Shell 指定的环境变量可被以下方式在被 shell 运行的命令中使用：</p>
+<ul>
+<li>标记导出变量，在调用的命令访问变量：
+<ul>
+<li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_22"><code>export</code></a> 命令。</li>
+<li><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-declare"><code>declare -x</code></a> 命令。</li>
+<li>使用 <a href="https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html"><code>set -a</code></a> 命令后的变量声明。</li>
+</ul>
+</li>
+<li>启用子 shell(subshell) 或调用 shell 解释器等方式运行 shell 脚本或以下命令等方式使用当前环境或继承环境：
+<ul>
+<li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18_01"><code>.</code></a> 命令。</li>
+<li><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-source"><code>source</code></a> 命令。</li>
+<li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#eval"><code>eval</code></a> 命令。</li>
+</ul>
+</li>
+<li>临时指定特定的环境并调用命令：
+<ul>
+<li>使用 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/env.html"><code>env</code></a> 命令。</li>
+<li>调用命令时以兼容 Bourne shell 的<a href="https://www.gnu.org/software/bash/manual/html_node/Environment.html">使用前缀参数赋值的命令调用</a>临时指定特定的环境。</li>
+<li>使用 <a href="https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html"><code>set -k</code></a> 命令后的参数赋值。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 另见 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_12">POSIX 命令执行环境</a> 和 <a href="https://www.gnu.org/software/bash/manual/html_node/Command-Execution-Environment.html">GNU bash 命令执行环境</a>。</li>
+</ul>
+<p>　　关于这些环境变量如何影响其它程序，参见<a href="Run.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">运行时的环境变量</a>。</p>
 <h2 id="npla1-脚本"><a class="header" href="#npla1-脚本">NPLA1 脚本</a></h2>
 <p>　　NPLA1 脚本可被 SHBuild 调用。SHBuild 支持特定的选项作为 NPLA1 的脚本解释器。脚本解释器支持 NPLA1 脚本文件。此外，在 shell 脚本中，NPLA1 脚本代码可能以字符串的形式存储和被 SHBuild 调用。</p>
 <h3 id="npla1-环境变量"><a class="header" href="#npla1-环境变量">NPLA1 环境变量</a></h3>
@@ -794,7 +911,7 @@
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="Prerequisitions.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="Prerequisitions.zh-CN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -808,7 +925,7 @@
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="Prerequisitions.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="Prerequisitions.zh-CN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
