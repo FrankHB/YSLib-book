@@ -13,6 +13,7 @@
 		* [构建文档](BuildDocumentation.zh-CN.md)
 	* [测试](Test.zh-CN.md)
 	* [运行](Run.zh-CN.md)
+		* [DeSmuME](DeSmuME.en-US.md)
 * [结构和特性](Features.zh-CN.md)：由库提供的重要功能说明
 	* [（内部）项目依赖性说明](ProjectDependencies.zh-CN.md)
 	* [NPL](Features/NPL.zh-CN.md)
