@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="../Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="../Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="../GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="../Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="../GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="../Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="../Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="../Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="../Features/NPL.zh-CN.html" class="active"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="../YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="../Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="../Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="../Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="../Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="../Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="../Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="../Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="../Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="../StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="../ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="../WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -185,7 +166,7 @@
 <p>　　NPL 不提供专用的注释语法。以特定形式的项（如表示字符串的字面量）替代注释是预期的惯用法(idiom) 。这不妨碍派生语言可能添加预处理器扩展特性。</p>
 <p>　　NPL 提供了一些通用的概念和<a href="#npl-%E5%85%AC%E5%85%B1%E8%AF%AD%E4%B9%89">公共规则</a>，但不构成<a href="../Terminology.zh-CN.html#%E8%A7%84%E8%8C%83">具体语言实现</a>的完整语义规则。语义规则由派生实现补充完整。</p>
 <p><strong>注释</strong></p>
-<p>　　排除注释及<a href="#%E4%B8%AD%E7%BC%80%E8%AF%AD%E6%B3%95">中缀标点 <code>;</code> 和 <code>,</code></a> ，NPL 的语法和 <a href="https://en.wikipedia.org/wiki/Scheme_%28programming_language%29">Scheme 语言</a>或<a href="https://web.cs.wpi.edu/~jshutt/kernel.html">Kernel 语言</a>的语法近似。不过，NPL 不支持构造循环引用，也不提供相关语法。</p>
+<p>　　排除注释及<a href="#%E4%B8%AD%E7%BC%80%E8%AF%AD%E6%B3%95">中缀标点 <code>;</code> 和 <code>,</code></a> ，NPL 的语法和 <a href="https://en.wikipedia.org/wiki/Scheme_%28programming_language%29">Scheme 语言</a>或<a href="https://web.cs.wpi.edu/~jshutt/kernel.html">Kernel 语言</a>的语法近似。不过，NPL 不支持构造循环引用，也不提供相关语法。详见以下<a href="#%E8%AF%AD%E6%B3%95">语法</a>中的讨论。</p>
 <h2 id="需求概述"><a class="header" href="#需求概述">需求概述</a></h2>
 <p>　　设计满足的需求描述参见<a href="https://github.com/FrankHB/pl-docs/blob/master/en-US/calling-for-language-features.md">这里(en-US)</a> 。</p>
 <p>　　需求来源：</p>
@@ -272,7 +253,7 @@
 <ul>
 <li>支持基于 <a href="https://eel.is/c++draft/intro.abstract">C++ 抽象机语义</a>的更一般的<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">副作用</a>（除原生 <code>volatile</code> 外）和一等状态(first-class states)  。</li>
 <li>和 [ISO C++] 类似，在<a href="../Terminology.zh-CN.html#%E8%A7%84%E8%8C%83">语言规则</a>中保留特定的<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">未定义行为</a>，而不要求实现避免。</li>
-<li>暂时不直接支持多线程环境，但可以在不同线程上同时使用不同的实现的实例。</li>
+<li>暂时不直接支持<a href="#%E5%B5%8C%E5%85%A5%E5%AE%BF%E4%B8%BB%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0">多线程环境</a>，但可以在不同<a href="../Terminology.zh-CN.html#%E8%A7%84%E8%8C%83">宿主语言</a>线程上同时使用不同的实现的实例。</li>
 <li>函数默认使用不隐式别名的按值调用和返回传递复制或转移值，和 C++ 对应上下文的复制初始化(copy initialization) 语义一致。（不过求值为操作子的 NPL 函数在 C++ 没有直接的对应。）</li>
 </ul>
 </li>
@@ -291,11 +272,13 @@
 </ul>
 <h2 id="当前具体实现"><a class="header" href="#当前具体实现">当前具体实现</a></h2>
 <p>　　当前派生实现的 <a href="#npla1-%E6%A0%B8%E5%BF%83%E8%AF%AD%E8%A8%80">NPLA1</a> 由 YFramework 提供 <a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">API</a> 。其中包括 <a href="https://zh.wikipedia.org/wiki/%E8%AF%BB%E5%8F%96%EF%B9%A3%E6%B1%82%E5%80%BC%EF%B9%A3%E8%BE%93%E5%87%BA%E5%BE%AA%E7%8E%AF">REPL (read-eval-print loop)</a> 的解释实现。外部文件的形式的 NPLA1 脚本可被基于这些 API 实现的 <a href="../Tools/SHBuild.zh-CN.html">stage 1 SHBuild</a> 调用并用于 YFramework 的构建。</p>
-<p>　　由 YFramework 对外部编码的假设，NPLA1 实现加载的文件流的剩余内容的编码视为 UTF-8 ；同时支持 CR+LF 或 LF 为换行符。</p>
+<p>　　由 <a href="../Run.zh-CN.html#%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F">YFramework 对外部文本编码的约定</a>，NPLA1 实现加载的文件流的剩余内容的编码视为 UTF-8 ；同时支持 CR+LF 或 LF 为换行符。</p>
 <p><strong>注释</strong> 这些实现基于 YSLib API 提供互操作支持。</p>
 <h1 id="绪论"><a class="header" href="#绪论">绪论</a></h1>
 <h2 id="正式引用"><a class="header" href="#正式引用">正式引用</a></h2>
 <p>　　仅在此给出本文档中的外部引用的名称。其它引用文献的内容详见 YSLib 项目文档 <a href="https://osdn.net/projects/yslib/scm/hg/YSLib/blobs/tip/doc/NPL.txt"><code>doc/NPL.txt</code></a> 。</p>
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD049 -->
 <ul>
 <li>[ISO C] <a href="https://www.iso.org/standard/74528.html">ISO/IEC 9899</a></li>
 <li>[ISO C++] <a href="https://www.iso.org/standard/79358.html">ISO/IEC 14882</a>
@@ -351,6 +334,7 @@
 </ul>
 </li>
 </ul>
+<!-- markdownlint-restore -->
 <h2 id="领域设计原则"><a class="header" href="#领域设计原则">领域设计原则</a></h2>
 <p>　　本节描述被本文档中的一些原理讨论引用的的公共依据。</p>
 <p>　　原则指关于设计和实现的哲学，同时作为一般规则约束设计和实现的工程阶段。</p>
@@ -472,7 +456,7 @@
 <p>　　<em>开放性(openness)</em> ：除非另行指定，不假定实体不存在。</p>
 <p>　　这个原则主要用于建模(modeling) 的依据。对一般的模型，这个原则称为<a href="https://zh.wikipedia.org/zh-cn/%E5%BC%80%E6%94%BE%E4%B8%96%E7%95%8C%E5%81%87%E5%AE%9A">开放世界假定(open-world assumption)</a>。</p>
 <p>　　与之相对，<a href="https://zh.wikipedia.org/zh-cn/%E5%B0%81%E9%97%AD%E4%B8%96%E7%95%8C%E5%81%87%E5%AE%9A">封闭世界假定(closed-world assumption)</a> 需要提前设置一个<em>全集(universe)</em> 以保持至少在逻辑的意义上<a href="#%E6%AD%A3%E8%A7%84%E6%80%A7">合规</a>。</p>
-<p>　　开放世界的元素的全集是模型的结构化规则推断得到的，而非名义上的定义决定。这同时称为模型的语言的<em>论域(universe of disclosure)</em> 。</p>
+<p>　　开放世界的元素的全集是模型的结构化规则推断得到的，而非名义上的定义决定。这同时称为模型的语言的<em>论域(domain of disclosure)</em> 。</p>
 <p><strong>原理</strong></p>
 <p>　　封闭世界假定表面上可能简化实现，但在一般的模型中是不必要的，因为保持问题合规性的论域应已由清晰的需求描述规范，不应为此阻碍实现<a href="#%E5%8F%98%E5%8C%96%E7%9A%84%E8%87%AA%E7%94%B1">变化的自由</a>。</p>
 <p>　　使用封闭世界假定的一个主要实用意义是使模型在有限的信息下能推理出逻辑上更强的结论。在重视结论的知识系统中，这通常是一种优化；但在重视<a href="#%E5%AE%8C%E6%95%B4%E6%80%A7">表达能力</a>（而通过其它方式辅助求解问题）的通用模型中，这种前提是一种直接的限制。同时，封闭世界假定的优化不保证对所有输入有效，对否定输入还可能导出一些矛盾。</p>
@@ -502,7 +486,7 @@
 <li>抽象（的接口）不应该依赖（实现）细节。</li>
 <li>（实现）细节应依赖抽象（的接口）。</li>
 </ul>
-<p>　　这是最小依赖原则应用在不同抽象的模块化设计中使用以下公设的推论：</p>
+<p>　　这是最小依赖原则应用在不同抽象的<a href="#%E6%A8%A1%E5%9D%97%E5%8C%96">模块化设计</a>中使用以下公设的推论：</p>
 <p>　　抽象是细节包含的子集，依赖抽象的接口较依赖实现细节具有更少的依赖。</p>
 <h4 id="可复用性"><a class="header" href="#可复用性">可复用性</a></h4>
 <p>　　设计应具有<em>可复用性(reusability)</em> ：高层抽象设计的实现应包括复用此设计的实现的设计。</p>
@@ -583,6 +567,7 @@
 <blockquote>
 <p>Premature optimization is the root of all evil (or at least most of it) in programming.</p>
 </blockquote>
+<!-- markdownlint-disable-next-line MD049 -->
 <p>　　— <em>The Art of Computer Programming</em></p>
 <p>　　原始含义适合计算机程序设计中以效率为目标的决策。</p>
 <p>　　扩展的外延适用于一般需求，要求：</p>
@@ -803,12 +788,15 @@
 <p>　　宿主语言提供的实现环境称为宿主实现环境，简称<em>宿主环境(host environment)</em> 。</p>
 <p><strong>注释</strong></p>
 <p>　　若支持多线程执行，需要附加的显式同步。</p>
-<p>　　这种实现可能提供宿主多线程对应的实体，其中包含需要的被隔离的资源。</p>
+<p>　　这种实现可能提供宿主语言的多线程环境中对应的线程实体，其中包含需要的被隔离的资源。</p>
 <p>　　其它语言的实现也可能提供类似的设计，例如 <a href="https://v8.github.io/api/head/classv8_1_1Isolate.html">V8 的 <code>v8::Isolate</code></a> 。</p>
 <p>　　另见<a href="../Terminology.zh-CN.html#%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%80%A7">可移植</a>和<a href="../Terminology.zh-CN.html#%E8%A7%84%E8%8C%83">互操作</a>意义上的<a href="../Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主环境</a>。</p>
 <h1 id="基本文法"><a class="header" href="#基本文法">基本文法</a></h1>
 <p>　　本章约定基本的 NPL <a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">文法</a>规则中，包括语法及对应的基础词法。对应的语义<a href="#npl-%E5%85%AC%E5%85%B1%E8%AF%AD%E4%B9%89">在下文列出</a>。</p>
 <p>　　多态文法规则：<a href="#%E7%95%A5%E7%A7%B0">派生实现</a>可完全不提供本章明确定义的词法和语法构造的支持，仅当提供同构的替代文法且符合语义规则。</p>
+<p>　　本章定义的<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">对象语言</a>的正式文法以 <a href="https://zh.wikipedia.org/zh-cn/%E5%B7%B4%E7%A7%91%E6%96%AF%E8%8C%83%E5%BC%8F">BNF（Backus–Naur Form ，Backus–Naur 形式）</a>作为元语法形式地描述，且在与对象语言之间无歧义时不在终结符(terminal) 边界使用引号（即 <code>"</code> 和 <code>'</code> ）。</p>
+<p><strong>注释</strong></p>
+<p>　　因为这种 BNF 使用符合 <a href="https://github.com/highlightjs/highlight.js/blob/main/src/languages/bnf.js"><code>highlight.js</code> 支持的语法</a>，在 Markdown 源代码中直接使用<a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">支持的语言别名 <code>bnf</code> 标记</a>。</p>
 <h2 id="基本文法概念"><a class="header" href="#基本文法概念">基本文法概念</a></h2>
 <ul>
 <li>字符(character) ：组成语言代码的最小实体。</li>
@@ -831,7 +819,7 @@
 <p>　　约定<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">元语言</a>语法 <code>&lt;x&gt;</code> 表示词法元素 <code>x</code> ，<code>::=</code> 表示定义，<code>|</code> 表示析取。</p>
 <h3 id="基本词法构造"><a class="header" href="#基本词法构造">基本词法构造</a></h3>
 <p>　　文法：</p>
-<pre><code>&lt;token&gt; ::= &lt;literal&gt; | &lt;$punctuator&gt; | &lt;$identifier&gt;
+<pre><code class="language-bnf">&lt;token&gt; ::= &lt;literal&gt; | &lt;$punctuator&gt; | &lt;$identifier&gt;
 </code></pre>
 <ul>
 <li>分隔符(delimiter) ：代码中标记特定字符序列模式的字符序列。</li>
@@ -857,13 +845,13 @@
 <p>　　NPL 是<em>自由形式(free form)</em> 的语言，空白符原则上不构成字面量以外的词素和语义。</p>
 <h3 id="转义序列和字符序列"><a class="header" href="#转义序列和字符序列">转义序列和字符序列</a></h3>
 <p>　　文法：</p>
-<pre><code>&lt;char-escape-content-seq&gt; ::= &lt;$single-escape-char&gt; | &lt;$escape-prefix-char&gt;&lt;$escape-content-seq&gt;
+<pre><code class="language-bnf">&lt;char-escape-content-seq&gt; ::= &lt;$single-escape-char&gt; | &lt;$escape-prefix-char&gt;&lt;$escape-content-seq&gt;
 &lt;char-seq&gt; ::= &lt;$literal-char&gt; | &lt;char-escape-seq&gt;
 </code></pre>
 <p>　　包含 <code>&lt;char-escape-seq&gt;</code> 的 <code>&lt;char-seq&gt;</code> 包括：</p>
 <ul>
 <li><code>\'</code></li>
-<li><code>\&quot;</code></li>
+<li><code>\"</code></li>
 <li><code>\\</code></li>
 <li><code>\a</code></li>
 <li><code>\b</code></li>
@@ -874,18 +862,18 @@
 <li><code>\v</code></li>
 </ul>
 <p>　　<code>&lt;char-seq&gt;</code> 的含义同 [ISO C++] 的对应转义序列。</p>
-<p><strong>注释</strong> 这是 [ISO C++] 的 <code>&lt;simple-escape-sequence&gt;</code> 词法分类中除了 <code>&quot;\?&quot;</code> 的情形，也是 [R<sup>6</sup>RS] 在 <code>&lt;string element&gt;</code> 中支持的字面情形。</p>
+<p><strong>注释</strong> 这是 [ISO C++] 的 <code>&lt;simple-escape-sequence&gt;</code> 词法分类中除了 <code>"\?"</code> 的情形，也是 [R<sup>6</sup>RS] 在 <code>&lt;string element&gt;</code> 中支持的字面情形。</p>
 <h3 id="字面量"><a class="header" href="#字面量">字面量</a></h3>
 <p>　　文法：</p>
-<pre><code>&lt;literal-content&gt; ::= &lt;char-seq&gt; | &lt;literal-char-seq&gt;&lt;literal-data&gt;
+<pre><code class="language-bnf">&lt;literal-content&gt; ::= &lt;char-seq&gt; | &lt;literal-char-seq&gt;&lt;literal-data&gt;
 &lt;code-literal&gt; ::= '&lt;literal-content&gt;'
-&lt;data-literal&gt; ::= &quot;&lt;literal-content&gt;&quot;
+&lt;data-literal&gt; ::= "&lt;literal-content&gt;"
 &lt;string-literal&gt; ::= &lt;code-literal&gt; | &lt;data-literal&gt;
 &lt;literal&gt; ::= &lt;string-literal&gt; | &lt;$derived-impldef-literal&gt;
 </code></pre>
 <ul>
 <li>代码字面量(code literal) ：以 ' 作为起始和结束字符的记号。</li>
-<li>数据字面量(data literal) ：以 &quot; 作为起始和结束字符的记号。</li>
+<li>数据字面量(data literal) ：以 " 作为起始和结束字符的记号。</li>
 <li>字符串字面量(string literal) ：代码字面量或数据字面量。</li>
 <li>扩展字面量(extended literal) ：由派生实现定义的非代码字面量或数据字面量的记号。</li>
 <li>字面量(literal) ：代码字面量、数据字面量、字符串字面量或扩展字面量。</li>
@@ -905,12 +893,12 @@
 <p>　　以下单字符标点是 NPL 分隔符：</p>
 <ul>
 <li>NPL 图形分隔符</li>
-<li>空白符（字符串 &quot; \n\r\t\v&quot; 中的字符之一）</li>
+<li>空白符（字符串 " \n\r\t\v" 中的字符之一）</li>
 </ul>
 <p><strong>注释</strong></p>
 <p>　　空白符同 [ISO C++] <code>std::isspace</code> 在 C 区域下的定义，不含<code>空字符(null character)</code> 。</p>
 <p><strong>原理</strong></p>
-<p>　　NPL 图形分隔符可不和其它字符组合而作为单独的记号。因此，这不包含构成字面量的字符 <code>'</code> 和字符 <code>&quot;</code> 。</p>
+<p>　　NPL 图形分隔符可不和其它字符组合而作为单独的记号。因此，这不包含构成字面量的字符 <code>'</code> 和字符 <code>"</code> 。</p>
 <p>　　NPL 分隔符用于一般分隔记号（而不是识别<a href="#%E5%AD%97%E9%9D%A2%E9%87%8F">字面量</a>）的外部描述，也没有显式地包含这些字符，但词法分析仍应把按字面量规则把这些字符作为必要时区分不同记号的边界。</p>
 <h3 id="词法分析"><a class="header" href="#词法分析">词法分析</a></h3>
 <p>　　<a href="#%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%98%B6%E6%AE%B5">词法分析</a>输入<a href="#%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95%E6%A6%82%E5%BF%B5">翻译单元</a>，输出记号序列。</p>
@@ -927,17 +915,20 @@
 <p><strong>注释</strong></p>
 <p>　　因为不一定是 <a href="#%E5%88%86%E9%9A%94%E7%AC%A6">NPL 分隔符</a>，转义字符不总是分隔标识符。</p>
 <h2 id="语法"><a class="header" href="#语法">语法</a></h2>
-<p>　　本节指定 NPL 作为<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">对象语言</a>的<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">语法</a>。</p>
+<p>　　本节指定 NPL 作为对象语言的<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">语法</a>。</p>
 <p>　　约定<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">元语言</a>语法 <code>&lt;x&gt;</code> 表示语法元素 <code>x</code> ，<code>::=</code> 表示定义，<code>|</code> 表示析取。</p>
 <p>　　程序被作为<a href="../Terminology.zh-CN.html#%E8%A7%84%E8%8C%83">语言实现</a>组成部分的<a href="#%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%98%B6%E6%AE%B5">语法分析</a>程序<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">规约</a>，结果能确定其和一定的语法元素匹配。</p>
 <p>　　规约时应进行语法规则的检查。</p>
+<p><strong>原理</strong></p>
+<p>　　NPL 的基本语法更接近原始的 S-表达式，有利于简化<a href="#%E5%90%8C%E5%83%8F%E6%80%A7">同像性</a>的使用和实现。这也避免一些微妙的特性冲突和对特性的演化的的阻碍。一些 <a href="http://xahlee.info/UnixResource_dir/writ/lisp_problems.html">Lisp 方言用户存在类似的看法并认为这些设计是主要的缺陷之一</a>。</p>
+<p>　　不过，<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%8D%E6%B3%95%E6%9E%84%E9%80%A0">词素</a>中的构造不在此考虑（不限制具体的风格），例如派生实现可指定支持有 <code>#</code> 前缀的类似 Scheme 风格的词素表示字面量。构造词素也需要词素的具体表示，如字符串，才可能实现。因为词素的表示以及构造过程在此不透明，原则上不影响同像性。</p>
 <h3 id="基本语法构造"><a class="header" href="#基本语法构造">基本语法构造</a></h3>
 <p>　　NPL 的基本语法单元是可递归构造的<a href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F">表达式</a>，或派生实现指定的其它语法构造。</p>
 <p>　　构成基本语法单元的规则参见<a href="#%E8%AF%8D%E6%B3%95%E8%A7%84%E5%88%99">词法规则</a>。</p>
 <p>　　<a href="#%E7%BF%BB%E8%AF%91%E6%97%B6%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%A7%84%E5%88%99">合式</a>的<a href="#%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95%E6%A6%82%E5%BF%B5">基本翻译单元</a>应是一个或多个基本语法单元。</p>
 <h3 id="表达式"><a class="header" href="#表达式">表达式</a></h3>
 <p>　　文法：</p>
-<pre><code>&lt;expression&gt; ::= &lt;atom-expression&gt; | &lt;composite-expression&gt; | &lt;list-expression&gt;
+<pre><code class="language-bnf">&lt;expression&gt; ::= &lt;atom-expression&gt; | &lt;composite-expression&gt; | &lt;list-expression&gt;
 </code></pre>
 <p>　　<em>表达式(expression)</em> 是受表达式语法约束的记号序列，可以是：</p>
 <ul>
@@ -948,25 +939,29 @@
 <p>　　构成表达式的表达式是被构成的表达式的<em>子表达式(subexpression)</em> 。</p>
 <h4 id="原子表达式"><a class="header" href="#原子表达式">原子表达式</a></h4>
 <p>　　文法：</p>
-<pre><code>&lt;atom-expression&gt; ::= &lt;token&gt;
+<pre><code class="language-bnf">&lt;atom-expression&gt; ::= &lt;token&gt;
 </code></pre>
 <p>　　原子表达式不能被表示为其它表达式的语法构成形式的复合。</p>
 <h4 id="复合表达式"><a class="header" href="#复合表达式">复合表达式</a></h4>
 <p>　　文法：</p>
-<pre><code>&lt;composite-expression&gt; ::= &lt;token-expression&gt; | &lt;expression-token&gt;
+<pre><code class="language-bnf">&lt;composite-expression&gt; ::= &lt;token-expression&gt; | &lt;expression-token&gt;
 </code></pre>
 <p>　　复合表达式是原子表达式和表达式的复合，即语法意义上的直接<em>并置连接(juxtaposition)</em> ，不在被复合的表达式之间存在其它记号。</p>
 <p>　　同一个表达式可能被按原子表达式出现的位置以不同的方式规约为复合表达式。允许的规约复合表达式的方式由派生实现定义。</p>
 <h4 id="列表表达式"><a class="header" href="#列表表达式">列表表达式</a></h4>
 <p>　　文法：</p>
-<pre><code>&lt;list-expression&gt; ::= &lt;left-list-bound&gt; &lt;expression&gt;* &lt;right-list-bound&gt;
+<pre><code class="language-bnf">&lt;separators&gt; ::= &lt;separator&gt; | &lt;separator&gt;&lt;separators&gt;
+&lt;expressions&gt; ::= | &lt;expression&gt; | &lt;expression&gt;&lt;separators&gt;&lt;expressions&gt;
+&lt;list-expression&gt; ::= &lt;left-list-bound&gt;&lt;expressions&gt;&lt;right-list-bound&gt;
 &lt;left-list-bound&gt; ::= ( | &lt;extended-left-list-bound&gt;
 &lt;right-list-bound&gt; ::= ) | &lt;extended-right-list-bound&gt;
 </code></pre>
+<p>　　其中，<code>&lt;separator&gt;</code> 是 <a href="#%E5%88%86%E9%9A%94%E7%AC%A6">NPL 分隔符</a>。</p>
 <p>　　列表表达式是在其他表达式的序列（可能为空）左右附加一组 <code>&lt;left-list-bound&gt;</code> 和 <code>&lt;right-list-bound&gt;</code> 作为边界构成的表达式。</p>
 <p>　　<code>&lt;left-list-bound&gt;</code> 和 <code>&lt;right-list-bound&gt;</code> 是不同的标点。</p>
 <p>　　边界为 <code>(</code> 和 <code>)</code> 的表达式是基本列表表达式。其它可能的边界由派生实现定义，构成扩展列表表达式。</p>
 <p><strong>注释</strong></p>
+<p>　　对 <code>&lt;list-expression&gt;</code> 的定义，以<a href="#npl-%E5%85%AC%E5%85%B1%E8%AF%AD%E4%B9%89">形式语义使用的元语言</a> 中的元语法符号 <code>*</code> 扩展元语法，可以简记作 <code>&lt;list-expression&gt; ::= &lt;left-list-bound&gt; &lt;expression&gt;* &lt;right-list-bound&gt;</code> 。</p>
 <p>　　<a href="#%E5%88%97%E8%A1%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F">列表表达式</a>的边界是 <a href="#%E5%88%86%E9%9A%94%E7%AC%A6">NPL 图形分隔符</a>。</p>
 <h3 id="名称"><a class="header" href="#名称">名称</a></h3>
 <p>　　NPL 的<em>名称(name)</em> 是符合语法规则约束的若干<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%8D%E6%B3%95%E6%9E%84%E9%80%A0">记号</a>的集合。</p>
@@ -1014,6 +1009,35 @@
 <li>本章内的规则应不引入<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">未定义行为</a>。</li>
 </ul>
 <p>　　NPL 允许程序具有语义等价的<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">未指定行为</a>。派生实现可能通过约定和限制其具体选项的选取以指定更具体的<a href="#%E5%AE%9E%E7%8E%B0%E8%A1%8C%E4%B8%BA">实现行为</a>。</p>
+<p>　　本章内的语言语义基于一种<a href="https://zh.wikipedia.org/zh-cn/%E6%89%A9%E5%B1%95%E5%B7%B4%E7%A7%91%E6%96%AF%E8%8C%83%E5%BC%8F">EBNF（扩展 BNF ）</a> 的方言，其中：</p>
+<ul>
+<li>规则定义符号(defining symbol) 为 <code>::=</code> 。</li>
+<li>除非元素的含义和用法被单独另行指定，作为文法类的元素使用 <code>&lt;</code> 和 <code>&gt;</code> 作为分隔符。
+<ul>
+<li><strong>注释</strong> 这和 BNF 相同，但和常见 EBNF 可能不同。</li>
+</ul>
+</li>
+<li>在和对象语言之间没有歧义的情形时：
+<ul>
+<li>使用 <code>*</code> 作为修饰前一个元素的 <a href="https://zh.wikipedia.org/zh-cn/%E5%85%8B%E8%8E%B1%E5%B0%BC%E6%98%9F%E5%8F%B7">Kleene 星号</a>，表示之前修饰的项可出现 0 次或多次。</li>
+<li>使用 <code>(</code> 和 <code>)</code> 组合之间的元素。</li>
+</ul>
+</li>
+<li>若对象语言直接出现元语言的元符号(metasymbol) 而出现歧义，需要用一对 <code>"</code> 或 <code>'</code> 标记。
+<ul>
+<li><strong>注释</strong> 此时和非原始版本的 BNF 以及常见 EBNF 可能相同。</li>
+</ul>
+</li>
+</ul>
+<p><strong>原理</strong></p>
+<p>　　<a href="https://www.cl.cam.ac.uk/~mgk25/iso-14977.pdf">ISO/IEC 14977:1996</a>正式定义了最常见的方言，但这一标准没有简化业已分歧的元语法方言，以至于<a href="https://www.grammarware.net/text/2012/bnf-was-here.pdf">仅在 ISO 的不同编程语言标准中，就存在多种记法并用</a>。</p>
+<p>　　BNF 作为元语法形式地描述适用描述形式语言的<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">串</a>的<a href="#%E6%BC%94%E7%BB%8E%E8%A7%84%E5%88%99">重写系统</a>，而非对描述语义更灵活的<a href="#%E9%A1%B9%E9%87%8D%E5%86%99%E7%B3%BB%E7%BB%9F">项重写系统</a>。</p>
+<p>　　在语法之外，元素之间的空白符通常不是重要的。因此，可直接省略元语言分隔符 <code>&lt;</code> 和 <code>&gt;</code> 。这也是大多数 EBNF 的典型用法（即便描述的是语法）。描述语义的例子如 [Shu10] ，其中使用特定的字体支持元语言中出现的元素。</p>
+<p>　　然而，为便于在代码中表示而不依赖特设的字体，此处仍然使用 <code>&lt;</code> 和 <code>&gt;</code> ，除非元素的含义和用法被单独另行指定。</p>
+<p><strong>注释</strong></p>
+<p>　　因为这种 EBNF 使用不符合 <a href="https://github.com/highlightjs/highlight.js/blob/main/src/languages/ebnf.js"><code>highlight.js</code> 支持的语法</a>，在 Markdown 源代码中不使用<a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">支持的语言别名 <code>ebnf</code> 标记</a>，而记作自定义语言标记 <code>xbnf</code> 。</p>
+<p>　　ISO EBNF 被 <code>highlight.js</code> 的 <code>ebnf</code> 语法定义支持。</p>
+<p>　　[Shu10] 也使用 <code>::=</code> 作为规则定义符号。</p>
 <h2 id="基本语义概念"><a class="header" href="#基本语义概念">基本语义概念</a></h2>
 <ul>
 <li>区域(region) ：和特定位置代码关联的有限<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">实体</a>集合。</li>
@@ -1147,6 +1171,7 @@
 <p>　　<a href="#%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95">文法</a>约定基准的表示作为<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">翻译</a>的输入。这种表示是翻译所在外部环境的外部表示，即<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">源代码</a>；翻译结果是对象语言代码，简称<em>对象代码(object code)</em> ，可以是另外的外部表示。</p>
 <p>　　<a href="#%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95%E6%A6%82%E5%BF%B5">翻译单元</a>是这里被翻译的外部表示。</p>
 <p>　　由<a href="#%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95">基本文法</a>，空白符和参与的表示，不一一对应。为便于输出标准化，NPL 约定以下<em>规范(canonical)</em> 外部表示：</p>
+<!-- markdownlint-disable-next-line MD038 -->
 <ul>
 <li>对列表，输出的表示是以 <code>(</code> 和 <code>)</code> 作为边界，元素以单个 <code> </code> 为分隔符的序列，其中的元素在括号中被递归地嵌套表示。</li>
 <li>对非列表的存在唯一的对应词法形式（如字面量）的值，输出这个值的词法形式。</li>
@@ -1214,22 +1239,20 @@
 </ul>
 <p>　　一般地，项规约系统关联的结构总称为演算(calculus) 。</p>
 <p>　　对每个演算，存在和项对应的<em>上下文(context)</em> 。元语言中，一般的上下文以语义变量 <code>C</code> 表示，形式化为具有元变量(meta variable) □ 的以下构造：</p>
-<pre><code>C ::= □ | ...
+<pre><code class="language-xbnf">C ::= □ | ...
 </code></pre>
 <p>　　其中 <code>...</code> 是演算支持的项的语法中替换<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">子项</a>得到的对应构造。</p>
+<p><strong>注释</strong> 例如，对作为对象语言的 λ 演算，语义变量 <code>x</code> 表示约束变量，其上下文为：`C ::= □ | (CT) | (TC) | (λx.C) 。这里的记法基本同 [Shu10] 。</p>
 <p>　　一般的项记作语义变量 <code>T</code> ，则 <code>C[T]</code> 表示上下文 <code>C</code> 中作为元变量通过语法代换(syntactic replacement) 为项 <code>T</code> 的结果，它是一个项。</p>
 <p>　　作为对象语言的<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">变量</a>的项可依赖不同的上下文指称不同的实体。</p>
 <p>　　一个变量 <code>x</code> 被上下文 <code>C</code> <em>捕获(capture)</em> ，若对任意 <code>x</code> 是其<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">自由变量</a>的项 <code>T</code> ，<code>T</code> 中自由出现的 <code>x</code> 在 <code>C[T]</code> 中是<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">约束变量</a>。</p>
-<ul>
-<li><strong>注释</strong> <code>C</code> 中仍可因自由出现的 <code>x</code> 而使 <code>x</code> 是 <code>C[T]</code> 中的自由变量。</li>
-</ul>
-<p><strong>注释</strong> 例如，对作为对象语言的 λ 演算，语义变量 <code>x</code> 表示约束变量，其上下文为：`C ::= □ | (CT) | (TC) | (λx.C) 。</p>
+<p><strong>注释</strong> <code>C</code> 中仍可因自由出现的 <code>x</code> 而使 <code>x</code> 是 <code>C[T]</code> 中的自由变量。</p>
 <h3 id="状态和行为"><a class="header" href="#状态和行为">状态和行为</a></h3>
 <p>　　状态不变蕴含语言规则中或可选地由实现定义的<a href="../Terminology.zh-CN.html#%E9%9D%9E%E8%87%AA%E6%8C%87">等价关系</a>决定。</p>
 <p>　　除非派生实现另行指定，约定：</p>
 <ul>
 <li><a href="#%E5%AE%9E%E7%8E%B0%E8%A1%8C%E4%B8%BA">实现行为</a>总是可使用状态进行描述。</li>
-<li>存在<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">副作用</a>为<em>可观察(observable)</em> 行为的必要条件。</li>
+<li>存在<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">副作用</a>为<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">可观察行为</a>的必要条件。</li>
 <li>在实现外部<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">访问</a>某个状态的操作（输入/输出操作）是副作用。</li>
 </ul>
 <p>　　若存在状态等价性以外描述的行为描述，由派生实现指定。</p>
@@ -1949,7 +1972,7 @@
 <p>　　求值上下文被作为元语言实现对象求值规则时的输入，可指定项所在的位置等不被被规约的项必然蕴含的附加信息。</p>
 <p>　　由派生实现定义的特定求值上下文称为<em>尾上下文(tail context)</em> 。以尾上下文求值可提供附加的保证。</p>
 <p>　　作为<a href="#%E9%A1%B9%E9%87%8D%E5%86%99%E7%B3%BB%E7%BB%9F">项重写系统的上下文</a>的实例，元语言中，一般的求值上下文 <code>C</code> 形式化为具有占位符 <code>[]</code> 和可选前缀 <code>v</code> 及可选后缀 <code>e</code> 的递归组合的串：</p>
-<pre><code>C ::= [] | Ce | vC
+<pre><code class="language-xbnf">C ::= [] | Ce | vC
 </code></pre>
 <p>　　其中 <code>e</code> 是被求值表达式，<code>v</code> 是作为<a href="#%E8%8C%83%E5%BC%8F">范式</a>的值。</p>
 <p>　　除非另行指定，NPL 对象语言的<a href="#%E6%B1%82%E5%80%BC%E8%A7%84%E7%BA%A6">求值算法</a>使用的求值上下文总是<a href="#%E6%B1%82%E5%80%BC%E7%8E%AF%E5%A2%83">求值环境</a>。</p>
@@ -2240,7 +2263,7 @@
 <ul>
 <li>对前者，对象典型地表示计算的结果，即已被求值。</li>
 <li>对后者，对象是操作数。典型地，操作子作为应用子的底层合并子，操作数已被作为应用子的实际参数被求值算法求值。</li>
-<li>类似 [R<sup>n</sup>RK] 而和 [R<sup>n</sup>RS] 不同，因为<a href="#%E5%87%BD%E6%95%B0%E5%90%88%E5%B9%B6">函数合并</a>可接受非真列表作为参数，非列表的操作数可以和非列表的续延实际参数直接对应。
+<li>类似 [R<sup>n</sup>RK] 而和 [R<sup>n</sup>RS] 不同，因为<a href="#%E5%87%BD%E6%95%B0%E5%90%88%E5%B9%B6">函数合并</a>可接受<a href="#%E5%B9%BF%E4%B9%89%E5%88%97%E8%A1%A8">非真列表</a>作为参数，非列表的操作数可以和非列表的续延实际参数直接对应。
 <ul>
 <li>因为函数合并的这种性质，续延关联的应用子的应用和续延应用存在直接的一一对应关系。</li>
 </ul>
@@ -2755,7 +2778,11 @@
 <p>　　一般地，NPLA 规则不排除<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">未定义行为</a>。其中，<a href="#%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%98%B6%E6%AE%B5">宿主语言</a>的未定义行为是非特定体系结构或其它 [ISO C++] 意义上不可预测或不可移植的行为。</p>
 <p>　　除非派生实现另行指定，NPLA 约定仅有具有以下情形的程序引入未定义行为：</p>
 <ul>
-<li><a href="#npla-%E4%BA%92%E6%93%8D%E4%BD%9C%E6%94%AF%E6%8C%81">互操作</a>中引起宿主语言的未定义行为或不满足<a href="#npla-%E4%BA%92%E6%93%8D%E4%BD%9C%E6%94%AF%E6%8C%81">约定的要求</a>而可能引入派生实现定义的未定义行为。</li>
+<li><a href="#npla-%E4%BA%92%E6%93%8D%E4%BD%9C%E6%94%AF%E6%8C%81">互操作</a>中引起宿主语言的未定义行为或不满足<a href="#npla-%E4%BA%92%E6%93%8D%E4%BD%9C%E6%94%AF%E6%8C%81">约定的要求</a>而可能引入派生实现定义的未定义行为。
+<ul>
+<li><strong>注释</strong> 例如，<a href="#npla-%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE">没有被支持的并发访问</a>引起宿主语言的未定义行为。</li>
+</ul>
+</li>
 <li><a href="#npla-%E4%BA%92%E6%93%8D%E4%BD%9C%E6%94%AF%E6%8C%81">本机实现</a>无法提供资源而引起宿主语言的未定义行为（如宿主语言的实现无法提供宿主语言函数调用的自动对象隐式使用的资源）。</li>
 <li>违反<a href="#%E6%89%80%E6%9C%89%E6%9D%83%E6%8A%BD%E8%B1%A1">资源所有权语义</a>约束的操作，包括但不限于：
 <ul>
@@ -4023,7 +4050,7 @@
 <p>　　和 [R<sup>n</sup>RK] 不同，库不限定其实现形式。[R<sup>n</sup>RK] 指定的库实质上是可使用对象语言派生实现的库。</p>
 <p>　　典型的静态语言不保证程序执行时能对源程序进行翻译，因此加载程序的限制通常更大，可能无法处理源程序形式的库而首先需要分离翻译为其它格式。NPL 一般不具有这个限制。</p>
 <p>　　关于对象语言的<a href="#%E7%95%A5%E7%A7%B0">派生实现</a>，参见 YSLib 项目文档 <a href="https://osdn.net/projects/yslib/scm/hg/YSLib/blobs/tip/doc/NPL.txt"><code>doc/NPL.txt</code></a> 。</p>
-<h3 id="外部环境"><a class="header" href="#外部环境">外部环境</a></h3>
+<h3 id="npla1-程序外部环境"><a class="header" href="#npla1-程序外部环境">NPLA1 程序外部环境</a></h3>
 <p>　　基于 <a href="#npla-%E6%95%B4%E4%BD%93%E7%BA%A6%E5%AE%9A">NPLA 整体约定</a>，由 <a href="#%E5%B5%8C%E5%85%A5%E5%AE%BF%E4%B8%BB%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0">NPL-EMA</a> ，NPLA 的实现不假定存在多线程执行环境。</p>
 <p>　　但是，宿主语言可支持多线程环境执行，<a href="#npla-%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE">可引起宿主语言的未定义行为</a>。</p>
 <p>　　作为 NPLA 的派生，NPLA1 对象语言程序也具有相同的性质，除非另行指定需要和<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">外部环境</a>交互的特定操作，不需要假定 NPLA1 引入存在多线程执行环境。</p>
@@ -4038,8 +4065,21 @@
 <p>　　NPLA1 对象语言程序中的<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">未定义行为</a>包括 <a href="#npla-%E6%9C%AA%E5%AE%9A%E4%B9%89%E8%A1%8C%E4%B8%BA">NPLA 未定义行为</a>和以下扩展 NPLA 未定义行为：</p>
 <ul>
 <li>特定情形下<a href="#npla1-%E7%8E%AF%E5%A2%83">访问被修改的环境中绑定的对象</a>。</li>
-<li>特定情形下违反对环境的使用要求。</li>
-<li>NPLA1 库约定的未定义行为。</li>
+<li>特定情形下违反对环境的使用要求。
+<ul>
+<li><strong>注释</strong> 参见<a href="#%E7%8E%AF%E5%A2%83%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7">环境的稳定性</a>。</li>
+</ul>
+</li>
+<li>特定情形下违反对外部实现环境假定的使用要求。
+<ul>
+<li><strong>注释</strong> 参见<a href="#%E6%A8%A1%E5%9D%97%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E5%8A%A0%E8%BD%BD">模块的初始化和加载</a>。注意虽然可能通过环境实现，但这在接口的意义上独立于环境的稳定性。</li>
+</ul>
+</li>
+<li>NPLA1 库约定的未定义行为。
+<ul>
+<li><strong>注释</strong> 有些未定义行为不需要被显式约定，例如不支持的并发访问<a href="#npla1-%E7%A8%8B%E5%BA%8F%E5%A4%96%E9%83%A8%E7%8E%AF%E5%A2%83">可引起宿主语言的未定义行为</a>，属于 NPLA 未定义行为。</li>
+</ul>
+</li>
 </ul>
 <p>　　派生语言可约定其它未定义行为。</p>
 <p><strong>原理</strong></p>
@@ -4048,17 +4088,36 @@
 <h2 id="接口文法约定"><a class="header" href="#接口文法约定">接口文法约定</a></h2>
 <p>　　为描述对象语言规则和程序接口，本节约定<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">文法</a>形式。</p>
 <p><strong>注释</strong> 这仅用于描述接口，不依赖 NPL 语言的<a href="#%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95">基本文法</a>。</p>
-<p>　　规约操作中项的约束通过以 <code>&lt;&gt;</code> 中的同类名称表示。</p>
+<p>　　元语言文法：</p>
+<pre><code class="language-xbnf">&lt;left-constraint-bound&gt; ::= &lt;
+&lt;right-constraint-bound&gt; ::= &gt;
+&lt;constraint&gt; ::= &lt;left-constraint-bound&gt;&lt;constraint-name&gt;&lt;right-constraint-bound&gt;
+&lt;prefix&gt; ::= .
+&lt;suffix&gt; ::= ? | ...
+&lt;trailing-constraint&gt; ::= &lt;constraint&gt; | &lt;constraint&gt;&lt;suffix&gt; | &lt;prefix&gt;&lt;trailing-constraint&gt;
+&lt;sequence&gt; ::= &lt;constraint&gt;*&lt;trailing-constraint&gt;
+&lt;left-sequence-bound&gt; ::= (
+&lt;right-sequence-bound&gt; ::= )
+&lt;form&gt; := &lt;sequence&gt; | &lt;left-sequence-bound&gt;&lt;sequence&gt;&lt;right-sequence-bound&gt;
+</code></pre>
+<p>　　规约操作中<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">项</a>的约束通过具有同类<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">名称</a>（即 <code>&lt;constraint-name&gt;</code> 元素）的前后以 <code>&lt;</code> 和 <code>&gt;</code> 作为边界的文法元素表示，即 <code>&lt;constraint&gt;</code> 文法元素。</p>
 <p>　　为区分同类约束的不同项，约束的名称后（在 <code>&gt;</code> 之前）的可带有以 1 起始的正整数序数。除非另行指定，这些序数仅用于区分不同的同类约束项，无其它附加含义。</p>
 <p>　　本节描述的项是被用于<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">求值</a>（参见<a href="#%E5%AF%B9%E8%B1%A1%E8%AF%AD%E8%A8%80%E6%B1%82%E5%80%BC%E7%AE%97%E6%B3%95">求值算法</a>）的<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">项</a>或它们的直接文法组合。前者应能涵盖<a href="#%E5%8E%9F%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F">原子表达式</a>、其<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">求值结果</a>以及预期在对象语言中实现<a href="#%E5%AF%B9%E8%B1%A1%E8%AF%AD%E8%A8%80%E6%B1%82%E5%80%BC%E7%AE%97%E6%B3%95">对象语言求值算法</a>所需的 <a href="#%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0">NPLA1 用户程序</a>构造。</p>
 <p>　　库可参照本节的方式约定通过项的文法，以支持仅在特定库使用的操作数。</p>
 <p>　　除非另行指定，本节的对应要求同时适用于本节中和这些库中引入的项。</p>
 <h3 id="元文法基本约定"><a class="header" href="#元文法基本约定">元文法基本约定</a></h3>
-<p>　　<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">元语言</a>文法：</p>
+<p>　　描述接口的<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">元语言</a>的文法具有以下含义：</p>
 <ul>
-<li><code>...</code> ：Kleene 星号，重复之前修饰的项 0 次或多次。</li>
-<li><code>+</code> ：重复之前修饰的项 1 次或多次。</li>
-<li><code>?</code> ：重复之前修饰的项 0 次或 1 次。</li>
+<li>表达操作的文法是 <code>&lt;sequence&gt;</code> ，表示匹配项的文法元素 <code>&lt;constraint&gt;</code> 或 <code>&lt;trailing-constraint&gt;</code> 的序列。</li>
+<li>当 <code>&lt;sequence&gt;</code> 不存在具有非空 <code>&lt;prefix&gt;</code> 的 <code>&lt;trailing-constraint&gt;</code> 时，序列是<a href="#%E5%B9%BF%E4%B9%89%E5%88%97%E8%A1%A8">真列表</a>。</li>
+<li><code>.</code> 仅在序列的最后一个文法元素中出现，表示后继的项和可选的文法元素后缀是有序对的最后一个元素。</li>
+<li>文法元素后缀的含义如下：
+<ul>
+<li><code>...</code> ：Kleene 星号，重复之前修饰的 <code>&lt;constraint&gt;</code> 0 次或多次。</li>
+<li><code>+</code> ：重复之前修饰的 <code>&lt;constraint&gt;</code> 1 次或多次。</li>
+<li><code>?</code> ：重复之前修饰的 <code>&lt;constraint&gt;</code> 0 次或 1 次。</li>
+</ul>
+</li>
 </ul>
 <p><strong>注释</strong></p>
 <p><code>...</code> 一般在结尾出现，表示元素构成列表。</p>
@@ -4068,6 +4127,7 @@
 <p>　　除非另行指定，在操作数可能是左值时，仅当对应以 <a href="#%E5%85%83%E6%96%87%E6%B3%95%E5%9F%BA%E6%9C%AC%E7%BA%A6%E5%AE%9A"><code>...</code> 或 <code>?</code> 形式</a>中最后的一项（若存在）时，支持匹配作为<a href="#%E4%B8%80%E7%AD%89%E5%BC%95%E7%94%A8">被引用对象</a>的有序对的非<a href="#%E5%B9%BF%E4%B9%89%E5%88%97%E8%A1%A8">前缀元素</a>不是空列表的<a href="#%E5%BC%95%E7%94%A8%E5%80%BC">引用值</a>的情形。</p>
 <p>　　名义不同的约束可能蕴含相同的<a href="#%E9%94%99%E8%AF%AF%E6%A3%80%E6%9F%A5">检查</a>。</p>
 <p>　　除非另行指定，应用子的操作数的约束也适用其<a href="#%E5%90%88%E5%B9%B6%E5%AD%90">底层合并子</a>。</p>
+<p><strong>注释</strong> 这意味着意味着按求值算法，被求值的应用子的<a href="#%E5%87%BD%E6%95%B0%E5%90%88%E5%B9%B6">函数合并</a>对象不能是<a href="#%E5%B9%BF%E4%B9%89%E5%88%97%E8%A1%A8">非真列表</a>。特别地，<code>...</code> 形式的结尾序列一般被要求是真列表，除非是其底层操作子被求值且具有存在 <code>.</code> 前缀的最后一个文法元素。</p>
 <p>　　文法形式上，使用本节约定指定<a href="#%E6%B1%82%E5%80%BC%E5%BE%97%E5%88%B0%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0">应用子的操作数</a>时，指定表达式形式的求值结果。</p>
 <p><strong>注释</strong> 这和 [R<sup>n</sup>RK] 和 [Shu10] 中的斜体标识符的标记不同，但含义（表示语义变量(semantic variable) ）和效果实质相同。</p>
 <p>　　操作数可能是左值或右值，按具体操作的需要，在必要时可被转换。</p>
@@ -4077,7 +4137,6 @@
 <p>　　约束可用于区分特定的含义，但不直接指定和具体的<a href="#%E9%94%99%E8%AF%AF%E6%A3%80%E6%9F%A5">检查</a>对应，以便被实现优化，例如合并名义不同的检查。</p>
 <p>　　文法形势的匹配应避免歧义。</p>
 <p><strong>注释</strong></p>
-<p>　　底层合并子适用应用子的约束，意味着按求值算法，被求值的<a href="#%E5%87%BD%E6%95%B0%E5%90%88%E5%B9%B6">函数合并</a>对象不能是<a href="#%E5%B9%BF%E4%B9%89%E5%88%97%E8%A1%A8">非真列表</a>。</p>
 <p>　　对非<a href="#%E5%B9%BF%E4%B9%89%E5%88%97%E8%A1%A8">前缀元素</a>的支持和<a href="#%E7%BB%91%E5%AE%9A%E5%8C%B9%E9%85%8D">绑定匹配</a>规则对应。其中：</p>
 <ul>
 <li>仅<a href="#%E7%BB%91%E5%AE%9A%E5%8C%B9%E9%85%8D">结尾序列</a>支持匹配以空列表以外的值的引用值作为非前缀元素的<a href="#%E6%9C%89%E5%BA%8F%E5%AF%B9">有序对</a>操作数左值的被引用对象中的非前缀元素<a href="#%E5%AD%90%E5%AF%B9%E8%B1%A1">子对象</a>。</li>
@@ -4126,7 +4185,11 @@
 </li>
 <li><code>&lt;binding&gt;</code> 绑定列表，形式为 <code>&lt;symbol&gt; &lt;expressions&gt;</code> ，用于指定被求值的表达式和绑定参数的符号值。</li>
 <li><code>&lt;bindings&gt;</code> ：绑定列表，即元素为 <code>&lt;binding&gt;</code> 的列表，形式为 <code>(&lt;binding&gt;...)</code> 。</li>
-<li><code>&lt;body&gt;</code>： 出现在元素的末尾 <code>&lt;expressions&gt;</code> 形式，用于<a href="#%E5%87%BD%E6%95%B0%E4%BD%93">函数体</a>等替换求值的目标。</li>
+<li><code>&lt;body&gt;</code>： 出现在元素的结尾 <code>&lt;expressions&gt;</code> 形式。
+<ul>
+<li><strong>注释</strong> 一般用于<a href="#%E5%87%BD%E6%95%B0">函数体</a>等替换求值的目标。</li>
+</ul>
+</li>
 <li><code>&lt;expression-sequence&gt;</code> ：同 <code>&lt;expression&gt;...</code> 但蕴含顺序求值其中的子项。
 <ul>
 <li>求值 <code>&lt;expression-sequence&gt;</code> 的结果是求值其最后一个子表达式（若存在）的结果，或当不存在子表达式时为<a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E4%B9%89%E6%A6%82%E5%BF%B5">未指定值</a>。</li>
@@ -4155,7 +4218,7 @@
 <p>　　关于 <code>eval</code> ，参见 YSLib 项目文档 <a href="https://osdn.net/projects/yslib/scm/hg/YSLib/blobs/tip/doc/NPL.txt"><code>doc/NPL.txt</code></a> 。</p>
 <p><strong>原理</strong></p>
 <p>　　以 <code>&lt;expressions&gt;</code> 代替 <code>&lt;expression&gt;</code> 可避免语法中要求过多的括号及 <code>eval</code> 等求值形式中显式构造列表的需要。</p>
-<p>　　因为 <code>&lt;body&gt;</code> 存在元素的末尾，明确元素中的其它词法元素后即可自然确定边界。</p>
+<p>　　因为 <code>&lt;body&gt;</code> 存在元素的结尾，明确元素中的其它词法元素后即可自然确定边界。</p>
 <p>　　<code>&lt;body&gt;</code> 可以是多个表达式的词法组合，允许具体使用时不需要附加括号即可实现整体求值。</p>
 <p>　　特别地，作为其它 <code>&lt;body&gt;</code> 嵌套的 <code>&lt;body&gt;</code> 实例在这种情况下，可以更有效地减少嵌套一层以上的括号。</p>
 <p>　　<code>&lt;body&gt;</code> 整体求值的一个必要条件：构成 <code>&lt;body&gt;</code> 的表达式不被以其它方式分别求值，如蕴含<a href="#%E6%96%87%E6%B3%95%E5%85%83%E7%B4%A0%E8%A1%A5%E5%85%85%E7%BA%A6%E5%AE%9A">顺序求值</a>。</p>
@@ -4254,7 +4317,7 @@
 <p>　　基于 NPLA 基本语法约定参见 <a href="#npla-%E6%95%B4%E4%BD%93%E7%BA%A6%E5%AE%9A">NPLA 整体约定</a>。</p>
 <p>　　NPLA1 表达式符合 <a href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F">NPL 表达式语法</a>。</p>
 <p><strong>注释</strong></p>
-<p>　　<a href="#%E7%AE%80%E5%8D%95%E6%96%87%E6%B3%95%E7%BA%A6%E5%AE%9A">NPL-GA</a>包含的<a href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90">转义规则</a>中包含 <code>&lt;char-escape-seq&gt;</code> 的 <code>&lt;char-seq&gt;</code> 要求类似 [R<sup>6</sup>RS] 在字符串中的元素；其中仅有 \ 和 &quot; 被 [R<sup>5</sup>RS] 直接支持，而 [R<sup>7</sup>RS] 不支持 \v 。</p>
+<p>　　<a href="#%E7%AE%80%E5%8D%95%E6%96%87%E6%B3%95%E7%BA%A6%E5%AE%9A">NPL-GA</a>包含的<a href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90">转义规则</a>中包含 <code>&lt;char-escape-seq&gt;</code> 的 <code>&lt;char-seq&gt;</code> 要求类似 [R<sup>6</sup>RS] 在字符串中的元素；其中仅有 \ 和 " 被 [R<sup>5</sup>RS] 直接支持，而 [R<sup>7</sup>RS] 不支持 \v 。</p>
 <p>　　后者支持的其它转义字符序列词法可被派生实现以 <code>&lt;$literal-char&gt;</code> 的形式另行指定（其中 [R<sup>7</sup>RS] 可涵盖对应 <code>&lt;char-escape-seq&gt;</code> 的功能）。</p>
 <h3 id="npla1-字面量"><a class="header" href="#npla1-字面量">NPLA1 字面量</a></h3>
 <p>　　基于 <a href="#npla-%E8%AF%8D%E6%B3%95%E5%92%8C%E8%AF%AD%E6%B3%95">NPLA 词法规则</a>，本节指定<a href="#%E5%AD%97%E9%9D%A2%E9%87%8F">字面量</a>的词素集合。</p>
@@ -5253,26 +5316,26 @@
 <p><strong>原理</strong></p>
 <p>　　循环引用破坏一些实现的假设而引起非预期的访问。</p>
 <p>　　不显式访问环境的操作也可能引入循环引用（而引起未定义行为），例如 <a href="#npla1-%E5%8F%82%E7%85%A7%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83">NPLA1 参照实现环境</a> 下：</p>
-<pre><code>$def! l ();
+<pre><code class="language-npla1">$def! l ();
 $def! l list% l;
 </code></pre>
 <p>　　典型实现中，具有所有权的循环引用可引起<a href="#%E8%B5%84%E6%BA%90%E6%B3%84%E6%BC%8F">资源泄漏</a>；无条件遍历访问循环引用<a href="#npla1-%E5%AD%90%E5%AF%B9%E8%B1%A1">子对象</a>的求值不具有<a href="#%E7%BB%88%E6%AD%A2%E4%BF%9D%E8%AF%81">终止保证</a>。</p>
 <p>　　例如 NPLA1 参照实现环境下求值以下表达式：</p>
-<pre><code>$let ((nenv () make-environment)) $set! nenv self nenv
+<pre><code class="language-npla1">$let ((nenv () make-environment)) $set! nenv self nenv
 </code></pre>
 <p>　　可引起被捕获的环境中存储的对象无法释放。</p>
 <p>　　能同时保证避免资源泄漏的实现引起一般意义上更根本的设计限制，因此不被使用。详见<a href="#%E8%87%AA%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8">自引用数据结构和循环引用</a>。</p>
 <p>　　此外，为了避免 <a href="#%E5%9F%BA%E6%9C%AC%E6%B4%BE%E7%94%9F%E7%89%B9%E6%80%A7"><code>$lambda</code></a> 等引起不经意的循环引用误用，根据<a href="#%E6%98%93%E9%A2%84%E6%B5%8B%E6%80%A7">易预测性原则</a>，这些<a href="#%E5%90%88%E5%B9%B6%E5%AD%90">合并子</a>的<a href="#%E5%88%9B%E5%BB%BA%E5%92%8C%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%BD%E6%95%B0">构造器</a>默认不使用<a href="#%E7%8E%AF%E5%A2%83%E5%BC%95%E7%94%A8">强引用</a>作为静态环境。</p>
 <p>　　若需保持静态环境的所有权，使用显式指定静态环境的构造器（如 <a href="#%E5%9F%BA%E6%9C%AC%E6%B4%BE%E7%94%9F%E7%89%B9%E6%80%A7"><code>$lambda/e</code></a> ）和 <a href="#%E5%9F%BA%E6%9C%AC%E6%B4%BE%E7%94%9F%E7%89%B9%E6%80%A7"><code>lock-current-environment</code></a> 等。</p>
 <p>　　否则，容易引起循环引用，如以下表达式：</p>
-<pre><code>$def! f $lambda ()
+<pre><code class="language-npla1">$def! f $lambda ()
 </code></pre>
 <p>　　会相当于当前设计的：</p>
-<pre><code>$def! f $lambda/e (() lock-current-environment)
+<pre><code class="language-npla1">$def! f $lambda/e (() lock-current-environment)
 </code></pre>
 <p>　　此处锁定的<a href="#%E5%BD%93%E5%89%8D%E7%8E%AF%E5%A2%83">当前环境</a>的强引用被作为闭包的一部分绑定到当前环境中，引起循环引用。</p>
 <p>　　而求值当前设计中等价的：</p>
-<pre><code>$def! f $lambda/e (() get-current-environment)
+<pre><code class="language-npla1">$def! f $lambda/e (() get-current-environment)
 </code></pre>
 <p>　　不引起未定义行为。</p>
 <h4 id="自引用数据结构"><a class="header" href="#自引用数据结构">自引用数据结构</a></h4>
@@ -5282,11 +5345,13 @@ $def! l list% l;
 <p>　　NPLA1 支持<a href="#npla-%E7%8E%AF%E5%A2%83">一等环境</a>。</p>
 <p>　　<a href="#%E7%8E%AF%E5%A2%83%E5%AF%B9%E8%B1%A1">环境对象</a>也可能是语言中显式约定的和<a href="#%E7%8E%AF%E5%A2%83%E5%BC%95%E7%94%A8">环境引用</a>不同的非一等对象。</p>
 <p>　　NPLA1 的环境关连的<a href="#npla-%E7%8E%AF%E5%A2%83">父环境</a>的<a href="#%E5%90%8D%E7%A7%B0%E8%A7%A3%E6%9E%90">重定向</a>使用 DFS（Depth-First Search ，深度优先搜索）遍历目标。</p>
-<p>　　环境中的一等对象是环境对象的<a href="#npla1-%E5%AD%90%E5%AF%B9%E8%B1%A1">子对象</a>。子对象是环境，即环境子对象。</p>
+<p>　　环境中的一等对象是环境对象的<a href="#npla1-%E5%AD%90%E5%AF%B9%E8%B1%A1">子对象</a>。子对象是环境对象，即<em>环境子对象(environment subobject)</em> 。</p>
+<p>　　语言实现可提供不是一等环境的环境对象，即<em>非一等环境(non-first-class environment)</em> 。</p>
 <p><strong>注释</strong></p>
 <p>　　除了支持非一等对象的环境，和 Kernel 类似。</p>
 <h4 id="隐藏环境"><a class="header" href="#隐藏环境">隐藏环境</a></h4>
-<p>　　语言实现可提供非一等环境。总是不能被对象语言以一等对象访问的环境是<em>隐藏环境(hidden environment)</em> 。</p>
+<p>　　总是不能被对象语言以一等对象访问的环境是<em>隐藏环境(hidden environment)</em> 。</p>
+<p><strong>注释</strong> 推论：非一等环境是隐藏环境。</p>
 <p>　　一般地，隐藏环境是某一个（非隐藏的）一等环境的直接或间接父环境（而能通过求值等间接操作被访问）。</p>
 <h4 id="新环境"><a class="header" href="#新环境">新环境</a></h4>
 <p>　　<em>新(fresh)</em> 环境是新创建的环境。</p>
@@ -5376,6 +5441,7 @@ $def! l list% l;
 <p>　　和 Scheme 及 Kernel 不同，NPLA 支持的列表都是真列表。另见<a href="#%E8%87%AA%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8">关于自引用数据结构和循环引用的分析</a>。</p>
 <p>　　列表的这些特性确保基于列表的数据结构在对象语言逻辑上的简单性。也因此 NPLA1 对应的操作中，没有对环存在性的检查。</p>
 <p>　　没有环的结构能保证所有权语义能按需嵌入(embed) 到列表中，即列表可保证表示为同构的具有对节点所有权的嵌套 <a href="#%E6%9C%89%E5%BA%8F%E5%AF%B9">cons 对</a>。</p>
+<p>　　因为类似的理由，在语言特性中<a href="http://xahlee.info/UnixResource_dir/writ/lisp_problems.html">原生支持 cons 对被有的 Lisp 用户认为是传统 Lisp 设计的主要问题之一</a>。由于 cons 对只是一般的列表的实现细节，对 cons 对的依赖造成<a href="#%E9%81%BF%E5%85%8D%E6%8A%BD%E8%B1%A1%E6%B3%84%E6%BC%8F">抽象泄漏</a>；为了支持接近一般列表的抽象，必须引入真列表。也因此 NPLA 避免直接依赖 cons 对的缺陷，尽管同时仍然提供<a href="#%E6%9C%89%E5%BA%8F%E5%AF%B9">有序对</a>且 NPLA 列表仍通过有序对定义，更一般情形可以避免对列表的依赖，如部分<a href="#%E5%9F%BA%E6%9C%AC%E6%B4%BE%E7%94%9F%E7%89%B9%E6%80%A7">库函数</a>可直接支持抽象列表。</p>
 <h4 id="有序对的子对象和子对象引用"><a class="header" href="#有序对的子对象和子对象引用">有序对的子对象和子对象引用</a></h4>
 <p>　　有序对的元素是有序对的<a href="#npla1-%E5%AD%90%E5%AF%B9%E8%B1%A1">子对象</a>，有序对对作为元素的表示具有所有权。同一个有序对的元素节点之间没有所有权关系。</p>
 <p>　　部分操作可能修改有序对的子对象。</p>
@@ -5498,14 +5564,14 @@ $def! l list% l;
 <p>　　本章中的其它约定适用 NPLA1 参照实现环境，且可选地被用户程序使用。</p>
 <h2 id="npla1-初始求值环境"><a class="header" href="#npla1-初始求值环境">NPLA1 初始求值环境</a></h2>
 <p>　　NPLA1 以<a href="#npla1-%E7%8E%AF%E5%A2%83">环境对象</a>中的绑定作为公开的接口提供库特性，以进一步提供<em>初始环境(initial environment)</em> 作为<a href="#%E6%B1%82%E5%80%BC%E7%8E%AF%E5%A2%83">求值环境</a>，即用户程序初始的<a href="#%E5%BD%93%E5%89%8D%E7%8E%AF%E5%A2%83">当前环境</a>。</p>
-<p>　　这些环境对象包含两类：</p>
+<p>　　这些环境包含两类：</p>
 <ul>
 <li><em>根环境(root environment)</em> ：提供<a href="#%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0">核心语言特性</a>的<a href="#npla1-%E7%8E%AF%E5%A2%83">非一等环境</a>。
 <ul>
 <li>根环境应能和<a href="#npla1-%E7%8E%AF%E5%A2%83">一等环境</a>在<a href="#%E5%90%8D%E7%A7%B0%E8%A7%A3%E6%9E%90">名称解析</a>中的作用一致：作为<a href="#npla-%E7%8E%AF%E5%A2%83">父环境</a>。</li>
 </ul>
 </li>
-<li>作为库特性的一等环境对象。
+<li><em>库环境(library environment)</em> ：作为库特性的一等环境。
 <ul>
 <li><strong>注释</strong> 通常是其它环境的<a href="#npla1-%E5%AD%90%E5%AF%B9%E8%B1%A1">子对象</a>。</li>
 </ul>
@@ -5565,11 +5631,15 @@ $def! l list% l;
 <p>　　从模块的源得到提供一个模块的所有绑定集合的环境对象的过程称为模块的<em>加载(loading)</em> 。</p>
 <p>　　模块加载可能失败。失败的模块加载<a href="#npla1-%E9%94%99%E8%AF%AF">引起错误</a>。</p>
 <p>　　<a href="#npla1-%E5%88%9D%E5%A7%8B%E6%B1%82%E5%80%BC%E7%8E%AF%E5%A2%83">根环境</a>加载的失败不被直接依赖这些环境的 NPLA1 用户程序处理（而视为实现初始化的运行时错误）。</p>
-<p>　　一般地，模块和加载模块得到的环境对象没有直接对应关系：一个模块的绑定可以由一个或多个环境提供，一个已被加载的环境可能提供零个或多个程序可见的模块。但除非另行指定，一个模块的绑定不在超过一个的不相交的环境（之间没有直接或间接父环境关系）中提供。</p>
+<p>　　一般地，模块和加载模块得到的环境对象不保证具有直接的对应关系：一个模块的绑定可以由一个或多个环境提供，一个已被加载的环境可能提供零个或多个程序可见的模块。但除非另行指定，一个模块的绑定不在超过一个的不相交的环境（之间没有直接或间接父环境关系）中提供。</p>
+<p>　　<a href="#%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0">库</a>的实现可作为<a href="../Terminology.zh-CN.html#%E8%A7%84%E8%8C%83">语言实现</a>。<a href="#%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0">库特性</a>可以被模块化，在其中通过<a href="#npla1-%E5%88%9D%E5%A7%8B%E6%B1%82%E5%80%BC%E7%8E%AF%E5%A2%83">库环境</a>一并被提供。</p>
 <p>　　程序可通过加载外部模块来源取得模块。除非另行指定，这种模块以一个一等环境对象（可包含作为环境的直接或间接子对象）中的绑定提供。</p>
-<h3 id="标准库模块的初始化和加载"><a class="header" href="#标准库模块的初始化和加载">标准库模块的初始化和加载</a></h3>
-<p>　　标准库实现可作为<a href="../Terminology.zh-CN.html#%E8%A7%84%E8%8C%83">语言实现</a>。<a href="#npla1-%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96">实现环境初始化</a>以提供模块时，可访问不作为公开接口提供的模块的源。</p>
+<h3 id="模块的初始化和加载"><a class="header" href="#模块的初始化和加载">模块的初始化和加载</a></h3>
+<p>　　<a href="#npla1-%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96">实现环境初始化</a>时可提供模块，包含其中必要的使模块中特性可用的初始化。</p>
+<p>　　实现环境初始化时，可访问不作为公开接口提供的模块的源，从源<em>加载(load)</em> 这些模块。</p>
 <p><strong>注释</strong> 派生实现可同时以标准库以外形式提供这些源为公开接口，用户程序也可显式地加载这些源对应的模块。</p>
+<p>　　待加载的源的位置可通过称为<em>加载路径(load path)</em> 的字符串指定。加载路径可精确指定确切的源，或提供使实现<em>搜索(search)</em> 特定的源的起点。具体可接受的加载路径格式以及加载路径映射到确切的源的规则由提供特性的实现定义。</p>
+<p><strong>原理</strong> 有的语言实现直接使用加载路径作为搜索路径，如 <a href="https://www.gnu.org/software/guile/manual/html_node/Installing-Site-Packages.html">GNU Guile</a> 。有的语言实现基于不同的原语，称为<em>导入路径(import path)</em> ，如 <a href="https://docs.python.org/3/reference/import.html">Python</a> 。</p>
 <p>　　除非另行指定：</p>
 <ul>
 <li>若这些源可能引起引入非公开的接口的副作用，则对应的模块不应被用户程序直接加载。</li>
@@ -6798,9 +6868,9 @@ $def! l list% l;
 <p><code>idv &lt;object&gt;</code></p>
 <p>　　同 <code>id</code> ，但结果是返回值转换后的值。</p>
 <p><strong>注释</strong> 使用 <code>idv</code> 可指定在函数值中<a href="#%E5%9C%A8%E5%87%BD%E6%95%B0%E5%80%BC%E4%B8%AD%E4%BF%9D%E7%95%99%E5%BC%95%E7%94%A8%E5%80%BC%E7%9A%84%E6%93%8D%E4%BD%9C">保留引用值的不安全操作</a> 的个别操作数不再保留引用值。</p>
-<p><code>list &lt;object&gt;...</code></p>
-<p>　　创建列表（类型为 <code>&lt;list&gt;</code> ）对象。</p>
-<p>　　<code>list</code> 的<a href="#%E5%90%88%E5%B9%B6%E5%AD%90">底层合并子</a>接受 <code>&lt;pair&gt;</code>（而不要求是列表）作为函数合并对象，结果是操作数的元素经蕴含左值到右值转换的值。</p>
+<p><code>list .&lt;object&gt;...</code></p>
+<p>　　创建列表（类型为 <code>&lt;list&gt;</code> ）对象。结果是操作数的元素经蕴含左值到右值转换的值。</p>
+<p>　　<code>list</code> 的<a href="#%E5%90%88%E5%B9%B6%E5%AD%90">底层合并子</a>接受 <code>&lt;pair&gt;</code>（而不要求是列表）作为函数合并对象，结果的类型是 <code>&lt;pair&gt;</code> 而不一定是 <code>&lt;list&gt;</code> 。</p>
 <p><strong>注释</strong> 除元素的转换，类似 [R<sup>n</sup>RK] 的 <code>list</code> 。</p>
 <p><code>$lvalue-identifier? &lt;symbol&gt;</code></p>
 <p>　　解析当前环境中的标识符（同 <a href="#%E7%8E%AF%E5%A2%83%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0"><code>$resolve-identifier</code></a>）并判断是否为左值（同 <a href="#%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0"><code>bound-lvalue?</code></a>）。</p>
@@ -6820,9 +6890,9 @@ $def! l list% l;
 <p><strong>注释</strong></p>
 <p>　　被转发的值若是<a href="#%E7%BB%91%E5%AE%9A%E6%93%8D%E4%BD%9C">形式参数树</a>中的变量，一般应以<a href="#%E9%9D%9E%E9%80%92%E5%BD%92%E7%BB%91%E5%AE%9A">带有标记字符 <code>&amp;</code> 的形式绑定</a>；否则，转发的不是对应的实际参数，而可能是其按值绑定的副本。</p>
 <p>　　这个函数类似宿主语言以对象类型参数和推断的函数参数类型作为模板参数调用 <code>std::forward</code> ，但若需转移，直接转移而非如 <a href="#%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0"><code>expire</code></a>返回指定结果是<a href="#%E5%80%BC%E7%B1%BB%E5%88%AB">消亡值</a>的<a href="#%E5%BC%95%E7%94%A8%E5%80%BC%E7%9A%84%E5%B1%9E%E6%80%A7">唯一引用</a>。</p>
-<p><code>list% &lt;object&gt;...</code></p>
+<p><code>list% .&lt;object&gt;...</code></p>
 <p>　　同 <code>list</code> ，但每个参数都不蕴含左值到右值转换，<a href="#%E5%8F%AF%E8%83%BD%E4%BD%BF%E7%BB%93%E6%9E%9C%E5%8C%85%E5%90%AB%E5%BC%95%E7%94%A8%E5%80%BC%E7%9A%84%E5%AE%B9%E5%99%A8%E6%9E%84%E9%80%A0%E5%99%A8">在结果中保留参数的引用值</a>。</p>
-<p>　　<code>list%</code> 的底层合并子接受 <code>&lt;pair&gt;</code> 作为操作数（而不要求是列表），结果是操作数。</p>
+<p>　　<code>list%</code> 的底层合并子接受 <code>&lt;pair&gt;</code> 作为操作数（而不要求是列表），结果的类型是 <code>&lt;pair&gt;</code> 而不一定是 <code>&lt;list&gt;</code> 。</p>
 <p><strong>注释</strong> 类似 [R<sup>n</sup>RK] 的 <code>list</code> 。</p>
 <p><code>rlist &lt;list&gt;</code></p>
 <p>　　转换参数为引用列表元素的列表。</p>
@@ -6936,7 +7006,7 @@ $def! l list% l;
 <p><code>forward-first% &lt;applicative&gt; &lt;list&gt;</code></p>
 <p>　　取列表的第一元素并转发给指定的应用子。</p>
 <p>　　设参数列表 <code>(&amp;appv (&amp;x .))</code> ，作用同求值：</p>
-<pre><code>(forward! appv) (list% ($move-resolved! x))
+<pre><code class="language-npla1">(forward! appv) (list% ($move-resolved! x))
 </code></pre>
 <p>　　其中，调用 <code>appv</code> 的<a href="#%E5%90%88%E5%B9%B6%E5%AD%90">底层合并子</a>的当前环境同调用 <code>forward-first%</code> 的动态环境。</p>
 <p><code>first &lt;pair&gt;</code></p>
@@ -7239,6 +7309,7 @@ $def! l list% l;
 <p><strong>注释</strong> 类似 [R<sup>n</sup>RK] 的 <code>for-each</code> ，但支持空的 <code>&lt;list&gt;</code> 且保证顺序。</p>
 <h1 id="npla1-参照实现扩展环境"><a class="header" href="#npla1-参照实现扩展环境">NPLA1 参照实现扩展环境</a></h1>
 <p>　　类似 <a href="#npla1-%E6%A0%B9%E7%8E%AF%E5%A2%83%E7%89%B9%E6%80%A7">NPLA1 根环境特性</a>，NPLA1 以<a href="#npla1-%E5%88%9D%E5%A7%8B%E6%B1%82%E5%80%BC%E7%8E%AF%E5%A2%83">根环境</a>的形式提供其它一些<a href="#%E6%A8%A1%E5%9D%97">模块</a>的操作，但默认不以根环境中的绑定而是以其中的<a href="#%E6%A8%A1%E5%9D%97">环境子对象</a>中的绑定提供。</p>
+<p>　　除非另行指定，这些环境子对象作为<a href="#%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0">库特性</a>的一部分时，是以 <code>std.</code> 为前缀的名称命名的<a href="#npla1-%E5%88%9D%E5%A7%8B%E6%B1%82%E5%80%BC%E7%8E%AF%E5%A2%83">库环境</a>。</p>
 <p>　　除非派生实现另行指定，这些模块都应被提供。</p>
 <p>　　这些模块和 <a href="#npla1-%E5%8F%82%E7%85%A7%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83">NPLA1 参照实现环境</a>提供的特性一同构成<a href="#%E6%A0%87%E5%87%86%E5%BA%93">标准库</a>。</p>
 <p>　　除非派生实现定义，每个标准库模块都不是可选的。否则，作为被加载的模块的环境的名称由派生实现定义。</p>
@@ -7358,6 +7429,9 @@ $def! l list% l;
 <li>更一般地，即便不支持续延组合操作，在抽象机语义描述续延的捕获得到一等续延依赖这种语义（即便父续延不是一等对象）。
 <ul>
 <li>只要描述依赖可组合的求值算法，除了最后一个<a href="#%E7%BB%AD%E5%BB%B6">无界续延</a>，其它续延都对应可组合的求值步骤，因此这隐含续延的可组合性。</li>
+</ul>
+  <!-- markdownlint-disable-next-line MD034 -->
+<ul>
 <li>其它在求值算法以外的机制的描述也可能依赖这种组合性，如：https://docs.racket-lang.org/reference/eval-model.html#(part._mark-model) 。</li>
 <li>最后一个无界续延可不考虑可组合性。但只要它不是唯一的，为作为一等续延被直接捕获和调用，它仍应当接受程序指定的操作数。
 <ul>
@@ -7518,7 +7592,7 @@ $def! l list% l;
 <p><strong>原理</strong></p>
 <p>　　同 [R<sup>n</sup>RK] ，<code>apply-continuation</code> 不接受可选的环境，因为非正常控制忽略动态环境。</p>
 <p><strong>注释</strong></p>
-<p>　　即同求值：<code>apply (apply-continuation &lt;continuation&gt;) &lt;object&gt;</code> 。</p>
+<p>　　即同求值：<code>apply (continuation-&gt;applicative &lt;continuation&gt;) &lt;object&gt;</code> 。</p>
 <p>　　<code>apply-continuation</code> 同 [R<sup>n</sup>RK] 。取得非 <code>&lt;list&gt;</code> 结果依赖 <code>apply</code> 对 <code>&lt;pair&gt;</code> 的支持，这在 Scheme 中无法实现。</p>
 <h2 id="代理求值"><a class="header" href="#代理求值">代理求值</a></h2>
 <p>　　代理求值支持保存求值为代理对象以实现延迟求值。</p>
@@ -7538,7 +7612,7 @@ $def! l list% l;
 <p>　　由于<a href="#%E4%B8%8D%E5%AE%89%E5%85%A8%E6%93%8D%E4%BD%9C">当前语言不支持并发访问</a>，即使对 <code>&lt;promise&gt;</code> 的<a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BF%AE%E6%94%B9%E5%92%8C%E6%94%B9%E5%8F%98">修改操作</a>导致变化，在语言中其状态也不可见，没有要求支持这种同步；未来可能会附加要求以提供更完善的并发支持。</p>
 <p>　　关于 <a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">API</a> 的设计，参见 [R<sup>n</sup>RK] §9 和 <a href="https://srfi.schemers.org/srfi-45/srfi-45.html">[SRFI-45]</a> 。</p>
 <p><strong>注释</strong></p>
-<p>　　在 <code>&lt;promise&gt;</code> 上的<a href="#npla-%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE">并发访问</a>并不具有特别的同步保证和要求。</p>
+<p>　　在 <code>&lt;promise&gt;</code> 上的<a href="#npla-%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE">并发访问</a>并不具有特别的同步保证和要求。并发访问<a href="#npla1-%E7%A8%8B%E5%BA%8F%E5%A4%96%E9%83%A8%E7%8E%AF%E5%A2%83">可引起宿主语言的未定义行为</a>。</p>
 <p>　　除 <code>$lazy/d</code> 外，同 [R<sup>n</sup>RK] 的 promises 模块。</p>
 <p>　　和 [R<sup>n</sup>RK] 不同，通过 <code>force</code> 引起 <code>&lt;promise&gt;</code> 对象的求值可能修改这个对象自身而使其中的状态失效（如通过 <a href="#%E5%9F%BA%E6%9C%AC%E6%B4%BE%E7%94%9F%E7%89%B9%E6%80%A7"><code>assign!</code></a>对这个对象赋值）。</p>
 <p>　　因此，实现中需要重新访问状态，而重新进行类型检查。</p>
@@ -7764,6 +7838,8 @@ $def! l list% l;
 <p>　　[R<sup>6</sup>RS] 的整除基本操作（过程 <code>div</code> 、<code>mod</code> 、<code>div0</code> 、<code>mod0</code> ）没有严格定义，仅通过例子说明一些差异，但明确不要求整数。</p>
 <p>　　[R<sup>n</sup>RK] 的整除同 [R<sup>6</sup>RS] ，但描述和 [R<sup>6</sup>RS] 矛盾；klisp 实现行为同 [R<sup>6</sup>RS] 。</p>
 <p>　　更一般的定义参见 <a href="https://srfi.schemers.org/srfi-141/srfi-141.html">[SRFI-141]</a> 和其它相关参考文献：</p>
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD034 -->
 <ul>
 <li>http://dl.acm.org/citation.cfm?id=128862</li>
 <li>http://people.csail.mit.edu/riastradh/tmp/division.txt</li>
@@ -7771,6 +7847,7 @@ $def! l list% l;
 <li>https://github.com/johnwcowan/r7rs-work/blob/master/WG1Ballot3Results.md#185-add-sixth-centered-division-operator</li>
 <li>https://wiki.call-cc.org/eggref/5/srfi-141</li>
 </ul>
+<!-- markdownlint-restore -->
 <h2 id="字符串库"><a class="header" href="#字符串库">字符串库</a></h2>
 <p>　　提供字符串和正则表达式的相关操作。</p>
 <p>　　默认加载为根环境下的 <code>std.strings</code> 环境。</p>
@@ -7799,7 +7876,7 @@ $def! l list% l;
 <p>　　以第二参数为源，修改第一参数指定的目标。</p>
 <p><code>string-trim &lt;string1&gt;</code></p>
 <p>　　删除字符串中指定的连续前缀空白符。</p>
-<p>　　空白符是 C++ 字符串中 <code>&quot; \n\r\t\v&quot;</code> 的字符之一。</p>
+<p>　　空白符是 C++ 字符串中 <code>" \n\r\t\v"</code> 的字符之一。</p>
 <p><strong>注释</strong> 同 [SRFI-152] 的过程 <code>string-trim-both</code> ，但不支持可选参数，且默认指定的空白符不同。</p>
 <p><code>string-trim-left &lt;string1&gt;</code></p>
 <p>　　删除字符串中指定的连续后缀空白符。</p>
@@ -7943,10 +8020,11 @@ $def! l list% l;
 <p><code>puts &lt;string&gt;</code></p>
 <p>　　输出字符串和换行并刷新缓冲。</p>
 <p><strong>注释</strong> 同 <code>put</code> 和 <code>newline</code> 的组合。</p>
+<p><strong>原理</strong> 和 ISO C 的 <code>puts</code> 不同，保证刷新缓冲，以对交互式设备具有更友好的行为一致性。</p>
 <p><code>load &lt;string&gt;</code></p>
-<p>　　加载参数指定的翻译单元作为源的<a href="#%E6%A8%A1%E5%9D%97">模块</a>。</p>
+<p>　　加载参数指定的翻译单元作为<a href="#%E6%A8%A1%E5%9D%97">源</a>的<a href="#%E6%A8%A1%E5%9D%97">模块</a>。</p>
 <p>　　加载时在<a href="#%E5%BD%93%E5%89%8D%E7%8E%AF%E5%A2%83">当前环境</a>读取翻译单元后求值，以求值后的这个环境对象作为调用的结果。</p>
-<p>　　当前实现中，参数为文件系统路径。</p>
+<p>　　参数是指定源的确切位置的<a href="#npla1-%E5%8F%82%E7%85%A7%E5%AE%9E%E7%8E%B0%E6%89%A9%E5%B1%95%E7%8E%AF%E5%A2%83">加载路径</a>。当前实现中，参数为文件系统路径。</p>
 <p>　　被加载的翻译单元视为对象的<a href="#%E8%A1%A8%E7%A4%BA">外部表示</a>，经读取翻译为 NPLA1 对象。</p>
 <p><strong>原理</strong></p>
 <p>　　和 [R<sup>7</sup>RS] 不同，<code>load</code> 不支持指定环境，而总是使用当前环境。</p>
@@ -8005,6 +8083,7 @@ $def! l list% l;
 <p>　　移除参数指定的路径命名的文件。若成功结果为 <code>#t</code> ，否则结果为 <code>#f</code> 。</p>
 <p><strong>注释</strong></p>
 <p>　　同：</p>
+<!-- markdownlint-disable-next-line MD034 -->
 <ul>
 <li>[STklos 的同名过程](https://stklos.net/Doc/html/stklos-ref-4.html#delete-file) ，但通过函数值指定调用失败而非引起错误。</li>
 <li>[R<sup>7</sup>RS] 的 <code>delete-file</code> ，但通过函数值指定调用失败而非引起错误。</li>
@@ -8102,14 +8181,25 @@ $def! l list% l;
 <p>　　<em>需求字符串(requirement string)</em> 是具有 <code>&lt;string&gt;</code> 类型的非空字符串。</p>
 <p>　　若操作的形式参数是需求字符串，实际参数是空字符串，则<a href="#npla1-%E9%94%99%E8%AF%AF">引起错误</a>。</p>
 <p>　　本模块共享<a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BF%AE%E6%94%B9%E5%92%8C%E6%94%B9%E5%8F%98">可变管理状态</a>，以支持操作访问确定的模块字符串集合。</p>
-<p>　　本模块隐含一个字符串序列作为需求字符串模板。</p>
-<p>　　除非派生实现另行指定，需求字符串模板初始化后不可变。</p>
-<p>　　需求字符串模板初始化的值由实现定义。</p>
+<p>　　本模块隐含一个字符串的序列，其中的每个元素都是可<a href="#npla1-%E5%8F%82%E7%85%A7%E5%AE%9E%E7%8E%B0%E6%89%A9%E5%B1%95%E7%8E%AF%E5%A2%83">指定搜索起点的模块的加载路径</a>，称为<em>需求字符串模板(requirement string template)</em> 。</p>
+<p>　　除非派生实现另行指定，需求字符串模板序列在<a href="#npla1-%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96">实现环境初始化</a>后不可变。</p>
+<p>　　初始化决定的需求字符串模板序列的内容由实现定义。</p>
+<p>　　程序可通过本模块<em>注册(register)</em> 需求字符串。本模块维护已被注册的需求字符串的集合。若一个字符串的值和集合中的某个值相等，则这个字符串作为需求字符串已被注册。</p>
+<p>　　注册新的需求字符串时，同时创建和保存：</p>
+<ul>
+<li>待加载结果的对象，其初始值为 <code>()</code> 。</li>
+<li>可供加载使用的<a href="#%E6%96%B0%E7%8E%AF%E5%A2%83">新</a><a href="#%E5%9F%BA%E6%9C%AC%E6%B4%BE%E7%94%9F%E7%89%B9%E6%80%A7">标准环境</a>。</li>
+</ul>
+<p>　　本模块确保对不同的被维护的需求字符串，对应的上述资源不同一。</p>
 <p><strong>原理</strong></p>
+<p>　　参数的值和结果不需要保证一一对应。通过指定需求字符串模板序列，可以指定在文件系统不同位置的相同文件名模式的多个文件作为需求字符串对应的候选模块的源，按需选取其中之一指定其确切位置。</p>
 <p>　　为避免名称污染等问题，不提供显式指定命名环境的模块创建操作，如 <a href="http://www.lua.org/manual/5.1/manual.html#pdf-module">Lua 5.1 的 <code>module</code> 函数</a>等<a href="http://lua-users.org/wiki/LuaModuleFunctionCritiqued">存在一些问题</a>。</p>
 <p>　　不提供访问创建的环境的操作，以避免污染外部的访问。若需公开其中的变量绑定，可使用返回或模块参数。</p>
+<p>　　提供较少的操作以简化规则，避免<a href="https://xkcd.com/1987/">多个运行时可能造成的混乱</a>。关于搜索规则，另见以下 <code>find-required-filename</code> 的说明。</p>
 <p><strong>注释</strong></p>
-<p>　　当前实现中，若环境变量 <code>NPLA1_PATH</code> 的值非空，则需求字符串模板是这个值以单字符子串 &quot;;&quot; 分隔后的结果；否则，默认值是序列 &quot;./?&quot; 和 &quot;./?.txt&quot; 构成的序列。</p>
+<p>　　对内部共享状态的<a href="#npla-%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE">并发访问</a>并不具有特别的同步保证和要求。并发访问<a href="#npla1-%E7%A8%8B%E5%BA%8F%E5%A4%96%E9%83%A8%E7%8E%AF%E5%A2%83">可引起宿主语言的未定义行为</a>。</p>
+<p>　　当前实现中，若环境变量 <code>NPLA1_PATH</code> 的值非空，则需求字符串模板序列是这个值以单字符子串 <code>;</code> 分隔后的结果串接组成的序列；否则，默认值是字符串 <code>./?</code> 和 <code>./?.txt</code> 构成的序列。</p>
+<p>　　关于使用需求字符串模板序列搜索模块，参见以下 <code>find-required-filename</code> 的说明。</p>
 <p>　　当前派生实现依赖可用的 <a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BA%93"><code>std.strings</code></a>、<a href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%BA%93"><code>std.io</code></a>和 <a href="#%E7%B3%BB%E7%BB%9F%E5%BA%93"><code>std.system</code></a>环境。</p>
 <p>　　通过不经过本模块的操作（如<a href="#npla-%E4%BA%92%E6%93%8D%E4%BD%9C%E6%94%AF%E6%8C%81">互操作</a>）、重复字符串模板的重复项、符号链接和字符串大小写不敏感的文件名等可能绕过本模块的注册机制而重复加载同一个外部文件。本模块的操作不对这些情形进行任何检查。</p>
 <p><strong>操作：</strong></p>
@@ -8117,25 +8207,47 @@ $def! l list% l;
 <p>　　判断参数是否是已在本模块注册的需求字符串。</p>
 <p><code>register-requirement! &lt;string&gt;</code></p>
 <p>　　在本模块注册参数为需求字符串。</p>
-<p>　　若已被注册，则引起错误；否则，在内部创建<a href="#%E6%96%B0%E7%8E%AF%E5%A2%83">新</a><a href="#%E5%9F%BA%E6%9C%AC%E6%B4%BE%E7%94%9F%E7%89%B9%E6%80%A7">标准环境</a>。</p>
-<p>　　结果是创建的环境的<a href="#%E7%8E%AF%E5%A2%83%E5%BC%95%E7%94%A8">弱引用</a>。</p>
+<p>　　若参数指定的需求字符串已被注册，则引起错误；否则，创建并保存新标准环境。</p>
+<p>　　结果是保存的环境的<a href="#%E7%8E%AF%E5%A2%83%E5%BC%95%E7%94%A8">弱引用</a>。</p>
 <p><code>unregister-requirement! &lt;string&gt;</code></p>
-<p>　　在本模块注册解除参数为需求字符串。</p>
-<p><code>find-requirement-filename &lt;string&gt;</code></p>
+<p>　　在本模块解除注册参数为需求字符串。</p>
+<p>　　若参数指定的需求字符串没有被注册，则引起错误；否则，移除与参数的值相等的需求字符串以及保存的关联的资源。</p>
+<p><code>find-required-filename &lt;string&gt;</code></p>
 <p>　　查找需求字符串对应的文件名。</p>
-<p>　　在需求字符串模板中顺序地搜索字符串。若不存在这样的结果，则引起错误；否则，结果是匹配字符串的搜索结果。</p>
-<p>　　判断需求字符串模板中的每一个字符串是否能被需求字符串匹配时，首先替换字符串中的单字符子串 &quot;?&quot; 为需求字符串，取得替换结果，再判断它是否为可读的文件的文件名。</p>
+<p>　　在需求字符串模板序列中顺序地检查每一个元素：</p>
+<ul>
+<li>使用参数的值替换元素中的每个单字符子串 <code>?</code> 。</li>
+<li>判断经替换得到的字符串是否构成指定一个可读文件的文件名。</li>
+</ul>
+<p>　　若不存在这样的文件名，则引起错误；否则，结果是第一个符合条件的文件名。</p>
 <p>　　替换字符串时，每一个子串被同时一次替换；不对替换结果进一步递归地替换。</p>
+<p><strong>原理</strong></p>
+<p>　　类似 klisp 而和 Lua（ <a href="https://www.lua.org/source/5.3/loadlib.c.html"><code>require</code> 的实现</a>；没有<a href="https://www.lua.org/pil/8.1.html">在此</a>明确）及 <a href="https://www.haskell.org/hugs/pages/users_guide/module-commands.html">Haskell</a> 等不同，不替换名称中的 <code>.</code> 为路径分隔符，以简化对实现环境的假设。</p>
+<p><strong>注释</strong></p>
+<p>　　若需求字符串模板的元素中没有通配符 <code>?</code> ，则不需要替换，需求字符串模板直接是指定确切位置的结果文件名。</p>
 <p><code>require &lt;string&gt; &lt;environment&gt;?</code></p>
 <p>　　按需在新标准环境加载需求字符串对应的模块。</p>
 <p>　　若第二参数非空，则在加载前首先绑定创建的环境中的 <code>module-parameters</code> 变量为第二参数的值。</p>
-<p>　　若参数指定的需求字符串没有注册，则注册需求字符串并加载同调用 <code>find-requirement-filename</code> 等价的方式搜索得到的结果，并保存加载的结果；否则不进行加载。</p>
-<p>　　结果是保存的加载的结果。</p>
+<p>　　按需加载包含以下步骤：</p>
+<ul>
+<li>若参数指定的需求字符串没有注册，则：
+<ul>
+<li>以同调用 <code>register-requirement?</code> 等价的方式注册需求字符串，确保注册时的环境被创建。</li>
+<li>以同调用 <code>find-required-filename</code> 等价的方式确定待加载的源的文件名。</li>
+<li>以同模块 <a href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%BA%93"><code>std.io</code> 中的 <code>load</code></a>相同的方式在注册时创建的环境加载上述文件名指定的源。</li>
+<li>保存加载的结果。</li>
+</ul>
+</li>
+<li>否则，不进行加载。</li>
+<li>结果是已保存的加载的结果。</li>
+</ul>
+<p><strong>原理</strong></p>
+<p>　　先注册需求字符串允许重入调用 <code>require</code> ，即加载模块时求值的源代码包含和先前的字符串参数相同的 <code>require</code> 调用，而不至于无限递归。</p>
 <p><strong>注释</strong></p>
 <p>　　类似 klisp 的 ports 模块中的同名应用子，但有以下不同：</p>
 <ul>
 <li>同时保存创建的环境，以避免因程序没有保存环境引用而<a href="#%E6%97%A0%E6%95%88%E5%8C%96">无效化</a>，使访问变量绑定的程序具有未定义行为。</li>
-<li>结果是加载结果（同模块 <a href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%BA%93"><code>std.io</code> 中的 <code>load</code></a>）而不是 <code>#inert</code> 。</li>
+<li>结果是加载结果（同模块 <code>std.io</code> 中的 <code>load</code> ）而不是 <code>#inert</code> 。</li>
 <li>支持同 <a href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%BA%93"><code>std.io</code> 中的 <code>get-module</code></a> 的可选参数。</li>
 </ul>
 <h1 id="附录"><a class="header" href="#附录">附录</a></h1>

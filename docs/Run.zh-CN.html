@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html" class="active"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -175,11 +156,212 @@
 <ul>
 <li>参见<a href="Build.zh-CN.html">构建</a></li>
 <li>参见<a href="Development.zh-CN.html">开发说明</a></li>
-<li>配置满足<a href="Prerequisitions.zh-CN.html">先决条件</a>的对应平台运行环境</li>
+<li>配置满足<a href="Prerequisitions.zh-CN.html">先决条件</a>的对应平台<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">运行环境</a></li>
 </ul>
 <h1 id="平台环境"><a class="header" href="#平台环境">平台环境</a></h1>
-<p>　　以下适用包含 YSLib 程序和其它程序的构建和运行环境。并非每一个程序都需要区分特定<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0">平台</a>，一些程序的行为是<a href="Terminology.zh-CN.html#%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%80%A7">平台中立</a>的。</p>
-<h2 id="yslib-程序"><a class="header" href="#yslib-程序">YSLib 程序</a></h2>
+<p>　　以下约定适用包含 YSLib 程序和其它程序的构建和运行环境的规则。</p>
+<p>　　并非每一个程序都需要区分特定<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0">平台</a>，一些程序的行为是<a href="Terminology.zh-CN.html#%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%80%A7">平台中立</a>的。</p>
+<p><strong>注意</strong> 特定平台可能有附加的限制和被支持的配置，详见<a href="#%E7%89%B9%E5%AE%9A%E5%B9%B3%E5%8F%B0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83">各个平台运行时环境</a>的说明。</p>
+<h2 id="结构要求"><a class="header" href="#结构要求">结构要求</a></h2>
+<p>　　YSLib 程序及其组件的构建时依赖项应兼容运行环境：</p>
+<ul>
+<li>除非另行指定，运行时<a href="Terminology.zh-CN.html#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">目标平台</a>的<a href="Terminology.zh-CN#%E5%B9%B3%E5%8F%B0%E6%A0%87%E8%AF%86">系统软件环境</a>应和构建时的配置兼容。
+<ul>
+<li>这蕴含程序运行时组件及其依赖项（特别地，<a href="Terminology.zh-CN#%E5%B9%B3%E5%8F%B0%E6%A0%87%E8%AF%86">系统库</a>）的版本和配置应匹配，或其偏差在受到支持的范围内。</li>
+<li>配置包括构建配置和运行时指定的参数。
+<ul>
+<li><strong>注释</strong> 例如通过命令行或环境变量分别在构建时和运行时指定的选项以及<a href="#%E5%A4%96%E9%83%A8%E6%96%87%E4%BB%B6">配置文件</a>等。</li>
+<li>构建配置可允许选择支持的目标平台。</li>
+<li>配置可改变和默认的预期的目标平台中的系统软件环境。</li>
+<li><strong>注释</strong> 程序实现被建议但不一定提供可选的配置。缺少配置选项可能削弱可移植性，如<a href="https://github.com/boostorg/filesystem/issues/172">要求使用的 API 不被较旧的运行环境支持</a>。</li>
+</ul>
+</li>
+<li><strong>原理</strong> 配置可指定不同的<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AE">平台环境</a>而影响可移植性。修复不受支持的偏差可能需要重新构建程序并重新部署。提供兼容的预期以减少这类情形造成的影响。</li>
+</ul>
+</li>
+<li>作为完整性和安全保证的一部分，程序可检查程序组件或外部依赖项存在和版本，以确保环境符合预期。</li>
+<li>若违反假定，则程序的行为未定义，但不得违反任意提供运行环境完整性和数据可用性的显式安全保证。
+<ul>
+<li><strong>注释</strong> 技术上，程序具有未定义行为。保证通常由宿主环境或其它平台环境实现机制对影响的资源范围进行限制而实现。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 一般地，在可行时，建议程序的实现进行基本的检查明确拒绝非预期的环境，提供最小可预期的行为，以利于用户简化排查部署错误。</li>
+</ul>
+<h2 id="硬件资源要求"><a class="header" href="#硬件资源要求">硬件资源要求</a></h2>
+<p>　　除非另行指定，YSLib 程序及其组件构建和运行时占用的硬件资源不确定，取决于平台配置以及具体应用程序。</p>
+<h2 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h2>
+<p>　　YSLib 项目对文件系统的使用满足以下约定。YSLib 程序可以使用这些约定作为默认的假设。</p>
+<h3 id="文件系统特性"><a class="header" href="#文件系统特性">文件系统特性</a></h3>
+<p>　　YSLib 项目仅依赖具有足够可移植性的文件系统特性：</p>
+<ul>
+<li><strong>注释</strong> 这些特性的可移植性具有相对性。</li>
+<li><strong>注释</strong> 一般地，和 ISO C++17 定义的能兼容 <a href="https://eel.is/c++draft/fs.conform.9945">POSIX</a> 和<a href="https://eel.is/c++draft/filesystems#fs.conform.os">特定操作系统</a>（如 Microsoft Windows ）的 <a href="https://eel.is/c++draft/filesystems"><code>std::filesystem</code></a> 支持的文件系统特性集合以及<a href="https://www.boost.org/doc/libs/1_84_0/libs/filesystem/doc/portability_guide.htm">兼容两者的文件名</a>被视为可用。</li>
+<li>若不可用，则使用回退(fallback) 实现且不引起其它行为的改变，而不需要在接口中显式依赖：
+<ul>
+<li>（非目录文件的）硬链接。
+<ul>
+<li>在不支持的硬链接的文件系统中，链接数总是 1 。</li>
+</ul>
+</li>
+<li>符号链接。
+<ul>
+<li>在不支持的符号链接的文件系统中，文件不是符号链接，总是不解析符号链接。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>假定总是可用：
+<ul>
+<li>ISO/IEC 14882:2011 中的基本执行字符集中的可打印字符构成的文件名，但除非另行指定：
+<ul>
+<li>避免大小写不敏感时引起重名。</li>
+<li>排除 DOS <a href="https://learn.microsoft.com/windows/win32/fileio/naming-a-file">保留名称</a>。</li>
+</ul>
+</li>
+<li>支持以 <code>char</code> 编码的本机路径的长度不少于 <code>MAX_PATH</code>（当实现的 API 中存在时）和 <code>31</code> 中的较大值。</li>
+<li>（不超过文件路径长度限制时的一级或多级）子目录。
+<ul>
+<li><strong>注释</strong> MS-DOS 2.0 前的文件系统不支持子目录，但当前总是普遍可用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>当实现可能支持时，允许可选引入（而不唯一依赖）特定的可能依赖具体文件系统的实现的特性：
+<ul>
+<li>被特定的平台可选引入，仅作为优化实现，不引起其它行为的改变，而不需要在接口中显式依赖：
+<ul>
+<li>可选地使用不属于 POSIX.1 等标准文件系统 API 支持的元数据。包括但不限于：
+<ul>
+<li><a href="https://www.gnu.org/software/libc/manual/html_node/Directory-Entries.html"><code>d_type</code></a> ：
+<ul>
+<li><a href="https://www.mingw-w64.org/">MinGW-w64</a> 不支持，但 <a href="https://osdn.net/projects/mingw">MinGW.org</a> 支持。</li>
+<li>许多文件系统在 Linux 上的实现支持，但 <a href="https://github.com/ggreer/the_silver_searcher/issues/36">ReiserFS</a> 和 <a href="https://docs.oracle.com/en/operating-systems/uek/4/relnotes4.6/uek4.6-KnownIssues.html">XFS</a> 不支持，结果总是 <code>DT_UNKNOWN</code> 。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>支持超过 POSIX 或 Win32 的 <code>MAX_PATH</code> 长度限制的特定路径。
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation">Windows 长文件名(LFN, long filename)</a>。</li>
+</ul>
+</li>
+<li>在操作不支持时引起运行时错误或取得指定不支持情形的结果，包括但不限于：
+<ul>
+<li><a href="#%E6%97%B6%E9%97%B4%E6%88%B3">文件创建时间</a>的查询和修改在不同平台具有不同的支持：
+<ul>
+<li>Win32 在使用 FAT 和 NTFS 等文件系统时完全支持，但不同操作和在不同文件系统上使用的文件时间的<a href="https://learn.microsoft.com/windows/win32/api/minwinbase/ns-minwinbase-filetime">精度不保证相同</a>。</li>
+<li>Linux 在使用 ext4 时可通过 <a href="http://man7.org/linux/man-pages/man2/statx.2.html"><code>statx</code></a> 读取，但不支持写入。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对其它文件系统特性保持中立。
+<ul>
+<li><strong>原理</strong> 允许最终用户修改文件系统运行时配置（如挂载参数）而不破坏 YSLib 程序的可用性。</li>
+</ul>
+</li>
+</ul>
+<p><strong>注释</strong> 文件系统特性不是唯一限制文件系统路径可用性的因素。参见以下<a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%B7%AF%E5%BE%84">文件系统路径</a>的规则。</p>
+<p>　　一般地，YBase 不要求文件系统访问；使用 YFramework 框架的程序，由 YFramework 中的<a href="#%E6%A1%86%E6%9E%B6%E5%88%9D%E5%A7%8B%E5%8C%96">框架初始化</a>等逻辑引入文件系统访问。</p>
+<h3 id="文件系统路径"><a class="header" href="#文件系统路径">文件系统路径</a></h3>
+<p>　　为最大化可移植性，除满足<a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%89%B9%E6%80%A7">文件系统特性</a>的要求，YSLib 项目中的程序及其组件使用的文件系统路径同时具有以下约束：</p>
+<ul>
+<li>逻辑<strong>不依赖自身组件具有显式编码的具体文件路径</strong>，且默认<strong>不要求在具体系统约定的周知(well-known) 的文件系统位置</strong>，除以下例外：
+<ul>
+<li>为实现接口约定的功能，特定平台环境中的实现可能隐式地依赖特定的文件系统路径。
+<ul>
+<li><strong>注释</strong> 例如，Linux 平台的实现可能依赖 <code>/proc</code> 访问进程相关的运行时信息。</li>
+</ul>
+</li>
+<li>具体安装配置可以自行限定外部文件的<a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B8%83%E5%B1%80">目录布局</a>作为默认运行时环境，且外部文件可约定默认路径。
+<strong>注释</strong> 系统约定的路径如 <a href="https://docs.microsoft.com/zh-cn/windows/win32/dlls/dynamic-link-library-search-order">Windows DLL 搜索路径</a>中的目录和 <a href="https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86">FHS</a> 定义的目录。</li>
+</ul>
+</li>
+<li>最小化依赖特定的文件系统和路径表示。
+<ul>
+<li>特别地，不依赖文件系统是否具有文件名的大小写敏感性。</li>
+<li><strong>推论</strong> 为保证可移植性，文件系统路径大小写敏感，需要显式区分而加以明确。</li>
+<li><strong>原理</strong> 这样仍可兼容 FAT 等大小写不敏感的文件系统。</li>
+<li>除非特定的接口约定，不依赖可选的大小写敏感的文件系统特性。
+<ul>
+<li><strong>注释</strong> Microsoft Windows 10 支持默认大小写不敏感的 NTFS 配置为每目录启用大小写敏感，用于<a href="https://devblogs.microsoft.com/commandline/improved-per-directory-case-sensitivity-support-in-wsl/">支持 WSL DrvFS 实现</a>等场景。</li>
+<li><strong>注释</strong> <a href="https://www.systutorials.com/docs/linux/man/8-jfs_mkfs/">JFS 提供选项</a>以支持 OS/2 的大小写不敏感的文件系统特性。</li>
+<li><strong>注释</strong> <a href="https://lore.kernel.org/lkml/20190507232823.GA28416@mit.edu/">Linux 5.2 起支持默认大小写敏感的 ext4 配置为每目录启用大小写不敏感</a>，可用于提升 WINE 应用性能等场景。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用的路径应能支持符合 YSLib 项目规范的开发（参见项目的 <code>doc/ProjectRules.txt</code> ）。</li>
+</ul>
+<h3 id="时间戳"><a class="header" href="#时间戳">时间戳</a></h3>
+<p>　　文件系统可支持不同的文件时间戳，以记录和文件系统操作有关的事件发生的时间。</p>
+<p>　　典型地，文件系统支持文件修改时间(modification time) 和访问时间(access time) 。但有的时间戳仅在部分实现中支持，如创建时间(creation time) ：</p>
+<ul>
+<li>部分文件系统支持创建时间；但其它文件系统不支持保存这种元数据。
+<ul>
+<li><strong>注释</strong> 例如，NTFS 和 ext4 原生支持保存文件创建时间。</li>
+</ul>
+</li>
+<li>部分实现提供支持访问文件系统时间；但是其它实现支持有限。
+<ul>
+<li><strong>注释</strong> Windows NT 和 Win32 可支持读取和写入文件修改时间的 API 。</li>
+<li><strong>注释</strong> POSIX 没有原生支持文件系统的访问时间，但可以通过特定的原生方式提供，例如：
+<ul>
+<li>Linux 支持通过 <code>statx</code> 系统调用取得 ext4 等文件系统中保存的文件创建时间戳，但不支持修改。</li>
+<li>BSD 支持保存创建文件，不支持修改。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>注释</strong> 相同特性的名称在不同实现中不同：
+<ul>
+<li>在 FAT 和 NTFS 称为 ctime（注意这和 POSIX 的 ctime(change time) 不同）。</li>
+<li>在 JFS 和 Btrfs 称为 otime 。</li>
+<li>在 ext4 称为 crtime(creation time) 。</li>
+<li><code>statx</code> 支持 btime(birth time) 。</li>
+<li>BSD 支持 birthtime 。</li>
+<li>另见<a href="https://lwn.net/Articles/397442/">这里的讨论</a>。</li>
+</ul>
+</li>
+</ul>
+<p>　　程序应注意可移植性限制，避免依赖错误的假设：</p>
+<ul>
+<li>即使是被支持的时间戳，精度可能也会受到文件系统设计的限制。
+<ul>
+<li><strong>注释</strong> 例如，NTFS 支持微秒级的时间戳，但 FAT32 文件系统只支持到秒级的时间戳。</li>
+</ul>
+</li>
+<li>此外，文件系统的实现（操作系统的驱动）可能还会对时间戳进行一些调整或优化而具有不同的行为：
+<ul>
+<li>因为时间戳的历元未指定，涉及时区或时间转换时，具有未指定的语义。
+<ul>
+<li><strong>注释</strong> 例如，NTFS 会将时间戳存储为 UTC 时间，在 Windows 上自动调整为本地时间。</li>
+</ul>
+</li>
+<li>一些文件系统在挂载(mount) 时可（通过用户指定的选项）调整行为。
+<ul>
+<li><strong>注释</strong> 例如，Linux 的 ext4 文件系统可通过选项来选择是否使用 UTC 时间戳。</li>
+</ul>
+</li>
+<li>因为性能原因，文件系统的实现更新访问时间戳可能不及时。</li>
+</ul>
+</li>
+</ul>
+<h2 id="二进制依赖项"><a class="header" href="#二进制依赖项">二进制依赖项</a></h2>
+<p>　　按以上<a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F">文件路径约定</a>，构建得到的目标程序没有预设特定的位置限制，可按需转移。</p>
+<p>　　运行程序前，应确保程序能找到二进制依赖项：</p>
+<ul>
+<li>确保<a href="Prerequisitions.zh-CN.html">先决条件</a>中的依赖项可以在 <code>PATH</code> 环境变量的目录被找到，或者复制到程序所在的目录。</li>
+<li>对于静态链接 YFramework 和 YBase 程序，不需要其它二进制程序文件的部署。</li>
+<li>使用 DLL 的程序可能依赖 YFramework.dll 和 YBase.dll ，或者 debug 配置的 YFrameworkd.dll 和 YBased.dll 。这些库已经在 sysroot 的 <code>bin</code> 目录下安装，因此可以直接把 <code>bin</code> 目录加入 <code>PATH</code> 环境变量，而不必复制或移动库文件。</li>
+</ul>
+<p><strong>说明</strong> 在任意被支持的平台上，YSLib 避免使用导致在特定平台上被特殊处理且无法可靠避免这种行为而确保兼容性一致的外部依赖项名称（若因为外部环境更新导致此类问题，则需在 YSLib 的新版本适当修改后支持）。例如，支持 <a href="http://www.geoffchappell.com/studies/windows/win32/apisetschema/index.htm">API Set Schema</a> 的 Windows 版本加载 DLL 时，<a href="https://stackoverflow.com/a/47530043/2307646"><code>LdrLoadDll</code> 解析以 <code>api-</code> 或 <code>EXT-</code> 起始的文件名进行重定位</a> ，因此设计时确保外部依赖项对应的文件名不以这些前缀起始。</p>
+<p><strong>注意</strong> 当前没有二进制兼容保证。使用不兼容的二进制文件的程序实现的行为未定义。特别地，使用不同工具链乃至编译或链接时仅仅使用了不同的构建选项可能生成互不兼容的二进制文件。使用这些文件时应当确定使用的源代码版本和构建环境匹配。例如，在支持动态库的 <code>POSIX</code> 平台，应当确保 <code>PATH</code> 和 <code>LD_LIBRARY_PATH</code> 这些影响加载程序二进制文件位置的环境变量被适当配置，以确保实际使用的二进制文件之间兼容。</p>
+<h2 id="兼容平台"><a class="header" href="#兼容平台">兼容平台</a></h2>
 <p><strong>注意</strong> 示例程序最大化地使用了 YSLib 的<a href="Development.zh-CN.html#%E5%B9%B3%E5%8F%B0%E6%A8%A1%E6%8B%9F">平台模拟</a>特性，支持特定的<a href="Development.zh-CN.html#%E5%B9%B3%E5%8F%B0">目标平台</a>在运行时作为<a href="Development.zh-CN.html">宿主平台</a>对另一平台的平台模拟，即运行的原生示例程序和被模拟平台的原生程序保持基本相同的功能效果；但并不保证所有其它 YSLib 程序同样支持。</p>
 <p>　　被正式支持的平台模拟列表如下：</p>
 <ul>
@@ -189,10 +371,18 @@
 <ul>
 <li>Android 模拟 DS</li>
 </ul>
-<h1 id="硬件资源要求"><a class="header" href="#硬件资源要求">硬件资源要求</a></h1>
-<p>　　占用的硬件资源不确定，取决于平台配置以及具体应用程序。</p>
-<p><strong>注意</strong> 特定平台可能有额外限制，详见各个平台运行时环境的说明。</p>
-<h1 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h1>
+<h1 id="运行时交互"><a class="header" href="#运行时交互">运行时交互</a></h1>
+<p>　　以下约定适用程序运行时可能进行交互的运行环境的规则，涵盖以下程序：</p>
+<ul>
+<li>通过用户界面运行 YSLib 项目中的程序。</li>
+<li>以上方式间接运行的其它程序。
+<ul>
+<li><strong>注释</strong> 例如，在程序中调用<a href="Development.zh-CN.html#%E8%84%9A%E6%9C%AC">脚本</a>，或者程序使用基于 <code>std::system</code> 等本机 <a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">API</a> 实现的互操作。YSLib 安装程序可能间接调用其它程序。</li>
+</ul>
+</li>
+</ul>
+<p>　　用于 YSLib 自举构建的工具（如 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> ）在运行时也满足以上要求，因此这类情形的构建时也满足上述要求。</p>
+<h2 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h2>
 <p>　　<a href="https://zh.wikipedia.org/zh-cn/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>是程序的实现环境（典型地，如操作系统）的运行<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">环境</a>提供的一种机制。程序在运行时可能访问这些环境变量，以提供不同的行为，或在程序之间、程序与外部环境之间传递信息。</p>
 <p><strong>注释</strong> 非宿主实现的平台可能不支持环境变量。本项目的程序在这些平台上不使用环境变量。</p>
 <p>　　没有依赖这些具体应用或其提供的实现环境时，如有可能，应当避免使用依赖这些具体的使用方式。</p>
@@ -245,7 +435,7 @@
 </li>
 </ul>
 <p>　　除非需要依赖具体实现环境或另行指定，本项目中提供的环境变量应当避免上述依赖差异。</p>
-<h2 id="应用程序变量"><a class="header" href="#应用程序变量">应用程序变量</a></h2>
+<h3 id="应用程序变量"><a class="header" href="#应用程序变量">应用程序变量</a></h3>
 <p>　　应用程序继承环境，可能根据环境变量指定不同的行为。</p>
 <p>　　除非另行指定，以下环境变量若被本项目提供的程序支持，则具有一致的含义：</p>
 <ul>
@@ -255,20 +445,18 @@
 <li><strong>注释</strong> 一些命令解释环境的实现直接支持 <code>NO_COLOR</code> ，如 <a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_environment_variables">PowerShell</a>。</li>
 </ul>
 </li>
-</ul>
-<p>　　除标准库和系统配置外，YFramework 可使用特定的环境变量改变运行时行为，参见 YSLib 项目文档 <code>doc/YFramework.txt</code> 。</p>
-<p>　　除非另行指定，程序可假定以上环境变量不变，即仅在程序初始化时检查一次。</p>
-<p>　　提供给程序的环境变量可能被命令行工具的选项覆盖，如 <a href="Tools/SHBuild.zh-CN.html#%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F">SHBuild 构建模式</a>中指定变量定义的选项 。</p>
-<h1 id="多任务环境"><a class="header" href="#多任务环境">多任务环境</a></h1>
-<p>　　以下执行其它程序的约定在以下情形适用：</p>
+<li><code>CLICOLOR_FORCE</code> ：若这个环境变量被设置为非空值且 <code>NO_COLOR</code> 没有被设置为非空值，则指定宿主实现环境忽略终端支持的彩色和其它视觉效果格式（如下划线）特性。
 <ul>
-<li>通过用户界面运行 YSLib 程序。</li>
-<li>以上方式间接运行的其它程序。
-<ul>
-<li><strong>注释</strong> 例如，在程序中调用<a href="Development.zh-CN.html#%E8%84%9A%E6%9C%AC">脚本</a>，或者程序使用基于 <code>std::system</code> 等本机 <a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">API</a> 实现的互操作。YSLib 安装程序可能间接调用其它程序。</li>
+<li><strong>注释</strong> <code>CLICOLOR_FORCE</code> 的检查符合 <a href="https://bixense.com/clicolors/">clicolors</a> 的约定。</li>
+<li><strong>注释</strong> <code>CLICOLOR_FORCE</code> 最早可见于 <a href="https://man.freebsd.org/cgi/man.cgi?query=ls&amp;manpath=FreeBSD+4.1.1-RELEASE">FreeBSD 4.1.1-RELEASE 的 <code>ls</code> 命令</a>。特性支持<a href="https://cgit.freebsd.org/src/commit/?id=3d2ddc9e1a6a60d585b7c0a3e378b6ef986dac57">在 2000 年被添加</a>。同时还有 <code>CLICOLOR</code> 环境变量，但在此没有约定。</li>
 </ul>
 </li>
 </ul>
+<p><strong>注释</strong> 环境变量指定的配置可能和其它方式（如配置文件和命令行参数）交互产生影响而具有不同的作用（可能被完全覆盖）。</p>
+<p>　　除标准库和系统配置外，YFramework 可使用特定的环境变量改变运行时行为，参见 YSLib 项目文档 <code>doc/YFramework.txt</code> 。</p>
+<p>　　除非另行指定，程序可假定以上环境变量不变，即仅在程序初始化时检查一次。</p>
+<p>　　提供给程序的环境变量可能被命令行工具的选项覆盖，如 <a href="Tools/SHBuild.zh-CN.html#%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F">SHBuild 构建模式</a>中指定变量定义的选项 。</p>
+<h2 id="多任务环境"><a class="header" href="#多任务环境">多任务环境</a></h2>
 <p>　　除非另行指定，通过 YSLib 安装程序调用的程序或者依赖 YSLib 的命令行程序假定以下的外部环境和交互方式：</p>
 <ul>
 <li>非<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主环境</a>：执行其它程序的<em>宿主(host)</em> 未指定。
@@ -289,7 +477,7 @@
 <li>Windows ：命令行<a href="https://daviddeley.com/autohotkey/parameters/parameters.htm#WINPASS">由程序实现指定</a>。对未指定宿主程序的情形，视为和 <code>cmd.exe</code> 一致。
 <ul>
 <li><strong>注释</strong> Windows 可通过 shell 程序传递命令，这<em>不是</em>默认假定的环境。</li>
-<li>Windows ：对引号的解析，兼容<a href="https://daviddeley.com/autohotkey/parameters/parameters.htm#WINCRULESDOC">未被文档指定的新规则</a>，即仅在引号有效地块中 <code>&quot;&quot;</code> 转义未 <code>&quot;</code>。</li>
+<li>Windows ：对引号的解析，兼容<a href="https://daviddeley.com/autohotkey/parameters/parameters.htm#WINCRULESDOC">未被文档指定的新规则</a>，即仅在引号有效地块中 <code>""</code> 转义未 <code>"</code>。</li>
 </ul>
 </li>
 </ul>
@@ -331,6 +519,25 @@
 <li><strong>注释</strong> <a href="Development.zh-CN.html#npla1-%E8%84%9A%E6%9C%AC">NPLA1 脚本</a>可调用依赖 Windows 命令行解释器执行的命令。</li>
 </ul>
 </li>
+<li>除非被功能蕴含或另行指定：
+<ul>
+<li>不和程序处理的外部对象或外部程序执行时的安全机制或其它附加元数据的机制显式交互。
+<ul>
+<li>外部对象可能是文件系统对象或其它对象。</li>
+<li>安全机制可能是对象具有的权限(permission) 或权能(capability) 。</li>
+<li>附加元数据在 API 的意义上明确，如依赖具体文件系统的扩展属性(extend attribute) 。</li>
+<li>交互包含对状态的访问，如检查和配置。</li>
+</ul>
+</li>
+<li>若有必要使用：
+<ul>
+<li>尽量使用可确定不具有全局（整个系统）影响的方式。</li>
+<li>当不能避免全局影响时，使用影响较小的方式。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 系统可能具有对用户可见的默认设置。例如，POSIX 进程可继承<a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_12">文件创建掩码</a>，且可被用户通过 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/umask.html"><code>umask</code></a> 设置。</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>原理</strong> POSIX shell 和 <code>cmd.exe</code> 是平台默认分发的应用，通过<a href="Terminology.zh-CN.html#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">构建平台或宿主平台</a>直接区分是可行的。
@@ -353,6 +560,11 @@
 <li>C 运行时实现使用 <a href="https://learn.microsoft.com/cpp/c-runtime-library/reference/system-wsystem"><code>std::system</code> 和 <code>::_wsystem</code></a> 实际可能总是依赖 <code>COMSPEC</code> 和 <code>cmd.exe</code> ，因此成功互操作时已经隐含依赖了这项运行时配置。</li>
 </ul>
 </li>
+<li>安全机制、附加元数据及其交互方式往往依赖具体外部环境，可移植性较低。除外部环境已明确的默认配置，仅在必要时使用。
+<ul>
+<li>一般地，这也适用于不同机制之间的比较。例如，若有必要使用不同上下文的文件系统附加属性，一般默认<a href="https://www.freedesktop.org/wiki/CommonExtendedAttributes/">仅在用户空间使用</a>。</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>注释</strong> <a href="https://learn.microsoft.com/powershell/">PowerShell</a> 、<a href="https://github.com/PowerShell/PowerShell">PowerShell Core</a> 或 <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pwsh"><code>pwsh</code></a> 默认不被支持。
@@ -363,48 +575,81 @@
 </li>
 </ul>
 <p>　　关于 YSLib 版本库内的及安装 YSLib 部署的脚本的运行环境，另见<a href="Development.zh-CN.html">脚本运行</a>的相关说明。</p>
-<h1 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h1>
-<p>　　为最大化可移植性，原则上 YSLib 的程序逻辑<strong>不依赖自身组件具有显式编码的具体文件路径</strong>，因此默认不要求在具体系统约定的周知(well-known) 的文件系统位置（如 <a href="https://docs.microsoft.com/zh-cn/windows/win32/dlls/dynamic-link-library-search-order">Windows DLL 搜索路径</a>中的目录和 <a href="https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86">FHS</a> 定义的目录）部署。但具体平台配置可以自行限定目录布局作为默认运行时环境，如 <a href="Sysroot.zh-CN.html">Sysroot</a> 。其中外部文件可有默认路径，参见以下相关章节。</p>
-<p>　　YSLib 中的库使用的文件系统路径具有以下约束：</p>
-<ul>
-<li>不依赖兼容 POSIX 的文件系统和路径表示。
-<ul>
-<li>特别地，不依赖文件系统是否具有文件名的大小写敏感性。</li>
-<li><strong>推论</strong> 为保证可移植性，文件系统路径大小写敏感，需要显式区分而加以明确。</li>
-<li>这样仍可兼容 FAT 等大小写不敏感的文件系统。</li>
-</ul>
-</li>
-<li>要求支持符合 YSLib 项目规范的开发（参见项目的 <code>doc/ProjectRules.txt</code> ）。</li>
-</ul>
-<p>　　一般地，YBase 不要求文件系统访问；使用 YFramework 框架的程序，由 YFramework 中的框架初始化等逻辑引入文件系统访问。</p>
-<h1 id="二进制依赖项"><a class="header" href="#二进制依赖项">二进制依赖项</a></h1>
-<p>　　按以上文件路径约定，构建得到的目标程序没有预设特定的位置限制，可按需转移。</p>
-<p>　　运行程序前，应确保程序能找到二进制依赖项：</p>
-<ul>
-<li>确保<a href="Prerequisitions.zh-CN.html">先决条件</a>中的依赖项可以在 <code>PATH</code> 环境变量的目录被找到，或者复制到程序所在的目录。</li>
-<li>对于静态链接 YFramework 和 YBase 程序，不需要其它二进制程序文件的部署。</li>
-<li>使用 DLL 的程序可能依赖 YFramework.dll 和 YBase.dll ，或者 debug 配置的 YFrameworkd.dll 和 YBased.dll 。这些库已经在 sysroot 的 <code>bin</code> 目录下安装，因此可以直接把 <code>bin</code> 目录加入 <code>PATH</code> 环境变量，而不必复制或移动库文件。</li>
-</ul>
-<p><strong>说明</strong> 在任意被支持的平台上，YSLib 避免使用导致在特定平台上被特殊处理且无法可靠避免这种行为而确保兼容性一致的外部依赖项名称（若因为外部环境更新导致此类问题，则需在 YSLib 的新版本适当修改后支持）。例如，支持 <a href="http://www.geoffchappell.com/studies/windows/win32/apisetschema/index.htm">API Set Schema</a> 的 Windows 版本加载 DLL 时，<a href="https://stackoverflow.com/a/47530043/2307646"><code>LdrLoadDll</code> 解析以 <code>api-</code> 或 <code>EXT-</code> 起始的文件名进行重定位</a> ，因此设计时确保外部依赖项对应的文件名不以这些前缀起始。</p>
-<h1 id="外部文件"><a class="header" href="#外部文件">外部文件</a></h1>
+<h2 id="外部文件"><a class="header" href="#外部文件">外部文件</a></h2>
 <p>　　外部文件包括：</p>
 <ul>
-<li>在文件系统中部署的外部二进制依赖项。</li>
+<li>在文件系统中部署的外部<a href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BE%9D%E8%B5%96%E9%A1%B9">二进制依赖项</a>。</li>
 <li>配置文件：可被修改以改变程序的运行时行为。</li>
 <li>其它数据文件。</li>
 </ul>
 <p>　　数据文件提供程序运行时所需的必要或可选的信息。配置文件可能作为数据文件使用。</p>
 <p>　　外部文件的路径应符合前述关于文件路径的约定。</p>
-<h2 id="文件格式"><a class="header" href="#文件格式">文件格式</a></h2>
+<h3 id="文件格式"><a class="header" href="#文件格式">文件格式</a></h3>
 <p>　　除非另行指定，使用以下文件格式：</p>
 <ul>
-<li>配置文件是内容为 <a href="Features/NPL.zh-CN.html">NPL</a> 配置的 UTF-8 文本文件，具有 UTF-8 BOM</li>
-<li>其它数据文件为二进制文件</li>
+<li>配置文件是内容为 <a href="Features/NPL.zh-CN.html">NPL</a> 配置的 UTF-8 文本文件，具有 UTF-8 BOM 。</li>
+<li>其它数据文件为二进制文件 。</li>
 </ul>
-<h2 id="文件系统布局"><a class="header" href="#文件系统布局">文件系统布局</a></h2>
-<p>　　除配置文件可能指定默认的具体位置（详见下文）外，YFramework 程序的不需依赖特别的文件系统布局。</p>
+<h3 id="文件系统布局"><a class="header" href="#文件系统布局">文件系统布局</a></h3>
+<p>　　除<a href="#%E5%A4%96%E9%83%A8%E6%96%87%E4%BB%B6">配置文件</a>可能指定默认的具体位置（详见<a href="#%E9%85%8D%E7%BD%AE%E8%B7%AF%E5%BE%84">下文</a>）外，YFramework 程序不需依赖特定的文件系统布局。</p>
 <p>　　除非另行指定（暂无），YFramework 不创建文件系统目录。</p>
-<p>　　<a href="Sysroot.zh-CN.html">Sysroot</a> 提供类 UNIX 系统使用的布局作为可选项。</p>
+<p>　　<a href="Sysroot.zh-CN.html">Sysroot</a> 使用类似 <a href="https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86">FHS</a> 的文件系统布局，称为<em>局部 FHS 目录布局(local FHS directory layout)</em> 。</p>
+<p><strong>原理</strong> 在不同环境下都可使用一般类 UNIX 系统使用的布局，有助于减少安装后运行时环境的差异，便于部署。</p>
+<h2 id="其它外部环境交互"><a class="header" href="#其它外部环境交互">其它外部环境交互</a></h2>
+<ul>
+<li>在功能明确的情形以外，除非另行指定，运行时不通过文件系统以外的方式访问远程资源。
+<ul>
+<li><strong>原理</strong> 隐式访问网络资源可具有不可预期的开销，影响用户体验。</li>
+</ul>
+</li>
+</ul>
+<h1 id="特定平台运行环境"><a class="header" href="#特定平台运行环境">特定平台运行环境</a></h1>
+<h2 id="ds"><a class="header" href="#ds">DS</a></h2>
+<p>　　以下说明中，<code>$NDSEmulator</code> 为模拟器 <a href="DeSmuME.en-US.html">DeSmuME</a> 可执行文件的绝对路径，<code>$TargetPath</code> 为 ROM 映像文件（ <code>.nds</code> 文件）的路径，$FAT_Path为 FAT 目录路径（见以下说明）。</p>
+<p>　　之前经测试的最小版本为 0.9.6 。建议使用最新版本。</p>
+<p>　　运行时，需在运行模拟器的宿主机中准备一个目录作为映射到设备中的虚拟 FAT 目录。宿主的目录在运行中不会被 DeSmuME 修改；宿主目录的文件系统不要求为 FAT 。运行时会加载虚拟目录的内容。</p>
+<p><strong>注意</strong> 官方版的 DeSmuME 不支持包含非 ASCII 字符的宿主路径而忽略这些文件。部分修改版可能没有这个限制。</p>
+<p><strong>注意</strong> 因为 DS 模拟器和烧录卡需要加载 ROM 映像到 RAM 后才能运行，映像大小会影响可用运行内存，使用 debug 配置构建的 YSTest 示例版本不一定在 DS 上支持所有功能。相关支持限制及变更详见 YSLib 项目文档 <code>doc/Test.txt</code> 。</p>
+<p>　　可通过以下方式之一指定 FAT 目录。</p>
+<h3 id="slot-1-映射"><a class="header" href="#slot-1-映射">Slot 1 映射</a></h3>
+<p>　　Slot 1 （即 NDS ROM 卡槽，硬件介质可以是 NDS 卡带，或烧录卡和存储卡的组合）的模拟从 DeSmuME 0.9.8 版本起支持。</p>
+<p>　　运行命令行示例：</p>
+<pre><code class="language-shell">"$NDSEmulator" "$TargetPath" --preload-rom --slot1-fat-dir="$FAT_Path"
+</code></pre>
+<p>　　其中 <code>--preload-rom</code> 对 0.9.10 和 0.9.11 版本是必须的（以支持自动 <a href="https://wiki.gbatemp.net/wiki/DLDI">DLDI(en-US)</a> 补丁），否则加载失败。这个选项可以在模拟器（Windows 版本）的 GUI 菜单中 <code>Config</code> → <code>ROM Loading</code> 中选择。最新版本的源码会对自制 ROM 自动启用 ROM 预先加载的选项而不用另行配置，可以省略这个选项。</p>
+<h3 id="slot-2-映射"><a class="header" href="#slot-2-映射">Slot 2 映射</a></h3>
+<p>　　Slot 1 （即 GBA ROM 卡槽，硬件介质可以是 GBA 卡带或其它扩展）的模拟需要配置为使用 <code>GBA Movie Player (Compact Flash)</code> 。</p>
+<p>　　运行命令行示例：</p>
+<pre><code class="language-shell">"$NDSEmulator" "$TargetPath" --cflash-path="$FAT_Path"
+</code></pre>
+<p>　　对 0.9.10 和 0.9.11 版本，需同 Slot 1 映射添加 <code>--preload-rom</code> 或使用菜单设置加载选项，否则同样无法加载（尽管源码中表示 <code>--preload-rom</code> 是适用 Slot 1 而不是 Slot 2 的选项）。</p>
+<p>　　这个选项也可以通过 GUI 配置。在 0.9.9 版本前，使用菜单 <code>Emulation</code> → <code>GBA Slot</code> 。自 0.9.9 版本起，使用菜单 <code>Config</code> → <code>Slot 2 (GBA Slot)</code> 。</p>
+<p><strong>注意</strong> DeSmuME svn4030 及之后的一些版本（至少包括 0.9.8 ）会在载入 MPCF 映像时错误地忽略 <code>--cflash-path</code> 选项，以 仿真(Emulation) → GBA 插槽(GBA Slot) 菜单中的设置或对应配置文件 <code>desmume.ini</code> 中指定正确的路径。</p>
+<p>　　在 <code>desmume.ini</code> 中有效的最小配置：</p>
+<pre><code class="language-ini">[GBAslot]
+type=1
+[GBAslot.CFlash]
+fileMode=0
+path=H:\NDS\efsroot\
+</code></pre>
+<p>　　这里 <code>H:\NDS\efsroot</code> 是 <code>$FAT_Path</code> 的一个示例。</p>
+<p><strong>注意</strong> 自 Slot1 0.9.10 起，当 Slot 1 设置为 R4 时会覆盖 Slot 2 设置加载 R4 路径（ Dev+ 版本显示自动 DLDI 补丁在 Slot 1 设置为 R4 从 <code>GBA Movie Player (Compact Flash)</code> 改为 <code>R4(DS) - Revolution for DS</code> ），因此需确保<strong>Slot 1 设置不为 R4 ，或正确设置了 Slot 1 R4 的路径</strong>（而改用 Slot 1 映射）。</p>
+<h2 id="mingw32"><a class="header" href="#mingw32">MinGW32</a></h2>
+<p>　　自 build 431 起，YFramework 使用的 <a href="https://freeimage.sourceforge.io/">FreeImage</a> 修改版集成 <a href="https://zh.wikipedia.org/zh-cn/Libjpeg#libjpeg-turbo">libjepg-turbo</a> ，需要 CPU 支持 <a href="https://zh.wikipedia.org/zh-cn/SSE2">SSE2</a> 指令集扩展。</p>
+<p>　　除 2005 年前生产的硬件外绝大多数环境已经满足这个条件。当前几乎所有兼容 IA-32 的市售 CPU 都包含 SSE2 支持。特别地，支持 x86_64 指令集的 CPU 要求支持 SSE2 ，在使用 x86_64 的 64 位 Windows 上运行 32 位 Win32 程序（通过 <a href="https://zh.wikipedia.org/zh-cn/WoW64">WoW64</a> ）也支持 SSE2 。</p>
+<h2 id="android"><a class="header" href="#android">Android</a></h2>
+<p>　　可使用 <code>adb</code> 命令安装 APK 包，如：</p>
+<pre><code class="language-shell">"$ANDROID_SDK/platform-tools/adb" -e install -r "$1"
+</code></pre>
+<p>　　此处 <code>-e</code> 指定 TCP/IP 设备（通常是模拟器），若使用 USB 设备（通常是物理机器）应移除或使用较新的 <code>adb</code> 的 <code>-d</code> 选项代替；<code>"$1"</code> 指定 APK 文件路径。</p>
+<p>　　之后，在 Android 的 GUI 环境下直接运行安装的程序。</p>
+<p>　　若因签名变更等原因无法覆盖安装或更新，需要先卸载后再安装。</p>
+<p><strong>注意</strong> Android 安装 <code>.apk</code> 包时需要占用额外存储资源。为避免内置存储空间不足导致不直接表现安装失败（需要 <code>logcat</code> 查看）但直至运行时找不到二进制库而导致启动失败，应保留足够的空间，特别是对占用较大的 debug 配置构建的映像。保留空间的大小一般大于 <code>.apk</code> 作为 <code>.zip</code> 解压缩占用的空间。另见<a href="https://code.google.com/p/android/issues/detail?id=21670">此处报告的未确认的类似问题</a>。</p>
+<h1 id="框架约定"><a class="header" href="#框架约定">框架约定</a></h1>
+<p>　　除非另行指定，YFramework 的运行时行为适用以下约定。</p>
+<h2 id="外部数据格式"><a class="header" href="#外部数据格式">外部数据格式</a></h2>
+<p>　　YFramework 使用 UTF-8 作为<a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">外部文本编码</a>。</p>
+<p><strong>注释</strong> 这可支持<a href="Development.zh-CN.html#%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6">默认要求的文本处理规则</a>。YBase 没有这个假定，但使用 YBase 处理数据时通常能兼容这个假定。</p>
 <h2 id="文件访问约定"><a class="header" href="#文件访问约定">文件访问约定</a></h2>
 <p>　　除非另行指定，YFramework 对外部文件的访问适用本节约定。</p>
 <p><strong>注意</strong> 除非另行指定，程序访问配置文件的时机是未指定的。</p>
@@ -444,13 +689,13 @@
 <p>　　在 Win32 上一个正确的公共配置文件的内容可能是这样的：</p>
 <pre><code class="language-yconf.txt">YFramework
 (
-	DataDirectory &quot;C:\Data\\&quot;
+	DataDirectory "C:\Data\\"
 )
 (
-	FontDirectory &quot;C:\Windows\Font\\&quot;
+	FontDirectory "C:\Windows\Font\\"
 )
 (
-	FontFile &quot;C:\Windows\Font\FZYTK.TTF&quot;
+	FontFile "C:\Windows\Font\FZYTK.TTF"
 )
 </code></pre>
 <p>　　这里指定的路径分别为数据目录路径、字体文件目录路径和字体文件路径。</p>
@@ -482,7 +727,7 @@
 <p>　　初始化失败后，使用 CHRLib 转换 GBK 编码的程序在调用转换例程时抛出异常，可能导致程序非正常退出。</p>
 <h3 id="mime-数据"><a class="header" href="#mime-数据">MIME 数据</a></h3>
 <p>　　数据目录下的配置文件 <code>MIMEExtMap.txt</code> 存储 MIME 数据。若不存在，提供默认内容。</p>
-<h2 id="字体目录和文件路径"><a class="header" href="#字体目录和文件路径">字体目录和文件路径</a></h2>
+<h3 id="字体目录和文件路径"><a class="header" href="#字体目录和文件路径">字体目录和文件路径</a></h3>
 <p>　　只要其中之一有效即可（若没有成功指定字体文件路径，则默认字体文件路径不确定）。</p>
 <p>　　自动生成的配置中字体文件的默认路径如下：</p>
 <ul>
@@ -497,49 +742,7 @@
 <li>Android ：<code>/system/fonts</code> 目录</li>
 <li>其它平台：同数据目录</li>
 </ul>
-<h1 id="特定平台运行环境"><a class="header" href="#特定平台运行环境">特定平台运行环境</a></h1>
-<h2 id="ds"><a class="header" href="#ds">DS</a></h2>
-<p>　　以下说明中，<code>$NDSEmulator</code> 为模拟器 <a href="DeSmuME.en-US.html">DeSmuME</a> 可执行文件的绝对路径，<code>$TargetPath</code> 为 ROM 映像文件（ <code>.nds</code> 文件）的路径，$FAT_Path为 FAT 目录路径（见以下说明）。</p>
-<p>　　之前经测试的最小版本为 0.9.6 。建议使用最新版本。</p>
-<p>　　运行时，需在运行模拟器的宿主机中准备一个目录作为映射到设备中的虚拟 FAT 目录。宿主的目录在运行中不会被 DeSmuME 修改；宿主目录的文件系统不要求为 FAT 。运行时会加载虚拟目录的内容。</p>
-<p><strong>注意</strong> 官方版的 DeSmuME 不支持包含非 ASCII 字符的宿主路径而忽略这些文件。部分修改版可能没有这个限制。</p>
-<p><strong>注意</strong> 因为 DS 模拟器和烧录卡需要加载 ROM 映像到 RAM 后才能运行，映像大小会影响可用运行内存，使用 debug 配置构建的 YSTest 示例版本不一定在 DS 上支持所有功能。相关支持限制及变更详见 YSLib 项目文档 <code>doc/Test.txt</code> 。</p>
-<p>　　可通过以下方式之一指定 FAT 目录。</p>
-<h3 id="slot-1-映射"><a class="header" href="#slot-1-映射">Slot 1 映射</a></h3>
-<p>　　Slot 1 （即 NDS ROM 卡槽，硬件介质可以是 NDS 卡带，或烧录卡和存储卡的组合）的模拟从 DeSmuME 0.9.8 版本起支持。</p>
-<p>　　运行命令行示例：</p>
-<pre><code class="language-shell">&quot;$NDSEmulator&quot; &quot;$TargetPath&quot; --preload-rom --slot1-fat-dir=&quot;$FAT_Path&quot;
-</code></pre>
-<p>　　其中 <code>--preload-rom</code> 对 0.9.10 和 0.9.11 版本是必须的（以支持自动 <a href="https://wiki.gbatemp.net/wiki/DLDI">DLDI(en-US)</a> 补丁），否则加载失败。这个选项可以在模拟器（Windows 版本）的 GUI 菜单中 <code>Config</code> → <code>ROM Loading</code> 中选择。最新版本的源码会对自制 ROM 自动启用 ROM 预先加载的选项而不用另行配置，可以省略这个选项。</p>
-<h3 id="slot-2-映射"><a class="header" href="#slot-2-映射">Slot 2 映射</a></h3>
-<p>　　Slot 1 （即 GBA ROM 卡槽，硬件介质可以是 GBA 卡带或其它扩展）的模拟需要配置为使用 <code>GBA Movie Player (Compact Flash)</code> 。</p>
-<p>　　运行命令行示例：</p>
-<pre><code class="language-shell">&quot;$NDSEmulator&quot; &quot;$TargetPath&quot; --cflash-path=&quot;$FAT_Path&quot;
-</code></pre>
-<p>　　对 0.9.10 和 0.9.11 版本，需同 Slot 1 映射添加 <code>--preload-rom</code> 或使用菜单设置加载选项，否则同样无法加载（尽管源码中表示 <code>--preload-rom</code> 是适用 Slot 1 而不是 Slot 2 的选项）。</p>
-<p>　　这个选项也可以通过 GUI 配置。在 0.9.9 版本前，使用菜单 <code>Emulation</code> → <code>GBA Slot</code> 。自 0.9.9 版本起，使用菜单 <code>Config</code> → <code>Slot 2 (GBA Slot)</code> 。</p>
-<p><strong>注意</strong> DeSmuME svn4030 及之后的一些版本（至少包括 0.9.8 ）会在载入 MPCF 映像时错误地忽略 <code>--cflash-path</code> 选项，以 仿真(Emulation) → GBA 插槽(GBA Slot) 菜单中的设置或对应配置文件 <code>desmume.ini</code> 中指定正确的路径。</p>
-<p>　　在 <code>desmume.ini</code> 中有效的最小配置：</p>
-<pre><code class="language-ini">[GBAslot]
-type=1
-[GBAslot.CFlash]
-fileMode=0
-path=H:\NDS\efsroot\
-</code></pre>
-<p>　　这里 <code>H:\NDS\efsroot</code> 是 <code>$FAT_Path</code> 的一个示例。</p>
-<p><strong>注意</strong> 自 Slot1 0.9.10 起，当 Slot 1 设置为 R4 时会覆盖 Slot 2 设置加载 R4 路径（ Dev+ 版本显示自动 DLDI 补丁在 Slot 1 设置为 R4 从 <code>GBA Movie Player (Compact Flash)</code> 改为 <code>R4(DS) - Revolution for DS</code> ），因此需确保<strong>Slot 1 设置不为 R4 ，或正确设置了 Slot 1 R4 的路径</strong>（而改用 Slot 1 映射）。</p>
-<h2 id="mingw32"><a class="header" href="#mingw32">MinGW32</a></h2>
-<p>　　自 build 431 起，YFramework 使用的 <a href="https://freeimage.sourceforge.io/">FreeImage</a> 修改版集成 <a href="https://zh.wikipedia.org/zh-cn/Libjpeg#libjpeg-turbo">libjepg-turbo</a> ，需要 CPU 支持 <a href="https://zh.wikipedia.org/zh-cn/SSE2">SSE2</a> 指令集扩展。</p>
-<p>　　除 2005 年前生产的硬件外绝大多数环境已经满足这个条件。当前几乎所有兼容 IA-32 的市售 CPU 都包含 SSE2 支持。特别地，支持 x86_64 指令集的 CPU 要求支持 SSE2 ，在使用 x86_64 的 64 位 Windows 上运行 32 位 Win32 程序（通过 <a href="https://zh.wikipedia.org/zh-cn/WoW64">WoW64</a> ）也支持 SSE2 。</p>
-<h2 id="android"><a class="header" href="#android">Android</a></h2>
-<p>　　可使用 <code>adb</code> 命令安装 APK 包，如：</p>
-<pre><code class="language-shell">&quot;$ANDROID_SDK/platform-tools/adb&quot; -e install -r &quot;$1&quot;
-</code></pre>
-<p>　　此处 <code>-e</code> 指定 TCP/IP 设备（通常是模拟器），若使用 USB 设备（通常是物理机器）应移除或使用较新的 <code>adb</code> 的 <code>-d</code> 选项代替；<code>&quot;$1&quot;</code> 指定 APK 文件路径。</p>
-<p>　　之后，在 Android 的 GUI 环境下直接运行安装的程序。</p>
-<p>　　若因签名变更等原因无法覆盖安装或更新，需要先卸载后再安装。</p>
-<p><strong>注意</strong> Android 安装 <code>.apk</code> 包时需要占用额外存储资源。为避免内置存储空间不足导致不直接表现安装失败（需要 <code>logcat</code> 查看）但直至运行时找不到二进制库而导致启动失败，应保留足够的空间，特别是对占用较大的 debug 配置构建的映像。保留空间的大小一般大于 <code>.apk</code> 作为 <code>.zip</code> 解压缩占用的空间。另见<a href="https://code.google.com/p/android/issues/detail?id=21670">此处报告的未确认的类似问题</a>。</p>
-<h1 id="框架初始化"><a class="header" href="#框架初始化">框架初始化</a></h1>
+<h2 id="框架初始化"><a class="header" href="#框架初始化">框架初始化</a></h2>
 <p>　　框架初始化服务于整个框架。</p>
 <p>　　初始化的重要策略之一是在程序启动时减少不必要的初始化，以允许实现以下目的：</p>
 <ul>
@@ -555,7 +758,7 @@ path=H:\NDS\efsroot\
 </ul>
 <p>　　框架初始化加载配置文件，其中配置文件路径的确定方式参见以下节的说明。成功公共加载配置文件后，框架初始化检查配置文件的内容，并访问框架公共配置。若检查失败，抛出异常。</p>
 <p>　　修改 YFramework 模块 Helper::Initialization 重新编译后，可修改默认设置改变初始化行为。以下行为<strong>可能会在未来改变</strong>。</p>
-<h2 id="根路径"><a class="header" href="#根路径">根路径</a></h2>
+<h3 id="根路径"><a class="header" href="#根路径">根路径</a></h3>
 <p>　　<strong>根路径(root path)</strong> 是框架初始化时参考的基本路径，由如下方式确定：</p>
 <ul>
 <li>Win32 和 Linux（除 Android ）：程序映像所在的目录。</li>
@@ -564,11 +767,11 @@ path=H:\NDS\efsroot\
 </ul>
 <p>　　确定根路径在框架初始化或要求确定根路径时进行。若定位程序映像，同时会解析符号链接。若定位根路径失败，抛出异常。</p>
 <p>　　抛出的异常默认不被框架处理，可使程序退出。用户代码捕获特定异常可改变默认退出行为。</p>
-<h2 id="配置路径"><a class="header" href="#配置路径">配置路径</a></h2>
+<h3 id="配置路径"><a class="header" href="#配置路径">配置路径</a></h3>
 <p>　　公共配置文件 <code>yconf.txt</code> 所在目录的路径前缀（结尾带有路径分隔符）称为框架的<strong>配置路径(configuration path)</strong> ，决定和平台相关的配置加载起始位置。配置路径和配置文件相对路径（对 <code>yconf.txt</code> ，即配置文件名）组合得到配置文件路径。</p>
 <p>　　配置路径的确定方式和平台相关。</p>
 <p>　　任意平台总能确定一个首选的配置路径。</p>
-<p>　　除首选的配置路径外，一些平台还支持一个或多个不同的<strong>后备(fallback) 配置路径</strong>。在读写特定的配置文件时，若根路径访问失败，但存在后备配置路径，依序使用这些路径重试直至成功或全部访问失败。这样的配置文件当前包括 <code>yconf.txt</code> 。具体应用可使用初始化 API 以类似的方式加载其它配置文件。</p>
+<p>　　除首选的配置路径外，一些平台还支持一个或多个不同的<em>后备(fallback) 配置路径</em>。在读写特定的配置文件时，若根路径访问失败，但存在后备配置路径，依序使用这些路径重试直至成功或全部访问失败。这样的配置文件当前包括 <code>yconf.txt</code> 。具体应用可使用初始化 API 以类似的方式加载其它配置文件。</p>
 <p>　　以下是具有后备配置路径的平台中确定配置路径的顺序：</p>
 <ul>
 <li>Linux（除 Android ）：
@@ -581,15 +784,21 @@ path=H:\NDS\efsroot\
 <ul>
 <li>同 Linux 平台的顺序（对应使用 Win32 的环境变量和路径语法，即后备配置路径 <code>%HOME%\.YSLib\</code> ）。</li>
 <li>若环境变量 <code>USERPROFILE</code> 的值非空，则路径 <code>%USERPROFILE%\.YSLib\</code> 是后备配置路径。</li>
+<li><strong>注意</strong> 环境变量 <code>HOME</code> 在此不影响 Win32 中约定的路径。但是，Win32 中的<a href="Development.zh-CN.html#%E8%84%9A%E6%9C%AC">脚本运行环境</a>支持 <a href="Development.zh-CN.html#shell-%E8%84%9A%E6%9C%AC">shell 脚本</a>，可具有和 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_05_03">POSIX.1 定义的兼容的行为而附加依赖 <code>HOME</code></a> 。
+<ul>
+<li><strong>原理</strong> 这和<a href="https://github.com/rust-lang/rust/issues/28940#issuecomment-147274312">现有的一些语言的行为类似</a>。</li>
+<li>在此处的约定外，实现可以提供附加的接口兼容显式引入这种行为。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <p>　　后备配置路径中若子目录 <code>.YSLib</code> 不存在则被创建。若创建失败，配置路径访问失败。</p>
 <p>　　对不具有后备路径的平台，首选的配置路径总是根路径。否则，首选的配置路径由以下方式确定：</p>
 <ul>
-<li>程序映像所在的位置可推断出符合类似 FHS 的文件系统布局（称为局部 FHS 目录布局），则首选的配置路径为程序映像所在的目录的上一级目录的 <code>var</code> 子目录下的 <code>YSLib</code> 子目录。
+<li>程序映像所在的位置可推断出<a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B8%83%E5%B1%80">局部 FHS 目录布局</a>，则首选的配置路径为程序映像所在的目录的上一级目录的 <code>var</code> 子目录下的 <code>YSLib</code> 子目录。
 <ul>
-<li>推断文件系统布局为以 POSIX 环境变量语法表示为 <code>$PREFIX/</code>、<code>$PREFIX/$BIN/</code>、<code>$PREFIX/lib/</code> 和 <code>$PREFIX/share/</code> 这些路径前缀都存在且可作为目录访问，其中 <code>$PREFIX</code> 是程序映像所在的目录的上级目录，而 <code>$BIN</code> 是程序映像所在的目录的名称（按 FHS 通常为 <code>bin</code> ，此处不检查）。</li>
+<li>推断文件系统布局为以 POSIX 环境变量语法表示为 <code>$PREFIX/</code>、<code>$PREFIX/$BIN/</code>、<code>$PREFIX/lib/</code> 和 <code>$PREFIX/share/</code> 这些路径前缀都存在且可作为目录访问，其中 <code>$PREFIX</code> 是程序映像所在的目录的上级目录，而 <code>$BIN</code> 是程序映像所在的目录的名称（按 <a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B8%83%E5%B1%80">FHS</a> 通常为 <code>bin</code> ，此处不检查）。</li>
 <li>这保证创建映像的可执行程序映像的目录中内容不被修改，以符合 FHS 。</li>
 </ul>
 </li>
@@ -601,10 +810,10 @@ path=H:\NDS\efsroot\
 </ul>
 <p>　　对不具有后备路径的平台不检查文件系统布局，也不要求实现确保程序映像路径的操作，以简化实现。</p>
 <p><strong>注意</strong> 若后备配置路径的配置文件可访问，直接使用此配置文件保存配置，不再创建配置文件。若需要恢复在首选配置路径创建配置文件的行为，需确保后备配置路径的配置文件不可访问（例如，移除所有后备配置路径的这些配置文件）。</p>
-<h2 id="配置文件加载"><a class="header" href="#配置文件加载">配置文件加载</a></h2>
+<h3 id="配置文件加载"><a class="header" href="#配置文件加载">配置文件加载</a></h3>
 <p>　　加载配置文件 <code>yconf.txt</code> 时，首先按上述的顺序确定各个配置路径，每确定一个路径时访问其中的配置文件。若全部失败（如找不到可读的文件），则尝试自动生成配置并创建配置文件。创建配置文件的位置和顺序同上述确定配置路径的顺序。若创建配置文件全部失败，则放弃创建配置文件，直接使用生成的配置。</p>
 <p>　　不存在配置文件时，配置不能通过 Helper::Initialization 的 API 持久化保存，尝试保存配置会失败。</p>
-<h2 id="其它初始化"><a class="header" href="#其它初始化">其它初始化</a></h2>
+<h3 id="其它初始化"><a class="header" href="#其它初始化">其它初始化</a></h3>
 <p>　　成功后，框架进一步处理公共配置文件以外的其它初始化；详见以上具体配置文件的相关章节。</p>
 
                     </main>

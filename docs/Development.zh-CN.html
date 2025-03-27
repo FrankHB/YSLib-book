@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html" class="active"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -172,23 +153,27 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="开发说明"><a class="header" href="#开发说明">开发说明</a></h1>
-<p>　　关于环境配置，详见<a href="Run.zh-CN.html">运行</a>。当前没有其它的面向最终用户的说明。</p>
+<p>　　关于环境配置，详见<a href="Prerequisitions.zh-CN.html">先决条件</a>和<a href="Run.zh-CN.html">运行</a>。其中后者也包含部分面向最终用户的说明。</p>
 <p>　　以下为面向开发者的说明。</p>
 <h1 id="准备"><a class="header" href="#准备">准备</a></h1>
 <ul>
 <li>了解<a href="Prerequisitions.zh-CN.html">先决条件</a></li>
 <li><a href="GettingSources.zh-CN.html">获取源代码</a></li>
-<li>了解<a href="ProjectDependencies.zh-CN.html">项目依赖性</a></li>
+<li>了解<a href="ProjectDependencies.zh-CN.html">项目依赖性</a>以确保源代码以外的必要的<a href="Terminology.zh-CN.html#%E5%86%85%E9%83%A8%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96">外部依赖</a>可用</li>
 <li>了解<a href="Terminology.zh-CN.html">术语概要</a>的体例以备参考</li>
 </ul>
-<p>　　YSLib 项目文档位于 YSLib 项目而不是本 wiki 项目中。</p>
-<p>　　维护者参考的细节和一般规则详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> ；术语的完整定义详见 YSLib 项目文档 <code>doc/CommonRules.txt</code> 。</p>
+<p>　　YSLib 项目文档位于 YSLib 项目而不是本 wiki 项目中：</p>
+<ul>
+<li>维护者参考的细节和一般规则详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</li>
+<li>在 <a href="Terminology.zh-CN.html">本 wiki 项目文档约定的术语</a>的基础上，其它术语的完整定义详见 YSLib 项目文档 <code>doc/CommonRules.txt</code> 。</li>
+<li>在 <a href="Features/NPL.zh-CN.html">本 wiki 的预定的 NPL 规范文档</a>的基础上，具体实现参见 YSLib 项目文档 <code>doc/NPL.txt</code> 。</li>
+</ul>
+<p><strong>注释</strong> 项目文件在 YSLib <a href="Terminology.zh-CN.html#%E7%89%88%E6%9C%AC%E5%BA%93">存储库</a>中维护。</p>
 <h1 id="项目过程"><a class="header" href="#项目过程">项目过程</a></h1>
 <p>　　基本规则参见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
 <p>　　本 wiki 项目作为用户手册和开发者补充文档的形式作为实现及之后阶段输出。</p>
 <p>　　实现的附加输出为库和工具。</p>
-<p>　　之前阶段（如设计）为前期过程，其文档和适用于维护过程的项目规则位于 YSLib 项目文档（位于 <code>doc/</code> ）。</p>
-<p>　　其中整体过程由 <code>doc/Designation.txt</code> 指定。当前内联设计以外的过程，因此不存在设计外前期过程的单独文档。</p>
+<p>　　之前阶段（如设计）为前期过程，其文档和适用于维护过程的项目规则位于 YSLib 的项目文档中的 <code>doc/</code> 目录。其中整体过程由 <code>doc/Designation.txt</code> 指定。当前内联设计以外的过程，因此不存在设计外前期过程的单独文档。</p>
 <h1 id="开发"><a class="header" href="#开发">开发</a></h1>
 <ul>
 <li><a href="Build.zh-CN.html">构建</a>
@@ -200,11 +185,14 @@
 <li>使用 <a href="Sysroot.zh-CN.html">Sysroot</a> 开发和部署程序</li>
 </ul>
 <h1 id="平台"><a class="header" href="#平台">平台</a></h1>
-<p>　　关于<strong>外部依赖</strong>、<strong>平台</strong>、<strong>目标平台</strong>和<strong>宿主平台</strong>等概念的一般定义参见<a href="Terminology.zh-CN.html">术语概要</a>。</p>
+<p>　　关于<strong>外部依赖</strong>、<strong>平台</strong>、<strong>目标平台</strong>和<strong>宿主平台</strong>等概念的一般定义参见<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0">术语概要</a>。</p>
 <p>　　YSLib 项目约定一个体系结构和使用的外部依赖是一个平台。</p>
+<p><strong>注释</strong> 这仍然满足<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0%E6%A0%87%E8%AF%86">关于平台标识默认的使用约定</a>。</p>
 <p>　　YSLib 支持不同的目标平台。类似 ISO C/C++ 的独立实现(freestanding implementation) 和宿主实现(hosted implementation) ，平台分为两类：<strong>独立实现平台</strong>和<strong>宿主实现平台</strong>。后者存在操作系统的支持而前者没有。</p>
 <h2 id="语言使用和实现要求"><a class="header" href="#语言使用和实现要求">语言使用和实现要求</a></h2>
-<p>　　本节适用于本项目，不直接限制依赖项和用户程序。项目中特定部分的规则及适用性详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
+<p>　　本节适用于 YSLib 项目，不直接限制依赖项和用户程序。项目中特定部分的规则及适用性详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> 。</p>
+<p>　　本节不保证所有具体要求都是完备的。特别地，这里不指定仅具体平台配置适用的要求。对一般开发者，<a href="Prerequisitions.zh-CN.html">先决条件</a>中应已足够配置开发环境。</p>
+<p><strong>原理</strong> 本节中的要求和配置补充<a href="Prerequisitions.zh-CN.html">先决条件</a>，和开发环境的选型可能直接相关，为维护者提供设定平台配置要求提供基准依据。</p>
 <p>　　除脚本（见以下相关章节）外，使用 ISO C++ 作为主要开发语言。</p>
 <p>　　不使用和 ISO C++03 以后被接受的特性不兼容的特性，包括但不限于：</p>
 <ul>
@@ -263,9 +251,25 @@
 <li><strong>注释</strong> 一般的到有符号数转换的由实现定义的行为仍不被依赖。</li>
 </ul>
 </li>
-<li>假定特定类型的特定操作无异常抛出（但不依赖异常规范的行为），当前包括：
+<li>假定特定类型的特定操作无异常抛出。
 <ul>
-<li><code>std::string</code> 的默认构造函数（ <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4002.pdf">WG21 N4002</a> 引入了显式指定 <code>noexcept</code> ，仅从标准草案 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4296.pdf">WG21 N4296</a> 起有效）。</li>
+<li><strong>注释</strong> 可能具有相应的异常规范。</li>
+<li>当前包括：
+<ul>
+<li><code>std::string</code> 的默认构造函数。
+<ul>
+<li>注释 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4002.pdf">WG21 N4002</a> 引入了显式指定 <code>noexcept</code> ，仅从标准草案 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4296.pdf">WG21 N4296</a> 起有效）。</li>
+</ul>
+</li>
+<li>容器类型的迭代器的复制初始化。
+<ul>
+<li><strong>原理</strong> 这允许使用迭代器类型作为函数的参数时，不影响调用者的异常安全保证。</li>
+<li><strong>注释</strong> 包括可能被显式定义的类的复制构造和转移构造函数。</li>
+<li><strong>注释</strong> 已知 libstdc++ 、libc++ 和 Microsoft STL 的当前实现（蕴含所有被支持的平台配置）的非调试版本都满足这些要求且具有无异常抛出的异常规范。因为 <a href="https://eel.is/c++draft/nullablepointer.requirements#4"><code>NullablePointer</code> 的操作满足无异常抛出保证</a>，使用这些类型直接实现的迭代器的操作满足这里的要求。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -343,14 +347,63 @@
 </li>
 <li>假定在标准库宏 <code>NDEBUG</code> 被定义的翻译单元中的代码不违反异常规范。
 <ul>
-<li>这允许改进代码生成，如使用 <a href="https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Dialect-Options.html">G++ 的 <code>-fno-enforce-eh-specs</code> 选项</a>。</li>
-<li>程序应不依赖违反异常规范时调用标准库的函数的行为。否则，程序行为未定义。</li>
+<li><strong>原理</strong> 这允许改进代码生成，如使用 <a href="https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Dialect-Options.html">G++ 的 <code>-fno-enforce-eh-specs</code> 选项</a>。</li>
+<li>程序应不依赖违反异常规范时调用标准库的函数的行为。否则，程序行为未定义。
+<ul>
+<li><strong>注释</strong> 例如，违反上述特定类型的特定操作无异常抛出的假定时。</li>
 </ul>
 </li>
 </ul>
-<p>　　YSLib 中具体子项目可要求更严格的实现假定，违反这些假定要求诊断，并可能在不保证支持的构建配置环境下终止构建。需要显式提供诊断时，若可行，应使用符合上述要求的可移植特性。此外，YSLib 实现可依赖可选的语言实现扩展。具体的更严格的假定和可选特性使用参见项目版本库中 <code>doc</code> 目录下的相关项目文档。</p>
+</li>
+</ul>
+<p>　　YSLib 中具体子项目可要求更严格的实现假定，违反这些假定要求诊断，并可能在不保证支持的构建配置环境下终止构建。需要显式提供诊断时，若可行，应使用符合上述要求的可移植特性。此外，YSLib 实现可依赖可选的语言实现扩展。具体的更严格的假定、可选特性或非全局的特性使用参见项目版本库中 <code>doc</code> 目录下的相关项目文档。</p>
 <p><strong>注释</strong> 一些诊断通过语言规则保证而无需显式提供。提供诊断使用的可移植特性的一个例子是 <code>#error</code> 预处理命令。</p>
-<p><strong>原理</strong> YBase 对标准库的修正实现要求更严格的关于实现细节的假定。YBase 对标准库的不分替代（如 <code>std::addressof</code> ）需依赖更严格的实现特性才能完整实现和标准库相同的保证（尽管不分保证作为 YBase 替代是可选提供的）。依赖更严格的实现假定也允许依赖和向用户代码提供特定平台配置的功能特性，以及提供质量更好的高性能实现。</p>
+<p><strong>原理</strong></p>
+<p>　　本节中指定的要求通常难以以源代码的形式检查或检测，因此在此作为前提明确。一些普遍但并非严格必须作为全局依赖的特性和实现假定，可以通过源程序表达时，不在这里指定；但为简化实现，也可以通过要求的形式可选地指定。</p>
+<p>　　YBase 对标准库的修正实现要求更严格的关于实现细节的假定。YBase 对标准库的不分替代（如 <code>std::addressof</code> ）需依赖更严格的实现特性才能完整实现和标准库相同的保证（尽管不分保证作为 YBase 替代是可选提供的）。依赖更严格的实现假定也允许依赖和向用户代码提供特定平台配置的功能特性，以及提供质量更好的高性能实现。</p>
+<p><strong>注释</strong></p>
+<p>　　非全局的特性涉及的假定可能以子项目或更小的模块作为单位明确其适用范围。关于可选指定的实现要求，参见以下的<a href="#%E5%8F%AF%E9%80%89%E5%AE%9E%E7%8E%B0%E8%A6%81%E6%B1%82">可选实现要求</a>。</p>
+<h3 id="可选实现要求"><a class="header" href="#可选实现要求">可选实现要求</a></h3>
+<p>　　以下相对<a href="#%E5%9F%BA%E5%87%86%E5%AE%9E%E7%8E%B0%E8%A6%81%E6%B1%82">基准实现要求</a>更严格的实现要求默认不作为全局默认要求，而可供特定的子项目和平台配置按需启用。具体使用参见存储库中 <code>doc/</code> 目录下有关具体子项目的项目文档。</p>
+<ul>
+<li>关于整数类型的假定：
+<ul>
+<li>1 字节具有 8 位（即 <code>CHAR_BIT == 8</code> ）。</li>
+<li>相对 ISO C++ 要求更严格的特定整数类型的取值范围。</li>
+<li>语言实现和外部环境满足以下表示的要求：
+<ul>
+<li>除指定的例外，整数类型的表示不具有<em>填充位(padding bit)</em> ，即构成其<a href="https://eel.is/c++draft/basic.types"><em>对象表示(object representation)</em></a> 的位和<a href="https://eel.is/c++draft/basic.types#general-4"><em>值表示(value representation)</em></a>一致，但这里指定的例外除外。
+<ul>
+<li><strong>注释</strong> 关于填充位，参见 ISO C 关于整数类型的描述。</li>
+<li>指定的例外包含以下情形：
+<ul>
+<li>（可能 <em>cv</em> 限定的）<code>bool</code> 类型。</li>
+<li>语义和表示可能兼容 ISO C23 <a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2763.pdf"><code>_BitInt(N)</code></a> 的类型。
+<ul>
+<li><strong>注释</strong> 一个例子是 LLVM 扩展 <a href="https://blog.llvm.org/2020/04/the-new-clang-extint-feature-provides.html"><code>_ExtInt(N)</code></a> 。</li>
+</ul>
+</li>
+<li>其它在 YSLib 中的 API 或<a href="#%E4%BA%92%E6%93%8D%E4%BD%9C">互操作</a>规范中指定的允许接受的特定整数类型。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关于标准库实现的附加假定：
+<ul>
+<li>假定 <code>std::chrono::system_clock</code> 使用 1970-01-01 00:00:00 UTC 作为时间历元。
+<ul>
+<li><strong>注释</strong> 这和 <a href="https://zh.wikipedia.org/wiki/UNIX%E6%97%B6%E9%97%B4">UNIX 时间</a> 以及<a href="https://pubs.opengroup.org/onlinepubs/9699919799.orig/basedefs/V1_chap04.html#tag_04_15">POSIX.1</a> 的基本概念实质相同。这是 ISO C++11 中不存在但 ISO C++20 起在添加的要求，由 <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0355r7.html#time.clock.system">WG21 P0355R7</a> 引入。</li>
+<li><strong>原理</strong> 主要的标准库实现（ libstdc++ 、libc++ 或 Microsoft STL ）都满足这个要求。被支持的实现不使用其它标准库，因此也都满足这个要求。即便使用其它实现，未来出现不满足这个要求的实现的可能性很小。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>原理</strong> 以上假定通常被主流实现支持，但并不直接被满足<a href="#%E5%9F%BA%E5%87%86%E5%AE%9E%E7%8E%B0%E8%A6%81%E6%B1%82">基准实现要求</a>中的 ISO C++ 保证，因此不作为基准实现要求。但是，被支持的实现<a href="#%E5%B9%B3%E5%8F%B0">平台</a>一般都满足这些条件，因此直接完整地使用本项目的应用可以直接依赖这些特性。区分基准实现要求和可选实现要求允许对本项目的组件以更细粒度的方式使用。</p>
 <h3 id="历史实现要求"><a class="header" href="#历史实现要求">历史实现要求</a></h3>
 <p>　　以下要求已被修改或取消。</p>
 <ul>
@@ -390,7 +443,9 @@
 <h3 id="可选实现支持"><a class="header" href="#可选实现支持">可选实现支持</a></h3>
 <p>　　允许使用 ISO C++11 以后兼容最新标准草案的正式标准中的特性（可通过 <code>__cplusplus</code> 宏和 <a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations">SG10 建议的特性检查</a>判断）。</p>
 <h3 id="扩展特性"><a class="header" href="#扩展特性">扩展特性</a></h3>
-<p>　　不依赖实现的方言扩展，但在确保实现能支持时，在特定的代码中可通过条件包含等方式选用。</p>
+<p>　　除非另行指定，不依赖实现的方言扩展。</p>
+<p><strong>注释</strong> 在确保实现能支持时，在特定的代码中可通过条件包含等方式选用。</p>
+<p>　　关于语言特性中的具体使用以及启用的扩展，参见 YSLib 项目文档 <code>doc/LanguageRules.txt</code> 和 <code>doc/YBase.txt</code> 等具体部分的相关开发文档。</p>
 <p>　　若实现默认具有不符合标准的特性，在本项目的代码中不依赖这些特性，即便外部依赖项可能对此进行配置（如 MinGW G++ 为了和 Microsoft VC++ 兼容启用的 <code>-mms-bitfields</code> ，而 MSYS2 安装的 freetype2 的 <code>pkg-config</code> 的 CFLAGS 隐含此参数）。</p>
 <h2 id="保留名称"><a class="header" href="#保留名称">保留名称</a></h2>
 <p>　　YSLib 项目中，除了 YBase.LibDefect 是对标准库实现的修正外，并不是语言的实现，因此公开接口遵循 ISO C++ 对保留名称的使用，如不引入以 <code>__</code> 起始的标识符。</p>
@@ -408,52 +463,6 @@
 <p>　　除非另行指定，文档中的狭义的“模拟”概念指程序模拟。</p>
 <p>　　YSLib 项目中，<strong>平台模拟(platform emulation)</strong> 主要指直接以运行时环境适配层嵌入宿主平台运行时，在具体程序中提供类似被模拟的目标平台的具体特性和接口。</p>
 <p>　　完整的定义详见 YSLib 项目文档 <code>doc/CommonRules.txt</code> 。</p>
-<h2 id="外部依赖项"><a class="header" href="#外部依赖项">外部依赖项</a></h2>
-<p>　　<strong>外部依赖项</strong>在构建项目的上下文中，指构建时可能使用的外部依赖，是不由本项目维护和单独发布的依赖项。</p>
-<p>　　YSLib 项目严格使用 ISO C++ 的子集和特定实现的可选的扩展。关于依赖的语言特性，参见以上<a href="#%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%9E%E7%8E%B0%E8%A6%81%E6%B1%82">语言使用和实现要求</a>的说明。</p>
-<p>　　在所有目标平台上，除了<strong>系统库</strong>外，外部依赖项是相同的，但可能使用不同的版本，也不一定按相同的配置构建。系统库的概念和 <a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a> 的 <a href="http://www.gnu.org/licenses/gpl-faq.html#SystemLibraryException">system library exception</a> 中的 system library 定义类似，在此指特定平台或操作系统提供运行时支持的、由特定第三方环境提供开发支持的外部依赖，例如提供特定平台的 ISO C++ 标准库部分实现的 libstdc++ 和提供 Windows API 实现的 GDI32 等。</p>
-<p>　　除了系统库外，一部分外部依赖项可选或必须使用自行构建的（可能被修改的）版本。这些外部依赖项的修改和构建脚本位于版本库的 <code>3rdparty</code> 目录，默认按原始许可证发行。</p>
-<p>　　YBase 只直接依赖 ISO C++ 标准库。</p>
-<p>　　YFramework 默认依赖经过修改的 FreeType2 和 FreeImage 。其中前者当前仅修改头文件，经过特别处理和官方发布的直接构建的版本二进制兼容，可以被系统库替换。</p>
-<p>　　当前版本中，存储库中不同宿主平台对应的静态库文件（后缀名为 <code>.a</code> ）的目录如下：</p>
-<ul>
-<li><code>YFramework/DS/lib</code></li>
-<li><code>YFramework/MinGW32/lib</code></li>
-<li><code>YFramework/MinGW64/lib</code></li>
-<li><code>YFramework/Android/lib</code></li>
-<li><code>YFramework/Linux/lib</code></li>
-</ul>
-<p>　　其中，使用的 FreeImage 静态库对应 YFramework 的 <code>debug</code> 和非 <code>debug</code> 配置，文件名分别为 <code>libFreeImaged.a</code> 和 <code>libFreeImage.a</code> 。这可在同一个目录树中共存。</p>
-<p>　　（当前 Android 和 Linux 仅支持单一本机体系结构，实际仅测试 Android ARMv7 和 Linux x86_64 。）</p>
-<p>　　构建 YFramework 时需包含 <code>3rdparty/include</code> 目录的头文件。<a href="Sysroot.zh-CN.html">Sysroot</a> 安装脚本 <a href="Tools/Scripts.zh-CN.html">Tools/install-sysroot.sh</a> 会复制包括上面的头文件在内的文件。</p>
-<p>　　当前已经使用的详细外部依赖项详见 YSLib 项目文档 <code>doc/Dependencies.txt</code> 。</p>
-<p><strong>注意</strong> 版本库历史中包括静态库(<code>.a</code>) 文件，但为减少版本库大小，不再更新且可能移除，使用外部源或自行构建的方式替代。</p>
-<p>　　可使用以下方式安装外部依赖项：</p>
-<ul>
-<li>参见<a href="Archives.zh-CN.html">归档</a>，获取<a href="Archives.zh-CN.html#External">单独</a>或<a href="Archives.zh-CN.html#Sysroot">源代码目录集成的</a>已编译的外部依赖项。
-<ul>
-<li>非正式支持并<a href="Releases.zh-CN.html#%E5%8F%91%E5%B8%83%E9%98%B6%E6%AE%B5">发布</a>的平台当前不都提供归档。</li>
-<li>关于正式支持，另见存储库中的 <code>doc/ProjectRules.txt</code> 的说明。</li>
-</ul>
-</li>
-<li>若在宿主平台使用 <a href="Sysroot.zh-CN.html">Sysroot</a> ，<a href="Tools/Scripts.zh-CN.html#toolsscriptsshbuild-yslib-buildtxt">脚本可自动从网络下载安装归档</a>。
-<ul>
-<li>非宿主平台当前不支持使用 Sysroot 构建。</li>
-<li>对全新安装，设置<a href="Tools/Scripts.zh-CN.html#%E5%85%AC%E5%85%B1%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE%E5%8F%98%E9%87%8F">环境变量 <code>SS_DirectExtract</code></a> 为非空值可能（很小地）提升性能。</li>
-</ul>
-</li>
-<li>参见存储库中的 <code>3rdparty</code> 中的内容，手动构建所需的外部依赖项。</li>
-</ul>
-<p>　　在 build 885 之前，版本库历史的对应的宿主平台中的静态库位于以下位置：</p>
-<ul>
-<li><code>YFramework/DS/lib</code></li>
-<li><code>YFramework/MinGW32/lib-i686</code></li>
-<li><code>YFramework/Android/lib</code></li>
-<li><code>YFramework/Linux/lib-x86_64</code></li>
-</ul>
-<p>　　其中 Android 平台只包括 FreeType2 ，Linux 平台只包括 FreeImage 。其它平台包括 FreeType2 和 FreeImage 库文件。</p>
-<p>　　其它平台中，只有随其它文件的发布版本包含完整更新，否则压缩包中可能只有其中一个库文件。</p>
-<p>　　关于自行构建外部依赖项的方法，参见<a href="Build.zh-CN.html">构建说明</a>。</p>
 <h2 id="模块"><a class="header" href="#模块">模块</a></h2>
 <p>　　YSLib 项目组织为一个逻辑上的树形结构，其叶节点称为<strong>模块</strong>。类似文件系统，非叶节点称为<strong>模块目录</strong>。在源代码中使用<strong>模块路径</strong>来标识不同的模块，其分隔符为 <code>::</code> 。在 YSLib 项目下直接划分的<strong>顶级子项目</strong>的名称仅在必要时出现在模块路径中，完整模块路径一般从<strong>次级子项目</strong>的名称起始。</p>
 <p>　　C 和 C++ 源代码的一个模块由以下三种形式之一构成：</p>
@@ -481,6 +490,49 @@
 <p>　　在 YSLib 库之上，Helper 对此类需求提供了一致而灵活的接口。</p>
 <p>　　若需要更接近特定平台实现的接口，可以使用 YCLib 及其平台扩展。</p>
 <p>　　YCLib 和 Helper 在宿主实现上都提供了更加丰富的功能。</p>
+<h1 id="持久数据"><a class="header" href="#持久数据">持久数据</a></h1>
+<p>　　除非另行指定，项目中处理的文件符合本节规则。</p>
+<h2 id="文件格式"><a class="header" href="#文件格式">文件格式</a></h2>
+<p>　　文件可具有编码的数据。存储库文件的内容作为持久保存的数据，其中的<a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">编码</a>可满足外部交互的需要而应约定具体的格式，即<a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">外部编码</a>。</p>
+<p>　　<a href="Terminology.zh-CN.html#%E7%89%88%E6%9C%AC%E5%BA%93">存储库</a>的文件编码应当使用外部编码。</p>
+<p><strong>原理</strong> 存储库的文件具有持久保存的内容。明确格式以确保内容的相对稳定，有助于维护。</p>
+<p>　　若<a href="WikiRules.en-US.html">本 wiki 的规则(en-US)</a> 存在指定文件格式的规则，在适用外部编码的上下文中，从其约定。</p>
+<p><strong>原理</strong> 应用 wiki 规则以允许本 wiki 作为<a href="Terminology.zh-CN.html#%E7%89%88%E6%9C%AC%E5%BA%93">版本库</a>的一部分被管理。</p>
+<h3 id="文本文件"><a class="header" href="#文本文件">文本文件</a></h3>
+<p><strong>推论</strong> 按 <a href="WikiRules.en-US.html#textfiles">wiki 规则</a>，文本文件使用带有字节序标记(BOM, byte order mark) 的 UTF-8 编码以及 CR+LF 行尾(EOL, end-of-line) 。</p>
+<p><strong>原理</strong> 文本文件格式具有以下几个原因：</p>
+<ul>
+<li>使用 UTF-8 + BOM 的原因是：
+<ul>
+<li>作为外部编码具有良好的可用性和可移植性。
+<ul>
+<li>UTF-8 是当前最被广泛使用的外部文本编码。</li>
+<li>尽管<a href="https://github.com/FrankHB/pl-docs/blob/master/zh-CN/criticisms-on-UTF-8-everywhere-manifesto">具有技术缺陷</a>，普遍上仍然缺乏其它替代。</li>
+<li>尽管存在<a href="https://github.com/FrankHB/pl-docs/blob/master/zh-CN/about-operating-systems.md#%E9%9D%A2%E5%90%91%E6%96%87%E6%9C%ACtextoriented">历史遗留问题问题导致的误解</a>，因为确定使用的编码，相对不使用 BOM ，处理 BOM 的程序的行为更加确定，而具有更好的可移植性。
+<ul>
+<li>不带 BOM 的 UTF-8 编码的文本内容可能在不同的运行环境中识别为不同的编码。
+<ul>
+<li>例如，在 Windows 程序（例如 Visual Studio ）中带有 BOM 的文本文件不会认为使用代码页(codepage) 的非 UTF 编码的文本文件；在 Linux 等环境的用户程序中往往默认不带 BOM 的文本文件以 UTF-8 编码。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可兼容不同的 UTF 编码作为外部编码（外部编码 UTF 的主要使用场景）；参见 wiki 规则中的原理(rationale) 。</li>
+<li>同以上应用 wiki 规则的原理，使文本文件能作为版本库的一部分管理。</li>
+</ul>
+</li>
+<li>使用 CR+LF 的原因是：
+<ul>
+<li>CR 和 LF 具有不同的含义。强调 CR+LF 允许处理只有 CR 的例外情形（尽管除直接以 CR 作为行尾的情形这通常被视为格式错误）。</li>
+<li>CR+LF 被强调作为外部编码。相对地，ISO C 和 ISO C++ 等文件流读写实现的文本模式可能处理这些格式并转换为只有 LF 结尾的内部编码。直接使用 LF 可以被兼容且更简单，但损失了边界区分外部编码和内部编码的边界。</li>
+<li>CR+LF 是一些最被广泛使用的外部编码标准（如 <a href="https://www.rfc-editor.org/rfc/rfc9110">HTTP</a> ）中要求的一部分。</li>
+</ul>
+</li>
+</ul>
+<p>　　程序的<a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">源代码</a>作为文本文件，应满足文本文件的要求。</p>
+<p><strong>注释</strong> 静态确定的源代码一般都以文本文件的形式存储。</p>
 <h1 id="代码规范"><a class="header" href="#代码规范">代码规范</a></h1>
 <p>　　YSLib 项目维护的代码规范符合 YSLib 项目中的文档约定的规则，包括：</p>
 <ul>
@@ -508,9 +560,9 @@
 </ul>
 </li>
 <li>通过命令行 <code>-i</code> 直接编辑文件而不是打印结果到标准输出</li>
-<li>命令行示例： <code>find YBase YFramework YSTest -name &quot;*.h&quot; -o -name &quot;*.hpp&quot; -o -name &quot;*. cpp&quot; | xargs clang-format -i -style=file</code></li>
-<li>命令行示例： <code>find YBase YFramework YSTest -name &quot;*.h&quot; -o -name &quot;*.hpp&quot; -o -name &quot;*. cpp&quot; | xargs -i sh -c &quot;clang-format -i -style=file {}&quot;</code></li>
-<li>命令行示例（同时替换 <code>template &lt;</code> ）： <code>find YBase YFramework YSTest -name &quot;*.h&quot; -o -name &quot;*.hpp&quot; -o -name &quot;*. cpp&quot; | xargs -i sh -c &quot;clang-format -i -style=file {} &amp;&amp; sed -bi 's/template &lt;/template&lt;/g' {}&quot;</code></li>
+<li>命令行示例： <code>find YBase YFramework YSTest -name "*.h" -o -name "*.hpp" -o -name "*. cpp" | xargs clang-format -i -style=file</code></li>
+<li>命令行示例： <code>find YBase YFramework YSTest -name "*.h" -o -name "*.hpp" -o -name "*. cpp" | xargs -i sh -c "clang-format -i -style=file {}"</code></li>
+<li>命令行示例（同时替换 <code>template &lt;</code> ）： <code>find YBase YFramework YSTest -name "*.h" -o -name "*.hpp" -o -name "*. cpp" | xargs -i sh -c "clang-format -i -style=file {} &amp;&amp; sed -bi 's/template &lt;/template&lt;/g' {}"</code></li>
 </ul>
 </li>
 <li><code>astyle</code>
@@ -538,7 +590,7 @@
 <ul>
 <li>无法正确识别 <code>constexpr</code> 导致错误的缩进</li>
 <li>虽然<a href="http://sourceforge.net/p/astyle/bugs/265/">右值引用识别问题</a>已解决，但实测对模板参数无效</li>
-<li>对 <code>extern &quot;C&quot;</code> 块冗余缩进</li>
+<li>对 <code>extern "C"</code> 块冗余缩进</li>
 <li>断行后的缩进</li>
 <li>lambda 表达式的捕获列表中的 <code>=</code> 周围的冗余空格以及对应的 <code>{</code> 断行</li>
 <li><code>static_cast</code> 等关键字后的 <code>&lt;&gt;</code> 周围的冗余空格</li>
@@ -557,11 +609,163 @@
 </ul>
 </li>
 </ul>
+<h2 id="shell-语言使用规范"><a class="header" href="#shell-语言使用规范">Shell 语言使用规范</a></h2>
+<p>　　本节提供除测试用途和一次性交互式使用场景外的 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19">shell 命令语言</a>及其兼容方言的代码的特性使用和代码风格的规则。</p>
+<p><strong>注释</strong> YSLib 提供和使用的<a href="#shell-%E8%84%9A%E6%9C%AC">shell 脚本</a>具有明确的环境要求，其中的代码也<a href="#shell-%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8%E8%A7%84%E7%BA%A6">被本节涵盖且满足其它一些具体要求</a>。</p>
+<h3 id="空白符"><a class="header" href="#空白符">空白符</a></h3>
+<p>　　注意 shell 语言和方言的类似赋值的操作符（如 <code>=</code> 、<code>:=</code> 等）和操作数不能有空白符。</p>
+<p><strong>原理</strong></p>
+<p>　　文法规则中，赋值不能有空白符，否则被视为单独的构成命令的<em>字(word)</em> 而被分析为命令或参数等非预期的记号。具体地，没有空白符的带有赋值的字视为 <strong>ASSIGNMENT_WORD</strong> 在之后进一步被解析。</p>
+<p>　　这和历史同期的 B 语言和 C 语言不同，因为 shell 语言被设计为命令语言，而非更通用的编程语言更强调表达式（例如，考虑到赋值作为表达式可以嵌套使用作为另一赋值表达式的右操作数），赋值被直接视为一类表达式而非一类记号。</p>
+<h4 id="重定向"><a class="header" href="#重定向">重定向</a></h4>
+<p>　　一般地，<a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_7">shell 重定向</a>语法中：</p>
+<ul>
+<li><code>&gt;&amp;</code> 和 <code>&lt;&amp;</code> 按 shell 语言文法规则要求被视为一个记号时内部不应有空白符。</li>
+<li>重定向操作符和以数值表示文件描述符或非文件名的 <code>-</code> 操作数之间一般不应有空白符，而其它操作数之间保留空格（与常规命令以及命令参数类似）。</li>
+<li>省略重定向操作符之前表示文件描述符的操作数 <code>1</code> 。</li>
+</ul>
+<p>　　重定向在命令中出现的位置未指定，可被适当调整位置以满足源代码排版清晰，如减少出现在字符串参数中的 <code>\</code> 。</p>
+<p><strong>注释</strong> 这可能引起 <a href="https://www.shellcheck.net/wiki/SC2210">ShellCheck 警告 SC2210</a> 。这是其中例外情形而可安全忽略。</p>
+<p><strong>示例</strong></p>
+<ul>
+<li>使用 <code>&gt; &amp;2</code> 或 <code>&gt; &amp; 2</code> 复制输出文件描述符 <code>2</code> 是错误的。</li>
+<li>一般应使用 <code>2&gt; /dev/null</code> 和 <code>2&gt; 1</code> ，而不是 <code>2&gt;/dev/null</code> 和 <code>2&gt;1</code> 。</li>
+<li>一般应使用 <code>&gt;&amp;2</code> 或 <code>&gt;&amp;-</code> 而不是 <code>1&gt;&amp;2</code> 、<code>1 &gt;&amp; 2</code> 或 <code>&gt;&amp; -</code> 。</li>
+</ul>
+<p><strong>原理</strong></p>
+<p>　　作为命令语言，shell 语言传统上更加强调重定向的 I/O 功能先于指定环境的赋值语法。一般的实现中，重定向被分析出记号之前单独处理，重定向操作符和操作数之间的空格是可选的。POSIX 关于重定向的规范也有和命令中的其它部分更多非平凡的规则：</p>
+<ul>
+<li>在 shell 重定向的<a href="(https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_7)">一般格式</a> [<em>n</em>]<em>redir_op</em> <em>word</em> 这个表示中，重定向操作符和之后的操作数技术上没有空格，仅为元语言避免 <em>redir_opword</em> 保持。
+<ul>
+<li>后文 [<em>n</em>]&gt;<em>word</em> 等描述和示例不再有空格也可以证实这一点。</li>
+</ul>
+</li>
+<li>依照 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_10_02">shell 文法规则</a>：
+<ul>
+<li>重定向操作符之前的操作数是 <code>IO_NUMBER</code> 而非 <code>WORD</code> 。</li>
+<li>重定向操作符之后的操作数在是 <code>io_file</code> ，由重定向操作符（如记号 <code>&gt;</code> ）和规约至 <code>filename</code> 的 <code>WORD</code> 组成。</li>
+</ul>
+</li>
+</ul>
+<p>　　但是，除了 <code>&gt;&amp;</code> 应被视为整个记号这样的符合文法规则要求的要点外，这里约定的风格不直接由文法规则决定，而指派相对独立的用例场景分类。（事实上，套用文法规约反而会和这里规则相反地得到 <code>IO_NUMBER</code> 和之后的重定向操作符之间有空白符而重定向操作符和之后的字之间可省略空白符的结论。）这是因为：</p>
+<ul>
+<li>强调重定向的传统惯用的命令风格中，文件描述符或非文件名的 <code>-</code> 操作数和重定向操作符被视为一个整体，而命令中的其它字则不是，如：<code>command &lt; input &gt; output 2&gt;&amp;1</code> 。
+<ul>
+<li>重定向规则中的 <code>-</code> 在被（不视为文件名）单独支持时，和文件描述符遵循相同的规则。</li>
+<li>和重定向的格式描述中的示例不同，在 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#exec"><code>exec</code> 的示例</a>等描述中，使用了这种方式，同时在格式上也把 <code>-</code> 视为文件描述符。</li>
+</ul>
+</li>
+<li>操作数是否被视为文件描述符的规则和具体重定向操作符相关，特别是预期使用文件名的而实际是文件名的易错情形。强调区分这两种用法风格可能减少这些误用。</li>
+</ul>
+<h4 id="保留字和命令"><a class="header" href="#保留字和命令">保留字和命令</a></h4>
+<p>　　注意命令之间需要有空白符；但 <code>((</code> 虽然是命令，其后的表达式被视为特设语法的一部分而不被视为命令的操作数而可能被特殊处理。具体地：</p>
+<ul>
+<li>在 <code>[</code> 和参数之间应有空白符，否则语法错误。</li>
+<li>在 <code>$((</code> 或 <code>((</code> 和之后的表达式可以有空白符，但一般应省略。
+<ul>
+<li><strong>原理</strong> 这使 <code>if</code> 和 <code>for</code> 等关键字相对接近 C 语法风格惯例。</li>
+</ul>
+</li>
+<li>在 <code>((</code> 和之前的关键字之间不省略空格。
+<ul>
+<li><strong>注释</strong> 尽管在 GNU Bash 文档中没有提及，如 <code>if((</code> 和 <code>for((</code> 实际上可被 Bash 解释器识别并拆分出关键字和 <code>((</code> 记号。这不被这里依赖。</li>
+<li><strong>原理</strong> 一般避免依赖 POSIX <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_04">从命令识别保留字</a>以外的附加处理。</li>
+</ul>
+</li>
+<li><strong>注释</strong> <code>((</code> 在扩展方言中使用。POSIX 在<a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_09_04_01">组合命令(compound commands)</a> 中提及实现可能提供这种算术求值(arithmetic evaluation) 语法。</li>
+</ul>
+<p>　　除非另行指定，以下命令的行为未指定：</p>
+<ul>
+<li>在 POSIX 或使用的 shell 语言实现环境（如特定方言扩展）中未指定的行为。</li>
+<li>诊断消息的具体内容。</li>
+<li>除 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_09">POSIX 指定的命令行长度限制</a>以及显式引用这个限制的情形，这个命令行长度限制的具体值。
+<ul>
+<li><strong>示例</strong> 使用 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/getconf.html"><code>getconf</code> 实用工具</a> 能显式得到这个值（即 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/functions/sysconf.html"><code>ARG_MAX</code></a> 值）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="引号"><a class="header" href="#引号">引号</a></h3>
+<p>　　使用引用时，优先使用单引号。</p>
+<p>　　考察以下情形决定是否使用引号：</p>
+<ul>
+<li>在字符串字面量使用 shell 参数或其它其它在字面量中起作用的扩展时，应使用双引号。</li>
+<li>在字符串字面量使用 shell 通配符或其它不在字面量中起作用的扩展时，应不使用双引号。</li>
+<li>对 <code>echo</code> 和类似能支持多个参数合并字符串的命令的字符串字面量一般应始终使用引号以确保作为单一参数处理。</li>
+<li>对其它的简单的命令参数，特别是相对固定的参数（如 <code>%s</code> 这样的仅包含不被 shell 扩展的格式字符串），一般应省略引号。</li>
+</ul>
+<p><strong>原理</strong> 使用引号使字符串字面量的内容和源代码直接对应，可避免一些非预期 shell 导致的难以检查的误用。</p>
+<h3 id="变量和环境"><a class="header" href="#变量和环境">变量和环境</a></h3>
+<p>　　变量的初始化和默认值满足以下约定：</p>
+<ul>
+<li>若没有指定变量的初始化调用函数，则使用 shell 内建的方式（如赋值）直接实现。
+<ul>
+<li><strong>注释</strong> 变量的初始化还可通过调用函数间接实现。</li>
+</ul>
+</li>
+<li>除非另行指定，初始化的变量具有的只读或导出等属性未指定。
+<ul>
+<li><strong>注释</strong> 之后可能通过声明只读或取消属性。</li>
+</ul>
+</li>
+<li>除非另行指定，变量被修改前要求非只读。
+<ul>
+<li>若不满足要求，则运行出错。</li>
+<li><strong>注释</strong> 另行指定的特定的变量可能通过声明取消只读之后被修改。</li>
+<li>取消只读的变量在修改后重新设置只读属性。</li>
+</ul>
+</li>
+<li>初始化变量时若需使用默认值，可能发生附加的求值（如命令调用）以其结果确定具体默认值。</li>
+<li>除非变量的初始化被指定为由特定的函数确定，变量在未指定的脚本被执行时无条件初始化，而不需要使用变量的值前调用特定的函数。</li>
+<li>除非另行指定：
+<ul>
+<li>在特定函数中初始化的变量由此函数指定其默认值。</li>
+<li>初始化时使用的外部环境变量的值可假定和脚本运行环境直接或间接调用脚本前相同。</li>
+</ul>
+</li>
+</ul>
+<p>　　除非另行指定，shell 的变量可能被 shell 脚本执行时修改。</p>
+<p><strong>原理</strong> 这允许一般不要求检查变量是否只读，包括提供默认值或直接复用外部可能已初始化的环境变量，以简化实现。</p>
+<p>　　注意循环等语法隐式引入的 shell 变量是全局变量。若有可能（当 shell 方言支持的上下文时），显式声明局部变量后再使用变量；在 POSIX shell 中可引入函数使用参数代替。</p>
+<p><strong>原理</strong> 使用局部变量代替全局变量以在不需要共享时避免污染全局环境。这要求方言和特定的上下文（如函数体中），不总是容易实现。使用函数是相对容易在 POSIX shell 中实现局部作用于的方法；其它方式（如子 shell ）可具有更大的开销和更多的可能非预期的副作用（如无法共享变量），因此不作要求。</p>
+<h3 id="实用程序"><a class="header" href="#实用程序">实用程序</a></h3>
+<p>　　实用程序(utility) 提供 shell 语言中可用的命令。</p>
+<ul>
+<li>功能可满足需要且没有显著的性能问题时，优先使用兼容 POSIX 的实用程序。</li>
+<li>除非另行指定，假定实用程序不具有调用时不一致的行为的别名。
+<ul>
+<li><strong>注释</strong> 不假定不存在对其它命令可见的不同的行为，如特定的 <code>alias</code> 和 <code>command -v</code> 调用可能结果不同。</li>
+<li><strong>注释</strong> 约定的未指定行为不视为不一致，如<a href="#%E4%BF%9D%E7%95%99%E5%AD%97%E5%92%8C%E5%91%BD%E4%BB%A4">命令行长度</a>的改变。</li>
+<li><strong>示例</strong> 在非交互式 shell 中，<code>alias=ls --color=auto</code> 不影响 <code>ls</code> 命令的行为而满足假定。</li>
+</ul>
+</li>
+<li>使用 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/env.html">POSIX <code>env</code> 实用程序</a> 以避免对<a href="#%E5%8F%98%E9%87%8F%E5%92%8C%E7%8E%AF%E5%A2%83">只读变量</a>的赋值。</li>
+<li>除非另行指定，不使用 <code>which</code> 。
+<ul>
+<li><strong>原理</strong> 这个命令不是 POSIX 实用程序，兼容性相对较差，且一般没有 shell 内建支持。
+<ul>
+<li>另见 <a href="https://www.shellcheck.net/wiki/SC2230">ShellCheck 警告 SC2230</a> 和<a href="https://github.com/koalaman/shellcheck/issues/1162">相关讨论</a>。</li>
+</ul>
+</li>
+<li>在 GNU Bash 中，对检查一个操作数的情形，使用 <code>type -P</code> 代替。
+<ul>
+<li>在 makefile 中，可<a href="https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html">使用 <code>SHELL</code></a> 或 <code>bash -c</code> 等方式调用 <code>type -P</code> 。</li>
+</ul>
+</li>
+<li>在不依赖 shell 扩展和不同行为时，可使用 <code>command -v</code> 。
+<ul>
+<li><strong>注意</strong> <code>command -v</code> 对别名等非 <code>$PATH</code> 中可搜索的程序以及多个参数时的处理和 <code>which</code> 的一般实现不同。</li>
+</ul>
+</li>
+<li>在没有满足要求的替代确定可依赖 <code>which</code> 时，可使用 <code>which</code> 。</li>
+</ul>
+</li>
+</ul>
 <h2 id="构建选项"><a class="header" href="#构建选项">构建选项</a></h2>
 <p>　　一般地，在脚本中默认指定的工具链的警告选项应能支持代码规范。</p>
 <h1 id="脚本"><a class="header" href="#脚本">脚本</a></h1>
-<p>　　YSLib 版本库中包含若干脚本。这些脚本和 YSLib 安装部署的脚本使用<a href="Run.zh-CN.html#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F">命令行程序运行环境</a>和本章中的约定。</p>
-<p>　　脚本一般通过调用解释器运行。脚本的运行要求宿主环境（符合 YSLib 源码 <code>YF_Hosted</code> 定义支持的平台，指具有操作系统的环境）。</p>
+<p>　　YSLib 版本库中包含若干脚本。这些脚本和 YSLib 安装部署的脚本使用<a href="Run.zh-CN.html#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E7%8E%AF%E5%A2%83">命令行程序运行环境</a>和本章中的约定。</p>
+<p>　　脚本一般通过调用解释器运行。<em>脚本运行环境(script runtime environment)</em> 是支持脚本运行的命令行程序运行环境。除非另行指定，脚本运行环境是<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主环境</a>或非宿主环境内部通过<a href="#%E5%B9%B3%E5%8F%B0%E6%A8%A1%E6%8B%9F">平台模拟</a>提供的类宿主环境。</p>
+<p><strong>注释</strong> 符合 YSLib 源码 <code>YF_Hosted</code> 定义支持的平台能提供宿主环境。</p>
 <p>　　除非另行指定，脚本以文件的形式部署。</p>
 <h2 id="外部环境"><a class="header" href="#外部环境">外部环境</a></h2>
 <ul>
@@ -577,177 +781,69 @@
 </ul>
 </li>
 </ul>
-<p>　　项目中提供的脚本在版本库中具有固定的相对路径。除解释环境适用的公共的约定（如提供一般类 UNIX 系统使用的文件系统布局的 <a href="https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86">FHS（文件系统层次结构标准）</a>），脚本不预设绝对路径的假定。</p>
+<p>　　项目中提供的脚本在版本库中具有固定的相对路径。除解释环境适用的公共的约定，脚本不预设绝对路径的假定。</p>
+<p><strong>示例</strong> 公共约定如使用一般类 UNIX 系统使用的文件系统布局的 <a href="https://zh.wikipedia.org/zh-cn/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86">FHS（文件系统层次结构标准）</a>。另见<a href="Run.zh-CN.html#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B8%83%E5%B1%80">文件系统布局</a>。</p>
 <p><strong>警告</strong> 小心处理路径。当前脚本直接或间接使用的所有涉及文件系统递归操作均不假设检查遍历的目标之间是否重复，若使用不恰当的目录链接，可能造成未预期的行为（如复制指向父目录的目录链接时可引起无限递归）。部署时应提前确保不存在这样的链接。</p>
 <p>　　脚本实现假定没有可能冲突的并发文件访问。</p>
 <h2 id="脚本文件"><a class="header" href="#脚本文件">脚本文件</a></h2>
 <p>　　<strong>脚本文件总是使用以下约定的扩展名。</strong></p>
 <p>　　除了 Windows 命令解释器使用的 <code>.cmd</code> 文件以及 <a href="Features/NPL.zh-CN.html#%E5%AE%9E%E7%8E%B0">NPLA1</a> 脚本使用的 <code>.txt</code> 文件，所有脚本使用 <a href="http://zh.wikipedia.org/zh-cn/Shebang">Shebang</a> 明确需要使用的解释环境（详见 <a href="#shell-%E8%84%9A%E6%9C%AC">shell 脚本的说明</a>）。</p>
 <p>　　Windows 命令解释器脚本因为实现限制使用本机 ANSI 代码页的编码，约定为兼容 ASCII 。</p>
-<p>　　<a href="#npla1-%E8%84%9A%E6%9C%AC">NPLA1 脚本</a>约定使用带有 BOM 的 UTF-8 编码（去除 BOM 的脚本可能兼容 ASCII ）。详见 <a href="Tools/SHBuild.zh-CN.html#npl-%E6%94%AF%E6%8C%81">stage 1 SHBuild 中关于 NPL 支持的说明</a>。</p>
+<p>　　<a href="#npla1-%E8%84%9A%E6%9C%AC">NPLA1 脚本</a>约定使用带有 BOM 的 UTF-8 编码（去除 BOM 的脚本可能兼容 ASCII ）。</p>
+<p><strong>注释</strong></p>
+<p>　　关于 NPLA1 脚本编码，另见：</p>
+<ul>
+<li>以上关于<a href="#%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6">文本文件</a>的规则。</li>
+<li><a href="Features/NPL.zh-CN.html#%E5%BD%93%E5%89%8D%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0">NPL 当前实现</a>的说明。</li>
+<li><a href="Tools/SHBuild.zh-CN.html#npl-%E6%94%AF%E6%8C%81">Stage 1 SHBuild 中关于 NPL 支持</a>的说明。</li>
+</ul>
 <h2 id="接口约定"><a class="header" href="#接口约定">接口约定</a></h2>
 <p>　　脚本变量可能被读取和加载。</p>
 <p>　　除非另行指定，脚本引入的非导出的变量和名称以 <code>_</code> 结尾的变量，都不是公开接口。</p>
 <p><strong>原理</strong> 基于名称约定便于和构成公开接口的名称区分。</p>
 <h3 id="路径"><a class="header" href="#路径">路径</a></h3>
-<p>　　<em>路径(path)</em> 是由有限的路径组件构成的序列。在不引起歧义时，路径即指文件系统路径。文件系统的路径组件能以字符串形式表示。</p>
-<p>　　在支持相对路径的环境中，是否支持相对路径取决于具体脚本。</p>
-<p>　　内部的路径的分隔符使用 <code>/</code> 。通过<a href="Tools/Scripts.zh-CN.html">工具脚本</a>提供的 <a href="Tools/Scripts.zh-CN.html#%E5%87%BD%E6%95%B0-SHBuild_2w"><code>SHBuild_2w</code></a> 等函数，可转换为带有不同路径分隔符的路径字符串。这种转换通常仅在必要时（如明确作为外部工具的输入）使用。</p>
+<p>　　<em>路径(path)</em> 是由有限的路径<em>组件(component)</em> 构成的序列。在不引起歧义时，路径即指文件系统路径。文件系统的路径组件能以字符串形式表示。</p>
+<p>　　特定的路径上的规约操作是<em>路径解析(path resolution)</em> 。</p>
+<p>　　路径的字符串表示可具有<em>分隔符(separater)</em> ，以显式区分组件的边界。</p>
+<p>　　<em>路径后缀(path suffix)</em> 是路径中最后的一个或多个组件序列构成的序列。路径表示的后缀蕴含分隔这些组件的内部分隔符和之后的分隔符。除非另行指定，一个路径的后缀中的组件序列是最后一个组件（若存在）。</p>
+<p>　　<em>路径前缀(path prefix)</em> 是路径或其表示中不包含路径后缀的部分。</p>
+<p>　　在支持相对路径的环境中，是否支持相对路径取决于被使用的具体程序（可能是脚本）。</p>
+<p>　　除非另行指定，内部的路径的分隔符使用 <code>/</code> 。通过<a href="Tools/Scripts.zh-CN.html">工具脚本</a>提供的 <a href="Tools/Scripts.zh-CN.html#%E5%87%BD%E6%95%B0-SHBuild_2w"><code>SHBuild_2w</code></a> 等函数，可转换为带有不同路径分隔符的路径字符串。这种转换通常仅在必要时（如明确作为外部工具的输入）使用。</p>
 <p>　　字符串形式的路径（即路径字符串）可能是保证不以分隔符结尾的文件名和确保以分隔符结尾的目录路径字符串。目录路径指目录路径字符串或其对应的非字符串形式的路径。</p>
 <p>　　两个路径字符串的拼接可构成新的路径字符串。这两个路径字符串分别是路径前缀和路径后缀。除非另行指定，作为路径前缀使用的路径字符串是文件名。这要求通过串接路径后缀构成访问前缀指定的目录的新的路径时，路径后缀需要以分隔符起始。</p>
 <p><strong>注意</strong> YBase 的 <code>ystdex::path</code> 和 YFramework 的 <code>YSLib::IO::Path</code> 等数据结构表示根路径外无视结尾分隔符的非字符串形式的路径，因为有效的分隔符仅在根路径中出现。这些实现一般不检查分隔符的合法性，如其中具有包含分隔符的路径组件，也可能正常转换为字符串形式的合法路径。当前脚本只使用字符串形式的路径。</p>
-<h2 id="shell-脚本"><a class="header" href="#shell-脚本">Shell 脚本</a></h2>
-<p>　　扩展名 <code>.sh</code> 的脚本文件是 shell 脚本文件。大多数脚本需要使用 <a href="https://www.gnu.org/software/bash/">GNU bash</a> 运行，如：</p>
-<pre><code class="language-shell">#!/usr/bin/bash
-</code></pre>
-<p>　　需要考虑兼容性时，一般使用以下替代：</p>
-<pre><code class="language-bash">#!/usr/bin/env bash
-</code></pre>
-<p>　　其它可以直接兼容 POSIX shell 的 <code>.sh</code> 脚本使用 Shebang 如：</p>
-<pre><code class="language-shell">#!/usr/bin/sh
-</code></pre>
-<p>　　需要考虑兼容性时，一般使用以下替代：</p>
-<pre><code class="language-shell">#!/usr/bin/env sh
-</code></pre>
-<p>　　为简化脚本代码，用户需要保证调用 shell 脚本时，环境应满足以下条件，否则行为未指定：</p>
+<p><strong>示例</strong></p>
+<p>　　在使用 POSIX.1 定义的宿主环境中：</p>
 <ul>
-<li>使用满足要求的 Shell 语言实现：
-<ul>
-<li>对 bash 脚本：
-<ul>
-<li>满足版本要求：<strong>当前 Bash 最低版本为 4.4 。</strong>
-<ul>
-<li><strong>注释</strong> 要求 4.0 保证能使用 <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-mapfile"><code>mapfile</code></a> 等 <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html">bash 内建命令</a>。</li>
-<li><strong>注释</strong> 要求 4.4 保证能使用 <code>${@@Q}</code> 等<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">参数替换</a>。</li>
+<li>文件系统路径及其字符串表示是 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap03.html#tag_03_254">POSIX 路径名(pathname)</a> 。</li>
+<li>使用的分隔符是非前缀的至少一个连续字符 <code>/</code> 。</li>
+<li>对应的路径解析适用 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap04.html#tag_04_16">POSIX.1 路径名解析(pathname resolution)</a> 的规则，且 YSLib 的具体程序可指定应用其它不依赖 POSIX.1 的转换规则。路径前缀是<a href="https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap03.html#tag_03_256">POSIX.1 路径前缀</a> 。</li>
+<li><em>文件名(filename)</em> 作为文件系统路径的组件。</li>
 </ul>
-</li>
-<li>不使用 POSIX 兼容模式。</li>
-</ul>
-</li>
-<li>对其它 POSIX shell 脚本：
-<ul>
-<li>使用符合 POSIX 的 shell ，或使用以上要求相同的 <code>bash</code> 运行 shell 脚本。</li>
-</ul>
-</li>
-<li>可支持使用特定的公共非 POSIX 扩展：
-<ul>
-<li>使用 <a href="https://unix.stackexchange.com/questions/614808"><code>mktemp</code></a> 命令创建临时文件名。</li>
-<li><strong>注释</strong> 这些扩展在应在受支持的<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0">平台环境</a>中可用。</li>
-</ul>
-</li>
-<li><strong>注释</strong> 除非另行指定，不要求对 shell 环境进行检查。</li>
-</ul>
-</li>
-<li>不论是否设置了变量 <code>POSIXLY_CORRECT</code> ，命令解释环境的变量满足：
-<ul>
-<li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_14">特殊内建工具</a>没有被用户定义的同名变量或别名覆盖。</li>
-<li>被脚本调用的 POSIX 定义的工具命令没有被用户定义的同名变量或别名覆盖为调用时可观察行为不等价的实体。</li>
-<li>变量 <code>IFS</code> 未设置或设置为默认值。</li>
-</ul>
-</li>
-<li>命令解释器同 <code>bash</code> 的 <code>-p</code> 选项启用时效果相同。
-<ul>
-<li>用户应保证不设置 <code>CDPATH</code> 等 <code>-p</code> 忽略的<a href="Run.zh-CN.html">环境变量</a>及 <code>$BASH_ENV</code> 等启动文件，以避免未预期的不同行为。</li>
-</ul>
-</li>
-<li>脚本文件不是目标在不同目录中的符号链接。
-<ul>
-<li>对 bash 脚本，允许使用变量 <code>BASH_SOURCE</code> 的值（如 <code>${BASH_SOURCE[0]}</code> 或 <code>${BASH_SOURCE%/*}</code> 等形式） 较可靠地判断脚本文件的路径。此时，隐含需要附加假定通过脚本文件路径确定其它资源的位置。</li>
-<li>部分脚本可能有更进一步的使用限制或不依赖 <code>.</code> 命令及命令解释器调用的差异。此时，可直接使用 <code>&quot;$0&quot;</code> 判断路径。</li>
-</ul>
-</li>
-<li>除非另行指定，调用的外部命令的程序满足以下可用性要求：
-<ul>
-<li>以 POSIX 实用程序名称直接调用的满足 POSIX 对应的要求。</li>
-<li>当前使用的 shell 的名称（如 <code>bash</code> ）总是能被 POSIX <code>env</code> 实用程序搜索到并调用。</li>
-<li><code>/usr/bin/env</code> 总是提供可用的 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/env.html">POSIX <code>env</code> 实用程序</a>。
-<ul>
-<li><strong>注释</strong> 这允许上述 Shebang 可用。同时，<code>/usr/bin/env</code> 作为命令名称一般等同于 <code>env</code> 。</li>
-</ul>
-</li>
-<li><strong>注释</strong> 除非另行指定，不使用 <code>which</code> 。
-<ul>
-<li>在 GNU bash 中，对检查一个操作数的情形，使用 <code>type -P</code> 代替。</li>
-<li>注意 <code>command -v</code> 对别名等非 <code>$PATH</code> 中可搜索的程序处理不同。</li>
-<li>另见 <a href="https://www.shellcheck.net/wiki/SC2230">ShellCheck 警告 SC2230</a> 和<a href="https://github.com/koalaman/shellcheck/issues/1162">相关讨论</a>。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>　　脚本实现中的调用不受以上限制。</p>
-<p>　　若脚本可以确保兼容 POSIX shell ，使用后者而不是前者。</p>
-<p>　　如果对应解释器位于其它目录，可以符号链接到上面指定的路径。</p>
-<p>　　除非另行指定，本文档约定使用的路径字符串的分隔符为 <code>/</code> ，不连续出现在路径中，且不在结尾出现。例外：</p>
-<ul>
-<li>平台相关的绝对路径转义可出现 <code>//</code> 。</li>
-<li>构成路径的路径前缀可能以分隔符结尾，直接表示上层目录。</li>
-</ul>
-<p><strong>注意</strong> 当前版本库中的文件不保证跟踪权限。在一些环境中可能因为可执行权限问题导致无法立即执行脚本，参见<a href="GettingSources.zh-CN.html">这里的说明</a> 。</p>
-<p>　　<a href="Releases.zh-CN.html">正式支持的发布版本</a>中的公开 Shell 脚本应保证用 <a href="https://www.shellcheck.net/">ShellCheck</a> 0.7 或以上版本（任选）检查没有诊断消息。检查的命令行为 <code>shellcheck -x -P SCRIPTDIR</code> 跟随文件名。除非另行指定，使用明确的方式避免引起检查的问题而不是使用指令消除检查的结果，如使用 <code>${BASH_SOURCE[0]}</code> 代替 <code>$BASH_SOURCE</code> 以避免 <a href="https://www.shellcheck.net/wiki/SC2128">ShellCheck 警告 SC2128</a> 。</p>
-<h3 id="shell-语言使用规约"><a class="header" href="#shell-语言使用规约">Shell 语言使用规约</a></h3>
-<p>　　脚本程序不调整影响别名扩展的 shell 选项（如 bash 的 <code>shopt -u expand_aliases</code> ）。</p>
-<p>　　依照<a href="Run.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">运行时环境的约定</a>，除非另行指定，脚本不区分未设置的环境变量和已设置但具有空值的环境变量，以允许在外部环境配置脚本的执行。这两种情形下，被用于脚本中的变量的环境变量都可能指定一个非空的初始值，称为变量的<em>默认值(default value)</em> 。变量是否使用默认值总在先于第一次使用变量的值的初始化时确定。</p>
-<p>　　变量的初始化和默认值满足以下约定：</p>
-<ul>
-<li>初始化的变量是否只读未指定。</li>
-<li>初始化变量时若需使用默认值，可能发生附加的求值（如命令调用）以其结果确定具体默认值。</li>
-<li>除非变量的初始化被指定为由特定的函数确定，变量在未指定的脚本被执行时无条件初始化，而不需要使用变量的值前调用特定的函数。</li>
-<li>除非另行指定：
-<ul>
-<li>在特定函数中初始化的变量由此函数指定其默认值。</li>
-<li>初始化时使用的外部环境变量的值可假定和脚本运行环境直接或间接调用脚本前相同。</li>
-</ul>
-</li>
-</ul>
-<p>　　除非另行指定，shell 函数满足以下约定：</p>
-<ul>
-<li>已定义的 shell 函数假定不被其它变量覆盖。
-<ul>
-<li><strong>原理</strong> 这允许实现省略 <code>readonly -f</code> 或 <code>declare -g -r -f</code> 声明，且允许使用相同的定义覆盖以简化调试。</li>
-</ul>
-</li>
-<li>Shell 函数返回值是通过接口语义中蕴含的最后的命令调用的返回值；或当不存在这样的命令时，默认为 <code>0</code> 。</li>
-<li>Shell 函数的结果是标准输出的内容。
-<ul>
-<li><strong>注释</strong> 通常使用 <code>echo</code> 或功能蕴含 <code>echo</code> 的命令调用输出返回的值。</li>
-</ul>
-</li>
-</ul>
-<p>　　非生成的脚本源代码中不使用包含 <code>__</code> 的名称。</p>
-<p>　　公开函数的函数名及公开的变量名<a href="#%E6%8E%A5%E5%8F%A3%E7%BA%A6%E5%AE%9A">不以 <code>_</code> 结尾</a>，否则以一个 <code>_</code> 结尾。</p>
-<p>　　对 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 相关工具使用的函数，使用前缀 <code>SHBuild</code> 。</p>
-<p>　　函数出错且无法恢复时退出脚本。</p>
-<p>　　版本库中的提供的脚本一般应能通过 ShellCheck 检查。对需要使用 <a href="https://github.com/koalaman/shellcheck/wiki/Directive">ShellCheck 指令</a>指定脚本起始构造的检查时，在之前添加一行空命令（对 bash 脚本使用 <code>:</code> ，非 bash 脚本命令使用 <code>true</code> ）以避免非预期地使指令作用于整个脚本。</p>
+<p><strong>注释</strong></p>
+<p>　　POSIX 路径名 <code>/</code> 是根路径；前缀 <code>//</code> 在路径解析中具有实现定义的行为，但 3 个或以上 <code>/</code> 视为 1 个 <code>/</code> 而不具有类似的实现定义语义。</p>
+<p>　　Windows 的 POSIX 实现如 Cygwin 和 MSYS 使用 <code>//</code> 作为 POSIX 路径的 UNC 路径前缀（在 Win32 中为 <code>\\</code> ）。</p>
 <h3 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h3>
-<p>　　Shell 脚本可使用以下能通过外部环境指定值的环境变量：</p>
+<p>　　依照<a href="Run.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">运行时环境的约定</a>，除非另行指定，YSLib 程序（包含脚本）不区分未设置的环境变量和已设置但具有空值的环境变量，以允许在外部环境配置脚本的执行。这两种情形下，被用于脚本中的变量的都可能被指定一个非空的初始值，称为变量的<em>默认值(default value)</em> 。</p>
+<p>　　程序中参照环境变量管理的具有对应字符串类型的值的具名配置项，也可视为具有默认值的变量。</p>
+<p><strong>注释</strong> 被作为环境变量传递的值应能通过<a href="#%E4%BA%92%E6%93%8D%E4%BD%9C">互操作</a>确保和环境变量的值具有对应关系。即便变量仅在脚本或非脚本的程序内部使用，也可用本节的规则，但这部分是可选的。</p>
+<p>　　变量是否使用默认值总在先于第一次使用变量的值的初始化时确定。指定按需<em>按需(as needed)</em> 初始化的变量，当且仅当具有非空值时被初始化为默认值。</p>
+<p>　　YSLib 程序可按需使用以下能通过外部环境指定值的环境变量及其默认值：</p>
 <ul>
-<li>用于指定入口位置：
+<li>用于指定命令：
 <ul>
-<li><code>SHBuild</code> ：外部 SHBuild 可执行文件路径。
-<ul>
-<li>默认值和特定脚本被设计适应的部署环境相关（例如，视不同情形，脚本可使用 <code>${BASH_SOURCE[0]}</code> 或 <code>&quot;$0&quot;</code> ）。</li>
-</ul>
-</li>
-<li><code>SHBuild_ToolDir</code> ：工具目录中的脚本目录（参见<a href="Tools/Scripts.zh-CN.html">脚本</a>）。
-<ul>
-<li>默认值由脚本根据存储库所在目录确定。</li>
-</ul>
-</li>
+<li><code>SHBuild</code> ：外部 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 可执行文件路径。</li>
 </ul>
 </li>
 <li>用于指定存储库中的资源：
 <ul>
+<li><code>SHBuild_ToolDir</code> ：工具目录中的脚本目录即 <a href="Tools/Scripts.zh-CN.html#Tools"><code>Tools/Scripts</code></a> 。</li>
 <li><code>SHBuild_BaseDir</code> : SHBuild 目录，是工具目录中提供 SHBuild 的源代码的目录。
 <ul>
-<li>默认值按 <code>SHBuild_ToolDir</code> 初始化后的相对位置确定，为 <code>&quot;$SHBuild_ToolDir/../SHBuild&quot;</code>。</li>
+<li>默认值按 <code>SHBuild_ToolDir</code> 初始化后的相对位置确定，为 <code>"$SHBuild_ToolDir/../SHBuild"</code>。</li>
 </ul>
 </li>
-<li><code>YSLib_BaseDir</code> ：YSLib 目录，即版本库检出后的工作目录。
-<ul>
-<li>默认值按 <code>SHBuild_ToolDir</code> 初始化后的相对位置确定，为 <code>&quot;$SHBuild_ToolDir/../..&quot;</code>。</li>
-</ul>
-</li>
+<li><code>YSLib_BaseDir</code> ：YSLib 目录，即版本库检出后的工作目录。</li>
 </ul>
 </li>
 <li>用于指定输出目录：
@@ -756,17 +852,24 @@
 <ul>
 <li>默认值定义如下：
 <ul>
-<li>对不依赖 Sysroot 的以及 <code>YSLib/YSTest</code> 目录下的项目构建脚本，默认值指定在完整的版本库中和 <code>&quot;$YSLib_BaseDir/build/$(SHBuild_GetBuildName)&quot;</code> 相同的目录，且构建 <a href="Sysroot.zh-CN.html">stage 1</a> YSLib 时确保为绝对路径。</li>
-<li>对 <code>YSLib/YDE</code> 目录下的项目构建脚本，默认值是 <code>&quot;.$(SHBuild_GetBuildName)&quot;</code> 。</li>
+<li>对不依赖 <a href="Sysroot.zh-CN.html">Sysroot</a> 的以及 <code>YSLib/YSTest</code> 目录下的项目构建脚本，默认值指定在完整的版本库中和 <code>"$YSLib_BaseDir/build/$(SHBuild_GetBuildName)"</code> 相同的目录，且构建 <a href="Sysroot.zh-CN.html">stage 1</a> YSLib 时确保为绝对路径。</li>
+<li>对 <code>YSLib/YDE</code> 目录下的项目构建脚本，默认值是 <code>".$(SHBuild_GetBuildName)"</code> 。</li>
 <li>否则，默认值是当前工作目录 <code>.</code> 。</li>
 <li>以上调用的函数 <code>SHBuild_GetBuildName</code> 在<a href="Tools/Scripts.zh-CN.html#toolsscriptsshbuild-commonsh">脚本 <code>Tools/Scripts/SHBuild-common.sh</code></a> 中，依赖具有非空值的变量 <code>SHBuild_Host_OS</code> 和 <code>SHBuild_Host_Arch</code> 。</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><code>SHBuild_SysRoot</code> ：输出的 Sysroot 根路径。
+<li><code>SHBuild_SysRoot</code> ：Sysroot 根路径。
 <ul>
-<li>在 stage 1 中，默认值是 <code>&quot;$YSLib_BaseDir/sysroot&quot;</code> 。</li>
+<li>在 <a href="Tools/SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">SHBuild 构建环境</a>中，指定 <a href="Tools/SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 2 SHBuild</a> 的输出目录；默认值是 <code>"$YSLib_BaseDir/sysroot"</code> 。</li>
+<li>在<a href="Tools/SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">部署后环境</a>中，指定一个先前的 Sysroot 安装位置；默认值按 <code>SHBuild</code> 初始化后的相对位置确定。
+<ul>
+<li><strong>注释</strong> 当前仅在经过 SHBuild 构建环境后直接复用，而不单独作为<a href="#%E6%96%87%E4%BB%B6%E5%AE%9A%E4%BD%8D">入口位置</a>。</li>
+</ul>
+</li>
+<li>其值被作为路径使用时，结尾的一个或多个 <code>/</code> 被忽略。</li>
+<li><strong>原理</strong> 忽略结尾 <code>/</code> 允许 Sysroot 根路径的字符串表示作为<a href="#%E8%B7%AF%E5%BE%84">路径前缀</a>和一个 POSIX 绝对路径的路径前缀（以 <code>/</code> 起始的字符串）拼接时，把后者视为相对 Sysroot 根路径的<a href="#%E8%B7%AF%E5%BE%84">路径后缀</a>而不在结果中引入多余的 <code>/</code> 。否则，支持被拼接的路径前缀视为路径后缀时 Sysroot 根路径无法支持指定 POSIX 根路径 <code>/</code> ，因为这要求变量 <code>SHBuild_SysRoot</code> 的值是空值而和默认值冲突。</li>
 </ul>
 </li>
 </ul>
@@ -822,22 +925,230 @@
 <li>其它构建脚本使用的变量：详见以下具体脚本的说明。</li>
 </ul>
 </li>
+<li><strong>注释</strong> 上述变量中，可作为<a href="#%E6%96%87%E4%BB%B6%E5%AE%9A%E4%BD%8D">入口位置</a>的变量的默认值在此省略，详见<a href="#%E6%96%87%E4%BB%B6%E5%AE%9A%E4%BD%8D">文件定位</a>的相关说明。</li>
 </ul>
-<p>　　若以上变量在上述任一情形存在作为路径的默认值且外部环境指定变量的值，则指定的值应表示合法的路径。</p>
-<p>　　一般地，部署的 shell 脚本需引用其它脚本时，以如下方式使用指定入口的环境变量：</p>
+<p><strong>注释</strong> <a href="Tools/Scripts.zh-CN.html#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">脚本中的环境配置约定</a>指定更具体的脚本可访问的变量，其命名满足以上变量名要求。</p>
+<p>　　若以上变量在上述任一情形存在作为路径的默认值且外部环境指定变量的值，则指定的值应表示合法的路径。若指定的是可执行文件，则具有可访问和执行的权限。脚本可对这些条件进行检查，若失败则引起错误。</p>
+<h2 id="互操作"><a class="header" href="#互操作">互操作</a></h2>
+<p>　　脚本源代码中可引用自身或其它程序，被引用的程序是<em>目标程序(target program)</em> 。目标程序可使用脚本实现，即<em>目标脚本(target script)</em> 。被执行的<em>当前脚本(current script)</em> 可能通过文件路径和脚本语言支持的构造使用目标程序。</p>
+<p><strong>示例</strong> Shell 脚本中可使用 <code>.</code> 或 <code>source</code> 命令执行参数指定路径的兼容 shell 的目标脚本、调用脚本解释器命令执行参数指定的被解释器支持的目标脚本或直接使用带有适当权限的文件名作为命令执行目标程序。</p>
+<h3 id="文件定位"><a class="header" href="#文件定位">文件定位</a></h3>
+<p>　　被引用的目标程序或其它文件被运行时相对特定的文件系统中的位置应被确定，即对<em>目标文件(target file)</em> 的<em>定位(locating)</em> 。</p>
+<p>　　定位包含一次或多次对输入的指定文件位置的参数进行处理，输出新的路径作为候选，这个过程即<em>解析(resolution)</em> 。<em>入口位置(entry location)</em> 是定位的起始位置，作为第一步路径解析的输入，之后可选的步骤迭代可继续输入不同的相对路径迭代解析，直至取得与其的目标文件的位置。入口位置可以是当前被执行的脚本文件在文件系统中的位置，或通过<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">特定的环境变量</a>的值指定。其它一些变量也可指定路径解析步骤的输入。</p>
+<p><strong>注释</strong> 定位解析的迭代方式和文件系统对<a href="#%E8%B7%AF%E5%BE%84">路径解析</a>的方式类似，但输入和输出不一定是路径。通常最终的输出是能在当前上下文中直接和唯一地确定文件位置的路径。若当前上下文不支持访问工作目录，这个路径一般应为绝对路径。和路径解析不同，位置的抽象解析可以包含执行任意操作而不排除其中可能具有副作用，但通常仍应完全避免依赖这些副作用。</p>
+<p>　　同时在多个环境都适用的目标文件，相对当前脚本的位置不保证相同。若表达这些相对位置的相对路径确保作用等价，则视为相对位置唯一确定。</p>
+<p><strong>注释</strong> 目标程序通常是 YSLib 提供的脚本或构建后部署的程序。若使用其它程序，可能安装在 <code>$PATH</code> 可引用的路径或其它周知的位置，而不需要使用本节的方式定位；但本节的方式仍可能（有限地）适用。</p>
+<p>　　当前设计中，YSLib 提供的脚本可以在 <a href="Tools/SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">SHBuild 构建环境</a>和<a href="Tools/SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">部署后环境</a>中使用，即可访问和可执行。Sysroot 布局可提供在部署后环境脚本的特定位置的目标文件。YSLib <a href="Terminology.zh-CN.html#%E7%89%88%E6%9C%AC%E5%BA%93">存储库</a>提供部署之前的确定的相对位置的脚本。</p>
+<p><strong>注释</strong> 可能有程序在不同环境中的<a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">可观察行为</a>不完全相同，如 <a href="Tools/SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1 和 stage 2 SHBuild</a> 依赖不同的库，也不保证未来具有完全相同的特性集。</p>
+<p>　　定位解析的典型情形如下：</p>
 <ul>
-<li>若脚本只支持 Sysroot ，以 <code>SHBuild</code> 在 Sysroot 的安装位置推断其它脚本的路径。</li>
-<li>若脚本只支持工具目录中的脚本目录布局，以 <code>SHBuild_ToolDir</code> 指定。
+<li>使用已知位置的相对路径定位：位置由表示已知位置的路径和相对当前脚本的相对路径确定。
 <ul>
-<li>这隐含目录在版本库中的布局，可以此初始化 <code>YSLib_BaseDir</code> 等变量的默认值。</li>
+<li>其中，已知位置是当前脚本或一个已被定位的目标文件的位置。</li>
+<li><strong>注释</strong> 当脚本同时支持 SHBuild 构建环境和部署后环境，预期使用等效的目标文件，一般应使用文件直接确定而非以下可配置的<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>。对无法唯一定位的目标文件，则可使用以下其它方式。</li>
 </ul>
 </li>
-<li>若脚本同时支持 Sysroot 中部署的位置和工具目录中的脚本目录布局：则不使用以上的变量。
+<li>使用<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量</a>的值定位：位置由作为路径的变量的值指定，若非空则需要<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">默认值</a>。</li>
+<li>搜索路径定位：使用搜索特定变量值中的元素作为路径前缀的结果。
 <ul>
-<li>引用其它脚本文件时可直接指定包含，如：<code>. &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/SHBuild-common.sh&quot;</code> 。</li>
+<li>除非另行指定，被搜索变量是内容满足 <a href="https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap08.html">POSIX.1 定义</a>的 <code>PATH</code> ，使用 <a href="#%E8%B7%AF%E5%BE%84">POSIX.1 路径名解析</a> 的方式取得结果。</li>
 </ul>
 </li>
 </ul>
+<p>　　可用于指定入口的<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>的默认值和特定脚本被设计适应的部署环境可能相关，确定如下：</p>
+<ul>
+<li><code>SHBuild</code> ：
+<ul>
+<li>SHBuild 构建环境中的安装过程中的默认值参见<a href="Tools/SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">构建过程</a>。</li>
+<li>否则，对部署后环境中的可执行脚本，默认值是 Sysroot 中的脚本直接指定 Sysroot 根目录定位的结果。</li>
+<li>否则，默认值是搜索路径定位的结果。</li>
+</ul>
+</li>
+<li><code>SHBuild_ToolDir</code> ：
+<ul>
+<li>默认值按脚本根据存储库所在目录确定。</li>
+<li><strong>注释</strong> 在 SHBuild 构建之后，脚本可能脱离存储库运行，不保证这个目录存在，因此部署后环境下的脚本不依赖 <code>SHBuild_ToolDir</code> 取脚本路径。</li>
+</ul>
+</li>
+<li><code>YSLib_BaseDir</code> ：
+<ul>
+<li>默认值按变量 <code>SHBuild_ToolDir</code> 初始化后的值指定的位置的相对路径确定，为 <code>"$SHBuild_ToolDir/../.."</code>。</li>
+</ul>
+</li>
+<li><strong>原理</strong> 工具目录及其子目录相对存储库的布局（相对路径）是确定的，可直接使用相对路径定位。</li>
+<li><strong>原理</strong> <a href="Sysroot.zh-CN.html#%E5%B8%83%E5%B1%80">Sysroot 布局</a>已能在 <a href="Tools/SHBuild.zh-CN.html#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">stage 1 环境</a>之后假定固定的相对路径的存在性。为简化规则，不使用<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>SHBuild_SysRoot</code></a> 的值指定入口。</li>
+</ul>
+<p>　　在以上通用的变量外，特定脚本使用不同的变量指定入口位置，默认值<a href="Terminology.zh-CN.html#%E8%A7%84%E8%8C%83">由实现定义</a>（如通过脚本的接口规范指定）或未指定。</p>
+<p>　　指定入口位置以外，定位解析的中间结果可被保存在由实现定义或未指定的变量中。</p>
+<p><strong>注释</strong> 使用的变量一般被明确指定或至少指定变量名的模式(pattern) ，以便用户避免使用可能引发潜在冲突的无关的变量。</p>
+<p>　　YSLib 提供的脚本的实现中，定位目标文件所在目录（以确定脚本所在路径）的一般策略如下：</p>
+<ul>
+<li>若目标文件在 SHBuild 构建环境和部署后环境中同时可用，且被当前脚本使用具有的可观察行为相同，同时相对当前脚本的位置唯一确定，使用当前脚本作为已知位置，以相对路径定位。
+<ul>
+<li><strong>原理</strong> 总是使用当前脚本的相对路径定位，因为需要兼容 SHBuild 构建环境，而部署后环境可用的脚本无法依赖<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>SHBuild_ToolDir</code></a> 的值指定目标文件所在的目录。</li>
+</ul>
+</li>
+<li>否则，若目标文件是部署后环境中被部署的公开可执行程序，使用变量的值指定，其默认值对应指定其位置，是搜索路径定位的结果。
+<ul>
+<li>若目标文件是可执行程序 <code>SHBuild</code> ，使用<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>SHBuild</code></a> 。</li>
+<li>否则，使用<a href="Terminology.zh-CN.html#%E8%A7%84%E8%8C%83">由实现定义</a>的变量。</li>
+<li><strong>注释</strong> 除 <code>SHBuild</code> 外仅可在部署后环境使用；确定默认值的方式和部署后环境的 <code>SHBuild</code> 相同。</li>
+</ul>
+</li>
+<li>否则，若目标文件是 Sysroot 根路径指定的目录，使用 <code>SHBuild</code> 的位置的相对路径定位。</li>
+<li>否则，若目标文件在 Sysroot 根路径指定的目录或子目录中，按 Sysroot 根目录的位置的相对路径定位目标文件。
+<ul>
+<li><strong>注释</strong> 另见 <a href="#npla1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">NPLA1 环境变量</a>。</li>
+</ul>
+</li>
+<li>否则，若目标文件是工具目录中的脚本目录，使用<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>SHBuild_ToolDir</code></a> 的值作为定位的结果。</li>
+<li>否则，若目标文件在工具目录中的脚本目录中，按工具目录的位置的相对路径定位目标文件。</li>
+<li>否则，若目标文件是存储库根目录，使用<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量 <code>YSLib_BaseDir</code></a> 的值作为定位的结果。</li>
+<li>否则，若目标文件在存储库根目录或子目录中，按存储库根目录的位置的相对路径定位目标文件。
+<ul>
+<li><strong>注释</strong> 典型地，YSLib 存储库的工具目录外的源代码属于这种情形。</li>
+</ul>
+</li>
+<li>否则，对每个目标文件，当前脚本可通过由实现定义的方式确定其位置的方式。
+<ul>
+<li><strong>注释</strong> 这是可选的。可能不通过公开文档指定，如使用注释。</li>
+</ul>
+</li>
+<li>否则，目标文件的位置未指定。
+<ul>
+<li><strong>注释</strong> 一般仅在实现内部使用未指定唯一位置的文件，以避免影响约定的脚本程序的可观察行为。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 一般分别使用以上策略对不同目标文件定位。
+<ul>
+<li><strong>原理</strong> 即便脚本还依赖以下其它规则定位仅在部署后环境可用的目标文件，也不影响单独定位，以在支持尽可能多的配置组合同时减少规则的复杂性。</li>
+<li><strong>示例</strong> 在 SHBuild 构建环境和部署后环境可用的公共脚本，不使用 <code>SHBuild</code> 以外的变量的值指定位置。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 通过变量定位时，原则上优先使用相对路径较简单的较近父目录的位置。
+<ul>
+<li><strong>原理</strong> 单独指定更上级目录的变量因此无效。这避免要求实现检查所有可能涉及的变量。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 一些目标文件的定位可作为其它文件的已完成的解析步骤。
+<ul>
+<li><strong>示例</strong> 通过定位确定工具目录位置后，可定位其中的其它文件。</li>
+<li>这些定位不一定通过<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">周知的变量</a>访问，可能由实现定义或未指定。</li>
+</ul>
+</li>
+</ul>
+<p>　　定位所在的目录后，其中的脚本可基于所在目录的路径表达式构造路径指定位置。定位可在脚本中的不同位置中出现，应当满足依赖项的使用需求。</p>
+<p><strong>原理</strong> 当存在多个<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">配置入口的不同环境变量</a>时，以上定位的规则能无歧义地指定其中<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">默认值</a>的生效方式。特别地，Sysroot 的布局蕴含 <code>SHBuild</code> 、Sysroot 根目录和目标文件的位置之间的相对路径是确定的，能保证唯一确定路径。</p>
+<p><strong>警告</strong> 假定脚本定位的目标程序是支持的版本且不依赖其具体位置，否则调用目标程序的脚本行为未指定。特别地，混用不同版本的存储库或 Sysroot 对应的文件不被支持。</p>
+<h2 id="shell-脚本"><a class="header" href="#shell-脚本">Shell 脚本</a></h2>
+<p>　　扩展名 <code>.sh</code> 的脚本文件是 shell 脚本文件。大多数脚本需要使用 <a href="https://www.gnu.org/software/bash/">GNU Bash</a> 运行，如：</p>
+<pre><code class="language-shell">#!/usr/bin/bash
+</code></pre>
+<p>　　需要考虑兼容性时，一般使用以下替代：</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+</code></pre>
+<p>　　其它可以直接兼容 POSIX shell 的 <code>.sh</code> 脚本使用 Shebang 如：</p>
+<pre><code class="language-shell">#!/usr/bin/sh
+</code></pre>
+<p>　　需要考虑兼容性时，一般使用以下替代：</p>
+<pre><code class="language-shell">#!/usr/bin/env sh
+</code></pre>
+<p>　　若脚本可以确保兼容 POSIX shell ，使用 <code>sh</code> 而不是 <code>bash</code> 。</p>
+<p>　　为简化脚本代码，用户需要保证调用 shell 脚本时，环境应满足以下条件，否则行为未指定：</p>
+<ul>
+<li>使用满足要求的 shell 语言实现：
+<ul>
+<li>对 Bash 脚本：
+<ul>
+<li>满足版本要求：<strong>当前最低版本为 <a href="https://www.gnu.org/software/bash/manual/">GNU Bash</a> 4.4 。</strong>
+<ul>
+<li><strong>注释</strong> 要求 4.0 保证能使用 <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-mapfile"><code>mapfile</code></a> 等 <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html">Bash 内建命令</a>。</li>
+<li><strong>注释</strong> 要求 4.4 保证能使用 <code>${@@Q}</code> 等<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">参数替换</a>。</li>
+</ul>
+</li>
+<li>不使用 POSIX 兼容模式。</li>
+</ul>
+</li>
+<li>对其它 POSIX shell 脚本：
+<ul>
+<li>使用符合 POSIX 的 shell ，或使用以上要求相同的 <code>bash</code> 运行 shell 脚本。</li>
+</ul>
+</li>
+<li>可支持使用特定的公共非 POSIX 扩展：
+<ul>
+<li>使用 <a href="https://unix.stackexchange.com/questions/614808"><code>mktemp</code></a> 命令创建临时文件名。</li>
+<li><strong>注释</strong> 这些扩展在应在受支持的<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0">平台环境</a>中可用。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 除非另行指定，不要求对 shell 环境进行检查。</li>
+</ul>
+</li>
+<li>不论是否设置了变量 <code>POSIXLY_CORRECT</code> ，命令解释环境的变量满足：
+<ul>
+<li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_14">特殊内建工具</a>没有被用户定义的同名变量或别名覆盖。</li>
+<li>被脚本调用的 POSIX 定义的工具命令没有被用户定义的同名变量或别名覆盖为调用时<a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">可观察行为</a>不等价的实体。</li>
+<li>变量 <code>IFS</code> 未设置或设置为默认值。</li>
+</ul>
+</li>
+<li>命令解释器同 <code>bash</code> 的 <code>-p</code> 选项启用时效果相同。
+<ul>
+<li>用户应保证不设置 <code>CDPATH</code> 等 <code>-p</code> 忽略的<a href="Run.zh-CN.html">环境变量</a>及 <code>$BASH_ENV</code> 等启动文件，以避免未预期的不同行为。</li>
+</ul>
+</li>
+<li>脚本文件不是目标在不同目录中的符号链接。
+<ul>
+<li>对 Bash 脚本，允许使用变量 <code>BASH_SOURCE</code> 的值（如 <code>${BASH_SOURCE[0]}</code> 或 <code>${BASH_SOURCE%/*}</code> 等形式） 较可靠地判断脚本文件的路径。此时，隐含需要附加假定通过脚本文件路径确定其它资源的位置。</li>
+<li>部分脚本可能有更进一步的使用限制或不依赖 <code>.</code> 命令及命令解释器调用的差异。此时，可直接使用 <code>"$0"</code> 判断路径。</li>
+</ul>
+</li>
+<li>除非另行指定，调用的外部命令的程序满足以下可用性要求：
+<ul>
+<li>以 POSIX 实用程序名称直接调用的满足 POSIX 对应的要求。</li>
+<li>当前使用的 shell 的名称（如 <code>bash</code> ）总是能被 <a href="#%E5%AE%9E%E7%94%A8%E7%A8%8B%E5%BA%8F">POSIX <code>env</code> 实用程序</a>搜索到并调用。</li>
+<li><code>/usr/bin/env</code> 总是提供可用的 POSIX <code>env</code> 实用程序。
+<ul>
+<li><strong>注释</strong> 这允许上述 Shebang 可用。同时，<code>/usr/bin/env</code> 作为命令名称一般等同于 <code>env</code> 。</li>
+</ul>
+</li>
+<li><strong>注释</strong> <a href="#%E5%AE%9E%E7%94%A8%E7%A8%8B%E5%BA%8F">避免使用 <code>which</code></a>。</li>
+</ul>
+</li>
+</ul>
+<p>　　脚本实现中的调用不受以上限制。</p>
+<p>　　若对应解释器位于其它目录，可通过符号链接以满足以上要求。</p>
+<p><strong>注释</strong> 一般不检查解释器的路径是否指定一个符号链接。</p>
+<p>　　除非另行指定，本文档约定使用的路径字符串的分隔符为 <code>/</code> ，不连续出现在路径中，且不在结尾出现。例外：</p>
+<ul>
+<li>平台相关的绝对路径转义可出现 <code>//</code> 。</li>
+<li>构成路径的路径前缀可能以分隔符结尾，直接表示上层目录。</li>
+</ul>
+<p><strong>注意</strong> 当前版本库中的文件不保证跟踪权限。在一些环境中可能因为可执行权限问题导致无法立即执行脚本，参见<a href="GettingSources.zh-CN.html">这里的说明</a> 。</p>
+<p>　　脚本可能执行 <code>set -e</code> 以及早发现错误，包括但不限于<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">变量的默认值</a>初始化失败。</p>
+<p>　　<a href="Releases.zh-CN.html">正式支持的发布版本</a>中的公开 Shell 脚本应保证用 <a href="https://www.shellcheck.net/">ShellCheck</a> 0.7 或以上版本（任选）检查没有诊断消息。检查的命令行为 <code>shellcheck -x -P SCRIPTDIR</code> 跟随文件名。除非另行指定，使用明确的方式避免引起检查的问题而不是使用指令消除检查的结果，如使用 <code>${BASH_SOURCE[0]}</code> 代替 <code>$BASH_SOURCE</code> 以避免 <a href="https://www.shellcheck.net/wiki/SC2128">ShellCheck 警告 SC2128</a> 。</p>
+<h3 id="shell-语言使用规约"><a class="header" href="#shell-语言使用规约">Shell 语言使用规约</a></h3>
+<p>　　对 shell 命令语言和兼容方言的使用符合 <a href="#shell-%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83">shell 语言使用规范</a> 。</p>
+<p>　　脚本程序不调整影响别名扩展的 shell 选项（如 Bash 的 <code>shopt -u expand_aliases</code> ）。</p>
+<p>　　非生成的脚本源代码中不使用包含 <code>__</code> 的名称。</p>
+<p>　　公开函数的函数名及公开的变量名<a href="#%E6%8E%A5%E5%8F%A3%E7%BA%A6%E5%AE%9A">不以 <code>_</code> 结尾</a>，否则以一个 <code>_</code> 结尾。</p>
+<p>　　对 <a href="Tools/SHBuild.zh-CN.html">SHBuild</a> 相关工具使用的函数，使用前缀 <code>SHBuild</code> 。</p>
+<p>　　函数出错且无法恢复时退出脚本。</p>
+<p>　　版本库中的提供的脚本一般应能通过 ShellCheck 检查。对需要使用 <a href="https://github.com/koalaman/shellcheck/wiki/Directive">ShellCheck 指令</a>指定脚本起始构造的检查时，在之前添加一行空命令（对 Bash 脚本使用 <code>:</code> ，非 Bash 脚本命令使用 <code>true</code> ）以避免非预期地使指令作用于整个脚本。</p>
+<h3 id="shell-变量"><a class="header" href="#shell-变量">Shell 变量</a></h3>
+<p>　　除非另行指定，shell 脚本对变量的使用符合 <a href="#%E5%8F%98%E9%87%8F%E5%92%8C%E7%8E%AF%E5%A2%83">shell 代码对变量的规则</a>。</p>
+<p>　　Shell 脚本可使用<a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>指定外部配置变量的值，即<em>外部变量(external variable)</em> 。</p>
+<p><strong>示例</strong> Bash 命令 <code>_="${SHBuild:="$(type -P SHBuild)"}"</code> 初始化变量 <code>SHBuild</code> 的值<a href="#%E6%96%87%E4%BB%B6%E5%AE%9A%E4%BD%8D%E7%9A%84%E5%AE%9E%E7%8E%B0">实现搜索 <code>$PATH</code> 的路径定位</a> <code>SHBuild</code> 命令。</p>
+<p>　　Shell 的<em>内部变量(internal variable)</em> 在脚本之间使用，通过 <a href="#%E4%BA%92%E6%93%8D%E4%BD%9C"><code>.</code> 或 <code>source</code> 命令共享</a>。</p>
+<p><strong>注释</strong> 外部变量和内部变量类似 C 语言标识符的链接。类似地，局部变量不是外部变量或内部变量。</p>
+<p>　　以下内部变量具有公共的含义：</p>
+<ul>
+<li><code>INC_SHBuild_</code> ：用于指定标记已被检查<a href="#%E4%BA%92%E6%93%8D%E4%BD%9C">用 <code>.</code> 或 <code>source</code> 命令包含</a>的前缀。
+<ul>
+<li><strong>注释</strong> 类似 C 和 C++ 源程序中的守卫宏(macro name) 的名称。多次调用可能效果不同的脚本一般不使用。</li>
+<li>这些变量不被设置为只读以支持显式地取消定义而重复包含脚本。</li>
+</ul>
+</li>
+</ul>
+<p>　　除非另行指定，外部变量总是允许指定通过环境变量值，内部变量总是能通过互操作共享值，但这些变量不一定被视为公开接口。</p>
 <p>　　除指定入口的环境变量，是否支持外部可覆盖默认值的上述环境变量是可选的，取决于各个脚本的具体支持。</p>
 <p>　　典型地，Shell 指定的环境变量可被以下方式在被 shell 运行的命令中使用：</p>
 <ul>
@@ -862,14 +1173,44 @@
 <li>使用 <a href="https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html"><code>set -k</code></a> 命令后的参数赋值。</li>
 </ul>
 </li>
-<li><strong>注释</strong> 另见 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_12">POSIX 命令执行环境</a> 和 <a href="https://www.gnu.org/software/bash/manual/html_node/Command-Execution-Environment.html">GNU bash 命令执行环境</a>。</li>
+<li><strong>注释</strong> 另见 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_12">POSIX 命令执行环境</a> 和 <a href="https://www.gnu.org/software/bash/manual/html_node/Command-Execution-Environment.html">GNU Bash 命令执行环境</a>。</li>
 </ul>
 <p>　　关于这些环境变量如何影响其它程序，参见<a href="Run.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">运行时的环境变量</a>。</p>
+<h3 id="shell-函数"><a class="header" href="#shell-函数">Shell 函数</a></h3>
+<p>　　除非另行指定，shell 函数满足以下约定：</p>
+<ul>
+<li>已定义的 shell 函数假定不被其它变量覆盖。
+<ul>
+<li><strong>原理</strong> 这允许实现省略 <code>readonly -f</code> 或 <code>declare -g -r -f</code> 声明，且允许使用相同的定义覆盖以简化调试。</li>
+</ul>
+</li>
+<li>Shell 函数返回值是通过接口语义中蕴含的最后的命令调用的返回值；或当不存在这样的命令时，默认为 <code>0</code> 。</li>
+<li>Shell 函数的结果是标准输出的内容。
+<ul>
+<li><strong>注释</strong> 通常使用 <code>echo</code> 或功能蕴含 <code>echo</code> 的命令调用输出返回的值。</li>
+</ul>
+</li>
+</ul>
+<h3 id="文件定位的实现"><a class="header" href="#文件定位的实现">文件定位的实现</a></h3>
+<p>　　定位<a href="#%E6%96%87%E4%BB%B6%E5%AE%9A%E4%BD%8D">入口位置</a>的实现一般如下：</p>
+<ul>
+<li>使用当前脚本的相对路径定位：
+<ul>
+<li><strong>示例</strong> Bash 脚本可使用 <code>${BASH_SOURCE[0]}</code> 引用自身，使用 <code>$(dirname ${BASH_SOURCE[0]})</code> 表达被定位的目录，如：<code>. "$(dirname "${BASH_SOURCE[0]}")/SHBuild-common.sh"</code> 执行当前脚本目录下的 <a href="Tools/Scripts.zh-CN.html#toolsscriptsshbuild-commonsh"><code>SHBuild-common.sh</code></a> 。</li>
+<li><strong>示例</strong> Shell 脚本可使用 <code>"$0"</code> 指定自身位置，使用 <code>cd</code> 、<code>dirname</code> 和 <code>pwd</code> 解析构造的相对路径的结果。</li>
+</ul>
+</li>
+<li>搜索路径定位：
+<ul>
+<li><strong>示例</strong> Bash 脚本可使用 <code>$(type -P program)</code> 指定 <code>program</code> 的位置。</li>
+</ul>
+</li>
+</ul>
 <h2 id="npla1-脚本"><a class="header" href="#npla1-脚本">NPLA1 脚本</a></h2>
 <p>　　NPLA1 脚本可被 SHBuild 调用。SHBuild 支持特定的选项作为 NPLA1 的脚本解释器。脚本解释器支持 NPLA1 脚本文件。此外，在 shell 脚本中，NPLA1 脚本代码可能以字符串的形式存储和被 SHBuild 调用。</p>
 <h3 id="npla1-环境变量"><a class="header" href="#npla1-环境变量">NPLA1 环境变量</a></h3>
 <p>　　NPLA1 脚本可使用和 shell 脚本通用的环境变量，如 <code>SHBuild</code> 。</p>
-<p>　　除 stage 1 外，shell 脚本使用环境变量 <code>NPLA1_ROOT</code> 指定的根目录作为 SHBuild 加载 NPLA1 脚本使用的起始目录。</p>
+<p>　　除 stage 1 外，shell 脚本使用环境变量 <code>NPLA1_ROOT</code> 指定的根目录路径表示 SHBuild 加载 NPLA1 脚本使用的<a href="#%E6%96%87%E4%BB%B6%E5%AE%9A%E4%BD%8D">入口位置</a>。</p>
 <p>　　脚本（包括直接或间接调用 NPLA1 脚本的其它脚本）除默认值外不需要依赖 Sysroot 的安装路径下的目录和文件布局，环境变量 <code>SHBuild</code> 和 <code>NPLA1_ROOT</code> 可分别指定相互无依赖的路径。当仅指定 <code>SHBuild</code> 时，通过指定的 SHBuild 路径推断 <code>NPLA1_ROOT</code> 默认值，此时使用假定符合 Sysroot 约定的相对路径。</p>
 <p>　　NPLA1 脚本可使用以上约定含义和默认值的 shell 环境变量并初始化 NPLA1 脚本内的同名变量，但部分变量的作用域和初始化方式可能不同：</p>
 <ul>

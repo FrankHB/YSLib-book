@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="../Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="../Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="../GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="../Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="../GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="../Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="../Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="../Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="../Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="../YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="../Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tools/SHBuild.zh-CN.html" class="active"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="../Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="../Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="../Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="../Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="../Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="../Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="../Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="../StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="../ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="../WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -188,12 +169,12 @@
 <p>　　如能成功使用以下的多阶段构建方法（会按需调用引导脚本），一般不建议使用直接构建的版本。</p>
 <h3 id="自举"><a class="header" href="#自举">自举</a></h3>
 <p>　　SHBuild 支持<em>自举(self hosting)</em> ，即可使用构建的 SHBuild 继续构建自身。</p>
-<p>　　除需 <code>SHBuild</code> 可执行程序外，对外部环境的要求和引导一致。</p>
+<p>　　除需 <code>SHBuild</code> 可执行程序外，对<a href="../Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">外部环境</a>的要求和<a href="#%E5%BC%95%E5%AF%BC">引导</a>一致。</p>
 <p>　　SHBuild 一直使用简单的源代码结构，设计初期即支持自举，现时仍不限制自举需要的版本。但由于仅测试相同版本的自举构建，因此一般建议使用相同版本。</p>
-<p>　　以下多阶段构建在引导的基础上自举构建 SHBuild 。</p>
+<p>　　以下<a href="#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA">多阶段构建</a>在<a href="#%E5%BC%95%E5%AF%BC">引导</a>的基础上自举构建 SHBuild 。</p>
 <p>　　此外，也可以直接使用 <code>SHBuild-self-host.sh</code> 和 <code>SHBuild-self-host-DLL.sh</code> 进行直接自举。这两个脚本主要用于内部测试。</p>
 <h3 id="多阶段构建"><a class="header" href="#多阶段构建">多阶段构建</a></h3>
-<p>　　使用<a href="Scripts.zh-CN.html">工具脚本</a>安装 <a href="../Sysroot.zh-CN.html">Sysroot</a> 时，按需构建 SHBuild 。当前这个过程分为两步：</p>
+<p>　　使用<a href="Scripts.zh-CN.html">工具脚本</a>安装 <a href="../Sysroot.zh-CN.html">Sysroot</a> 时，按需<a href="#%E6%9E%84%E5%BB%BA">构建 SHBuild</a> 。</p>
 <p>　　运行<a href="Scripts.zh-CN.html#toolsinstall-sysrootsh">Sysroot 安装脚本</a>可直接完成以下多个阶段的构建和目标程序的部署(deployment) ：</p>
 <ul>
 <li>Stage 1 ，即第一阶段：<a href="#%E5%BC%95%E5%AF%BC">引导</a>。
@@ -206,7 +187,7 @@
 </ul>
 </li>
 <li>脚本检查 GNU parallel 的可用性。默认使用 GNU parallel 并行构建。</li>
-<li><strong>原理</strong> 为可维护性，stage 1 SHBuild 的构建直接使用静态链接，且过程依赖避免系统库（工具链提供的环境）以外的外部二进制依赖项和网络连接。
+<li><strong>原理</strong> 为可维护性，stage 1 SHBuild 的构建直接使用静态链接，且过程依赖避免<a href="../Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0%E6%A0%87%E8%AF%86">系统库</a>以外的<a href="../ProjectDependencies.zh-CN.html#%E5%A4%96%E9%83%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%BA%93">外部二进制依赖项</a>和<a href="../Run.zh-CN.html">通过文件系统以外的方式访问远程资源</a>。
 <ul>
 <li>不依赖外部工具的串行构建可能相当费时，但仍可被接受。</li>
 </ul>
@@ -221,7 +202,7 @@
 </li>
 <li><strong>原理</strong> 因为 stage 1 的目的是引导宿主构建的 SHBuild 并构建 YSLib 和其它依赖 YSLib 的应用，所以使用不依赖 YSLib 项目输出的原始的<a href="../Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主环境</a>。
 <ul>
-<li>依照<a href="../Development.zh-CN.html">开发说明</a>配置的宿主环境是受支持的可用于运行构建工具的环境作为 stage 1 构建和运行环境。
+<li>依照<a href="../Development.zh-CN.html">开发说明</a>配置的宿主环境是受支持的可用于运行构建工具的环境作为 stage 1 <a href="../Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">构建和运行环境</a>。
 <ul>
 <li>构建时依赖这个环境的脚本运行环境运行构建脚本，并依赖其中的工具链进行编译链接。</li>
 </ul>
@@ -234,7 +215,7 @@
 </li>
 <li>Stage 2 ，即第二阶段：<a href="#%E8%87%AA%E4%B8%BE">自举</a>。
 <ul>
-<li>这个阶段在 Sysroot 安装脚本内调用成功引导的 stage 1 SHBuild 运行 NPLA1 脚本程序继续构建。
+<li>这个阶段在 Sysroot 安装脚本内调用成功引导的 stage 1 SHBuild 使用<a href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F">命令模式</a>运行 NPLA1 脚本程序继续构建。
 <ul>
 <li>继续构建通过运行 <a href="Scripts.zh-CN.html#toolsscriptsshbuild-yslib-buildtxt"><code>Tools/Scripts/SHBuild-YSLib-build.txt</code></a> 实现，步骤包括：
 <ul>
@@ -268,7 +249,6 @@
 <ul>
 <li>默认使用新近生成的 stage 2 SHBuild 可执行程序。</li>
 <li>可通过 <a href="../Development.zh-CN.html#npla1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><code>SHBuild</code> 环境变量</a>指定使用的 SHBuild 命令以被 NPLA1 脚本递归地调用。</li>
-<li>这同时作为直接的部署后环境可用性测试，因而不提供指定其它 SHBuild 工具的选项。</li>
 </ul>
 </li>
 <li>安装 stage 2 SHBuild 和（可选的）其它工具。
@@ -277,10 +257,11 @@
 </ul>
 </li>
 </ul>
-<p>　　两个阶段需要的外部环境对应称为 stage 1 环境和 stage 2 环境；部署 stage 2 SHBuild（和可选的目标）后的环境是部署后环境。</p>
+<p>　　两个 SHBuild 构建阶段需要的外部环境对应称为 <em>stage 1 环境(stage 1 environment)</em> 和 <em>stage 2 环境(stage 2 environment)</em> ，合称 <em>SHBuild 构建环境(SHBuild building environment)</em> ；部署 stage 2 SHBuild（和可选的目标）后的环境是<em>部署后环境(deployed environment)</em> 。</p>
+<p><strong>注释</strong> 使用新近生成的 SHBuild 构建可选目标同时作为直接的部署后环境可用性测试，因而不提供指定其它 SHBuild 工具的选项。</p>
 <p>　　作为更一般的开发环境和最终用户部署基于 Sysroot 的 YSLib 的应用的运行环境，stage 2 和部署后环境相对 stage 1 环境具有更多的假设和更少的限制：</p>
 <ul>
-<li>用于构建时，假定 <code>PATH</code> 中存在兼容的 <code>SHBuild</code> 可执行程序的命令。
+<li>使用 <code>SHBuild</code> 构建时，假定 <code>PATH</code> 中存在兼容的 <code>SHBuild</code> 可执行程序的命令，或已通过 <a href="../Development.zh-CN.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><code>SHBuild</code> 变量</a>指定 <code>SHBuild</code> 可执行程序。
 <ul>
 <li>在 Sysroot 构建 YSLib 的库时，默认使用先前 stage 1 SHBuild ，其它情形默认使用 stage 2 SHbuild 。</li>
 <li>应确保 SHBuild 程序和使用的 NPLA1 脚本的版本匹配，一般来自同一个 Sysroot 安装。
@@ -314,7 +295,7 @@
 </li>
 </ul>
 </li>
-<li>这些环境使用 NPLA1 脚本而不是 stage 1 的 shell 脚本提供可用的构建功能。
+<li>这些环境使用 NPLA1 脚本而不是仅在 stage 1 环境可用的 shell 脚本提供主要的构建功能。
 <ul>
 <li>这些功能<a href="Scripts.zh-CN.html#toolsscriptsshbuild-yslib-commontxt">部分相似但也有一定差异</a>。</li>
 </ul>
@@ -363,7 +344,8 @@
 <p>　　和 <code>make</code> 类似，SHBuild 的内建规则依赖文件修改时间(mtime) 判断一个目标是否最新。</p>
 <p>　　内建规则使用的编译器和环境变量参见帮助消息。</p>
 <h3 id="命令模式"><a class="header" href="#命令模式">命令模式</a></h3>
-<p>　　参见帮助消息。</p>
+<p>　　具体使用方式参见帮助消息。</p>
+<p>　　另见 <a href="#npl-%E6%94%AF%E6%8C%81">NPL 支持</a>。</p>
 <h2 id="构建应用程序"><a class="header" href="#构建应用程序">构建应用程序</a></h2>
 <p>　　使用 SHBuild 构建应用程序所需的环境和多阶段构建的最后一个阶段的相同。当前和自举时相同，即 stage 2 环境。</p>
 <h2 id="其它平台"><a class="header" href="#其它平台">其它平台</a></h2>
@@ -373,10 +355,11 @@
 <p><strong>已知限制</strong> 若系统时间不正确，可能导致冗余的重复构建或无法构建。若文件时间戳无法被正确更新（如编译器或者文件系统实现问题导致无法在命令执行后正确地更新被修改的文件时间，或者不恰当的缓存配置导致修改时间没有立即更新），可能导致冗余的重复构建。</p>
 <p>　　当前不支持上述以外的其它平台。</p>
 <h2 id="npl-支持"><a class="header" href="#npl-支持">NPL 支持</a></h2>
-<p>　　SHBuild 运行 <code>-xcmd,RunNPL</code> 和 <code>-xcmd,RunNPLFile</code> 命令支持解释 <a href="../Features/NPL.zh-CN.html">NPLA1</a> 翻译单元。</p>
+<p>　　SHBuild 运行 <code>-xcmd,RunNPL</code> 和 <code>-xcmd,RunNPLFile</code> <a href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F">命令</a>作为 NPLA1 <a href="../Features/NPL.zh-CN.html#%E5%BD%93%E5%89%8D%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0">REPL</a> 和 <a href="../Development.zh-CN.html#npla1-%E8%84%9A%E6%9C%AC">NPLA1 脚本</a>文件解释器，支持解释 <a href="../Features/NPL.zh-CN.html">NPLA1</a> 翻译单元。</p>
 <p>　　调用方式详见帮助文本。</p>
-<p>　　后者的翻译单元为文本文件。当前支持文件头可选的 UTF BOM 。**若找到 BOM ，直接跳过继续读取文件内容。在 SHBuild 中不假设文件编码，直接以窄字符流透明地处理。后续编码内容格式按 <a href="../Features/NPL.zh-CN.html">YFramework 提供的当前实现</a>的方式支持。</p>
-<p>　　因此，一般应使用 UTF-8 + BOM ，或不带 BOM 的 UTF-8 作为编码。</p>
+<p>　　在命令行中指定的 NPLA1 翻译单元为文本文件的名称。当前支持文件头可选的 UTF-8 BOM 。若找到 BOM ，直接跳过继续读取文件内容。在 SHBuild 中不假设文件编码，直接以窄字符流透明地处理。后续编码内容格式按 <a href="../Features/NPL.zh-CN.html">YFramework 提供的当前实现</a>的方式支持。</p>
+<p>　　一般建议使用 UTF-8 + BOM 编码。</p>
+<p><strong>原理</strong> 参见<a href="Development.zh-CN.html#%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6">项目存储库中的文本文件的规则</a>。不带 BOM 的 UTF-8 编码的文本内容可能在不同的运行环境中识别为不同的编码。</p>
 <h3 id="应用"><a class="header" href="#应用">应用</a></h3>
 <p>　　当前 stage 1 SHBuild 构建 YSLib 库使用<a href="Scripts.zh-CN.html">脚本</a>已以此方式实现。Shell 脚本调用 stage 1 SHBuild 解释这些脚本，其中进一步调用 stage 1 SHBuild 执行其它构建命令。</p>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html" class="active"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -177,7 +158,7 @@
 <p>The interface documentation for this project may be specified in the <code>doc</code> directory of the repository,  in the pages of wiki, or in the Doxygen comments around the declarations in the header files in the source code. All of them are in zh-CN by default.</p>
 <p>Unless otherwise specified, notations of date and time are in UTC+8.</p>
 <h1 id="notation"><a class="header" href="#notation">Notation</a></h1>
-<p>&quot;<strong>NOTE</strong>&quot; indicates note for maintainers and it is not directly from the source of the concerned contents.</p>
+<p>"<strong>NOTE</strong>" indicates note for maintainers and it is not directly from the source of the concerned contents.</p>
 <h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>Some external materials are referenced here by links in several categories. Entries in same category are listed ordinally specified by document numbers (if any).</p>
 <p>Since only adopted revisions are applied, most superseded reversions are placed together. A paper of a collection of issues can have multiple revisions and it can be adopted more than once (e.g. <a href="https://wg21.link/p0165">P0165</a>); these revisions does not superseds each other.</p>
@@ -188,25 +169,25 @@
 <h2 id="items-and-tags"><a class="header" href="#items-and-tags">Items and tags</a></h2>
 <p>Each item in a list is normally specified by (committee) document or CWG/LWG/EWG/LEWG issue/DR(defect report) number with a link and a title. Paper as editor's report or issue/DR list  (but <em>not</em> list about contents out of these contents, e.g. specifically drafted resolution paper of one ore more DRs) should be collectively listed in a few list (so issues can be top-level items otherwise). Each item may be noted with following tags:</p>
 <ul>
-<li>&quot;adopted&quot; indicating the feature has been incorperated into <strong>the working paper</strong> (but <strong>not</strong> in this document) since the followed time which is usually the content of &quot;Disposition&quot; column from the <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers">official document list</a></li>
-<li>&quot;based on&quot; indicating one of the base specifications</li>
-<li>&quot;dropped&quot; indicating abandoned in development</li>
-<li>&quot;overriden by&quot; indicating new item taking effect instead of the current one</li>
-<li>&quot;part of&quot; or &quot;parts of&quot; indicating not all contents of the specification</li>
-<li>&quot;revised&quot; indicating one of the revised specifications
+<li>"adopted" indicating the feature has been incorperated into <strong>the working paper</strong> (but <strong>not</strong> in this document) since the followed time which is usually the content of "Disposition" column from the <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers">official document list</a></li>
+<li>"based on" indicating one of the base specifications</li>
+<li>"dropped" indicating abandoned in development</li>
+<li>"overriden by" indicating new item taking effect instead of the current one</li>
+<li>"part of" or "parts of" indicating not all contents of the specification</li>
+<li>"revised" indicating one of the revised specifications
 <ul>
 <li>is often unique</li>
-<li>should be significant, e.g. adopted previously; otherwise it can already be indexed by other lists of items, and if there are no other list is appropriate, it shall be in the &quot;outdated&quot; list</li>
+<li>should be significant, e.g. adopted previously; otherwise it can already be indexed by other lists of items, and if there are no other list is appropriate, it shall be in the "outdated" list</li>
 </ul>
 </li>
-<li>&quot;see&quot; pointing to revised revisions</li>
-<li>&quot;see also&quot; for related materials</li>
-<li>&quot;see other derivation&quot; pointing to siblings</li>
-<li>&quot;see subsequent&quot; pointing to subsequent new series</li>
-<li>&quot;since&quot; with initial project build revision and time of applying (which is only applicable for features adopted or tentatively adopted in this document)</li>
-<li>&quot;split from&quot; for the original item containing the material</li>
-<li>&quot;subsumed by&quot; for the target of migration (e.g. for duplicated issues)</li>
-<li>&quot;with&quot; indicating additional specifications not covered by specified one in the context</li>
+<li>"see" pointing to revised revisions</li>
+<li>"see also" for related materials</li>
+<li>"see other derivation" pointing to siblings</li>
+<li>"see subsequent" pointing to subsequent new series</li>
+<li>"since" with initial project build revision and time of applying (which is only applicable for features adopted or tentatively adopted in this document)</li>
+<li>"split from" for the original item containing the material</li>
+<li>"subsumed by" for the target of migration (e.g. for duplicated issues)</li>
+<li>"with" indicating additional specifications not covered by specified one in the context</li>
 </ul>
 <h1 id="basic-rules"><a class="header" href="#basic-rules">Basic rules</a></h1>
 <p><strong>The Forwarding Compatibility Rule:</strong> All language features incompatible with published/normative future versions of the language specification shall not be mandated or depend on.</p>
@@ -239,7 +220,7 @@
 <p>(See <a href="https://wongmichael.com/2016/02/28/c17-content-predictionpre-jacksonville-and-post-kona-report/">here</a> for information about adoption in C++17.)</p>
 <h2 id="replacements"><a class="header" href="#replacements">Replacements</a></h2>
 <p>Several features in specifications beyond C++11 is not directly relied on, but this project provides some replacements (possibly with some custom extensions) as features to ease the work about compatibility.</p>
-<p>Replacements are provided in a &quot;(mostly) drop-in&quot; manner, i.e. the base name of API are same, but with allowence of difference on qualified prefix and/or prefixes(of namespaces, mostly, to <code>std</code>; or of headers to be included. This allows user code replacing interface with a few alias declarations without changing of the program well-formedness and behavior. It is easy to change the underlying set of API as well as to pick a subset of them on purpose.</p>
+<p>Replacements are provided in a "(mostly) drop-in" manner, i.e. the base name of API are same, but with allowence of difference on qualified prefix and/or prefixes(of namespaces, mostly, to <code>std</code>; or of headers to be included. This allows user code replacing interface with a few alias declarations without changing of the program well-formedness and behavior. It is easy to change the underlying set of API as well as to pick a subset of them on purpose.</p>
 <p>The replacements provided are bidirectionally drop-in replaceable, which can be used interchangably with the features they replace, except the compatibility exceptions specified below. However, such replacements are not guaranteed to be mixed arbitrary with the feature being replacements. The granularity of mixture with guaranteed usablity is a type or a template with any related operations relying on the type signature derived from that entity, unless otherwise specificed in documentation.</p>
 <p>Some of other replacements are ony-way drop-in replacements, i.e., guaranteed being able to replace the correspoinding features in specifications without changing of meaning but not the other way.</p>
 <h3 id="compatibility-exceptions"><a class="header" href="#compatibility-exceptions">Compatibility exceptions</a></h3>
@@ -366,7 +347,7 @@
 <li>Documented reserved marco names besides <a href="https://eel.is/c++draft/reserved.names">the standard rules</a> shall be also avoided by the library user code.</li>
 <li>All other cases are conform to <a href="https://eel.is/c++draft/requirements">the standard rules</a> except that the namespaces provided by the standard are replaced by the top-level namespaces specified above.</li>
 </ul>
-<p>Except for the file specified as &quot;drop-in replacement&quot;, a header specified by a rule in a published standard or specification may or may not be directly aligned to the actual one in YBase, but there are clear many-interface-to-one-header relationship across the interface and headers by splitting each standard header to plural correspoinding header files.</p>
+<p>Except for the file specified as "drop-in replacement", a header specified by a rule in a published standard or specification may or may not be directly aligned to the actual one in YBase, but there are clear many-interface-to-one-header relationship across the interface and headers by splitting each standard header to plural correspoinding header files.</p>
 <p><strong>Rationale</strong> The purpose is to break down dependencies and to reduce the overhead of inclusion performed in preprocessing phase.</p>
 <p>For other top-level subprojects, no replacements need to be considered. Unless otherwise specified, the baseline applies directly. If there need replacements, use interface proveded by YBase for preference (but usually <em>not</em> YBase.LibDefect).</p>
 <h3 id="components"><a class="header" href="#components">Components</a></h3>
@@ -386,7 +367,7 @@
 <ul>
 <li><strong>YStandardEx direct replacements</strong> provide adaptive interface compatible and (almost) conforming to multile version of specifications.
 <ul>
-<li>To support adaptive use, the direct part of replacements may conditionally include different source, whose interface is specified as &quot;<strong>conditionally</strong>&quot; in this document.</li>
+<li>To support adaptive use, the direct part of replacements may conditionally include different source, whose interface is specified as "<strong>conditionally</strong>" in this document.</li>
 <li>The comformance requirements shall be clear to each interface.</li>
 <li>Nonconforming interface may only occur with exactly same or one-to-one mapping of interface between namespace <code>std</code> and <code>ystdex</code> in the user code.</li>
 <li>Nonconforming interface shall not introduce differences on requirements on the program using that interface.</li>
@@ -524,12 +505,12 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3091.html">N3091</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3938.html">N3938</a>
 <ul>
-<li>LWG motion 3: <a href="https://wg21.cmeerw.net/lwg/issue2188">LWG 2188</a> &quot;Reverse iterator does not fully support targets that overload <code>operator&amp;</code>&quot; with editorial fix</li>
+<li>LWG motion 3: <a href="https://wg21.cmeerw.net/lwg/issue2188">LWG 2188</a> "Reverse iterator does not fully support targets that overload <code>operator&amp;</code>" with editorial fix</li>
 </ul>
 </li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4583.html">N4583</a>
 <ul>
-<li>LWG motion 6: <a href="https://wg21.link/p0220r1">P0220R1</a> &quot;Adopt library fundamentals v1 TS components for C++17&quot;) (incompletely applied)</li>
+<li>LWG motion 6: <a href="https://wg21.link/p0220r1">P0220R1</a> "Adopt library fundamentals v1 TS components for C++17") (incompletely applied)</li>
 </ul>
 </li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4603.html">N4603</a>
@@ -543,8 +524,8 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4740.html">N4740</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4764.html">N4764</a>
 <ul>
-<li>CWG motion 15: <a href="https://wg21.link/p0941r2">P0941R2 &quot;Feature-test macros&quot;</a></li>
-<li>LWG motion 21: <a href="https://wg21.link/p0879r0">P0879R0 &quot;<code>constexpr</code> for <code>swap</code> and <code>swap</code>-related functions&quot;</a> applied, resolving 1 issue:
+<li>CWG motion 15: <a href="https://wg21.link/p0941r2">P0941R2 "Feature-test macros"</a></li>
+<li>LWG motion 21: <a href="https://wg21.link/p0879r0">P0879R0 "<code>constexpr</code> for <code>swap</code> and <code>swap</code>-related functions"</a> applied, resolving 1 issue:
 <ul>
 <li><a href="https://wg21.link/lwg2800">LWG 2800</a>: <code>constexpr</code> <code>swap</code>
 The following issues are being waiting to be resolved (and then be reviewed here) formally in public standards.</li>
@@ -554,8 +535,8 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4792.html">N4792</a>
 <ul>
-<li>LWG motion 13: <a href="https://wg21.link/p0318r1">P0318R1 &quot;<code>unwrap_ref_decay</code> and <code>unwrap_reference</code>&quot;</a></li>
-<li>LWG motion 21: <a href="https://wg21.link/p0591r4">P0591R4 &quot;Utility functions to implement uses-allocator construction&quot;</a></li>
+<li>LWG motion 13: <a href="https://wg21.link/p0318r1">P0318R1 "<code>unwrap_ref_decay</code> and <code>unwrap_reference</code>"</a></li>
+<li>LWG motion 21: <a href="https://wg21.link/p0591r4">P0591R4 "Utility functions to implement uses-allocator construction"</a></li>
 </ul>
 </li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue943">CWG 943</a>: Is <code>T()</code> a temporary?
@@ -585,14 +566,14 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <p>There are nothing to do of coding and further documentations for some resolutions.</p>
 <p>In WG21 terms:</p>
 <ul>
-<li>NAD means &quot;not a defect&quot;.</li>
-<li>TC1 means &quot;Technical Corrigendum 1&quot;.</li>
+<li>NAD means "not a defect".</li>
+<li>TC1 means "Technical Corrigendum 1".</li>
 </ul>
 <h2 id="in-the-baseline"><a class="header" href="#in-the-baseline">In the baseline</a></h2>
 <p>These issues are resolved as NAD and thus have been rejected by WG21 in the baseline, and there are no further changes to reopen:</p>
 <ul>
 <li><a href="https://wg21.cmeerw.net/cwg/issue37">CWG 37</a>: When is <code>uncaught_exception()</code> <code>true</code>?</li>
-<li><a href="https://wg21.cmeerw.net/cwg/issue61">CWG 61</a>: Address of static member function &quot;<code>&amp;p-&gt;f</code>&quot;</li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue61">CWG 61</a>: Address of static member function "<code>&amp;p-&gt;f</code>"</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue109">CWG 109</a>: Allowing <code>::template</code> in <em>using-declaration</em>​s</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue130">CWG 130</a>: Sequence points and <em>new-expression</em>​s</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue182">CWG 182</a>: Access checking on explicit specializations
@@ -608,7 +589,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </li>
 <li>parts of <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2173.html">N2173</a>: Core Extensions for Evolution
 <ul>
-<li><a href="https://wg21.cmeerw.net/cwg/issue13">CWG 13</a>: <code>extern &quot;C&quot;</code> for Parameters of Function Templates</li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue13">CWG 13</a>: <code>extern "C"</code> for Parameters of Function Templates</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue107">CWG 107</a>: linkage of operator functions</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue168">CWG 168</a>: C linkage of static members</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue229">CWG 229</a>: Partial specialization of function templates</li>
@@ -635,7 +616,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <p>These resolutions are already adopted as TC1, i.e. in C++03, and still effective (probably revised) in later versions of the standard:</p>
 <ul>
 <li><a href="https://wg21.cmeerw.net/cwg/issue25">CWG 25</a>: Exception specifications and pointers to members</li>
-<li><a href="https://wg21.cmeerw.net/cwg/issue30">CWG 30</a>: Valid uses of &quot;<code>::template</code>&quot;</li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue30">CWG 30</a>: Valid uses of "<code>::template</code>"</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue84">CWG 84</a>: Overloading and conversion loophole used by <code>auto_ptr</code></li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue137">CWG 137</a>: <code>static_cast</code> of <em>cv</em> <code>void*</code></li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue178">CWG 178</a>: More on value-initialization (see also <a href="https://wg21.cmeerw.net/cwg/issue543">CWG 543</a>)</li>
@@ -658,7 +639,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <p>These issues are resolved as NAD or NAD editorial and thus nothing to do for user code:</p>
 <ul>
 <li><a href="https://wg21.cmeerw.net/cwg/issue1384">CWG 1384</a>: <code>reinterpret_cast</code> in constant expressions</li>
-<li><a href="https://wg21.cmeerw.net/cwg/issue435">CWG 1415</a>: Change &quot;declararation or definition&quot; to &quot;declaration&quot;</li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue435">CWG 1415</a>: Change "declararation or definition" to "declaration"</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue1520">CWG 1520</a>: Alias template specialization vs pack expansion (see also <a href="https://wg21.cmeerw.net/cwg/issue1558">CWG 1558</a>)</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue299">LWG 299</a>: Incorrect return types for iterator dereference
 <ul>
@@ -732,12 +713,12 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <li><a href="https://wg21.cmeerw.net/cwg/issue119">CWG 119</a>: Object lifetime and aggregate initialization</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue357">CWG 357</a>: Definition of signature should include name</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue404">CWG 404</a>: Unclear reference to construction with non-trivial constructor (<strong>NOTE</strong> partially superseded by new wording in <a href="https://eel.is/c++draft/basic.life">[basic.life]</a> proposed by <a href="https://wg21.cmeerw.net/cwg/issue1751">CWG 1751</a> and <a href="https://wg21.cmeerw.net/cwg/issue2256">CWG 2256</a>)</li>
-<li><a href="https://wg21.cmeerw.net/cwg/issue413">CWG 413</a>: Definition of &quot;empty class&quot;</li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue413">CWG 413</a>: Definition of "empty class"</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue452">CWG 452</a>: Wording nit on description of <code>this</code>, <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2370.html">partially adopted</a></li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue525">CWG 525</a>: Missing <code>*</code> in example</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue538">CWG 538</a>: Definition and usage of structure, POD-struct, POD-union, and POD class
 <ul>
-<li><a href="https://wg21.cmeerw.net/cwg/issue327">CWG 327</a>: Use of &quot;structure&quot; without definition</li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue327">CWG 327</a>: Use of "structure" without definition</li>
 </ul>
 </li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue582">CWG 582</a>: Template conversion functions</li>
@@ -756,10 +737,10 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <li>see also <a href="https://wg21.cmeerw.net/lwg/issue724">LWG 724</a> and <a href="https://wg21.cmeerw.net/lwg/issue867">LWG 867</a></li>
 </ul>
 </li>
-<li><a href="https://wg21.cmeerw.net/lwg/issue972">LWG 972</a>: The term &quot;Assignable&quot; undefined but still in use</li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue972">LWG 972</a>: The term "Assignable" undefined but still in use</li>
 <li>part of <a href="https://wg21.cmeerw.net/lwg/issue2135">LWG 2135</a>: Unclear requirement for exceptions thrown in <code>condition_variable::wait()</code>
 <ul>
-<li><a href="https://wg21.cmeerw.net/lwg/issue2240">LWG 2240</a>: Probable misuse of term &quot;function scope&quot; in <a href="https://eel.is/c++draft/thread.condition">[thread.condition]</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2240">LWG 2240</a>: Probable misuse of term "function scope" in <a href="https://eel.is/c++draft/thread.condition">[thread.condition]</a></li>
 </ul>
 </li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue2310">LWG 2310</a>: Public exposition only member in <code>std::array</code></li>
@@ -773,7 +754,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0134r0.html">P0134R0</a>: Introducing a name for <em>brace-or-equal-initializer</em>​s for non-static data members</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0583r0.pdf">P0583R0</a>: <code>std::byte</code> is the correct name</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1076r1.html">P1076R1</a>: Editorial clause reorganization <a href="https://github.com/cplusplus/draft/blob/master/papers/n4764.md">with modification</a></li>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0509r1">P0509R1</a>: Updating &quot;Restrictions on exception handling&quot; (adopted: accepted by <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4664.pdf">N4664</a>)
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0509r1">P0509R1</a>: Updating "Restrictions on exception handling" (adopted: accepted by <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4664.pdf">N4664</a>)
 <ul>
 <li>see national body comments GB 41 and GB 42 in <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4664.pdf">N4664</a>: ISO/IEC CD 14882, C++ 2017, National Body Comments</li>
 </ul>
@@ -793,7 +774,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <li><a href="https://wg21.cmeerw.net/lwg/issue527">LWG 527</a>: <code>tr1::bind</code> has lost its Throws clause</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue588">LWG 588</a>: requirements on zero sized <code>tr1::array</code>s and other details (for <code>std::array</code>, resolved by <a href="https://wg21.cmeerw.net/lwg/issue776">LWG 776</a>)</li>
 </ul>
-<p>These issues are duplicate (in &quot;dup&quot; status):</p>
+<p>These issues are duplicate (in "dup" status):</p>
 <ul>
 <li><a href="https://wg21.cmeerw.net/cwg/issue133">CWG 133</a>: Exception specifications and checking (subsumed by <a href="https://wg21.cmeerw.net/cwg/issue87">CWG 87</a> and <a href="https://wg21.cmeerw.net/cwg/issue92">CWG 92</a>)</li>
 <li><a href="https://wg21.cmeerw.net/cwg/issue595">CWG 595</a>: Exception specifications in templates instantiated from class bodies (subsumed by <a href="https://wg21.cmeerw.net/cwg/issue1330">CWG 1330</a>)</li>
@@ -1011,13 +992,13 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </li>
 </ul>
 <h2 id="in-development"><a class="header" href="#in-development">In development</a></h2>
-<p>These issues are in &quot;extension&quot; state and not ready to be adopted:</p>
+<p>These issues are in "extension" state and not ready to be adopted:</p>
 <ul>
 <li><a href="https://wg21.cmeerw.net/cwg/issue476">CWG 476</a>: Determining the buffer size for placement new (see also <a href="https://wg21.cmeerw.net/cwg/issue256">CWG 256</a>)</li>
 </ul>
 <h1 id="adoption"><a class="header" href="#adoption">Adoption</a></h1>
 <p>C++11 core language features and headers below now are being used.</p>
-<p>Note: the &quot;adopted&quot; time notes listed in following entries are relative to the working paper.</p>
+<p>Note: the "adopted" time notes listed in following entries are relative to the working paper.</p>
 <h2 id="imported-tr1-headers"><a class="header" href="#imported-tr1-headers">Imported TR1 Headers</a></h2>
 <p>TR1(see <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1836.pdf">N1836</a>) headers imported to C++11 are used:</p>
 <ul>
@@ -1166,7 +1147,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <h2 id="adopted-changes"><a class="header" href="#adopted-changes">Adopted changes</a></h2>
 <p>Features adopted shall be compatible with rules for general status.</p>
 <h3 id="to-be-reviewd"><a class="header" href="#to-be-reviewd">To be reviewd</a></h3>
-<p>These pre-C++11 resolutions are believed have been relied on. It is yet to determine the &quot;since&quot; clause (reviewed b865[2019-08-30]).</p>
+<p>These pre-C++11 resolutions are believed have been relied on. It is yet to determine the "since" clause (reviewed b865[2019-08-30]).</p>
 <ul>
 <li>some issues resolved by <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2757.htm">N2757</a>: Expedited core issues handling (revision 2)
 <ul>
@@ -1226,7 +1207,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0180r2.html">P0180R2</a>: Reserve a New Library Namespace Future Standardization
 <ul>
 <li>adopted by LWG motion 34 in editor's report <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4603.html">N4603</a></li>
-<li><strong>NOTE</strong> The title in LWG motion 34 in N4603 is &quot;Reserve a New Library Namespace Future <em>for</em> Standardization&quot;. This seems more correct.</li>
+<li><strong>NOTE</strong> The title in LWG motion 34 in N4603 is "Reserve a New Library Namespace Future <em>for</em> Standardization". This seems more correct.</li>
 </ul>
 </li>
 </ul>
@@ -1354,13 +1335,13 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue376">LWG 376</a>: <code>basic_streambuf</code> semantics (since b616[2015-07-21])</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue419">LWG 419</a>: istream extractors not setting failbit if eofbit is already set (since b437[2015-01-16])</li>
-<li><a href="https://wg21.cmeerw.net/lwg/issue438">LWG 438</a>: Ambiguity in the &quot;do the right thing&quot; clause (since b274[2012-01-04])</li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue438">LWG 438</a>: Ambiguity in the "do the right thing" clause (since b274[2012-01-04])</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue453">LWG 453</a>: <code>basic_stringbuf::seekoff</code> need not always fail for an empty stream (since b617[2015-07-25])</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue534">LWG 534</a>: Missing <code>basic_string</code> members (i.e. <code>basic_string</code> <code>pop_back</code>, <code>back</code> and <code>front</code>; since b315[2012-06-08])</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue559">LWG 559</a>: <code>numeric_limits&lt;const T&gt;</code>, <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2283.html">reworded slightly</a> (since b440[2013-08-29])</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue564">LWG 564</a>: <code>stringbuf</code> <code>seekpos</code> underspecified (since b743[2016-11-21])</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue589">LWG 589</a>: Requirements on iterators of member template functions of containers (since b216[2011-06-08])</li>
-<li><a href="https://wg21.cmeerw.net/lwg/issue596">LWG 596</a>: 27.8.1.3 Table 112 omits <code>&quot;a+&quot;</code> and <code>&quot;a+b&quot;</code> modes (since b326[2012-07-19])</li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue596">LWG 596</a>: 27.8.1.3 Table 112 omits <code>"a+"</code> and <code>"a+b"</code> modes (since b326[2012-07-19])</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue611">LWG 611</a>: Standard library templates and incomplete types (since b206[2011-05-03])</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue694">LWG 694</a>: <code>std::bitset</code> and <code>long long</code> (since b932[2021-12-04])</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue704">LWG 704</a>: MoveAssignable requirement for container value type overly strict (since b206[2011-05-03])</li>
@@ -1442,7 +1423,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </ul>
 </li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1986.pdf">N1986</a>: Delegating Constructors (revision 3) (since b311[2011-05-25])</li>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1987.htm">N1987</a>: Adding &quot;<code>extern template</code>&quot; (version 2) (since b206[2011-05-03])</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1987.htm">N1987</a>: Adding "<code>extern template</code>" (version 2) (since b206[2011-05-03])</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2005.pdf">N2005</a>: A maximum significant decimal digits value for the C++0x Standard Library Numeric limits (since b301[2012-04-13])</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html">N2179</a>: Language Support for Transporting Exceptions between Threads (since b538[2014-09-28]; i.e. <code>exception_ptr</code> and <code>current_exception</code>, etc)
 <ul>
@@ -1502,7 +1483,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </ul>
 </li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2530.html">N2530</a>: Making It Easier to Use <code>std::type_info</code> as an Index in an Associative Container (since b468[2014-01-20]; i.e. <code>type_info::hash_code</code>)</li>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2535.htm">N2535</a>: Namespace Association (&quot;<code>inline namespace</code>&quot;) (since b427[2013-07-11])</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2535.htm">N2535</a>: Namespace Association ("<code>inline namespace</code>") (since b427[2013-07-11])</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2540.htm">N2540</a>: Inheriting Constructors (revision 5) (since b538[2014-09-24])</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2541.htm">N2541</a>: New Function Declarator Syntax Wording (since b207[2011-05-05])</li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2543.htm">N2543</a>: STL singly linked lists (revision 3) (since b218[2011-06-04]; i.e. <code>&lt;forward_list&gt;</code>)</li>
@@ -1777,7 +1758,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </ul>
 <p>These post-C++11 library features are <strong>not</strong> required <strong>currently</strong> (revised b969[2023-02-21]) but direct replacements (to be used <strong>conditionally</strong> once the draft standard is approved) are provided in YBase:</p>
 <ul>
-<li>parts of <a href="https://wg21.cmeerw.net/lwg/issue1234">LWG 1234</a>: &quot;Do the right thing&quot; and <code>NULL</code>
+<li>parts of <a href="https://wg21.cmeerw.net/lwg/issue1234">LWG 1234</a>: "Do the right thing" and <code>NULL</code>
 <ul>
 <li>replaced by <code>ystdex::basic_string</code> (since b832[2018-07-25])</li>
 <li>see also dedicated replacement <code>ystdex::list</code></li>
@@ -1897,7 +1878,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue2812">LWG 2812</a>: Range access is available with <code>&lt;string_view&gt;</code>
 <ul>
-<li>replaced by <code>&quot;string_view.hpp&quot;</code></li>
+<li>replaced by <code>"string_view.hpp"</code></li>
 </ul>
 </li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue2817">LWG 2817</a>: <code>std::hash</code> for <code>nullptr_t</code>
@@ -1992,7 +1973,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </li>
 <li>partially adopted by LWG motion 6 in editor's report <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4583.html">N4583</a>
 <ul>
-<li><code>&lt;optional&gt;</code>, <code>&lt;string_view&gt;</code>, <code>&lt;memory_resource&gt;</code> and <code>&lt;tuple&gt;</code> in parts of LWG motion 6: <a href="https://wg21.link/p0220r1">P0220R1</a> &quot;Adopt library fundamentals v1 TS components for C++17&quot;) (incompletely applied from <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html">N4562</a>)</li>
+<li><code>&lt;optional&gt;</code>, <code>&lt;string_view&gt;</code>, <code>&lt;memory_resource&gt;</code> and <code>&lt;tuple&gt;</code> in parts of LWG motion 6: <a href="https://wg21.link/p0220r1">P0220R1</a> "Adopt library fundamentals v1 TS components for C++17") (incompletely applied from <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html">N4562</a>)</li>
 <li>with <a href="https://wg21.cmeerw.net/lwg/issue2283">LWG 2283</a>: [fund.ts] <code>optional</code> declares and then does not define an <code>operator&lt;()</code> (this is actually targetting <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3691.pdf">the standard draft</a>, not <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4023.html#optional.comp_with_t">the library fundmental draft</a>)</li>
 <li>with <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4078.html">N4078</a>: Fixes for <code>optional</code> objects (adopted 2014-06)</li>
 </ul>
@@ -2001,9 +1982,9 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <ul>
 <li>replaced by <code>ystdex::basic_string</code> and <code>ystdex::basic_string_view</code></li>
 <li>with <a href="https://wg21.cmeerw.net/lwg/issue2742">LWG 2742</a>: Inconsistent string interface taking <code>string_view</code></li>
-<li>with <a href="https://wg21.cmeerw.net/lwg/issue2758">LWG 2758</a>: <code>std::string{}.assign(&quot;ABCDE&quot;, 0, 1)</code> is ambiguous
+<li>with <a href="https://wg21.cmeerw.net/lwg/issue2758">LWG 2758</a>: <code>std::string{}.assign("ABCDE", 0, 1)</code> is ambiguous
 <ul>
-<li><a href="https://wg21.cmeerw.net/lwg/issue2757">LWG 2757</a>: <code>std::string{}.insert(3, &quot;ABCDE&quot;, 0, 1)</code> is ambiguous</li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2757">LWG 2757</a>: <code>std::string{}.insert(3, "ABCDE", 0, 1)</code> is ambiguous</li>
 </ul>
 </li>
 <li>with <a href="https://wg21.cmeerw.net/lwg/issue2771">LWG 2771</a>: Broken Effects of some <code>basic_string::compare</code> functions in terms of <code>basic_string_view</code> (see <a href="https://wg21.cmeerw.net/lwg/issue2758">LWG 2758</a>)</li>
@@ -2118,7 +2099,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0607r0.html">P0607R0</a>: Inline Variables for the Standard Library
 <ul>
-<li>depends on <a href="https://wg21.cmeerw.net/cwg/issue1713">CWG 1713</a>, the &quot;minimalistic suggestion&quot; and &quot;additional suggestion&quot; in paper are fully (both) taken in <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf">N4659</a>, which is not explicitly indicated by the editor's report <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4661.html">N4661</a></li>
+<li>depends on <a href="https://wg21.cmeerw.net/cwg/issue1713">CWG 1713</a>, the "minimalistic suggestion" and "additional suggestion" in paper are fully (both) taken in <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf">N4659</a>, which is not explicitly indicated by the editor's report <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4661.html">N4661</a></li>
 <li>partially replaced by <code>ystdex::nullopt</code></li>
 </ul>
 </li>
@@ -2287,7 +2268,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </li>
 <li><code>ystdex::list</code> is proveded as a replacement for <code>std::list</code> with enhanced features
 <ul>
-<li>(since C++11) with the part of <a href="https://wg21.cmeerw.net/lwg/issue1234">LWG 1234</a>: &quot;Do the right thing&quot; and <code>NULL</code></li>
+<li>(since C++11) with the part of <a href="https://wg21.cmeerw.net/lwg/issue1234">LWG 1234</a>: "Do the right thing" and <code>NULL</code></li>
 <li>(since C++17) with the part of <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html">N4510</a>: Minimal incomplete type support for standard containers, revision 4</li>
 <li>(since C++20) with the part of <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf">P0084R2</a>: Emplace Return Type (Revision 2) (adopted 2016-06)</li>
 <li>with the part of <a href="https://wg21.cmeerw.net/lwg/issue2839">LWG 2839</a>: Self-move-assignment of library types, again</li>
@@ -2335,7 +2316,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <p>These post-C++03 (adopted, any proposed or any not proposed but theorotically allowed having well-defined behavior) resolutions or features (with diagnostic suggestions) are <strong>not</strong> depended on <strong>currently</strong> (revised b972[2023-04-13]) but confirmed still being compatible:</p>
 <p><strong>NOTE</strong> However, user code can still be affected; some resolutions may have been applied to similar other interface of YBase, see sections above.</p>
 <ul>
-<li><a href="https://wg21.cmeerw.net/cwg/issue446">CWG 446</a>: Does an lvalue-to-rvalue conversion on the &quot;<code>?</code>&quot; operator produce a temporary?
+<li><a href="https://wg21.cmeerw.net/cwg/issue446">CWG 446</a>: Does an lvalue-to-rvalue conversion on the "<code>?</code>" operator produce a temporary?
 <ul>
 <li><a href="https://wg21.cmeerw.net/cwg/issue86">CWG 86</a>: Lifetime of temporaries in query expressions</li>
 </ul>
@@ -2436,7 +2417,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <li><a href="https://wg21.cmeerw.net/lwg/issue586">LWG 586</a>: string inserter not a formatted function</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue593">LWG 593</a>: <code>__STDC_CONSTANT_MACROS</code></li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue619">LWG 619</a>: Longjmp wording problem</li>
-<li><a href="https://wg21.cmeerw.net/lwg/issue643">LWG 643</a>: Impossible &quot;as if&quot; clauses</li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue643">LWG 643</a>: Impossible "as if" clauses</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue646">LWG 646</a>: <code>const</code> incorrect <code>match_result</code> members</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue659">LWG 659</a>: <code>istreambuf_iterator</code> should have an <code>operator-&gt;()</code></li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue679">LWG 679</a>: <code>resize</code> parameter by value
@@ -2453,7 +2434,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 <li><a href="https://wg21.cmeerw.net/lwg/issue850">LWG 850</a>: Should <code>shrink_to_fit</code> apply to <code>std::deque</code>? (i.e. <code>deque::shrink_to_fit</code>)</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue852">LWG 852</a>: unordered containers <code>begin(n)</code> mistakenly <code>const</code></li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue900">LWG 900</a>: Stream move-assignment</li>
-<li><a href="https://wg21.cmeerw.net/lwg/issue1004">LWG 1004</a>: Clarify &quot;throws an exception&quot;
+<li><a href="https://wg21.cmeerw.net/lwg/issue1004">LWG 1004</a>: Clarify "throws an exception"
 <ul>
 <li>see national body comment UK 179 in <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2837.pdf">N2837</a>: C++0X, CD 1, National Body Comments</li>
 </ul>
@@ -2530,7 +2511,7 @@ The following issues are being waiting to be resolved (and then be reviewed here
 </ul>
 </li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue2141">LWG 2543</a>: <a href="https://wg21.cmeerw.net/lwg/issue2148">LWG 2148</a> (hash support for enum types) seems under-specified</li>
-<li><a href="https://wg21.cmeerw.net/lwg/issue2547">LWG 2547</a>: Container requirements (and other library text) should say &quot;strict total order&quot;, not just &quot;total order&quot;</li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2547">LWG 2547</a>: Container requirements (and other library text) should say "strict total order", not just "total order"</li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue2549">LWG 2549</a>: Tuple EXPLICIT constructor templates that take tuple parameters end up taking references to temporaries and will create dangling references
 <ul>
 <li>see also <a href="https://wg21.cmeerw.net/lwg/issue2312">LWG 2312</a></li>
