@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html" class="active"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -184,7 +165,7 @@
 <p><strong>注意</strong> 作为归档的压缩包文件一般统一使用 7z ，但不同的归档使用不同的压缩算法和选项，对系统资源要求不尽相同。作为极端情况，V0.6 后的 <code>doc</code> 下的压缩包使用具有 1.5GiB 字典的 PPMd 达到约 5% 的压缩比，这一般也要求解压缩时需<strong>预留 20 倍压缩包大小的空余空间，以及 1.5GiB 空余（物理）内存</strong>。</p>
 <h1 id="命名规约"><a class="header" href="#命名规约">命名规约</a></h1>
 <p>　　文件名使用 <code>[平台环境标识-]包名-版本[-配置]</code>.后缀 。“<code>[]</code>”中为可选项。特定平台的目录名可参照此规约。</p>
-<p>　　对于二进制文件和库文件，<a href="Terminology.zh-CN.html">平台环境标识</a>使用目标三元组分类：<code>archc-OS-toolchain</code> ；不限定体系结构的使用 &quot;<code>any</code>&quot; 。</p>
+<p>　　对于二进制文件和库文件，<a href="Terminology.zh-CN.html">平台环境标识</a>使用目标三元组分类：<code>archc-OS-toolchain</code> ；不限定体系结构的使用 "<code>any</code>" 。</p>
 <p>　　发布时若文件没有更新，则不另行更新版本。若某个包不存在预期的版本，尝试使用之前最近的版本代替。</p>
 <h2 id="顶级目录结构"><a class="header" href="#顶级目录结构">顶级目录结构</a></h2>
 <ul>
@@ -219,8 +200,8 @@
 <p>　　<a href="Releases.zh-CN.html">Beta 阶段</a>前，二进制文件不用于对所有被支持的平台提供完整可用的环境。</p>
 <p>　　除以下另行指定，V0.6(build 600) 起，仅第一类支持（支持等级详见 YSLib 项目文档 <code>doc/ProjectRules.txt</code> ）且具有 Sysroot 的平台配置提供完整的二进制文件，包括库和示例项目等。</p>
 <h2 id="external"><a class="header" href="#external">External</a></h2>
-<p>　　单独<a href="Build.zh-CN.html">构建</a>的<a href="Development.zh-CN.html">外部依赖项</a>，一般是二进制库文件。对所有支持的平台提供。</p>
-<p>　　V0.6(build 600) 起<a href="Development.zh-CN.html">版本库中不再保持二进制文件</a>。源代码包 <code>src-*.7z</code> 中包括已经编译的外部依赖项。此外，各个平台目录下的 <code>External-*.7z</code> 单独对依赖项打包，可参照前文中的位置自行放置。</p>
+<p>　　单独<a href="Build.zh-CN.html#%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%9E%84%E5%BB%BA">构建</a>的<a href="ProjectDependencies.zh-CN.html#%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96%E9%A1%B9">外部依赖项</a>，一般是<a href="ProjectDependencies.zh-CN.html#%E5%A4%96%E9%83%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%BA%93">二进制库文件</a>。对所有支持的平台提供。</p>
+<p>　　V0.6(build 600) 起<a href="ProjectDependencies.zh-CN.html#%E5%A4%96%E9%83%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%BA%93">版本库中不再保持二进制文件</a>。源代码包 <code>src-*.7z</code> 中包括已经编译的外部依赖项。此外，各个平台目录下的 <code>External-*.7z</code> 单独对依赖项打包，可参照前文中的位置自行放置。</p>
 <h2 id="sysroot"><a class="header" href="#sysroot">Sysroot</a></h2>
 <p>　　自 build 600 起提供在 release 配置下构建部署的 MinGW <a href="Sysroot.zh-CN.html">Sysroot</a> ，包名为 <code>Sysroot</code> 。</p>
 <p>　　因为归档文件限制，符号链接压缩为空文件。如需使用符号链接位置的库，可以手动恢复，流程参见<a href="Tools/Scripts.zh-CN.html">构建脚本</a>。</p>

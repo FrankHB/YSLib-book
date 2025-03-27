@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html" class="active"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -183,10 +164,10 @@
 <p>　　本文档中非形式地使用在特定理论中严格定义的、和<a href="#%E9%80%9A%E7%94%A8%E9%A2%86%E5%9F%9F">本章</a>的条目具有逻辑上相容的含义的概念时，不进一步解释。</p>
 <h2 id="自指"><a class="header" href="#自指">自指</a></h2>
 <p>　　<a href="https://zh.wikipedia.org/wiki/%E8%87%AA%E6%8C%87"><strong>自指</strong></a>是概念定义形式上的自我指涉。</p>
-<p><strong>举例</strong> “<a href="#%E9%80%9A%E7%94%A8%E9%A2%86%E5%9F%9F">本章</a>”是关于位置的自指。</p>
+<p><strong>示例</strong> “<a href="#%E9%80%9A%E7%94%A8%E9%A2%86%E5%9F%9F">本章</a>”是关于位置的自指。</p>
 <p>　　有必要通过自指定义的概念，隐含引入定义内容的过程的<a href="https://zh.wikipedia.org/zh-cn/%E5%BE%AA%E7%92%B0%E8%AB%96%E8%AD%89">循环论证</a>。这些概念的精确内涵和外延依赖<a href="#%E7%BB%8F%E9%AA%8C%E8%AF%AD%E4%B9%89">经验语义</a>的实证，否则在自然语言语言中可能需要循环论证而失去定义的意义。此处的条目内容（包括链接的外部定义）仅仅供参考，而不是精确的内涵和外延。为简化复杂度，限制自指定义的概念都是名词。</p>
-<p><strong>举例</strong> 上述注释中，<strong>内涵</strong>和<strong>外延</strong>约定为以下<a href="#%E9%9D%9E%E8%87%AA%E6%8C%87">非自指</a>的概念，因此可依据本文档给出明确的定义来源。</p>
-<p><strong>举例</strong> 在程序语言理论中，上下文(context) 指形式上可继续补充内容的构造；文档可能非形式地使用和这个含义相容的概念。</p>
+<p><strong>示例</strong> 上述注释中，<strong>内涵</strong>和<strong>外延</strong>约定为以下<a href="#%E9%9D%9E%E8%87%AA%E6%8C%87">非自指</a>的概念，因此可依据本文档给出明确的定义来源。</p>
+<p><strong>示例</strong> 在程序语言理论中，上下文(context) 指形式上可继续补充内容的构造；文档可能非形式地使用和这个含义相容的概念。</p>
 <ul>
 <li>实体(entity) ：任意被自然语言表达的目标；不需要通过自然语言先验定义；参见经验语义。</li>
 <li>语义(semantics) ：参见经验语义。</li>
@@ -299,7 +280,7 @@
 <li><em>&lt;语言&gt;</em> 人类接口(human interface) ：语义仅对人类有意义（内容改变时可以导致语义的差异性），不提供为涉及作为计算模型实现的语言接口。</li>
 <li><em>&lt;语言&gt;</em> 机器接口(machine interface) ：对机器（或特定语言实现的特定部分）有意义的语言接口。注意不同语言实现组成部分可以不同。
 <ul>
-<li><strong>举例</strong> 对 <a href="https://zh.wikipedia.org/zh-cn/C%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8">C 语言的预处理器</a>，C 源代码中的空白符是机器接口，而对翻译器来说则不是。就源代码而言，机器接口总是人类接口的子集。</li>
+<li><strong>示例</strong> 对 <a href="https://zh.wikipedia.org/zh-cn/C%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8">C 语言的预处理器</a>，C 源代码中的空白符是机器接口，而对<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">翻译器</a>来说则不是。就源代码而言，机器接口总是人类接口的子集。</li>
 </ul>
 </li>
 <li><em>&lt;语言&gt;</em> 特性(*&lt;language&gt; feature) ：作为功能提供的人类接口。</li>
@@ -382,6 +363,11 @@
 <li><strong>注释</strong> 程序的行为是具体的<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算行为</a>的实例。</li>
 </ul>
 </li>
+<li>可观察行为(observable behavior) ：影响语言实现环境中外部的行为。
+<ul>
+<li><strong>注释</strong> 语言可通过在一般的行为上添加特定附加限制规定其具体外延。</li>
+</ul>
+</li>
 <li>计算作用(computational effect) ：可被某个形式化计算模型描述的行为。</li>
 <li>翻译(translation) ：不同语言的程序之间的变换，可作为语言实现的形式。
 <ul>
@@ -456,6 +442,8 @@
 <li>外部环境(external environment) ：和程序及被翻译的程序没有交集的和实现环境无关的状态。</li>
 <li>外部表示(external representation) ：具有特定形式的用于和外部环境交互的表示。</li>
 <li>内部表示(internal representation) ：非外部表示的表示。</li>
+<li>外部编码(external encoding) ：程序和外部环境交互使用的编码。</li>
+<li>内部编码(internal encoding) ：非外部的编码。</li>
 <li>可编程性(programmability) ：允许使用程序提供实现的性质。</li>
 <li>API（application programming interface ，应用程序编程接口）：提供可编程性以实现程序之间交互的接口。</li>
 <li>ABI（application binary interface ，<a href="https://zh.wikipedia.org/zh-cn/%E5%BA%94%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8E%A5%E5%8F%A3">应用程序二进制接口</a>）：提供可编程性以实现二进制编码的程序之间交互的接口。
@@ -486,6 +474,7 @@
 <li><strong>注释</strong> 典型地，ISA 是软件实现<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">可编程性</a>的最底层次的<a href="#%E8%A7%84%E8%8C%83">机器接口</a>；更低层次的接口通常依赖不能被纯软件方式访问的机器实现细节。但这并非绝对。</li>
 </ul>
 </li>
+<li>本机语言(native language) ：通过 ISA 直接支持的<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">目标代码</a>实现的语言。</li>
 <li>地址(address) ：在实现中指定实体位置的<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">编码</a>。</li>
 <li>地址空间(address space) ：映射到地址的操作中，地址的陪域(codomain) 。</li>
 <li>寻址(addressing) ：在地址空间中确定实体关联的地址。</li>
@@ -509,6 +498,11 @@
 <p>　　提供上下文 <em>&lt;项目&gt;</em> 。</p>
 <p>　　主要用例参见版本库中的项目文档 <code>doc/ProjectRules.txt</code> 。</p>
 <ul>
+<li>构建(build) ：通过确定的规则生成预设项目产出的动作。
+<ul>
+<li><strong>注释</strong> 典型地，包括从源代码翻译得到程序的过程。</li>
+</ul>
+</li>
 <li>涉众(skateholder) ：项目关联的各方的主体。</li>
 <li>角色(role) ：依据项目过程中起到的作用，对项目涉众实行一些附加归类。
 <ul>
@@ -543,9 +537,9 @@
 <p>　　项目中的组成部分之间的依赖称为<strong>内部依赖</strong>，其它依赖为<strong>外部依赖</strong>。</p>
 <h2 id="源代码"><a class="header" href="#源代码">源代码</a></h2>
 <p>　　<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">源代码</a>用于生成指定目标代码。</p>
-<p>　　通常源代码以文件形式保存，即源代码文件(source code file) ，简称源文件(source file) 。</p>
+<p>　　通常源代码以文件形式保存，即<em>源代码文件(source code file)</em> ，简称<em>源文件(source file)</em> 。</p>
 <h2 id="版本库"><a class="header" href="#版本库">版本库</a></h2>
-<p>　　项目使用的版本控制系统(version controlling system) 具有存储库(repository) 作为持久存储实体，即版本库。</p>
+<p>　　项目使用的<em>版本控制系统(version controlling system)</em> 具有<em>存储库(repository)</em> 作为持久存储实体，即版本库。</p>
 <p>　　当前使用的主要版本控制系统为 <a href="https://www.mercurial-scm.org/">Mercurial</a> 。因为是分布式版本控制，也用于直接分发源代码。</p>
 <p>　　每个文件系统上存储的版本库实例中，<code>.hg</code> 目录存储版本库元数据。</p>
 <h1 id="设计和模型"><a class="header" href="#设计和模型">设计和模型</a></h1>
@@ -553,6 +547,9 @@
 <p>　　程序中的某一部分的外界称为<strong>环境(environment)</strong>。根据限定程序的范围，可以有更确切的定义，如<a href="#%E8%A7%84%E8%8C%83">实现环境</a>（对一类语言实现而言）、运行时环境（对共享实现环境的一类程序而言）。</p>
 <p>　　一般地，实现环境可以分为<em>独立环境(freestanding environment)</em> 和<em>宿主环境(hosted environment)</em> ，区分依据为是否依赖宿主（对部署在单一计算机上的实现，一般指操作系统）的支持。因此，环境有时指操作系统及其提供的外部服务的集合。</p>
 <p>　　一些语言，如 ISO C 和 ISO C++ ，可以同时支持宿主环境和独立环境的实现，对应<em>独立实现(freestanding impementation)</em> 和<em>宿主实现(hosted impementation)</em> 。</p>
+<p>　　<em>构建系统(build system)</em> 是环境中包含语言实现的自动执行<a href="#%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86">构建</a>任务的系统，包含一个或多个完成构建任务的工具<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">程序</a>即<em>构建程序(build program)</em> 。一般地，构建系统被<a href="#%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86">开发者</a>使用，<em>开发环境(development environment)</em> 包含构建系统。</p>
+<p>　　程序构建使用的环境是<em>构建环境(build environment)</em> 。程序运行使用的环境是<em>运行时环境(runtime environment)</em>，简称<em>运行环境</em>。</p>
+<p><strong>注释</strong> 最终用户也可能是开发者，或有构建需求的非开发者，因此也可能使用部署到运行环境中的构建系统。</p>
 <h2 id="平台"><a class="header" href="#平台">平台</a></h2>
 <p>　　环境中决定程序适用环境的被依赖的特定资源集合称为<strong>平台环境(platform environment)</strong>，简称<strong>平台(platform)</strong>。平台的典型例子有：</p>
 <ul>
@@ -566,33 +563,56 @@
 <p>　　替换平台的过程称为<em>移植(porting)</em> 。移植的可行性称为<strong>可移植性(portability)</strong> 。</p>
 <p>　　兼容任意平台的依赖项被称为是<em>平台中立(platform-neutral)</em> 的。</p>
 <p>　　当平台中立的依赖项的依赖能被自动满足而不需要考虑时，是<em>平台无关(platform-independent)</em> 的。平台中立<a href="https://zh.wikipedia.org/zh-cn/%E5%AE%9E%E8%B4%A8%E6%9D%A1%E4%BB%B6">实质蕴含</a>平台无关。</p>
-<h3 id="依赖和外延"><a class="header" href="#依赖和外延">依赖和外延</a></h3>
-<p>　　若平台之间不出现平台的实现（如开发语言的实现）和环境自身的相互依赖，则这些平台相互<em>独立(independent)</em> 。总是保持相互独立的一组平台称为<em>独立平台(independent platforms)</em> 。每一组独立平台保证可以相对于其它独立平台分离开发和测试。</p>
-<p>　　注意以上术语和 ISO C 和 ISO C++ 定义的<em>宿主实现(hosted implementation)</em> 和<em>独立实现(freestanding implementation)</em> 的关联和区别。</p>
-<p>　　典型的应用场景约定以下类型的平台：</p>
+<h3 id="运行平台"><a class="header" href="#运行平台">运行平台</a></h3>
+<p>　　一般的程序可涉及以下类型的平台：</p>
 <ul>
-<li>构建平台(build platform) ：运行开发环境的平台。</li>
-<li>宿主平台(host platform) ：运行构建平台输出代码的平台。</li>
-<li>目标平台(target platform) ：运行最终目标代码的平台。</li>
+<li>宿主平台(host platform) ：程序被<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">运行</a>的平台是程序的宿主平台。</li>
+<li>目标平台(target platform) ：程序运行目标支持的平台。
+<ul>
+<li>除非另行指定，目标平台同程序的宿主平台。</li>
+<li><strong>注释</strong> 例如，对一个<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">翻译器</a>，可以指定目标平台是其输出的程序支持运行目标的平台。</li>
 </ul>
-<p>　　若宿主平台和构建平台一致，称为<em>本机构建(native build)</em> ；否则，称为<em>交叉构建(corss build)</em> 。</p>
-<p>　　通常构建工具在本机构建时提供对构建平台的检查以确定自身是否能够运行；交叉构建环境需要显式指定。</p>
+</li>
+</ul>
+<p>　　<em>本机平台(native platform)</em> 是通过<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">本机语言</a>实现而不需附加翻译的运行平台。</p>
+<p><strong>原理</strong></p>
 <p>　　目标平台通常和宿主平台一致。指定目标平台的理由是，存在最终不一定在宿主平台上运行的程序，其运行的环境可能需要宿主平台不保证支持的特性，这典型地包括：</p>
 <ul>
 <li>构建的程序自身是生成其它程序的程序，如编译器和链接器。这些程序生成的平台是目标平台，不需要和它们的宿主平台相同。</li>
 <li>构建的程序可以在宿主平台上运行，但在其它平台上具有更完全的特性集。后者被作为目标平台。</li>
 </ul>
 <p><strong>注意</strong> 此处的宿主平台具有相对意义，不一定脱离被运行的目标平台。一个宿主平台通常自身是宿主实现平台，但这点不被保证。</p>
+<p>　　总是指定存在目标平台可简化<a href="#%E6%A8%A1%E6%8B%9F%E5%92%8C%E4%BB%BF%E7%9C%9F">适配不同平台的描述</a>。</p>
+<h3 id="依赖和外延"><a class="header" href="#依赖和外延">依赖和外延</a></h3>
+<p>　　若平台之间不出现平台的实现（如开发语言的实现）和环境自身的相互依赖，则这些平台相互<em>独立(independent)</em> 。总是保持相互独立的一组平台称为<em>独立平台(independent platforms)</em> 。每一组独立平台保证可以相对于其它独立平台分离开发和测试。</p>
+<p>　　注意以上术语和 ISO C 和 ISO C++ 定义的<em>宿主实现(hosted implementation)</em> 和<em>独立实现(freestanding implementation)</em> 的关联和区别。</p>
+<p>　　对<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">编译器</a>，若<a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">编译</a>输出的程序代码被宿主平台支持运行，其目标平台即被视为和宿主平台一致，称为<em>本机编译(native build)</em> ；否则，称为<em>交叉编译(corss build)</em> 。</p>
+<p>　　对<a href="#%E7%8E%AF%E5%A2%83">构建系统</a>的典型的应用场景，多个<a href="#%E7%8E%AF%E5%A2%83">构建程序</a>可能具有不同的<a href="#%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0">运行平台</a>集合。为简化统一的描述，约定以下类型的平台：</p>
+<ul>
+<li>构建平台(build platform) ：运行初始的构建程序的<a href="#%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0">宿主平台</a>。
+<ul>
+<li><strong>原理</strong> 无论是否可构建成功，对一个构建系统，构建平台应当总是存在。以进入构建系统作为基准，可有效避免对其它平台的依赖。</li>
+</ul>
+</li>
+<li>宿主平台：运行构建平台输出代码的平台。</li>
+<li>目标平台：运行最终目标代码的平台。</li>
+<li><strong>注释</strong> 若构建系统的输出是一个编译器，则构建系统的宿主平台和目标平台同这个编译器的宿主平台和目标平台。</li>
+</ul>
+<p>　　若宿主平台和构建平台一致，称为<em>本机构建(native build)</em> ；否则，称为<em>交叉构建(corss build)</em> 。</p>
+<p><strong>注释</strong></p>
+<p>　　本机构建和交叉构建通过初始的构建程序的<a href="#%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0">宿主平台</a>是否和<a href="#%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0">目标平台</a>相同确定，而和输出无关。这和交叉编译比较宿主平台和目标平台不同。</p>
+<p>　　通常构建系统在本机构建时提供对构建平台的检查以确定自身是否能够运行；交叉构建环境需要显式指定。</p>
+<p>　　编译器可能隐含地支持交叉编译（如 GCC ），也可能需要显示指定目标平台（如 LLVM ）。</p>
 <h3 id="模拟和仿真"><a class="header" href="#模拟和仿真">模拟和仿真</a></h3>
 <p>　　<strong>模拟(emulation)</strong> 指适配和运行为不同平台设计的程序，广义上包括以下两类：</p>
 <ul>
-<li>环境模拟(environment emulation) ：使用模拟器(emulator)或虚拟机(virtual machine) 等作为宿主平台的程序，模拟运行环境的通用解决方案。</li>
+<li>环境模拟(environment emulation) ：使用<em>模拟器(emulator)</em> 或<em>虚拟机(virtual machine)</em> 等作为宿主平台的程序，模拟<a href="#%E7%8E%AF%E5%A2%83">运行环境</a>的通用解决方案。</li>
 <li>程序模拟(program emulation) ：直接以运行时环境适配层嵌入宿主平台运行时，在具体程序中提供类似被模拟的目标平台的具体特性和接口。</li>
 </ul>
 <p>　　运行模拟程序的环境和被模拟环境分别是宿主平台和目标平台。</p>
-<p>　　注意虚拟机在这个意义下是广义的模拟器，但一般仍然分别对待。</p>
+<p>　　虚拟机在这个意义下是广义的模拟器中对<a href="#%E8%A7%84%E8%8C%83">机器接口</a>提供支持的子集，一般和其余的模拟器分别对待。</p>
 <p>　　环境模拟和程序模拟的主要差异为是否独立的、专用的宿主平台程序作为中介以维护目标平台和宿主平台的隔离。</p>
-<p>　　在一般意义上，<strong>仿真(simulation)</strong> 指对需要分析的问题建立的<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">模型</a>的过程、方法和机制，在软件工程以外也被称为模拟，如计算机模拟(computer simulation) 。对于以计算机系统为目标的仿真，建立的模型可以是具体的实物（包括硬件和软件），称为仿真器(simulator) 。以软件接口为主要操作方式实现的仿真器同时实现了环境模拟，但侧重不同：精确重现需要分析行为，而非实用的功能等价性和体系中的可替换性。</p>
+<p>　　在一般意义上，<strong>仿真(simulation)</strong> 指对需要分析的问题建立的<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">模型</a>的过程、方法和机制，在软件工程以外也被称为模拟，如计算机模拟(computer simulation) 。对于以计算机系统为目标的仿真，建立的模型可以是具体的实物（包括硬件和软件），称为<em>仿真器(simulator)</em> 。以软件接口为主要操作方式实现的仿真器同时实现了环境模拟，但侧重不同：精确重现需要分析行为，而非实用的功能等价性和体系中的可替换性。</p>
 <h3 id="平台配置"><a class="header" href="#平台配置">平台配置</a></h3>
 <p>　　实际的平台实现可能复用部分实现，配置之间可存在某种构成依赖关系的<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">偏序关系</a>（如继承关系）。这些在项目中所有被配置的平台称为<em>公共平台(common platform)</em> ，其中能对应生成输出的称为<em>具体平台(concrete platform)</em> ，否则为<em>抽象平台(abstract platform)</em> 。</p>
 <p>　　对一个平台配置，程序可提供更多的子配置共用现有的相同的配置。子配置可继续对平台特性具体特化，而对原始配置的用户程序隐藏细节。</p>
@@ -619,13 +639,27 @@
 </ul>
 <h3 id="平台标识"><a class="header" href="#平台标识">平台标识</a></h3>
 <p>　　不同平台可以标识符加以区分。由于平台受到不同环境因素决定的正交性，通常此类标识符可以分解为表示这些正交环境的标识符的元组形式，用 <code>-</code> 等字符分隔。</p>
-<p>　　一种常用的方式是 GNU 构建系统的<a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/System-Type.html#System-Type">系统类型</a>，经典表示方式为三元组(triplet) ，或其省略形式：</p>
+<p>　　一种常用的方式是 GNU <a href="#%E7%8E%AF%E5%A2%83">构建系统</a>的<a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/System-Type.html#System-Type">系统类型</a>，经典表示方式为三元组(triplet) ，或其省略形式：</p>
 <ul>
 <li>一般包括体系结构(architecture) 、系统厂商(system vendor) 和系统软件环境。</li>
 <li>第一项不可省略，之后的项可省略。</li>
+</ul>
+<p>　　其中：</p>
+<ul>
 <li>体系结构一般指定 <a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">CPU</a> 要求的最小 <a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">ISA</a> 。</li>
 <li>系统厂商指集成平台的环境厂商。</li>
-<li>系统软件环境保证满足 <a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">ABI</a> 要求，可以包含操作系统及本机语言运行时实现的名称。</li>
+<li>系统软件环境保证满足 <a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">ABI</a> 要求，可以包含操作系统及<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">本机语言</a>运行时实现的名称。</li>
+<li>通过<em>工具链(toolchain)</em> 等<a href="#%E8%A7%84%E8%8C%83">具体语言实现</a>构建时环境确定的程序依赖项是系统库(system library) ，是系统软件环境的一部分。
+<ul>
+<li>系统库可能被作为<a href="https://www.gnu.org/licenses/gcc-exception-3.1-faq.html">特定许可证例外</a>涵盖的范围。
+<ul>
+<li>详见 <a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a> 的 <a href="http://www.gnu.org/licenses/gpl-faq.html#SystemLibraryException">system library exception</a> 中的 system library 定义。</li>
+</ul>
+</li>
+<li><strong>注释</strong> 系统库一般是特定平台或操作系统提供运行时支持的、由特定第三方环境提供开发支持的<a href="#%E5%86%85%E9%83%A8%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96">外部依赖</a>，例如提供特定平台的 ISO C++ 标准库部分实现的 libstdc++ 和提供 Windows API 实现的 GDI32 等。</li>
+<li>被分发的程序源代码可能仅依赖不受到许可证影响的、公开的接口规范（如<a href="#%E8%A7%84%E8%8C%83">语言规范</a>），而不直接依赖实现，而不构成版权法意义的衍生作品，但同时构建的二进制程序可以依赖二进制的系统库。</li>
+</ul>
+</li>
 </ul>
 <p>　　确定为<a href="#%E7%8E%AF%E5%A2%83">宿主环境</a>时，系统软件同时指定操作系统和运行时环境而拆分为两项，三元组扩充为四元组，如 <a href="https://wiki.gentoo.org/wiki/CHOST">Gentoo 使用的 CHOST</a> 。</p>
 <p>　　在不够充分体现平台的必要差异（尤其是体系结构相关的配置）时也可通过自行定义标识符并指定与三元组的对应关系，如 <a href="https://wiki.debian.org/Multiarch/Tuples">Debian multiarch</a> 。</p>
@@ -639,7 +673,7 @@
 <li><strong>原理</strong> 实现的差异原则上不适合或无法通过系统类型区分。否则，系统类型事实上需要任意地长以涵盖不同细节，而会导致程序部署环境的碎片化，使维护兼容性的原始目的失去主要意义。</li>
 </ul>
 </li>
-<li>一个主要实例：不同构建工具链生成的二进制程序之间不总是保证完全的 ABI 兼容。
+<li>一个主要实例：不同构建工具链生成的二进制程序之间不总是保证完全的 ABI 兼容：即便程序代码不改变，工具链生成的二进制代码之间也不保证可互操作即确保<em>二进制兼容性(binary compatibility)</em> 。
 <ul>
 <li>同一个版本的同一工具链通过某些构建选项即可能构建出不能保证 ABI 兼容的二进制程序映像。
 <ul>
@@ -724,16 +758,38 @@
 </ul>
 <p>　　除非另行指定：</p>
 <ul>
-<li>本项目的文档描述使用和三元组兼容的方式指定平台标识的基本形式。</li>
+<li>本项目的平台定义不依赖具体的标识，但文档描述使用和三元组兼容的方式指定平台标识的基本形式。
+<strong>原理</strong> 这在设计上避免对具体的平台标识的表示方式的接口依赖。因为系统厂商不一定具有相同的约定，且并非总是存在一种最优的选择，使用具体方式唯一地描述平台既无法保证描述清楚所有必要的细节（而足以确保兼容性），也不利于可移植性；更重要地，实际上和平台中立的目的矛盾。但是，默认的实现仍然遵循通行的规则和约定，可以减少实现和用户使用上的复杂性。
+<strong>注释</strong> 一个例子是 GNU 和 LLVM 工具链使用不同的方式提供三元组；此外，有的实现提供四元组。详见以下的说明。</li>
 <li>若同一个平台配置存在多个不同的标识符，默认使用以下规则确定：
 <ul>
 <li>对使用 MinGW-w64 实现的工具链，使用<a href="https://sourceforge.net/p/mingw-w64/wiki2/TypeTriplets/">工具链定义的三元组</a></li>
 <li>否则，使用 <a href="https://savannah.gnu.org/projects/config">GNU config</a> 的最新版本中指定的标识符。
 <ul>
-<li>即 <a href="https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD">config.guess</a> 和 <a href="https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD">config.sub</a> 脚本。</li>
+<li>即 <a href="https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD"><code>config.guess</code></a> 和 <a href="https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD"><code>config.sub</code></a> 脚本。</li>
 </ul>
 </li>
-<li><strong>注意</strong> MinGW.org 和 MinGW-w64 都使用 <code>mingw32</code> 而非 <code>mingw64</code> ，这和 GNU guess 不同。应当避免<a href="https://github.com/msys2/MINGW-packages/issues/8020">可能存在的混淆</a>。</li>
+<li><strong>注意</strong> <a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/mingw-w64-doc/howto-build/mingw-w64-howto-build-adv.txt">MinGW.org 和 MinGW-w64 都使用 <code>mingw32</code> 而非 <code>mingw64</code></a> ，这和 GNU guess 不同。
+<ul>
+<li>MinGW-w64 的源代码中仅有<a href="https://www.msys2.org/docs/environments/">环境路径前缀</a> 和 GNU config 的代码使用 <code>mingw64</code> 。</li>
+<li>GCC 可接受 <code>mingw*</code> 而忽略其中的差异，但通常并不使用 GNU config 的 <code>mingw64</code> 配置 GCC。
+<ul>
+<li>因此这里的标识符能和 <code>gcc -v</code> 的结果中的 <code>Target:</code> 结果兼容。</li>
+</ul>
+</li>
+<li>应当避免<a href="https://github.com/msys2/MINGW-packages/issues/8020">可能存在的混淆</a>。</li>
+</ul>
+</li>
+<li><strong>注释</strong> <code>config.guess</code> 支持更一般的输入，包含 1 到 4 个部分，规格化为三元组 <code>CPU_TYPE-MANUFACTURER-OPERATING_SYSTEM</code> 或四元组 <code>CPU_TYPE-MANUFACTURER-KERNEL-OPERATING_SYSTEM</code> 。
+<ul>
+<li>前两个部分是机器类型，其中的厂商仅指制造商。如 <code>i686-w64-mingw32</code> 中的 <code>w64</code> 实际上不符合其含义。</li>
+<li>最后或后两个部分是操作系统，实际包含操作系统和 C 运行时实现的 ABI（可选），即 <code>&lt;kernel&gt;-&lt;libc&gt;</code> 或 <code>&lt;kernel&gt;-&lt;abi&gt;</code> 。
+<ul>
+<li><a href="#%E7%8E%AF%E5%A2%83">独立实现</a>的 ABI 配置也被视为操作系统，如 <code>eabi</code> 和 <code>gnueabi</code> 。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>注释</strong> 通常不使用 <a href="https://clang.llvm.org/docs/CrossCompilation.html#target-triple">Clang 的三元组</a>。
@@ -780,7 +836,76 @@
 <p>　　构建系统中可能涉及多个平台。</p>
 <p>　　运行构建系统的环境和被构建的程序的环境不需要相同，对应的平台分别是<a href="#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">宿主平台</a>和<a href="#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">目标平台</a> 。宿主平台和目标平台相同时称为<em>本机(native)</em> 构建；不同时称为<em>交叉(cross)</em> 构建。</p>
 <p>　　多个构建过程可能串联组成更大的构建过程。不同构建过程存在输出和输入之间的依赖。此时，前一过程输出的目标平台需要兼容于后一过程作为输入的宿主平台，否则无法直接运行。典型情况下这些平台是相同的，但也可以存在平台之间自身保证二进制<a href="#%E8%A7%84%E8%8C%83">互操作</a>兼容性（如支持 x86_64 的体系结构上混用 i686 和 x86_64 ）的情况。</p>
-<p>　　一些构建系统如 <a href="https://gcc.gnu.org/onlinedocs/gccint/Configure-Terms.html">GNU 工具链使用更复杂的术语</a>，单独引入构建(build) 平台。为确保一般性并简化模型，本文档不要求单独使用这个概念，而默认构建平台是第一级构建过程（即 GNU autoconf 的“配置”）的宿主平台。</p>
+<p>　　一些构建系统如 <a href="https://gcc.gnu.org/onlinedocs/gccint/Configure-Terms.html">GNU 工具链使用更复杂的术语</a>，单独引入<a href="#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">构建平台</a>。</p>
+<p>　　除非另行指定，本文档不要求单独使用这个概念，而默认构建平台是第一级构建过程（即 GNU autoconf 的“配置”）的宿主平台。</p>
+<p><strong>原理</strong></p>
+<p>　　不要求显式的构建平台确保一般性并简化模型。</p>
+<p>　　特别地，能单独指定构建平台，是因为已知第一级配置可以单独通过<a href="#%E7%8E%AF%E5%A2%83">宿主环境</a>运行本机程序（典型地，如 C 语言等<a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">本机语言</a>实现的<a href="#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">宿主实现</a>程序）。典型地，GNU autoconf 等使用宿主环境脚本调用配置阶段构建的程序实现构建的第一级阶段。</p>
+<p><strong>注释</strong></p>
+<p>　　一些支持交叉构建的系统，即便被设计为配合已知的第一级构建的本机语言实现，也使用简化的模型。</p>
+<p>　　例如，Go 语言的交叉编译实现中，可<a href="https://dh1tw.de/2019/12/cross-compiling-golang-cgo-projects/">使用简化的模型</a>，也可能<a href="https://go.dev/wiki/GccgoCrossCompilation">使用区分构建平台的模型</a>。</p>
+<p>　　构建系统实现可能通过不同的环境变量区分针对<a href="#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">不同的平台</a>的对应的<a href="#%E7%8E%AF%E5%A2%83">构建程序</a>。例如，一些主要的 GNU 项目有以下支持：</p>
+<ul>
+<li>多个环境变量指定构建系统中不同阶段使用的生成不同平台代码的编译器。以 C 编译器为例：
+<ul>
+<li>环境变量 <code>CC</code> 指定宿主平台使用的编译器，其宿主平台以及目标平台和构建系统的对应平台相同。</li>
+<li>环境变量 <code>CC_FOR_BUILD</code> 或 <code>BUILD_CC</code> 指定构建平台的 C <a href="#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">本机编译器</a>。
+<ul>
+<li>它输出的目标程序可作为构建脚本调用的一部分，即它的目标平台是构建平台。</li>
+<li>指定 <code>CC_FOR_BUILD</code> 和 <code>CC</code> 不同的值可允许它不是宿主平台的本机编译器；其输出的目标程序能在构建平台运行，而不一定能在宿主平台运行。</li>
+<li>构建平台和宿主平台相同时，一般同 <code>CC</code> 。</li>
+</ul>
+</li>
+<li>环境变量 <code>CC_FOR_HOST</code> 或 <code>HOST_CC</code> 指定宿主平台的 C 编译器。
+<ul>
+<li><code>HOST_CC</code> 名义上指定宿主平台编译器，实际因为被用于构建过程而更应视为构建平台的编译器，因此可能同 <code>CC_FOR_BUILD</code> 且当前一般建议使用 <code>CC_FOR_BUILD</code> 替代，尽管因为兼容性可能仍被支持。</li>
+<li><code>CC_FOR_HOST</code> 很少使用，一般同 <code>CC</code>（尽管<a href="https://github.com/mesonbuild/meson/issues/3969">有时后者总是被视为本机编译器</a>）。</li>
+</ul>
+</li>
+<li>环境变量 <code>CC_FOR_TARGET</code> 指定目标平台的 C 编译器。
+<ul>
+<li>不使用 <code>TARGET_CC</code> 。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在 GNU binutils 的历史中：
+<ul>
+<li><code>HOST_CC</code> 在<a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commitdiff;h=fecd2382e77b89f12c9d630ed4e42e9a54ba6953">初始提交</a>中即已出现。</li>
+<li><code>CC_FOR_TARGET</code> 在<a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=5148923360989fb54088f499e4b4cefd14088f9a">这个提交</a>中被引入。</li>
+<li><code>CC_FOR_BUILD</code> 在<a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=440868a029f0e200c019dce82ec783163fa59eed">这个提交</a>中被引入。</li>
+<li><code>CC_FOR_HOST</code>（以及 <code>CFLAGS_FOR_HOST</code> ）最早在<a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commitdiff;h=3c2476067c4b9c7db494af355e575b607fededee">这个提交</a>中出现。
+<ul>
+<li>仅在测试中使用。</li>
+</ul>
+</li>
+<li><code>BUILD_CC</code> 最早在<a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commitdiff;h=3866be5d4e427b4d114ad3b145496b8125c0fb0c">这个提交</a>中出现，代替 <code>HOST_CC</code> 。</li>
+<li><code>BUILD_CC</code> 的支持在<a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=4ec9a3b2495d5b49da1d83ac4ca0e3f90f8d2f75">这个提交</a>被移除。
+<ul>
+<li>参见以下 GCC 的更改。</li>
+<li>剩余的更改被之后的提交（<a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commitdiff;h=4fa63067931306bf5a9f9894bf4d2f5e14a1228f">[1]</a><a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commitdiff;h=37ad95141b084645ed5729a0f36e1c945b0ac693">[2]</a><a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commitdiff;h=3866be5d4e427b4d114ad3b145496b8125c0fb0c">[3]</a>）移除。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在 GCC 的历史中：
+<ul>
+<li><code>HOST_CC</code> 在<a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commitdiff;h=79d8453e1c6f6e7e304d6f44da0dd018c459a121">初始提交</a>中即已出现。</li>
+<li><a href="https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=c192da272be503d6d70ee09165cbac6de7b0b88a">这个提交</a>支持 <code>HOST_CC</code> 。</li>
+<li><a href="https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=b7cb92adc97bd0cde5263493567cff7d23ed65d7">这个提交</a>在配置脚本中支持 <code>BUILD_CC</code> 。</li>
+<li><a href="https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=fe81dd695d4f49444de0114ee69b219c8d6aa45c">这个提交</a>使用 <code>BUILD_FOR_CC</code> 代替 <code>BUILD_CC</code> 。</li>
+<li><code>BUILD_CC</code> 支持在<a href="https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=eaf9f3b2e936e437092978ee61606cb53f87e5bc">之后</a>被移除。</li>
+<li>没有出现 <code>CC_FOR_HOST</code> 。</li>
+</ul>
+</li>
+<li>GNU Autoconf <a href="https://git.savannah.gnu.org/cgit/autoconf.git/commit/?id=723cfb231e56f59931a0553b46754c1189a44f04">引入环境变量 <code>BUILD_CC</code> 和 <code>HOST_CC</code></a> 代替 <code>CC</code> 指定构建平台和宿主平台运行的 C 编译器。</li>
+<li>GNU config <a href="https://git.savannah.gnu.org/cgit/config.git/commit/?id=b0f77efb54be49c9f3b73a970e0224dd8ff28bea">引入 GNU Autoconf 的上述更改</a>。</li>
+<li>GNU config <a href="https://git.savannah.gnu.org/cgit/config.git/commit/?id=045c3cc31298d4270d4b3a2e36531819206dd4d1">之后引入的更改</a>补充的注释指出 <code>CC_FOR_BUILD</code> 代替 <code>HOST_CC</code> 。
+<ul>
+<li>这在更早的提交中也有出现，如<a href="https://sourceware.org/git/?p=binutils-gdb.git;a=commitdiff;h=2412a768378f4c97e28f82824cbccc0c52b83938">这个 GNU binutils 提交</a>。</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 

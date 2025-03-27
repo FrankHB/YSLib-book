@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html" class="active"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -205,14 +186,14 @@
 <li><code>zh-CN</code></li>
 <li><code>zh</code></li>
 </ul>
-<p><strong>NOTE</strong> The form of these literals conforms to the recommendation of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, specifically, the &quot;language&quot; and &quot;region&quot; syntax elements in <a href="https://www.rfc-editor.org/rfc/rfc5646.html">RFC 5646</a>.</p>
+<p><strong>NOTE</strong> The form of these literals conforms to the recommendation of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, specifically, the "language" and "region" syntax elements in <a href="https://www.rfc-editor.org/rfc/rfc5646.html">RFC 5646</a>.</p>
 <p>If no one edition in above languages is complete, the documentation is defective.</p>
 <p>A language tag may be used to annotate one or more words in text. An annotation of such use is a <em>language tag annotation</em>, which consists of a tag combined with one pair of enclosing parentheses (namely, <code>(</code> and <code>)</code>).</p>
 <p>Hyperlinks in pages should preferrably link to localized contents corresponding to the language or one of the major languages used in the page (if any) when suitable. If contents of the linked target is in other languages (esp. when there are more than one semantically identical editions in multiple languages), at least one language tag for majority of the contents should be noted subsequent to the hyperlink; otherwise, the tag should be omitted.</p>
 <p>For compatibility of client programs, each link of <a href="https://en.wikipedia.org/wiki/URI">URI</a> should be encoded in form of normalized <a href="https://tools.ietf.org/html/rfc3986#section-2.1">Percent-Encoding in RFC 3986</a>.</p>
 <p>Additionally, several hyperlinks are normalized with the same form for a specific language. Currently the rule consists of following cases:</p>
 <ul>
-<li>For <a href="https://zh.wikipedia.org/zh-cn">Chinese Wikipedia(zh-CN)</a>, the link shall following the rule in <a href="https://zh.wikipedia.org/zh-cn/Help:%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E7%9A%84%E7%B9%81%E7%AE%80%E3%80%81%E5%9C%B0%E5%8C%BA%E8%AF%8D%E5%A4%84%E7%90%86">the section in the language conversion help page(zh-CN)</a>, with small letter &quot;cn&quot; in the link.</li>
+<li>For <a href="https://zh.wikipedia.org/zh-cn">Chinese Wikipedia(zh-CN)</a>, the link shall following the rule in <a href="https://zh.wikipedia.org/zh-cn/Help:%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E7%9A%84%E7%B9%81%E7%AE%80%E3%80%81%E5%9C%B0%E5%8C%BA%E8%AF%8D%E5%A4%84%E7%90%86">the section in the language conversion help page(zh-CN)</a>, with small letter "cn" in the link.</li>
 </ul>
 <h3 id="in-english"><a class="header" href="#in-english">In English</a></h3>
 <p>Stylistic usage of letter cases shall be respected in the following precedence:</p>
@@ -277,6 +258,10 @@
 <h2 id="text-files"><a class="header" href="#text-files">Text files</a></h2>
 <p>Unless otherwise specified, all text files should be encoded as UTF-8 with <a href="http://en.wikipedia.org/wiki/Byte_order_mark">BOM</a> enabled.</p>
 <p>Any use of encoding which may not be converted verbatim and losslessly in binary form to UTF-8 shall be explicit specified in documantation.</p>
+<p>Any UTF BOMs shall not exist in a derived text format with normative specification which excludes the BOM explicitly.</p>
+<ul>
+<li><strong>Rationale</strong> The specification such text format may assume the contents are all the payload in a known UTF encoding.</li>
+</ul>
 <p>BOM should be omitted for text files dedicated to tools without capability of properly handling it. Otherwise, BOM shall be used as possible when it can clarify the encoding being used.</p>
 <p>Unless definitely intended and explictly specified in documentation, newlines shall be consistent. Default use of newline is <a href="http://en.wikipedia.org/wiki/CRLF">CR+LF</a>.</p>
 <p>Two subsequent newlines indicate an <a href="http://en.wikipedia.org/wiki/End-of-file">EOF</a> logically. Subsequent newlines out of verbatim quoted text (including source code) should only be used at EOF.</p>
@@ -300,6 +285,8 @@
 </ul>
 <h2 id="markdown"><a class="header" href="#markdown"><a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a></a></h2>
 <p>Names of markdown files should be with <code>.md</code> extension.</p>
+<p><strong>NOTE</strong> Several rules here can be enforced by <a href="https://github.com/DavidAnson/markdownlint">markdownlint</a> tools like <a href="https://github.com/DavidAnson/markdownlint-cli2">markdownlint-cli2</a>. A compatible configuration file is included in this project.</p>
+<p><strong>NOTE</strong> Markdown files derive text files. The rule of <a href="#text-files">subsequent newlines</a> is covered by a modified setting of <a href="https://github.com/DavidAnson/markdownlint/blob/v0.32.1/doc/md009.md">markdownlint rule MD009</a> with "strict" mode.</p>
 <h3 id="dialects"><a class="header" href="#dialects">Dialects</a></h3>
 <p>Unless explicitly specified elsewhere, only common dialects are to be used. Currently this should be <a href="https://help.github.com/articles/github-flavored-markdown">GFM (GitHub Flavored Markdown)</a>.</p>
 <p><strong>NOTE</strong> This is not <a href="https://docs.gitlab.com/ee/user/markdown.html">GLFM (GitLab Flavored Markdown)</a>, which also abbreviated as GFM formerly.</p>
@@ -314,14 +301,45 @@
 <p>As specified, reserved characters defined by RFC 3986 should be percentage-encoded. Notably, the parentheses(<code>()</code>) in hyperlinks shall be encoded to make it more fault-tolerent for some editors.</p>
 <p>Headers should be prefixed by <code>#</code>s.</p>
 <p>There should be no redundant characters allowed between the annotated words and annotation (esp. whitespace characters), even there are whitespaces in the words. The annotation in this rule includes any language tag annotation defined in previous subclause.</p>
-<p><strong>Rational</strong> This is for the sake of compact annotation representations.</p>
+<p><strong>Rational</strong> This is for the sake of compact annotation representations, as well as to ease the transition from plain texts to structured ones (e.g., to get align with the Markdown links without redundant whitespaces between <code>[]</code> and <code>()</code>).</p>
 <p><strong>NOTE</strong> The whitespace rules in the language annotation is also applicable. Instead, it is also allowed to use word combination (instead of the annotation) when gramatically correct, so this rule does not apply.</p>
+<h3 id="code-block-names"><a class="header" href="#code-block-names">Code block names</a></h3>
+<p>Laugnage names are required on the code blocks.</p>
+<p><strong>NOTE</strong> This is covered by <a href="https://github.com/DavidAnson/markdownlint/blob/v0.32.1/doc/md040.md">markdownlint rule MD040</a>.</p>
+<p>The following requirements are hold on the names:</p>
+<ul>
+<li>Use the langauge names in a well-known style, unless explicitly noted here.
+<ul>
+<li>Currently, this is specified in the <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">list of supported languages of hightlight.js</a>.</li>
+<li>For all other cases (including program output), use <code>text</code>.</li>
+<li><strong>Rationale</strong> Proper language identifiers make syntactic highlight and other cosumers of Markdown work appropriately.</li>
+<li>As an exception, custom names can be used only when it is either explicitly defined or mentioned unambiguously in the document contents.
+<ul>
+<li><strong>Rationale</strong> This is only for human readers of the Markdown source. Otherwise it should be like <code>text</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Use the most proper language names actually reflect the contents of the code with maximum portability in the intended use cases, even they are equivalent in some implementaions of the consumer of the Markdown code.
+<ul>
+<li>Use <code>shell</code> when the code is conforming to <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html">POSIX shell language</a>.
+<ul>
+<li><strong>NOTE</strong> For instance, <code>shell</code> is preferred than <code>bash</code> even if the command is to call a script only compatible to <a href="https://www.gnu.org/software/bash/manual/">GNU Bash</a>.</li>
+<li><strong>Rationale</strong> The source language shall be respected. It is irrelavant to how the contents are handled in the actually execution (e.g. specifying a different language by <a href="https://en.wikipedia.org/wiki/Shebang">Shebang</a>).</li>
+</ul>
+</li>
+<li>Use <code>console</code> when the code is conforming to both of shell and DOS/Windows batch scripts.</li>
+<li>Use <code>dos</code>/<code>bat</code>/<code>cmd</code> contextually. The differences of batch commands in interactive script environment and in files shall be respected.</li>
+<li><strong>Rationale</strong> These rules make it clear to the human readers of the Markdown source by clear intent.</li>
+</ul>
+</li>
+</ul>
 <h1 id="cross-references"><a class="header" href="#cross-references">Cross references</a></h1>
 <p>This document is used by the YSLib project. It may be also referenced by other repositories.</p>
 <p><strong>Except for the following list, do not edit unless ultimately necessary.</strong></p>
 <p>Known referenced by:</p>
 <ul>
-<li><a href="https://github.com/FrankHB/pl-docs">Programming Language Documentations</a> by FrankHB</li>
+<li><a href="https://github.com/FrankHB/pl-docs">Programming Language Documentations</a> by <a href="https://github.com/FrankHB">FrankHB</a></li>
 </ul>
 <h1 id="annex-informative"><a class="header" href="#annex-informative">Annex (Informative)</a></h1>
 <h2 id="alternaive-imcompatible-rules"><a class="header" href="#alternaive-imcompatible-rules">Alternaive imcompatible rules</a></h2>
@@ -330,7 +348,7 @@
 <li>The specification may be too vague by missing separating the comformance rules and the suggestions, so it is difficult to manually verify the conformance just by the specification text.
 <ul>
 <li>Some confusions may be from the lack of rules on the modal verbs.</li>
-<li>Some rules may be underspecified for external resources. For example, the claim of &quot;be a valid Markdown file&quot; is unclear without further notes, because there is no unique standard to determine the definition of &quot;valid&quot;, since there are multiple dialects of the Markdown language and no flavor is definitely more representative than others.</li>
+<li>Some rules may be underspecified for external resources. For example, the claim of "be a valid Markdown file" is unclear without further notes, because there is no unique standard to determine the definition of "valid", since there are multiple dialects of the Markdown language and no flavor is definitely more representative than others.</li>
 </ul>
 </li>
 <li>The rules of mandated letter cases (in particular, capitalization) may be too restrictive.
@@ -341,11 +359,11 @@
 <li>As a notable instance, <a href="https://www.rfc-editor.org/rfc/rfc5646.html">RFC 5646</a> recommends but does not mandate the capitalization for the codes from <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> and <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1</a>, while the preferred capitalization diverges in the 2 standards.</li>
 </ul>
 </li>
-<li>On the other hand, mandotory like &quot;README&quot; instead of &quot;Readme&quot; is too restrictve. It will be problatic to be transferred between case-insensitive enviornments and case-sensitive environments (e.g. names in filesystems), where one environment may allow entries of <code>README</code> and <code>Readme</code> coexisting but another may not.
+<li>On the other hand, mandotory like "README" instead of "Readme" is too restrictve. It will be problatic to be transferred between case-insensitive enviornments and case-sensitive environments (e.g. names in filesystems), where one environment may allow entries of <code>README</code> and <code>Readme</code> coexisting but another may not.
 <ul>
-<li>When techically feasible to having different cases coexisting, &quot;README&quot; and &quot;Readme&quot; are symmentric, i.e. no one is definitely more preferred than the other for machines. It is then not intuitive to reason why &quot;README&quot; must be preferred to &quot;Readme&quot; instead of the exact opposite in the specification, in particular with the fact that such entry is mainly created for human readers but not machines.</li>
+<li>When techically feasible to having different cases coexisting, "README" and "Readme" are symmentric, i.e. no one is definitely more preferred than the other for machines. It is then not intuitive to reason why "README" must be preferred to "Readme" instead of the exact opposite in the specification, in particular with the fact that such entry is mainly created for human readers but not machines.</li>
 <li>Instead, keeping one overridable as well as a recommended default form (which does not necessarily to be all capitalized) of spelling is better for both portability and other needs.</li>
-<li>Further, names like &quot;README.md&quot; are less consistent to &quot;README.MD&quot;. The latter is at least required in some ancient systems not support the small case, hence even more preferred for portability (in extreme cases).</li>
+<li>Further, names like "README.md" are less consistent to "README.MD". The latter is at least required in some ancient systems not support the small case, hence even more preferred for portability (in extreme cases).</li>
 </ul>
 </li>
 </ul>
@@ -361,6 +379,198 @@
 </li>
 </ul>
 <p>An example of most bullets above can be found in the <a href="https://github.com/RichardLitt/standard-readme/blob/master/spec.md">specification</a> of <a href="https://github.com/RichardLitt/standard-readme">standard-readme</a>.</p>
+<h2 id="notes-on-the-overall-writing-style"><a class="header" href="#notes-on-the-overall-writing-style">Notes on the overall writing style</a></h2>
+<p>This subclause is used for informative supplement (guidelines and rationales) on the writing style used across the materials in the repository. The "adoptions" in the text below shall be interpreted as suggestions, but not mandotory rules.</p>
+<p>There can be some stylish emphasize on the use of the language for personality, say, <a href="http://xahlee.org/wordy/musing/xah_style.html">this</a>. However, a line of the boundary to prevent overly stylish should be drawn. That is, it should be generally grammatical <em>without drafting a new dialect not well-known enough</em>. Dialects not well-known enough have troubles being adoption, and they carry (and increase) confusions. Even without the adoption problems, consider dialects as specifications, or standards, the divergence would not be eliminated without extraordinary efforts, see also <a href="https://xkcd.com/927/">xkcd 927</a>. Hence, for a context out of <a href="https://en.wikipedia.org/wiki/Constructed_language">conlang</a>, avoid it.</p>
+<p>There are actually many rules shared with the link above in the writing here, tailored by the rule. Analyze them one by one and then categorize, with the reasons attached:</p>
+<ul>
+<li>Rejected:
+<ul>
+<li>Article “an” vs “a”
+<ul>
+<li>This is rejected because it has ungrammatical, and it has significant damange on the experience for readers on smoothness about phonetics.</li>
+</ul>
+</li>
+<li>Pronoun “I” vs “i”
+<ul>
+<li>Rejected for ungrammatical issue. There are no enough benefits to take ad-hoc rules over and over.</li>
+</ul>
+</li>
+<li>Saxon Genitive: “James's car” vs “James' car”
+<ul>
+<li>Ditto.</li>
+</ul>
+</li>
+<li>Symbol Used for the Quotation Mark
+<ul>
+<li>Straight quotes should be used for English, or there are no place to use.</li>
+<li>Curly double quotes are in the orthography in some languages, but not in English.</li>
+</ul>
+</li>
+<li>Quoting Computer Code
+<ul>
+<li>Non-idomatic to use <code>「</code> and <code>」</code> in English. Even more non-idomatic to use them for quotation of the code.</li>
+<li>Non-idomatic to use <code>〔</code> and <code>〕</code> in English. Even more non-idomatic to use them for paths.</li>
+<li>There are more conventional semantic styles for those quotation, e.g. Markdown ``` quotes. The styles can be also customized by the style sheets.</li>
+</ul>
+</li>
+<li>Period in Person's Names
+<ul>
+<li>Non-idomatic <a href="https://en.wikipedia.org/wiki/Full_stop#Initials">in majority</a>.</li>
+<li>Though uncommon, there is an ambiguity to the shortened form with a name having only one letter without the period.</li>
+<li>There are no rationals. If the ambighity between the last punctuation of a sentence with this use is a matter, why limit it to "person's names"? E.g., "e.g. " with "." (and a space character after the 2nd ".") is actually used by the text. This is not logical at all.</li>
+</ul>
+</li>
+<li>Citation Format
+<ul>
+<li>The requirements on the precise format is intentionally omit here globally, to allow better interoperbility to the contexts.</li>
+<li>Adaption to the target context is important than stiking on a concrete known format. However, being internally consistency is also important. These two points should stay together in peace.</li>
+<li>For multiple targets, more than one format for the same content can coexist. Notice that a machine readable format can be more efficient for specific uses, but not that readable for humans. So there often can be a mixture.</li>
+<li>Afterall, too many aspects can be customized here.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Weakly rejected:
+<ul>
+<li>Use Logical Spelling Variant
+<ul>
+<li>It is somewhat subjective to identify what is "logical" enough.</li>
+<li>Alghough some are occasionally the same (e.g. "color" instead of "colour"), this is nothing to do with "logical". Just apply the rule of "en-US is preferrend to other English dialects" by default.</li>
+</ul>
+</li>
+<li>No “and” for Last Item in Sequence
+<ul>
+<li>Althoug abuse of conjunctions can be a problem, it usually should not happen without some delibarte effots.</li>
+<li>By not eliminating the "too odd" exceptional cases, this rule is less beneficial.</li>
+<li>Simply keeping "and" is still the simplest.</li>
+<li>“My favorite fruits are: {peach, banana, cherry}” is not that logical. Reduce it with some substituion, it has the form "My favorite fruits are: <em>a set of fruits</em>", which looks not grammatical due to the non-canonical use of verb "are". A more grammatical form should have "are <em>in</em>" instead of a plain "are" here.</li>
+</ul>
+</li>
+<li>No “respectively” in Parallel Sequences
+<ul>
+<li>Good to prevent redundancy, but when used, the emphasize is not redundant.</li>
+<li>“{peach, banana, cherry}, colored {pink, yellow, red}” is confusing due to the possibly ambiguity in the composition of multiple set notations (curly brace pairs), given that it is not an idiomatic way of expression in natural languages.
+<ul>
+<li>Why does this mean a parallel sequence instead of a Cartesian product?</li>
+<li>It is perfectly "grammatical" to the nature of the extended syntax of "{}".</li>
+<li>The phrase "colored {pink, yellow, red}" can be reviewed as a result from the predictor "colored" being applied by the set {pink, yellow, red}.</li>
+<li>Before the semantic analysis on the precise meaning of this sentence (to render {peach, banana, cherry} × colored {pink, yellow, red}) nonsense, no notational sensitivity can be induced.</li>
+<li>Instead, a "respectively" clearly rules the ambiguity out by syntax.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Weakly adopted (contextually):
+<ul>
+<li>Short Sentence Length
+<ul>
+<li>This is mildly adopted, but not always good in reality, because it is often more difficult to split the words correctly and precisely without redundancy using short sentences.</li>
+<li>Basically it should be forgotten, and when there are sentences looking unconfortably lengthy, revive and champion this as a rule.</li>
+</ul>
+</li>
+<li>Avoid Idioms in Tech Writing
+<ul>
+<li>Good in general.</li>
+<li>But it incurs a mental cost to identify the idioms to pick up some alternatives intentioanlly. This is actually acknoledged as "it's very time consuming".</li>
+<li>Also it can lead to words not in the basic English without very careful treatment of the validity of the alternatives (so clashing with "Diction" section). To distinguish whether a particular word in the vocabulary of basic English is difficult for non-specialists of English education.</li>
+</ul>
+</li>
+<li>No Right Justification
+<ul>
+<li>There should be the exceptional cases for typographic uses, esp. per sentence alignment like <a href="http://www.opimedia.be/DS/languages/tabs-vs-spaces/">this</a>.</li>
+<li>Otherwise, what on earth is that?</li>
+</ul>
+</li>
+<li>Use Metric System
+<ul>
+<li>Sometimes idiomatic. However, Instead of "USD$1M", use "USD 1M" instead, to avoid the "dollar" redundancy between "D" in "USD" and the dollar sign ("$"). Then the reason is not strong enough there: it is not idiomatic to use the idiomatic <em>prefix</em> "M" actually as a suffix. The common use of abbreviations like "MB" to "M" is informal, and the omission of other basic units is non-idiomatic.</li>
+<li>Distinguishing of "k" and "ki" is good. Likewise "M" and "Mi".</li>
+</ul>
+</li>
+<li>Person's Name, Title
+<ul>
+<li>Order of First Name, Last Name
+<ul>
+<li>Alphabaticlal order can be the default convention, but not the only.</li>
+</ul>
+</li>
+<li>No Honorary Title
+<ul>
+<li>It is plausible to prefer name to title for accuracy.</li>
+<li>Degrees from different majors and different places. There may be confusions. "PhD" is lilely certainly not about "philosophy", but what if "philosophy" is exactly needed?</li>
+<li>An exception is to make confusion intionally. That is, <a href="https://en.wikipedia.org/wiki/Pun">word punning</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Adopted (without exceptional cases):
+<ul>
+<li>Omitting Articles: {a, the}
+<ul>
+<li>This is adopted for non-mandotory.</li>
+</ul>
+</li>
+<li>Diction
+<ul>
+<li>Good for clarity.</li>
+</ul>
+</li>
+<li>Hyphen, Dash
+<ul>
+<li>Ditto.</li>
+</ul>
+</li>
+<li>Apostrophe
+<ul>
+<li>Grammatical. Orthographic.</li>
+</ul>
+</li>
+<li>Punctuation in List Items
+<ul>
+<li>Conventional.</li>
+<li>The only exception is the phrase itself: "<a href="https://en.wikipedia.org/wiki/Full_stop">full stop</a>" may have a preferred form "period" in en-US, although <a href="https://en.wikipedia.org/wiki/Full_stop#Medieval_Latin_and_modern_English_period">there is not a big difference nowadays (also see below)</a>. This does not change the status of adoption, though.</li>
+</ul>
+</li>
+<li>Sentences Should Always End in a Period
+<ul>
+<li>Idiomatic.</li>
+<li>The titile is problematic to include exclamation mark or question mark as "period", as period is just the period symbol in normal uses. The detailed text is correct, though.</li>
+<li>The exceptional cases like "e.g." and "i.e." are explained as "haven't fully though out" here, but actually, they should not be the problem, becuase a period is not necessarily the end of a sentence. The ancient use which differentiate "full stop" and "period" use the former for the case, but nowadays it is conventional <a href="https://en.wikipedia.org/wiki/Full_stop#Medieval_Latin_and_modern_English_period">to treat them the same</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Strongly adopted (with even more and stricter rules):
+<ul>
+<li>Active vs Passive Voice
+<ul>
+<li>Passive voice is almost always preferred (for technical writings).</li>
+<li>Almost no subjects denoting readers are even used.</li>
+<li>Cold, inhuman and <em>precise</em> statements are preferred, except when the opposite are the objects being discussed (e.g. <em>metophors</em>, for GUI).</li>
+<li>The first-person subject pronouns ("I" and "we") are also rarely used. (This also largely prevents the concern of “I” vs “i” mentioned above.)</li>
+<li>Moreover, this also covers the instance of commit messages.</li>
+</ul>
+</li>
+<li>Do Not Spell Out Numbers
+<ul>
+<li>This is also adopted. Moreover, numbers are treated the same if it is at the beginning at the sentence. More and moreover, ordinal numbers are also enforced besides cardinal numbers, for cases just need number (e.g. "1st" is preferred over "first" with exceptional cases when used as an adverb or in phrases like "at first").</li>
+</ul>
+</li>
+<li>Date format
+<ul>
+<li>Idomatic.</li>
+<li>This prevents the ambiguity between "dd-mm-yyyy" and "mm-dd-yyyy" in particular.</li>
+<li>Moreover, in some contexts, more detailed ISO 8601 forms are required (e.g. with time zone information).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 

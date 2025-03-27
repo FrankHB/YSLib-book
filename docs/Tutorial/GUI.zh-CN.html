@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="../Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="../Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="../GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="../Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Prerequisitions.zh-CN.html"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="../GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="../Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="../Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="../Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="../Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="../YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="../Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="../Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="../Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="../Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="../Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="../Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="../Tutorial/GUI.zh-CN.html" class="active"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="../Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="../EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="../StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="../ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="../WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -185,7 +166,7 @@
 <p>　　类 <code>Size</code> 包括两个 <code>SDst</code> 分量，用于表示大小。</p>
 <p>　　类 <code>Rect</code> 约定了一个边和屏幕坐标系总是共线的矩形：保存一个左上角位置的 <code>Point</code> 和表示宽度和高度的 <code>Size</code> 对象。</p>
 <p>　　一个 Rect 对象可以直接通过位置和大小构造：</p>
-<pre><code>Rect r1(Point(10, 20), Size(40, 50));
+<pre><code class="language-cpp">Rect r1(Point(10, 20), Size(40, 50));
 Rect r2({10, 20}, {40, 50}); // 同上。
 Rect r3(10, 20, 40, 50); // 同上。
 Rect r4{10, 20, 40, 50}; // 同上。
@@ -197,7 +178,7 @@ Rect r4{10, 20, 40, 50}; // 同上。
 <p>　　Helper::GUIShell 模块提供的类 <code>Shells::GUIShell</code> 是专用于不同平台 GUI 程序处理的 shell ，它隐藏了控制和响应 GUI 需要处理的具体消息，使用户输入被分发到更高级的 <code>UI::GUIState</code> 类的对象中。</p>
 <p>　　GUIState 是模块 YSLib::UI::YGUI 提供的平台中立的 GUI 公共逻辑处理的实现。默认 GUIState 对象预先构造的<strong>单态(monostate)</strong> 对象，即被全局共享，可以储存和 GUI 相关的公共状态。</p>
 <p>　　通过 YSLib::UI::YGUI 提供的函数 <code>UI::FetchGUIState</code> 取得取默认图形用户界面公共状态：</p>
-<pre><code>using namespace UI;
+<pre><code class="language-cpp">using namespace UI;
 auto&amp; state(FetchGUIState());
 </code></pre>
 <h2 id="事件event"><a class="header" href="#事件event">事件(event)</a></h2>
@@ -218,17 +199,17 @@ auto&amp; state(FetchGUIState());
 <p>　　调整部件的特定属性即可以基本完成一个 GUI 应用。</p>
 <p>　　模块 YSLib::UI::YWidgetEvent 提供了 UI::VisualEvent 枚举标识默认支持的 GUI 事件，其中不同的枚举项表示不同的 GUI 事件，可能对应不同的事件参数类型。默认支持的事件参数类型都是类类型的右值引用类型，但和标准库的右值引用参数类型不同，约定被转移后状态可预测。</p>
 <p>　　从一个控件取得一个指定事件标识的的事件左值，可以使用 YSLib::UI::YControl 提供的函数模板 <code>UI::FetchEvent</code> 。可以直接在取得的事件上进行操作，所以不必要直接声明一个变量。</p>
-<pre><code>using namespace Drawing; // 使用 Drawing::Size 等。模块 YSLib::UI::YControl 已在命名空间 YSLib 中有此声明，若包含了对应的头文件，可以省略。
+<pre><code class="language-cpp">using namespace Drawing; // 使用 Drawing::Size 等。模块 YSLib::UI::YControl 已在命名空间 YSLib 中有此声明，若包含了对应的头文件，可以省略。
 using namespace UI;
 Control ctl(Size(80, 20)); // 创建一个 Control 类型的控件 ctl ，初始大小为 (80, 20) 。
 auto&amp; paint_event(FetchEvent&lt;Paint&gt;(ctl)); // 取 ctl 的 UI::Paint 事件，通常是不必要的。
 
 // 使用 lambda 表达式添加回调是简便的做法：
 FetchEvent&lt;Click&gt;(ctl) += [](CursorEventArgs&amp;&amp;){
-	std::cout &lt;&lt; &quot;Control clicked!&quot; &lt;&lt; std::endl;
+	std::cout &lt;&lt; "Control clicked!" &lt;&lt; std::endl;
 };
 FetchEvent&lt;Click&gt;(ctl) += []{ // 得力于 GHEvent 允许省略参数的特性，这里可以省略没有用到的形式参数。
-	std::cout &lt;&lt; &quot;Control clicked again!&quot; &lt;&lt; std::endl;
+	std::cout &lt;&lt; "Control clicked again!" &lt;&lt; std::endl;
 };
 </code></pre>
 <p>　　当 ctl 被点击时，上面 <code>UI::Click</code> 事件上添加的两个回调会被依次执行，在标准输出上输出两行字符串。</p>
@@ -237,7 +218,7 @@ FetchEvent&lt;Click&gt;(ctl) += []{ // 得力于 GHEvent 允许省略参数的�
 <p>　　上例中通过指定 <code>Size</code> 对象表示部件初始化时的大小。这个类型和下面涉及的位置以及边界类型都由模块 YSLib::Core::YGDIBase 提供，头文件默认已经被包含在 GUI 中所以不需要显式包含。</p>
 <p>　　位置由二维的点 <code>Point</code> 类型表示。此处并没有明确位置是相对于哪个坐标系的。创建部件以后，并没有直接指定部件应在哪被显示，所以这里的位置本身只具有相对意义。</p>
 <p>　　也可以通过直接指定 <code>Rect</code> 类型的矩形的<strong>边界</strong>：</p>
-<pre><code>Control ctl2(Rect(10, 20, 40, 20)); // 位置为 (10, 20) ，大小为 (40, 20) 。
+<pre><code class="language-cpp">Control ctl2(Rect(10, 20, 40, 20)); // 位置为 (10, 20) ，大小为 (40, 20) 。
 Control ctl3({10, 20, 40, 20}); // 同上。
 </code></pre>
 <p>　　出于动态加载部件的需要，YSLib 提供的部件总是可以通过一个 Rect 值构造以及默认构造（相当于 Rect 为空），因此不限于 <code>UI::Control</code> 使用。</p>
@@ -245,7 +226,7 @@ Control ctl3({10, 20, 40, 20}); // 同上。
 <h2 id="视图树和容器"><a class="header" href="#视图树和容器">视图树和容器</a></h2>
 <p>　　YSLib 提供了单一的<strong>视图树</strong>结构作为显示视图的抽象。通过指定部件所在的<strong>容器</strong>限定显示的范围。容器自身是一个部件，可以嵌套在另外的部件中。容器中的部件（<strong>子部件</strong>）的位置使用容器部件的边界的左上角作为原点，即位置表示子部件的边界的左上角相对于容器的边界的左上角。这样的结构典型地构成一颗树，只有作为树根的<strong>顶层部件</strong>没有容器。</p>
 <p>　　容器通过 <code>UI::IWdiget</code> 提供一般的迭代遍历支持。不是所有容器都支持动态添加子部件。模块 YSLib::UI::YPanel 提供一般的面板容器 <code>UI::Panel</code> 支持这个特性：</p>
-<pre><code>using namespace Drawing;
+<pre><code class="language-cpp">using namespace Drawing;
 using namespace UI;
 Panel pnl(Size(200, 100));
 Control ctl({10, 20, 100, 40});
@@ -256,7 +237,7 @@ yassume(&amp;pnl == FetchContainerPtrOf(ctl)); // 宏 yassume 由 YBase 提供�
 <h3 id="顶层窗口top-level-window"><a class="header" href="#顶层窗口top-level-window">顶层窗口(top level window)</a></h3>
 <p>　　部件最终需要通过顶层部件的 <code>UI::Paint</code> 事件被显示。在独立实现中，顶层部件一般是模块 YSLib::UI::YDesktop 提供的 <code>UI::Desktop</code> 。在<a href="../Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主实现</a>中，由于需要和<a href="../Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主环境</a>的 GUI 集成，使用不同的接口。在一个有桌面环境的宿主平台中，这样的顶层部件一般称为<strong>顶层窗口</strong>。</p>
 <p>　　Helper 模块对顶层窗口提供了和平台相关的实现。通过模块 Helper::HostedUI 提供的函数 Host::ShowTopLevel 使一个部件成为一个顶层窗口。</p>
-<pre><code>using namespace UI;
+<pre><code class="language-cpp">using namespace UI;
 Control ctl(Size(200, 100));
 
 Host::ShowTopLevel(ctl);

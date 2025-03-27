@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="Book tranplanted from YSLib BitBucket wiki.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -24,21 +24,23 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,43 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Home.html"><strong aria-hidden="true">1.</strong> 索引/Index</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Home.en-US.html"><strong aria-hidden="true">1.1.</strong> English Version</a></li><li class="chapter-item expanded "><a href="Home.zh-CN.html"><strong aria-hidden="true">1.2.</strong> 简体中文版</a></li><li class="chapter-item expanded "><a href="Contents.zh-CN.html"><strong aria-hidden="true">1.3.</strong> Contents(zh-CN)/主题目录</a></li></ol></li><li class="chapter-item expanded "><a href="GettingStarted.zh-CN.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li class="chapter-item expanded "><a href="Development.zh-CN.html"><strong aria-hidden="true">3.</strong> 开发说明</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Prerequisitions.zh-CN.html" class="active"><strong aria-hidden="true">3.1.</strong> 先决条件</a></li><li class="chapter-item expanded "><a href="GettingSources.zh-CN.html"><strong aria-hidden="true">3.2.</strong> 获取源代码</a></li><li class="chapter-item expanded "><a href="Build.zh-CN.html"><strong aria-hidden="true">3.3.</strong> 构建</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="BuildDocumentation.zh-CN.html"><strong aria-hidden="true">3.3.1.</strong> 构建文档</a></li></ol></li><li class="chapter-item expanded "><a href="Test.zh-CN.html"><strong aria-hidden="true">3.4.</strong> 测试</a></li><li class="chapter-item expanded "><a href="Run.zh-CN.html"><strong aria-hidden="true">3.5.</strong> 运行</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="DeSmuME.en-US.html"><strong aria-hidden="true">3.5.1.</strong> DeSmuME</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Features.zh-CN.html"><strong aria-hidden="true">4.</strong> 结构和特性</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ProjectDependencies.zh-CN.html"><strong aria-hidden="true">4.1.</strong> （内部）项目依赖性说明</a></li><li class="chapter-item expanded "><a href="Features/NPL.zh-CN.html"><strong aria-hidden="true">4.2.</strong> NPL</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">5.</strong> 应用开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Sysroot.zh-CN.html"><strong aria-hidden="true">5.1.</strong> Sysroot</a></li><li class="chapter-item expanded "><a href="YDE.zh-CN.html"><strong aria-hidden="true">5.2.</strong> YDE</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">6.</strong> 项目维护资源</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Releases.zh-CN.html"><strong aria-hidden="true">6.1.</strong> 发布工程</a></li><li class="chapter-item expanded "><a href="Archives.zh-CN.html"><strong aria-hidden="true">6.2.</strong> 归档</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">7.</strong> 工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tools/SHBuild.zh-CN.html"><strong aria-hidden="true">7.1.</strong> SHBuild</a></li><li class="chapter-item expanded "><a href="Tools/RevisionPatcher.zh-CN.html"><strong aria-hidden="true">7.2.</strong> RevisionPatcher</a></li><li class="chapter-item expanded "><a href="Tools/SXML2XML.zh-CN.html"><strong aria-hidden="true">7.3.</strong> SXML2XML</a></li><li class="chapter-item expanded "><a href="Tools/ProjectGenerator.zh-CN.html"><strong aria-hidden="true">7.4.</strong> ProjectGenerator</a></li><li class="chapter-item expanded "><a href="Tools/Scripts.zh-CN.html"><strong aria-hidden="true">7.5.</strong> 脚本</a></li></ol></li><li class="chapter-item expanded "><a href="Tutorial.zh-CN.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Tutorial/Overview.zh-CN.html"><strong aria-hidden="true">8.1.</strong> 综述</a></li><li class="chapter-item expanded "><a href="Tutorial/GUI.zh-CN.html"><strong aria-hidden="true">8.2.</strong> GUI</a></li><li class="chapter-item expanded "><a href="Tutorial/Configuration.zh-CN.html"><strong aria-hidden="true">8.3.</strong> 程序配置</a></li></ol></li><li class="chapter-item expanded "><a href="EMPTY.html"><strong aria-hidden="true">9.</strong> 附录/Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Terminology.zh-CN.html"><strong aria-hidden="true">9.1.</strong> 术语概要</a></li><li class="chapter-item expanded "><a href="StandardUsing.en-US.html"><strong aria-hidden="true">9.2.</strong> Standard Using</a></li><li class="chapter-item expanded "><a href="ReportedIssues.en-US.html"><strong aria-hidden="true">9.3.</strong> Reported Issues</a></li><li class="chapter-item expanded "><a href="WikiRules.en-US.html"><strong aria-hidden="true">9.4.</strong> Wiki Rules</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -176,22 +157,48 @@
 <p><strong>注释</strong> 构建配置和平台的相关定义详见<a href="Terminology.zh-CN.html">术语</a>。对问题的描述可能仅适用于个别的配置和源代码版本。仅需要配置构建环境的用户可以跳过关于非目标平台和不相关的问题的内容。</p>
 <p>　　特定历史版本依赖的详细环境和平台库版本参见开发文档 <code>doc/Dependencies.txt</code> 。以下仅为当前最新主分支版本中用于构建 YSLib 自身及基于 YSLib 开发应用的环境配置说明。</p>
 <p>　　关于本项目对平台的定义和项目保持的环境约束，包括开发需要的以下基础环境外的其它第三方依赖，在了解下文内容后，参见<a href="Development.zh-CN.html">开发说明</a>。</p>
-<p><strong>注意</strong> <a href="GettingSources.zh-CN.html">获取到源代码</a>并不保证能够直接构建 YSLib（特别是对于直接从版本库获取的途径）。如需自行构建，应注意<a href="Development.zh-CN.html">开发说明</a>中有关外部依赖项的部分获取必要的其它文件。</p>
-<p>　　关于运行环境，另见<a href="Run.zh-CN.html">运行时平台环境的说明</a>。</p>
+<p><strong>注意</strong> <a href="GettingSources.zh-CN.html">获取到源代码</a>并不保证能够直接构建 YSLib（特别是对于直接从版本库获取的途径）。如需自行构建，应注意<a href="ProjectDependencies.zh-CN.html#%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96%E9%A1%B9">项目依赖性中的外部依赖项</a>的说明。</p>
+<p>　　关于<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">运行环境</a>，另见<a href="Run.zh-CN.html">运行时平台环境的说明</a>。</p>
 <p>　　详细提交测试的环境参见开发文档 <code>doc/Test.txt</code> 。</p>
 <p>　　若不使用特定的特性或构建平台，构建环境的部分要求是可选的。</p>
 <p>　　以下各节的环境配置以“<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">宿主平台</a>/<a href="Terminology.zh-CN.html#%E7%8E%AF%E5%A2%83">目标平台</a>(目标平台名)”为标题指定，其中目标平台名是正式的配置名称（也在其它项目文档中作为配置名称使用），若和平台一致则被省略；其它平台的标识当前仅为明确开发流程，在用户文档中使用。对宿主平台和目标平台两者一致的情形，只标识一个平台。关于“平台”的一般含义，参见<a href="Terminology.zh-CN.html">术语</a>。</p>
 <h2 id="公共构建环境"><a class="header" href="#公共构建环境">公共构建环境</a></h2>
 <p>　　构建环境提供工具链（语言实现）和构建需要的工具。某些工具被不同的构建环境共享（但可能仍需针对不同构建平台使用不同二进制程序）。</p>
-<p>　　Windows 平台上的 MSYS2 基础环境符合以下公共构建环境的所有要求。当前发布和一般提交（包括本机平台和交叉构建）时仅测试 MSYS2 。</p>
+<p>　　Windows 平台上的 MSYS2 基础环境符合以下公共构建环境的所有要求。当前发布和一般提交（包括<a href="Terminology.zh-CN.html#%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0">本机平台</a>和<a href="Terminology.zh-CN.html#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">交叉构建</a>）时仅测试 MSYS2 。</p>
 <h3 id="命令行环境"><a class="header" href="#命令行环境">命令行环境</a></h3>
 <p>　　除非另行指定，构建环境的命令兼容 POSIX shell 。当前非 POSIX shell 的命令行构建环境仅在 <a href="Sysroot.zh-CN.html">Sysroot stage 2 环境</a> 被支持。</p>
 <h3 id="工具链"><a class="header" href="#工具链">工具链</a></h3>
 <p>　　使用 <code>make</code> 的平台需要 POSIX shell 支持。</p>
 <p>　　除非另行指定，<code>make</code> 使用 GNU make ，版本 3.78 以上（建议使用 4.0 以上版本，虽然 YSLib makefile 不使用不兼容的特性）；不使用 <code>mingw32-make</code> 。</p>
-<p>　　注意 <code>make</code> 可能被构建工具使用，详见以下链接时优化的说明。</p>
 <p>　　POSIX shell 实现可使用<a href="Tools/Scripts.zh-CN.html">和工具脚本兼容的脚本解释环境</a> ，一般即 <code>bash</code> （建议版本 4.0 或以上）。</p>
 <p>　　除非另行指定，直接支持的 C++ 实现为 GNU C++ 4.9 或以上版本。</p>
+<p><strong>注意</strong></p>
+<ul>
+<li><code>make</code> 可能被构建工具使用，详见以下链接时优化的说明。</li>
+<li>使用 <code>make</code> 的参数和可能处理的文件的路径名称中不支持空白符或冒号。
+<ul>
+<li><strong>原理</strong> 这是因为 <a href="https://savannah.gnu.org/bugs/index.php?func=detailitem&amp;item_id=712">GNU make 无条件把空格作为列表分隔符而不支持带有空格的字符串值作为参数</a>的限制。
+<ul>
+<li>使用<a href="https://lists.gnu.org/archive/html/help-make/2006-03/msg00007.html">多次替换变量值的变通</a>依赖<a href="https://lists.gnu.org/archive/html/help-make/2006-03/msg00010.html">路径名称中不含有的特定子串模式的假设</a>。</li>
+<li>参数可能在生成路径名称使用。为了简化实现，不支持参数带有空白符。</li>
+<li>尽管特定 make 函数如 <code>notdir</code> 在已知参数只有 1 个时可被 shell 命令 <code>basename</code> 替换，这依赖外部程序实现命令（在 GNU make 中 <code>basename</code> 不属于内建命令），为了简化环境假设且避免调用外部命令可能具有的开销，也不被支持。</li>
+</ul>
+</li>
+<li>但在被调用 shell 的命令中，实现仍按 <a href="Development.zh-CN.html#shell-%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8%E8%A7%84%E7%BA%A6">shell 语言使用的约定</a>，支持命令行参数可能有空格的情形。</li>
+</ul>
+</li>
+</ul>
+<h3 id="二进制兼容性"><a class="header" href="#二进制兼容性">二进制兼容性</a></h3>
+<p>　　一般地，<a href="#%E5%B7%A5%E5%85%B7%E9%93%BE">工具链</a>生成的二进制文件遵循 <a href="Terminology.zh-CN.html#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80">ABI</a> 规范，在构建使用的配置和程序原代码不变时提供有限的兼容性，能允许混合不同来源工具链的构建。</p>
+<p>　　尽管如此，不同的工具链仍可能隐含不同的配置或实现缺陷等问题而不能保证成功构建，这类情形在此不被支持。</p>
+<p><strong>示例</strong> 依赖不同<a href="#%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83">线程模型</a>或不同 <a href="#%E9%93%BE%E6%8E%A5%E6%97%B6%E4%BC%98%E5%8C%96lto">LTO 配置</a>的工具链生成的代码之间不保证二进制兼容。</p>
+<p>　　特别地，考虑到二进制库文件形式的<a href="ProjectDependencies.zh-CN.html#%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96%E9%A1%B9">外部依赖项</a>的<a href="Build.zh-CN.html#%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%9E%84%E5%BB%BA">构建</a>可能仅适合特定工具链的默认配置，更换（包括某些情形时的升级）工具链可能破坏兼容性。</p>
+<p>　　本项目提供的二进制文件可能隐含对这些特定工具链的依赖。这些特定的工具链在本文档以下具体支持的平台的描述中指定。</p>
+<p>　　已知的因工具链的切换而破坏二进制兼容性的情形可能被指出。工具链的来源可能给出已知的不兼容变更。</p>
+<p><strong>示例</strong> GCC 具有明确的 <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html">ABI 策略</a>。GCC 5 起 libstdc++ 支持<a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/using_dual_abi.html">双 ABI</a> ，为实现 ISO C++ 要求一般的工具链和基于这些工具链的系统发行版通常使用不和先前兼容的 ABI 选项。</p>
+<p>　　当前已经使用的包括工具链的详细外部依赖项详见 YSLib 项目文档 <code>doc/Dependencies.txt</code> 。</p>
+<p><strong>注意</strong></p>
+<p>　　本节不是对 <a href="Features.zh-CN.html#abi">YSLib 自身的 ABI</a> 以及针对<a href="Releases.zh-CN.html">发布版本</a>的二进制文件之间的兼容性的保证。</p>
 <h3 id="自动环境检测"><a class="header" href="#自动环境检测">自动环境检测</a></h3>
 <p>　　在命令行环境中使用<a href="Tools/Scripts.zh-CN.html">脚本</a>构建时，脚本可能自动检测构建环境而需要附加的工具。这些工具可能在具体的构建环境（如以下各节）中可能已被提供或可选安装，参阅各个构建环境附带的文档。</p>
 <ul>
@@ -228,36 +235,80 @@
 </ul>
 <h3 id="链接时优化lto"><a class="header" href="#链接时优化lto">链接时优化(LTO)</a></h3>
 <p>　　YSLib 默认在 release 构建配置下通过向编译器和链接器传递命令行参数 <code>-flto</code> 等启用 LTO 。若工具链不支持 LTO ，可能需要自行修改脚本去除相关选项——这不被正式支持。</p>
-<p>　　MSYS2 的 MinGW 目标的 binutils-git 包的 <code>gnu-ar</code> 较早启用了 LTO 插件，可以直接使用。现在 MSYS2 的 MinGW 目标的 binutils 包也应支持。其它工具链需自行验证。</p>
+<p>　　<a href="#msys2">MSYS2</a> 的 MinGW 目标的 binutils-git 包的 <code>gnu-ar</code> 较早启用了 LTO 插件，可以直接使用。现在 MSYS2 的 MinGW 目标的 binutils 包也应支持。其它工具链需自行验证。</p>
 <p><strong>注意</strong> <a href="http://gcc.gnu.org/gcc-4.9/changes.html">GCC 4.9 起使用 LTO 默认不启用 -ffat-lto-objects 选项</a>，因此需要链接器具有 LTO 插件支持，否则在启用 <code>-flto</code> 选项时会出现无法解析符号的链接错误。因为本项目当前只支持 GCC 5.0 以上的版本，使用 GCC 时这总是应当被注意。</p>
 <p><strong>注意</strong> <a href="https://github.com/gcc-mirror/gcc/blob/master/gcc/lto-wrapper.c#L1309">GCC 的 LTO wrapper 默认使用 <code>make</code></a> ，若没有 <code>make</code> 也没有通过指定 <code>MAKE</code> <a href="Run.zh-CN.html">环境变量</a>替代，构建时使用 <code>-flto</code> 会失败。</p>
 <h2 id="pcdsds"><a class="header" href="#pcdsds">PC/DS(DS)</a></h2>
 <p>　　支持的构建环境：</p>
 <ul>
-<li>DS 交叉编译环境，包括
+<li>DS <a href="Terminology.zh-CN.html#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E5%BB%B6">交叉编译</a>环境，包括：
 <ul>
-<li>使用 <code>make</code> 的公共构建环境</li>
-<li>ARM 目标平台 C/C++ 交叉编译环境</li>
-<li>生成 .nds 文件的 <code>ndstool</code> 工具</li>
-<li>环境变量 <code>DEVKITARM</code> 指定工具路径（见以下说明）</li>
+<li>使用 <code>make</code> 的公共构建环境。</li>
+<li>ARM 目标平台 C/C++ 交叉编译环境。</li>
+<li>生成 .nds 文件的 <code>ndstool</code> 工具。</li>
+<li>环境变量 <code>DEVKITARM</code> 指定工具路径（见以下说明）。</li>
 </ul>
 </li>
 </ul>
+<p>　　在常见架构的 Windows 、Linux 和 macOS 宿主环境的交叉编译环境适用 <a href="http://devkitpro.org/">devkitPro</a> ，提供 devkitARM 工具链和相关的库。具体配置步骤可参见其<a href="https://devkitpro.org/wiki/Getting_Started">官方文档</a>。</p>
 <p>　　支持的运行环境：</p>
 <ul>
-<li>Nintendo/iQue DS[Lite/i/LL]
+<li>Nintendo/iQue DS[Lite/i/LL] 。
 <ul>
-<li>仅测试了 iQue DS Lite</li>
+<li>仅测试了 iQue DS Lite 。</li>
 </ul>
 </li>
-<li>DeSmuME 0.9.9 <strong>（注意新版本因为<a href="http://wiki.desmume.org/index.php?title=Faq#How_can_I_run_homebrew_games_that_require_DLDI_patching_.3F">自动 DLDI</a> 存在缺陷，暂时不支持运行自制程序。）</strong></li>
+<li>DeSmuME 0.9.9 。
+<ul>
+<li><strong>注意</strong> 新版本因为<a href="http://wiki.desmume.org/index.php?title=Faq#How_can_I_run_homebrew_games_that_require_DLDI_patching_.3F">自动 DLDI</a> 存在缺陷，暂时不支持运行自制程序。</li>
 </ul>
-<p>　　环境变量 <code>DEVKITARM</code> 指定一个 POSIX 路径，其中的 <code>bin</code> 子目录下包括工具。示例（ POSIX shell 使用 Windows 路径）：</p>
-<pre><code class="language-shell">export DEVKITARM=/C/devkitPro/devkitARM
+</li>
+</ul>
+<p>　　环境变量 <code>DEVKITPRO</code> 指定一个 POSIX 路径，其中的 <code>devkitARM/bin</code> 子目录下包括 devkitARM 工具链可执行文件。可选的环境变量 <code>DEVKITARM</code> 在 devkitPro 的示例项目的 Makefile 使用，当前 YSLib 已不再依赖。示例（ POSIX shell 使用 Windows 路径）：</p>
+<pre><code class="language-shell">export DEVKITPRO=/C/devkitPro
+export DEVKITARM=/C/devkitPro/devkitARM
 </code></pre>
-<p>　　建议使用发布时最新版本的 <a href="http://devkitpro.org/">devkitPro</a> 。</p>
-<p>　　devkitPro 在 Windows 下提供 MSYS ，在 devkitPro 安装目录下 <code>msys/bin</code> 包含 <code>bash</code> 等程序。可把此路径添加到环境变量 <code>PATH</code> 。也可使用 MSYS2 替代。</p>
-<p>　　发布和一般提交时仅测试 devkitPro 最新版本，目标平台<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0%E6%A0%87%E8%AF%86">三元组</a> arm-none-eabi。</p>
+<p>　　Linux 宿主通过 <a href="https://devkitpro.org/wiki/devkitPro_pacman">devkitPro Pacman</a> 安装较新版本的 devkitPro 时，可配合登录 shell 运行的脚本（一般在 <code>/etc/profile.d/devkit-env.sh</code> ）初始化环境变量设置，典型内容为：</p>
+<pre><code class="language-shell">cat
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=$DEVKITPRO/devkitARM
+export DEVKITPPC=$DEVKITPRO/devkitPPC
+
+export PATH=$DEVKITPRO/tools/bin:$PATH
+</code></pre>
+<p>　　使用这种方式不再需要手动设置。这里同时修改了 <code>$PATH</code> 以提供 devkitPro 的工具（如 <code>ndstool</code> ），但 YSLib 项目默认不依赖工具链或其它工具在 <code>$PATH</code> 中可被搜索。</p>
+<p>　　在 Windows 下，先前的 devkitPro 安装器提供集成 MSYS 环境，在 devkitPro 安装目录下 <code>msys/bin</code> 包含 <code>bash</code> 等程序。可把此路径添加到环境变量 <code>PATH</code> 。而近年的<a href="https://github.com/devkitPro/installer/releases/latest">图形化安装器</a>则直接打包修改的 MSYS2 。也可参照文档，复用 Windows 构建使用的 <a href="#msys2">MSYS2 环境</a>。</p>
+<p>　　发布和一般提交时仅测试 devkitPro 最新版本，目标平台<a href="Terminology.zh-CN.html#%E5%B9%B3%E5%8F%B0%E6%A0%87%E8%AF%86">三元组</a> <code>arm-none-eabi</code>（先前为简略形式 <code>arm-eabi</code> ） 。</p>
+<p>　　devkitARM 工具链升级可引起二进制不兼容而需要重新构建生成的目标文件（尽管不一定需要构建二进制<a href="Terminology.zh-CN.html#%E5%86%85%E9%83%A8%E4%BE%9D%E8%B5%96%E5%92%8C%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96">依赖</a>）。除上游问题外，已知如下：</p>
+<ul>
+<li>自 <a href="https://devkitpro.org/viewtopic.php?t=9450">devkitPro 2023-04 更新</a> 发布 devkitARM r60 ，<a href="#%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83">线程模型</a> 由 <code>single</code> 变更为 <code>posix</code> 。
+<ul>
+<li>这可能引起 <code>__STDCPP_THREADS__</code> 等 C++ 代码的语义变化而不保证向前兼容。</li>
+<li>但 YSLib 没有在 DS 上依赖多线程执行，仍可向后兼容。</li>
+</ul>
+</li>
+<li>自 <a href="https://devkitpro.org/viewtopic.php?t=9596">devkitPro 2024-05 更新</a> 发布 devkitARM r64 ，和之前的工具链生成代码二进制不兼容。
+<ul>
+<li>直接构建和现有二进制库链接时会出现未定义引用 <code>__aeabi_read_tp</code> 的链接错误。
+<ul>
+<li>符号 <code>__aeabi_read_tp</code> 来自 <a href="https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html">ARM GCC 生成的线程局部存储的软实现</a>。</li>
+<li>一般地，这个符号的定义的实现在 <code>libgcc</code> 中提供，发行版中通常以提供 libc 更新的方式提供。但同时更新的 crtls 1.2.5 包 <code>devkitarm-crtls-1.2.5-1</code> 并没有这个符号的定义，本机 TLS 实际上不可用。</li>
+<li>直至 <a href="https://devkitpro.org/viewtopic.php?t=9662">devkitPro 2024-11 更新</a> 发布 libnds 2.0.0 依赖 <a href="https://github.com/devkitPro/calico">Calico</a>提供这个符号的定义，如 <code>libcalico_ds9.a</code> 。</li>
+</ul>
+</li>
+<li>这个版本的工具链没有被 YSLib 正式支持，但之后的工具链仍需兼容保持其配置，并更新 libnds 2.0.0 支持（需要适配其它特性如定时器）。</li>
+</ul>
+</li>
+<li>devkitARM 工具链和相关的包需要同步升级，部分升级可引起二进制不兼容而不被支持，如：
+<ul>
+<li>除非同时更新 devkitARM r64 或之后的版本，单独更新包 <code>devkitarm-crtls-1.2.5-1</code> 和旧版本工具链生成的二进制文件不兼容，错误：<code>arm-none-eabi-g++: fatal error: cannot read spec file 'sync-none.specs': No such file or directory</code> 。
+<ul>
+<li>这在 <a href="https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=439779bacee869643c93a4710a29f89ad031ee4a">ARM GCC 14 的 <code>libgcc</code> 提供</a>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="pcwin32"><a class="header" href="#pcwin32">PC(Win32)</a></h2>
 <p>　　Windows 平台使用 Microsoft VC++ 构建。因为一些已知的问题，暂不正式支持。参见以下 MinGW32 平台的构建条件以获取 Windows 可执行文件。</p>
 <p>　　但以下的部分信息和 MinGW 通用。</p>
@@ -408,16 +459,20 @@
 </ul>
 <p>　　上述脚本调用 MSYS2 的包管理器 <code>pacman</code> 分批下载安装或更新所需工具：首先安装必要的工具，其次安装可选（但推荐）的工具。具体内容详见脚本代码。若安装工具时需要确认，按 <code>Y</code> 并回车。</p>
 <h4 id="配置安装源"><a class="header" href="#配置安装源">配置安装源</a></h4>
-<p>　　官方镜像配置参见 <a href="https://github.com/Alexpux/MSYS2-packages/tree/master/pacman-mirrors">pacman-mirrors</a> 。</p>
-<p>　　若 <code>pacman</code> 下载过慢，可用文本编辑器打开 MSYS 根目录下的 <code>/etc/pacman.d</code> 中的配置文件，编辑对应的镜像地址。如对于 32 位的 MinGW 包，在 <code>mirrorlist.mingw32</code> 的其它非注释行之前插入：</p>
-<pre><code class="language-mirrorlist">## 清华大学 TUNA 镜像（ 2016-09-23 已变更，注意大小写）
-Server = http://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/i686
-## 中国科学技术大学开源软件镜像（之前曾停止更新，最后更新 2015-06-18 ；2015-11-01 已恢复）
-Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686
-## 北京理工大学镜像（最后更新早于 2017-02-09）
-Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
+<p>　　官方镜像配置参见 <a href="https://github.com/msys2/MSYS2-packages/tree/master/pacman-mirrors">pacman-mirrors</a> 。</p>
+<p>　　若 <code>pacman</code> 下载过慢，可用文本编辑器打开 MSYS 根目录下的 <code>/etc/pacman.d</code> 中的配置文件，编辑对应的镜像地址。若没有修改过 <code>/etc/pacman.conf</code> 中的配置，默认配置文件由包 <code>pacman-mirrors</code> 指定，需编辑 <code>/etc/pacman.d/mirrorlist.mingw</code> ，如：</p>
+<pre><code class="language-text">## 清华大学 TUNA 镜像
+Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/$repo
+## 北京外国语大学开源软件镜像站
+Server = https://mirrors.bfsu.edu.cn/msys2/mingw/$repo
+## 浙江大学开源镜像
+Server = https://mirrors.zju.edu.cn/msys2/mingw/$repo
+## 中国科学技术大学开源软件镜像
+Server = https://mirrors.ustc.edu.cn/msys2/mingw/$repo
 </code></pre>
-<p>　　因为包 mingw-w64-x86_64-freetype 的 FreeType2 可二进制兼容，x86_64 平台只需要编译修改版本的 FreeImage 。</p>
+<p>　　这里的 <code>$repo</code> 自适应 MinGW32 和其它 MinGW 环境。</p>
+<p><strong>注释</strong> <a href="https://github.com/msys2/MSYS2-packages/commit/3553fd197b070589eeb656d1d5dc55ae77d68087">自 2021-07-02</a> ，不同的 MinGW 镜像的配置文件被合并，包 <code>pacman-mirrors</code> 的安装脚本兼容原有的镜像文件列表，重命名仓库名（最底层子目录）<code>i686</code> 和 <code>x86_64</code> 为 <code>mingw32</code> 和 <code>mingw64</code> 。自 2024-11-11 旧的子目录名在远端已不提供。若以往编辑过 <code>/etc/pacman.conf</code> 指向和 <code>pacman-mirrors</code> 默认安装的不同的配置文件，需要手动编辑。如使用先前的配置文件，对 32 位的 MinGW 包，可在 <code>mirrorlist.mingw32</code> 对应编辑，替换以上的 <code>$repo</code> 为 <code>mingw32</code> 。</p>
+<p>　　因为包 mingw-w64-x86_64-freetype 的 FreeType2 可二进制兼容，x86_64 平台（即 <code>mingw64</code> ）只需要编译修改版本的 FreeImage 。</p>
 <h4 id="msys2-程序运行问题"><a class="header" href="#msys2-程序运行问题">MSYS2 程序运行问题</a></h4>
 <p>　　MSYS2 类似 Cygwin ，依赖 <code>fork</code> 调用创建新进程。这可能会出错。</p>
 <p>　　在执行以下步骤（参考<a href="http://sourceforge.net/p/msys2/tickets/74/">这里</a>）后，重新运行程序：</p>
