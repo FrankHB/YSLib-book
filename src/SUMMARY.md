@@ -17,13 +17,13 @@
 * [结构和特性](Features.zh-CN.md)：由库提供的重要功能说明
 	* [项目依赖性说明](ProjectDependencies.zh-CN.md)
 	* [NPL](Features/NPL.zh-CN.md)
-* [应用开发环境](EMPTY.md)
+* [应用开发环境]()
 	* [Sysroot](Sysroot.zh-CN.md)
 	* [YDE](YDE.zh-CN.md)
-* [项目维护资源](EMPTY.md)
+* [项目维护资源]()
 	* [发布工程](Releases.zh-CN.md)：规则、版本清单和路线图等
 	* [归档](Archives.zh-CN.md)：发布的历史资源
-* [工具](EMPTY.md)：以下工具中部分用于项目维护
+* [工具]()：以下工具中部分用于项目维护
 	* [SHBuild](Tools/SHBuild.zh-CN.md)
 	* [RevisionPatcher](Tools/RevisionPatcher.zh-CN.md)
 	* [SXML2XML](Tools/SXML2XML.zh-CN.md)
@@ -34,7 +34,7 @@
 	* [GUI](Tutorial/GUI.zh-CN.md)
 	* [程序配置](Tutorial/Configuration.zh-CN.md)
 
-* [附录/Appendix](EMPTY.md)
+* [附录/Appendix]()
 	* [术语概要](Terminology.zh-CN.md)
 	* [Standard Using (en-US)](StandardUsing.en-US.md)
 	* [Reported Issues (en-US)](ReportedIssues.en-US.md)
